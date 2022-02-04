@@ -1,0 +1,11 @@
+C:\Users\shash\source\repos\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\bin\Debug\WritingCenterForms.exe.config
+C:\Users\shash\source\repos\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\bin\Debug\WritingCenterForms.exe
+C:\Users\shash\source\repos\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\bin\Debug\WritingCenterForms.pdb
+C:\Users\shash\source\repos\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\obj\Debug\WritingCenterForms.csproj.AssemblyReference.cache
+C:\Users\shash\source\repos\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\obj\Debug\WritingCenterForms.csproj.SuggestedBindingRedirects.cache
+C:\Users\shash\source\repos\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\obj\Debug\WritingCenterForms.Form1.resources
+C:\Users\shash\source\repos\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\obj\Debug\WritingCenterForms.Properties.Resources.resources
+C:\Users\shash\source\repos\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\obj\Debug\WritingCenterForms.csproj.GenerateResource.cache
+C:\Users\shash\source\repos\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\obj\Debug\WritingCenterForms.csproj.CoreCompileInputs.cache
+C:\Users\shash\source\repos\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\obj\Debug\WritingCenterForms.exe
+C:\Users\shash\source\repos\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\obj\Debug\WritingCenterForms.pdb

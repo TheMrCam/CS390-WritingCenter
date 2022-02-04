@@ -8,3 +8,4 @@ C:\Users\shash\source\repos\CS390-WritingCenter\CS390-WritingCenter\WritingCente
 C:\Users\shash\source\repos\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\obj\Debug\WritingCenterForms.csproj.CoreCompileInputs.cache
 C:\Users\shash\source\repos\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\obj\Debug\WritingCenterForms.exe
 C:\Users\shash\source\repos\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\obj\Debug\WritingCenterForms.pdb
+C:\Users\shash\source\repos\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\obj\Debug\WritingCenterForms.csproj.AssemblyReference.cache

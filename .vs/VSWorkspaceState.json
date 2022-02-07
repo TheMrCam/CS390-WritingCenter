@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\CS390-WritingCenter",
+    "\\CS390-WritingCenter\\WritingCenterForms"
   ],
-  "SelectedNode": "\\CS390-WritingCenter.sln",
+  "SelectedNode": "\\CS390-WritingCenter\\WritingCenterForms\\Form1.cs",
   "PreviewInSolutionExplorer": false
 }

@@ -32,11 +32,8 @@
             this.password = new System.Windows.Forms.TextBox();
             this.username = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.schedulePage = new System.Windows.Forms.Panel();
-            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
-            this.logOut = new System.Windows.Forms.Button();
+            this.schedulePage1 = new WritingCenterForms.schedulePage();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.schedulePage.SuspendLayout();
             this.SuspendLayout();
             // 
             // logIn
@@ -76,37 +73,20 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // schedulePage
+            // schedulePage1
             // 
-            this.schedulePage.Controls.Add(this.monthCalendar1);
-            this.schedulePage.Controls.Add(this.logOut);
-            this.schedulePage.Location = new System.Drawing.Point(0, 0);
-            this.schedulePage.Name = "schedulePage";
-            this.schedulePage.Size = new System.Drawing.Size(800, 450);
-            this.schedulePage.TabIndex = 4;
-            // 
-            // monthCalendar1
-            // 
-            this.monthCalendar1.Location = new System.Drawing.Point(291, 121);
-            this.monthCalendar1.Name = "monthCalendar1";
-            this.monthCalendar1.TabIndex = 1;
-            // 
-            // logOut
-            // 
-            this.logOut.Location = new System.Drawing.Point(691, 23);
-            this.logOut.Name = "logOut";
-            this.logOut.Size = new System.Drawing.Size(85, 37);
-            this.logOut.TabIndex = 0;
-            this.logOut.Text = "Log Out";
-            this.logOut.UseVisualStyleBackColor = true;
-            this.logOut.Click += new System.EventHandler(this.logOut_Click);
+            this.schedulePage1.Location = new System.Drawing.Point(0, 0);
+            this.schedulePage1.Name = "schedulePage1";
+            this.schedulePage1.Size = new System.Drawing.Size(799, 445);
+            this.schedulePage1.TabIndex = 4;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.schedulePage);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(800, 446);
+            this.Controls.Add(this.schedulePage1);
             this.Controls.Add(this.logIn);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.password);
@@ -115,7 +95,6 @@
             this.Text = "WC Scheduler";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.schedulePage.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -126,9 +105,7 @@
         private System.Windows.Forms.TextBox password;
         private System.Windows.Forms.TextBox username;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Panel schedulePage;
-        private System.Windows.Forms.MonthCalendar monthCalendar1;
-        private System.Windows.Forms.Button logOut;
+        private schedulePage schedulePage1;
     }
 }
 

@@ -47,6 +47,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account.cs" />
+    <Compile Include="AcctManagePage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AcctManagePage.Designer.cs">
+      <DependentUpon>AcctManagePage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Schedule.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -62,6 +68,18 @@
     <Compile Include="UserControl1.Designer.cs">
       <DependentUpon>UserControl1.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminLand.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminLand.Designer.cs">
+      <DependentUpon>AdminLand.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AcctManagePage.resx">
+      <DependentUpon>AcctManagePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminLand.resx">
+      <DependentUpon>AdminLand.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

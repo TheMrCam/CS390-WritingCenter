@@ -10,21 +10,11 @@ using System.Windows.Forms;
 
 namespace WritingCenterForms
 {
-    public partial class AcctManagePage : UserControl
+    public partial class UserLand : UserControl
     {
-        public AcctManagePage()
+        public UserLand()
         {
             InitializeComponent();
-        }
-
-        private void uploadCSV_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void logOut_Click(object sender, EventArgs e)
-        {
-            this.Hide();
         }
     }
 }

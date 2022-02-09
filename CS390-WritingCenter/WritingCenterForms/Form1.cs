@@ -26,6 +26,8 @@ namespace WritingCenterForms
         private void Form1_Load(object sender, EventArgs e)
         {
             schedulePage1.Hide();
+            adminLand1.Hide();
+            acctManagePage1.Hide();
         }
 
         private void username_TextChanged(object sender, EventArgs e)
@@ -39,6 +41,17 @@ namespace WritingCenterForms
         }
 
         private void schedulePage1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void adminLogIn_Click(object sender, EventArgs e)
+        {
+            adminLand1.Show();
+            adminLand1.BringToFront();
+        }
+
+        private void acctManagePage1_Load(object sender, EventArgs e)
         {
 
         }

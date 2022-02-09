@@ -34,9 +34,10 @@
             // 
             // logOut
             // 
-            this.logOut.Location = new System.Drawing.Point(679, 33);
+            this.logOut.Location = new System.Drawing.Point(509, 22);
+            this.logOut.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.logOut.Name = "logOut";
-            this.logOut.Size = new System.Drawing.Size(85, 37);
+            this.logOut.Size = new System.Drawing.Size(64, 30);
             this.logOut.TabIndex = 0;
             this.logOut.Text = "Log Out";
             this.logOut.UseVisualStyleBackColor = true;
@@ -44,18 +45,20 @@
             // 
             // monthCalendar1
             // 
-            this.monthCalendar1.Location = new System.Drawing.Point(268, 117);
+            this.monthCalendar1.Location = new System.Drawing.Point(201, 95);
+            this.monthCalendar1.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 1;
             // 
             // schedulePage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.monthCalendar1);
             this.Controls.Add(this.logOut);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "schedulePage";
-            this.Size = new System.Drawing.Size(799, 445);
+            this.Size = new System.Drawing.Size(599, 362);
             this.ResumeLayout(false);
 
         }

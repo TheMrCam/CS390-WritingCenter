@@ -38,7 +38,7 @@ namespace WritingCenterForms
 
         private void logOut_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
         }
     }
 }

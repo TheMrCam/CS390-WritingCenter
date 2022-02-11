@@ -13,9 +13,24 @@ namespace WritingCenterForms
         private int year;
         private string[] majors;
         private int requestedHours;
-        public Account()
+        public Account(string user, string pass)
         {
+            username = user;
+            password = SecurePasswordHasher.Hash(pass);
+        }
+        public Account(string user, string pass, int y, string[] mm, int reqHour)
+        {
+            username = user;
+            password = SecurePasswordHasher.Hash(pass);
+            year = y;
+            majors = mm;
+            requestedHours = reqHour;
+        }
 
+
+        public string Username
+        {
+            get { return username; }
         }
 
     }

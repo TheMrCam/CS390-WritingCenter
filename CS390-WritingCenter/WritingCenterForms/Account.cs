@@ -8,8 +8,15 @@ namespace WritingCenterForms
 {
     internal class Account
     {
-        public string Username { get; }
-        public string Password { }
+        private string username;
+        private string password;
+        private int year;
+        private string[] majors;
+        private int requestedHours;
+        public Account()
+        {
+
+        }
 
     }
 }

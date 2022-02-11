@@ -8,6 +8,6 @@ namespace WritingCenterForms
 {
     internal class AccountDatabase
     {
-
+        private Account[] accounts;
     }
 }

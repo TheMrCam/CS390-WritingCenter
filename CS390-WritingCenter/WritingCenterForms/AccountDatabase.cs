@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,7 +8,7 @@ namespace WritingCenterForms
 {
     internal class AccountDatabase
     {
-        private Account[] accounts;
+        private ArrayList accounts;
 
         private Account GetAccount(string user)
         {
@@ -27,5 +27,7 @@ namespace WritingCenterForms
                 return userAccount.ValidatePassword(pass);
             return false;
         }
+
+
     }
 }

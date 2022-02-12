@@ -22,7 +22,10 @@ namespace WritingCenterForms
         public Account(string user, string pass, int y, string[] mm, int reqHour, bool isAdmin = false)
         {
             username = user;
-            password = SecurePasswordHasher.Hash(pass);
+            if (SecurePasswordHasher.IsHashSupported(pass))
+                password = pass;
+            else
+                password = SecurePasswordHasher.Hash(pass);
             year = y;
             majors = mm;
             requestedHours = reqHour;

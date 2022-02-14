@@ -79,27 +79,5 @@ namespace WritingCenterForms
             return hour;
         }
 
-        public void exportCSV()
-        {
-            string delimiter = ", ";
-            string s = "Time" + delimiter;
-            foreach (string day in days.Keys)
-            {
-                s += day + delimiter;
-            }
-            s = s.Substring(0, s.Length - 2) + "\n";
-            for (int i = 7; i < 24; i++)
-            {
-                s += i.ToString() + delimiter;
-                for (int j = 0; j < 7; j++)
-                {
-                    s += schedule[i, j].Replace(",", "|") + delimiter;
-                }
-                s = s.Substring(0, s.Length - 2) + "\n";
-            }
-            string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Data\", "schedule.csv");
-            File.WriteAllText(path, s);
-        }
-
     }
 }

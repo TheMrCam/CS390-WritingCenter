@@ -121,4 +121,10 @@
   <data name="Coe_College" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Coe_College.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="dummy_accounts" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Data\dummy_accounts.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="schedule_draft" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Data\schedule_draft.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
 </root>

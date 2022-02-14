@@ -69,5 +69,36 @@ namespace WritingCenterForms.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to admin,password,2023,NULL,0,true
+        ///user1,password,2023,CS-math,8,false.
+        /// </summary>
+        internal static string dummy_accounts {
+            get {
+                return ResourceManager.GetString("dummy_accounts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Time,Workers,Number Of Workers
+        ///,,
+        ///sunday11:00am-&gt;12:00pm,&quot;[&apos;Mackenzie Jones&apos;, &apos;Andrea Glandt&apos;]&quot;,2
+        ///,,
+        ///sunday12:00pm-&gt;1:00pm,&quot;[&apos;Mackenzie Jones&apos;, &apos;HJ Hass&apos;, &apos;Andrea Glandt&apos;, &apos;Valerie Plesha&apos;]&quot;,4
+        ///,,
+        ///sunday1:00pm-&gt;2:00pm,&quot;[&apos;Mackenzie Jones&apos;, &apos;HJ Hass&apos;, &apos;Andrea Glandt&apos;, &apos;Angelina Guevara&apos;]&quot;,4
+        ///,,
+        ///sunday2:00pm-&gt;3:00pm,&quot;[&apos;HJ Hass&apos;, &apos;Angelina Guevara&apos;, &apos;Valerie Plesha&apos;]&quot;,3
+        ///,,
+        ///sunday3:00pm-&gt;4:00pm,&quot;[&apos;Esme Valenzuela&apos;, &apos;Valerie Plesha&apos;, &apos;Micki Guyton&apos;]&quot;,3
+        ///,,
+        ///sunday4:00pm-&gt;5:00pm,&quot;[&apos;Brett Porter&apos;, &apos;Micki Gu [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string schedule_draft {
+            get {
+                return ResourceManager.GetString("schedule_draft", resourceCulture);
+            }
+        }
     }
 }

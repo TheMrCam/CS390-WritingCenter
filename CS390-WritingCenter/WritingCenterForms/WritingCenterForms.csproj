@@ -107,7 +107,7 @@
     <EmbeddedResource Include="UserLand.resx">
       <DependentUpon>UserLand.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="dummy_accounts.csv" />
+    <None Include="Data\dummy_accounts.csv" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -117,7 +117,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="schedule_draft.csv" />
+    <None Include="Data\schedule_draft.csv" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

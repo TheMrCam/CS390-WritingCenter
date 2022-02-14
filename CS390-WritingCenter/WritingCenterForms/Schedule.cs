@@ -29,9 +29,11 @@ namespace WritingCenterForms
             schedule = new string[24][];
         }
 
-        public void importCSVFile(string filePath= @"C:\Users\shash\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\schedule_draft.csv")
+        public void importCSVFile(string fileName = "schedule_draft.csv")//filePath= @"C:\Users\shash\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\schedule_draft.csv")
         {
-            var reader = new StreamReader(File.OpenRead(filePath));
+            string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Data\", fileName);
+            var reader = new StreamReader(File.OpenRead(path));
+            //var reader = new StreamReader(File.OpenRead(filePath));
             var line = reader.ReadLine(); //Take out the header
             while (!reader.EndOfStream)
             {

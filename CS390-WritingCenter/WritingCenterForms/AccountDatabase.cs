@@ -42,9 +42,11 @@ namespace WritingCenterForms
         }
 
         //inspired by https://www.delftstack.com/howto/csharp/how-to-read-a-csv-file-and-store-its-values-into-an-array-in-csharp/
-        public void ImportFromCSV(string pathToFile = testCSV)
+        public void ImportFromCSV(string fileName = "dummy_accounts.csv")//string pathToFile = testCSV)
         {
-            var reader = new StreamReader(File.OpenRead(pathToFile));
+            //TODO: Test AppDomain.CurrentDomain.BaseDirectory vs Environment.CurrentDirectory
+            string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Data\", fileName);
+            var reader = new StreamReader(File.OpenRead(path));//OpenRead(pathToFile));
             //reader.ReadLine(); //use line if csv has row of column names
             while (!reader.EndOfStream)
             {

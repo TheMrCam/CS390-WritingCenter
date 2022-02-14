@@ -16,5 +16,10 @@ namespace WritingCenterForms
         {
             InitializeComponent();
         }
+
+        private void logOut_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
     }
 }

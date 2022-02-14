@@ -10,11 +10,17 @@ namespace WritingCenterForms
 {
     internal class AccountDatabase
     {
-        private const string testCSV = @"C:\Users\cmwoodbury19\source\repos\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\dummy_accounts.csv";
+        //private const string testCSV = @"C:\Users\cmwoodbury19\source\repos\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\dummy_accounts.csv";
         private ArrayList accounts;
 
-        public AccountDatabase(string csv = testCSV)
+        public AccountDatabase()
         {
+            accounts = new ArrayList();
+        }
+
+        public AccountDatabase(string csv = "dummy_accounts.csv")//testCSV)
+        {
+            accounts = new ArrayList();
             ImportFromCSV(csv);
         }
 
@@ -52,11 +58,12 @@ namespace WritingCenterForms
             {
                 var line = reader.ReadLine();
                 var values = line.Split(',');
-                //username, password, year, MAJOR-minor, reqHours, admin
-                AddAccount(new Account(values[0], values[1], Convert.ToInt32(values[2]), values[3].Split('-'), Convert.ToInt32(values[4]), Convert.ToBoolean(values[5])));
+                //username, password, Name, year, MAJOR-minor, reqHours, admin
+                AddAccount(new Account(values[0], values[1], values[2], Convert.ToInt32(values[3]), values[4].Split('-'), Convert.ToInt32(values[5]), Convert.ToBoolean(values[6])));
             }
         }
 
+        //this one is for writing out to a file
         public void PrintDatabase(StreamWriter stream)
         {
             foreach(Account account in accounts)
@@ -65,6 +72,7 @@ namespace WritingCenterForms
             }
         }
 
+        //this one is for writing out to Console
         public void PrintDatabase()
         {
             foreach (Account account in accounts)

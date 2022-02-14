@@ -16,14 +16,10 @@ namespace WritingCenterForms
         {
             InitializeComponent();
         }
-        private void ManageSched_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void manageAcct_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
         }
 
         private void settings_Click(object sender, EventArgs e)
@@ -34,6 +30,11 @@ namespace WritingCenterForms
         private void EditReq_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void ManageSched_Click(object sender, EventArgs e)
+        {
+            this.Hide();
         }
 
         private void logOut_Click(object sender, EventArgs e)

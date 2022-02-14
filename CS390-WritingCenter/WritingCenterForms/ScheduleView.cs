@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace WritingCenterForms
 {
-    public partial class UserLand : UserControl
+    public partial class schedulePage : UserControl
     {
-        public UserLand()
+        public schedulePage()
         {
             InitializeComponent();
         }

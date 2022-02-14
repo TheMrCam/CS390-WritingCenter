@@ -38,3 +38,5 @@ C:\Users\shash\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\obj\De
 C:\Users\shash\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\obj\Debug\WritingCenterForms.AcctManagePage.resources
 C:\Users\shash\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\obj\Debug\WritingCenterForms.AdminLand.resources
 C:\Users\shash\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\obj\Debug\WritingCenterForms.UserLand.resources
+C:\Users\Alex\OneDrive\Desktop\Git\CS390-WritingCenter\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\obj\Debug\WritingCenterForms.csproj.AssemblyReference.cache
+C:\Users\Alex\OneDrive\Desktop\Git\CS390-WritingCenter\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\obj\Debug\WritingCenterForms.WritingCenterScheduler.resources

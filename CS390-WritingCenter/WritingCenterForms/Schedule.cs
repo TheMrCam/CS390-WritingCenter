@@ -28,7 +28,7 @@ namespace WritingCenterForms
         {    
             scheduleFilled = false;
             schedule = new string[24, 7];
-            var days = new Dictionary<string, int>(){
+            days = new Dictionary<string, int>(){
                 { "sunday", 0},
                 { "monday", 1},
                 { "tuesday", 2},
@@ -37,6 +37,8 @@ namespace WritingCenterForms
                 { "friday", 5},
                 { "saturday", 6}
             };
+            importCSVFile();
+            scheduleFilled = true;
     }
 
         public void importCSVFile(string fileName = "schedule_draft.csv")//filePath= @"C:\Users\shash\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\schedule_draft.csv")
@@ -60,6 +62,11 @@ namespace WritingCenterForms
                     schedule[convertTime(time), days[day]] = workers;
                 }
             }
+        }
+
+        public string[,] getSchedule()
+        {
+            return schedule;
         }
 
         private int convertTime(string s)

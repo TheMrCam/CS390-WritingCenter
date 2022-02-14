@@ -16,7 +16,7 @@ namespace WritingCenterForms
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new WritingCenterScheduler());
+            Application.Run(new Form1());
         }
     }
 }

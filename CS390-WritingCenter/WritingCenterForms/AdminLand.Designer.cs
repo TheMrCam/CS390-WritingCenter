@@ -30,14 +30,14 @@
         {
             this.logOut = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.settingsButton = new System.Windows.Forms.Button();
+            this.editReqButton = new System.Windows.Forms.Button();
+            this.acctButton = new System.Windows.Forms.Button();
+            this.schedButton = new System.Windows.Forms.Button();
+            this.schedulePlacehold = new System.Windows.Forms.MonthCalendar();
+            this.coeLogo = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coeLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // logOut
@@ -53,85 +53,85 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.button4);
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.settingsButton);
+            this.panel1.Controls.Add(this.editReqButton);
+            this.panel1.Controls.Add(this.acctButton);
+            this.panel1.Controls.Add(this.schedButton);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 280);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(600, 95);
             this.panel1.TabIndex = 2;
             // 
-            // button4
+            // settingsButton
             // 
-            this.button4.Location = new System.Drawing.Point(475, 26);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(98, 44);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "Settings";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.settings_Click);
+            this.settingsButton.Location = new System.Drawing.Point(475, 26);
+            this.settingsButton.Name = "settingsButton";
+            this.settingsButton.Size = new System.Drawing.Size(98, 44);
+            this.settingsButton.TabIndex = 3;
+            this.settingsButton.Text = "Settings";
+            this.settingsButton.UseVisualStyleBackColor = true;
+            this.settingsButton.Click += new System.EventHandler(this.settings_Click);
             // 
-            // button3
+            // editReqButton
             // 
-            this.button3.Location = new System.Drawing.Point(337, 26);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(95, 44);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Edit Requests";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.EditReq_Click);
+            this.editReqButton.Location = new System.Drawing.Point(337, 26);
+            this.editReqButton.Name = "editReqButton";
+            this.editReqButton.Size = new System.Drawing.Size(95, 44);
+            this.editReqButton.TabIndex = 2;
+            this.editReqButton.Text = "Edit Requests";
+            this.editReqButton.UseVisualStyleBackColor = true;
+            this.editReqButton.Click += new System.EventHandler(this.EditReq_Click);
             // 
-            // button2
+            // acctButton
             // 
-            this.button2.Location = new System.Drawing.Point(163, 26);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(95, 44);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Manage Accounts";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.manageAcct_Click);
+            this.acctButton.Location = new System.Drawing.Point(163, 26);
+            this.acctButton.Name = "acctButton";
+            this.acctButton.Size = new System.Drawing.Size(95, 44);
+            this.acctButton.TabIndex = 1;
+            this.acctButton.Text = "Manage Accounts";
+            this.acctButton.UseVisualStyleBackColor = true;
+            this.acctButton.Click += new System.EventHandler(this.ManageSched_Click);
             // 
-            // button1
+            // schedButton
             // 
-            this.button1.Location = new System.Drawing.Point(22, 26);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(95, 44);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Manage Schedule";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.ManageSched_Click);
+            this.schedButton.Location = new System.Drawing.Point(22, 26);
+            this.schedButton.Name = "schedButton";
+            this.schedButton.Size = new System.Drawing.Size(95, 44);
+            this.schedButton.TabIndex = 0;
+            this.schedButton.Text = "Manage Schedule";
+            this.schedButton.UseVisualStyleBackColor = true;
+            this.schedButton.Click += new System.EventHandler(this.ManageSched_Click);
             // 
-            // monthCalendar1
+            // schedulePlacehold
             // 
-            this.monthCalendar1.Location = new System.Drawing.Point(346, 76);
-            this.monthCalendar1.Name = "monthCalendar1";
-            this.monthCalendar1.TabIndex = 3;
+            this.schedulePlacehold.Location = new System.Drawing.Point(346, 76);
+            this.schedulePlacehold.Name = "schedulePlacehold";
+            this.schedulePlacehold.TabIndex = 3;
             // 
-            // pictureBox1
+            // coeLogo
             // 
-            this.pictureBox1.Image = global::WritingCenterForms.Properties.Resources.Coe_College;
-            this.pictureBox1.Location = new System.Drawing.Point(22, 76);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(227, 162);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
+            this.coeLogo.Image = global::WritingCenterForms.Properties.Resources.Coe_College;
+            this.coeLogo.Location = new System.Drawing.Point(22, 76);
+            this.coeLogo.Margin = new System.Windows.Forms.Padding(2);
+            this.coeLogo.Name = "coeLogo";
+            this.coeLogo.Size = new System.Drawing.Size(227, 162);
+            this.coeLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.coeLogo.TabIndex = 4;
+            this.coeLogo.TabStop = false;
             // 
             // AdminLand
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.monthCalendar1);
+            this.Controls.Add(this.coeLogo);
+            this.Controls.Add(this.schedulePlacehold);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.logOut);
             this.Name = "AdminLand";
             this.Size = new System.Drawing.Size(600, 375);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coeLogo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -140,11 +140,11 @@
 
         private System.Windows.Forms.Button logOut;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.MonthCalendar monthCalendar1;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button editReqButton;
+        private System.Windows.Forms.Button acctButton;
+        private System.Windows.Forms.Button schedButton;
+        private System.Windows.Forms.MonthCalendar schedulePlacehold;
+        private System.Windows.Forms.Button settingsButton;
+        private System.Windows.Forms.PictureBox coeLogo;
     }
 }

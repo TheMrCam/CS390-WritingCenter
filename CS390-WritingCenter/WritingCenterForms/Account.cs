@@ -36,10 +36,35 @@ namespace WritingCenterForms
         {
             get { return username; }
         }
-        
+
         public bool ValidatePassword(string newPass)
         {
             return SecurePasswordHasher.Verify(newPass, password);
+        }
+
+        public int Year
+        {
+            get { return year; }
+        }
+
+        public string[] Majors
+        {
+            get { return (from m in majors where Char.IsUpper(m[0]) select m).ToArray(); }
+        }
+
+        public string[] Minors
+        {
+            get { return (from m in majors where Char.IsLower(m[0]) select m).ToArray(); }
+        }
+
+        public int RequestedHours
+        {
+            get { return requestedHours; }
+        }
+
+        public bool Admin
+        {
+            get { return admin; }
         }
     }
 }

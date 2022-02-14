@@ -1,0 +1,149 @@
+Time,Workers,Number Of Workers
+,,
+sunday11:00am->12:00pm,"['Mackenzie Jones', 'Andrea Glandt']",2
+,,
+sunday12:00pm->1:00pm,"['Mackenzie Jones', 'HJ Hass', 'Andrea Glandt', 'Valerie Plesha']",4
+,,
+sunday1:00pm->2:00pm,"['Mackenzie Jones', 'HJ Hass', 'Andrea Glandt', 'Angelina Guevara']",4
+,,
+sunday2:00pm->3:00pm,"['HJ Hass', 'Angelina Guevara', 'Valerie Plesha']",3
+,,
+sunday3:00pm->4:00pm,"['Esme Valenzuela', 'Valerie Plesha', 'Micki Guyton']",3
+,,
+sunday4:00pm->5:00pm,"['Brett Porter', 'Micki Guyton']",2
+,,
+sunday5:00pm->6:00pm,"['Tess Leonard', 'Micki Guyton']",2
+,,
+sunday6:00pm->7:00pm,"['Tess Leonard', 'Logan Mathis']",2
+,,
+sunday7:00pm->8:00pm,"['Andrew Sloth', 'Logan Mathis']",2
+,,
+sunday8:00pm->9:00pm,"['Andrew Sloth', 'Logan Mathis']",2
+,,
+sunday9:00pm->10:00pm,"['Kailey Blunk', ""Elliot O'Rourke"", 'Logan Mathis' Bryonna Clay",3
+,,
+monday8:00am->9:00am,"['Natalie Hansen', 'Avalynn Morse']",2
+,,
+monday9:00am->10:00am,"['HJ Hass', 'MJ Meiers']",2
+,,
+monday10:00am->11:00am,"['Autumn Klein', 'HJ Hass']",2
+,,
+monday11:00am->12:00pm,"['Sophia John', 'HJ Hass', ""Elliot O'Rourke"", 'Micki Guyton']",4
+,,
+monday12:00pm->1:00pm,"['Hailey Schipper', ""Elliot O'Rourke"", 'Adam Dreismeier']",3
+,,
+monday1:00pm->2:00pm,"['Autumn Klein', 'Hailey Schipper', 'Adam Dreismeier']",3
+,,
+monday2:00pm->3:00pm,"['Brittany Ramirez', 'Ally Roeker', 'Lila Dabill']",3
+,,
+monday3:00pm->4:00pm,"['Katie Krob', 'Ashlyn Cook', 'Evan Perry']",3
+,,
+monday4:00pm->5:00pm,"['Ashlyn Cook', 'Autumn Klein', 'Andrea Glandt']",3
+,,
+monday7:00pm->8:00pm,"['Myah Eggert', 'Jordan Oaks']",2
+,,
+monday8:00pm->9:00pm,"['Tess Leonard', 'Myah Eggert', 'Jordan Oaks']",3
+,,
+monday9:00pm->10:00pm,"['Megan Norris', 'Tess Leonard', 'Myah Eggert'] Paige Waskow",3
+,,
+tuesday8:00am->9:00am,"['Natalie Hansen', 'Emma Hodges']",2
+,,
+tuesday9:00am->10:00am,"['Izzy Craig', 'HJ Hass']",2
+,,
+tuesday10:00am->11:00am,"['Coraima Camacho', 'HJ Hass', 'Lila Dabill', 'MJ Meiers']",4
+,,
+tuesday11:00am->12:00pm,"['Megan Norris', 'HJ Hass', 'Rae Anstett', 'Emma Lassen', 'Hannah Henson']",5
+,,
+tuesday12:00pm->1:00pm,"['Lila Dabill', 'Esme Valenzuela', 'Rae Anstett', 'Hannah Henson']",4
+,,
+tuesday1:00pm->2:00pm,"['Katie Krob', 'Coraima Camacho', 'Rae Anstett', 'Hannah Henson']",4
+,,
+tuesday2:00pm->3:00pm,"['Emma Hodges', 'Luke Reynolds', 'Esme Valenzuela', 'Hannah Henson']",4
+,,
+tuesday3:00pm->4:00pm,"['Emma Hodges', 'Luke Reynolds', 'Esme Valenzuela', 'Brett Porter', 'Hannah Henson']",5
+,,
+tuesday4:00pm->5:00pm,"['Emma Hodges', 'Luke Reynolds', 'Brett Porter', 'Emerson Porter']",4
+,,
+tuesday5:00pm->6:00pm,"['Tess Leonard', 'Sophia John', 'Emerson Porter']",3
+,,
+tuesday6:00pm->7:00pm,"['Sophia John', 'Parker Bohnen', 'HJ Hass', 'Brett Porter']",4
+,,
+tuesday7:00pm->8:00pm,"['HJ Hass', 'Logan Mathis', 'Brett Porter']",3
+,,
+tuesday8:00pm->9:00pm,"['Paige Waskow', 'Izzy Craig', 'Parker Bohnen', 'Emma Lassen']",4
+,,
+tuesday9:00pm->10:00pm,"['Paige Waskow', 'Emma Lassen', 'Emma Graczyk']",3
+,,
+wednesday8:00am->9:00am,"['Natalie Hansen', 'Angelina Guevara', 'Avalynn Morse']",3
+,,
+wednesday9:00am->10:00am,"['Luke Reynolds', 'HJ Hass']",2
+,,
+wednesday10:00am->11:00am,"['Autumn Klein', 'Hailey Schipper']",2
+,,
+wednesday11:00am->12:00pm,"['Megan Norris', 'Hailey Schipper', ""Elliot O'Rourke"", 'Micki Guyton']",4
+,,
+wednesday12:00pm->1:00pm,"['Katie Krob', 'Hailey Schipper', ""Elliot O'Rourke"", 'Adam Dreismeier']",4
+,,
+wednesday1:00pm->2:00pm,"['Katie Krob', 'Autumn Klein', 'Hailey Schipper', 'Adam Dreismeier']",4
+,,
+wednesday2:00pm->3:00pm,"['Brittany Ramirez', 'Katie Krob', 'Ally Roeker', 'HJ Hass']",4
+,,
+wednesday3:00pm->4:00pm,"['Katie Krob', 'Rosella Birgy', 'Evan Perry', 'Lila Dabill', 'MJ Meiers']",5
+,,
+wednesday4:00pm->5:00pm,"['Rosella Birgy', 'Evan Perry', 'Autumn Klein', 'Andrea Glandt', 'MJ Meiers']",5
+,,
+wednesday5:00pm->6:00pm,"['Andrea Glandt', 'Emerson Porter', 'MJ Meiers']",3
+,,
+wednesday6:00pm->7:00pm,"['Parker Bohnen', 'Emerson Porter', 'MJ Meiers']",3
+,,
+wednesday7:00pm->8:00pm,"['Simon Walker', 'Myah Eggert', 'HJ Hass', 'Jordan Oaks', 'MJ Meiers']",5
+,,
+wednesday8:00pm->9:00pm,"['Simon Walker', 'Izzy Craig', 'Myah Eggert', 'HJ Hass', 'Jordan Oaks']",5
+,,
+wednesday9:00pm->10:00pm,"['Paige Waskow', 'Myah Eggert', 'Emerson Porter']",3
+,,
+thursday8:00am->9:00am,"['Mackenzie Jones', 'Natalie Hansen', 'Hannah Henson']",3
+,,
+thursday9:00am->10:00am,"['Mackenzie Jones', 'Emma Hodges', 'Angelina Guevara', 'Hannah Henson']",4
+,,
+thursday10:00am->11:00am,"['Mackenzie Jones', 'Sophia John', 'Coraima Camacho', 'Angelina Guevara']",4
+,,
+thursday11:00am->12:00pm,"['Izzy Craig', 'Sophia John', 'Angelina Guevara', 'Rae Anstett', 'Adam Dreismeier']",5
+,,
+thursday12:00pm->1:00pm,"['Megan Norris', 'Brittany Ramirez', 'Rae Anstett', 'Adam Dreismeier', 'Valerie Plesha']",5
+,,
+thursday1:00pm->2:00pm,"['Megan Norris', 'Brittany Ramirez', 'Coraima Camacho', 'Rae Anstett', 'Valerie Plesha']",5
+,,
+thursday2:00pm->3:00pm,"['Kailey Blunk', 'Emma Hodges', 'Esme Valenzuela', 'Valerie Plesha']",4
+,,
+thursday3:00pm->4:00pm,"['Simon Walker', 'Kailey Blunk', 'Parker Bohnen', 'Lila Dabill', 'Esme Valenzuela']",5
+,,
+thursday4:00pm->5:00pm,"['Simon Walker', 'Kailey Blunk', 'Parker Bohnen', 'HJ Hass', 'Lila Dabill']",5
+,,
+thursday5:00pm->6:00pm,"['Kailey Blunk', 'Emerson Porter']",2
+,,
+thursday6:00pm->7:00pm,"['Simon Walker', 'Kailey Blunk', 'Parker Bohnen', 'HJ Hass', 'Brett Porter']",5
+,,
+thursday7:00pm->8:00pm,"['Kailey Blunk', 'Tess Leonard', 'Jordan Oaks', 'Logan Mathis', 'Emerson Porter']",5
+,,
+thursday8:00pm->9:00pm,"['Simon Walker', 'Kailey Blunk', 'Izzy Craig', 'Emma Lassen', 'Jordan Oaks']",5
+,,
+thursday9:00pm->10:00pm,"['Kailey Blunk', 'Izzy Craig', 'Emma Lassen', 'Emma Graczyk'] Adam Dreismeier",4
+,,
+friday8:00am->9:00am,"['Natalie Hansen', 'Avalynn Morse']",2
+,,
+friday9:00am->10:00am,"['Ally Roeker', 'Ashlyn Cook']",2
+,,
+friday10:00am->11:00am,"['Kailey Blunk', 'Ally Roeker', 'Autumn Klein']",3
+,,
+friday11:00am->12:00pm,"['Megan Norris', 'Sophia John', 'Andrea Glandt', 'Micki Guyton']",4
+,,
+friday12:00pm->1:00pm,"['Brittany Ramirez', 'Ashlyn Cook']",2
+,,
+friday1:00pm->2:00pm,"['Emma Hodges', 'Luke Reynolds', 'HJ Hass']",3
+,,
+friday2:00pm->3:00pm,"['Andrew Sloth', 'Ally Roeker', 'Ashlyn Cook', 'Rosella Birgy', 'Luke Reynolds']",5
+,,
+friday3:00pm->4:00pm,"['Andrew Sloth', 'Ashlyn Cook', 'Rosella Birgy', 'Evan Perry', 'HJ Hass']",5
+,,
+friday4:00pm->5:00pm,"['Andrew Sloth', 'Ashlyn Cook', 'Rosella Birgy', 'Evan Perry', 'HJ Hass']",5

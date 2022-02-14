@@ -10,7 +10,13 @@ namespace WritingCenterForms
 {
     internal class AccountDatabase
     {
+        private const string testCSV = @"C:\Users\cmwoodbury19\source\repos\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\dummy_accounts.csv";
         private ArrayList accounts;
+
+        public AccountDatabase(string csv = testCSV)
+        {
+            ImportFromCSV(csv);
+        }
 
         private Account GetAccount(string user)
         {
@@ -36,9 +42,10 @@ namespace WritingCenterForms
         }
 
         //inspired by https://www.delftstack.com/howto/csharp/how-to-read-a-csv-file-and-store-its-values-into-an-array-in-csharp/
-        public void ImportFromCSV(string pathToFile = @"C:\Users\cmwoodbury19\source\repos\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\dummy_accounts.csv")
+        public void ImportFromCSV(string pathToFile = testCSV)
         {
             var reader = new StreamReader(File.OpenRead(pathToFile));
+            //reader.ReadLine(); //use line if csv has row of column names
             while (!reader.EndOfStream)
             {
                 var line = reader.ReadLine();
@@ -48,5 +55,20 @@ namespace WritingCenterForms
             }
         }
 
+        public void PrintDatabase(StreamWriter stream)
+        {
+            foreach(Account account in accounts)
+            {
+                stream.WriteLine($"{account.Username}: {(account.Admin ? "Admin" : "Consultant"),16}");
+            }
+        }
+
+        public void PrintDatabase()
+        {
+            foreach (Account account in accounts)
+            {
+                Console.WriteLine($"{account.Username}: {(account.Admin ? "Admin" : "Consultant"),16}");
+            }
+        }
     }
 }

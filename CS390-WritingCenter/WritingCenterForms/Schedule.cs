@@ -21,41 +21,56 @@ namespace WritingCenterForms
         public int[] openHours;
         public bool MixYears { get; set; }
         public bool MixMajors { get; set; }
-        public string[][] schedule;
+        public string[,] schedule;
+        public Dictionary<string, int> days;
 
         public Schedule()
         {    
             scheduleFilled = false;
-            schedule = new string[24][];
-        }
+            schedule = new string[24, 7];
+            var days = new Dictionary<string, int>(){
+                { "sunday", 0},
+                { "monday", 1},
+                { "tuesday", 2},
+                { "wednesday", 3},
+                { "thursday", 4},
+                { "friday", 5},
+                { "saturday", 6}
+            };
+    }
 
         public void importCSVFile(string fileName = "schedule_draft.csv")//filePath= @"C:\Users\shash\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\schedule_draft.csv")
         {
             string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Data\", fileName);
             var reader = new StreamReader(File.OpenRead(path));
-            //var reader = new StreamReader(File.OpenRead(filePath));
             var line = reader.ReadLine(); //Take out the header
             while (!reader.EndOfStream)
             {
                 line = reader.ReadLine();
-                if (line != ",,")   //get rid of the blank lines in the csv file
-                    if (line != ",," && line != null)
-                    {
-                        Regex regx = new Regex("," + "(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))"); //separates by , but leaves , that are inside ""
-                        string[] values = regx.Split(line);
+                if (line != ",," && line != null)    //get rid of the blank lines in the csv file
+                {
+                    Regex regx = new Regex("," + "(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))"); //separates by , but leaves , that are inside ""
+                    string[] values = regx.Split(line);
 
-                        string time = values[0].Split('y')[1].Split("-")[0];    //has values like 9:00pm
-                        string day = values[0].Split('y')[0] + 'y';     //has the value sunday, monday...
-                        string workers = values[1].Replace("\'", "").Replace("[", "").Replace("]", ""); //has "Natalie, Alice"...
-                        string numOfWorkers = values[2];
+                    string time = values[0].Split('y')[1].Split('-')[0];    //has values like 9:00pm
+                    string day = values[0].Split('y')[0] + 'y';     //has the value sunday, monday...
+                    string workers = values[1].Replace("\'", "").Replace("[", "").Replace("]", ""); //has "Natalie, Alice"...
+                    string numOfWorkers = values[2];
 
-                        schedule[convertTime(time), days[day]] = workers;
-                    }
+                    schedule[convertTime(time), days[day]] = workers;
+                }
             }
         }
 
-
-        
+        private int convertTime(string s)
+        {
+            int hour = int.Parse(s.Split(':')[0]);
+            if (s.EndsWith("pm"))
+            {
+                hour = (hour % 12) + 12; //convert 12-hour time to 24-hour
+            }
+            return hour;
+        }
 
     }
 }

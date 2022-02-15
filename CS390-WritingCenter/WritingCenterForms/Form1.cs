@@ -19,15 +19,17 @@ namespace WritingCenterForms
 
         private void logIn_Click(object sender, EventArgs e)
         {
-            schedulePage1.Show();
-            schedulePage1.BringToFront();
+            scheduleView1.Show();
+            scheduleView1.BringToFront();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            schedulePage1.Hide();
             adminLand1.Hide();
             acctManagePage1.Hide();
+            scheduleView1.Hide();
+            //this.Location = new Point(0,0);
+            //this.Size = new Size(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
         }
 
         private void username_TextChanged(object sender, EventArgs e)
@@ -36,11 +38,6 @@ namespace WritingCenterForms
         }
 
         private void password_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void schedulePage1_Load(object sender, EventArgs e)
         {
 
         }

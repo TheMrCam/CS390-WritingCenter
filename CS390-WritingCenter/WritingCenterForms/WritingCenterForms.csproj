@@ -63,16 +63,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ScheduleView.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="ScheduleView.designer.cs" />
     <Compile Include="SecurePasswordHasher.cs" />
     <Compile Include="AdminLand.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="AdminLand.Designer.cs">
       <DependentUpon>AdminLand.cs</DependentUpon>
+    </Compile>
+    <Compile Include="scheduleView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="scheduleView.Designer.cs">
+      <DependentUpon>scheduleView.cs</DependentUpon>
     </Compile>
     <Compile Include="UserLand.cs">
       <SubType>UserControl</SubType>
@@ -103,7 +105,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="ScheduleView.resx" />
+    <EmbeddedResource Include="scheduleView.resx">
+      <DependentUpon>scheduleView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserLand.resx">
       <DependentUpon>UserLand.cs</DependentUpon>
     </EmbeddedResource>

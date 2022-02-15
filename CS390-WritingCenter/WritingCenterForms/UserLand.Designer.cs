@@ -40,10 +40,13 @@
             // 
             // logOut
             // 
-            this.logOut.Location = new System.Drawing.Point(509, 22);
-            this.logOut.Margin = new System.Windows.Forms.Padding(2);
+            this.logOut.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.logOut.Location = new System.Drawing.Point(679, 27);
+            this.logOut.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.logOut.Name = "logOut";
-            this.logOut.Size = new System.Drawing.Size(64, 30);
+            this.logOut.Size = new System.Drawing.Size(85, 37);
             this.logOut.TabIndex = 4;
             this.logOut.Text = "Log Out";
             this.logOut.UseVisualStyleBackColor = true;
@@ -51,59 +54,78 @@
             // 
             // schedulePlacehold
             // 
-            this.schedulePlacehold.Location = new System.Drawing.Point(346, 76);
+            this.schedulePlacehold.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.schedulePlacehold.Location = new System.Drawing.Point(445, 106);
+            this.schedulePlacehold.Margin = new System.Windows.Forms.Padding(12, 11, 12, 11);
             this.schedulePlacehold.Name = "schedulePlacehold";
             this.schedulePlacehold.TabIndex = 6;
             // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.submitEditReqButton);
             this.panel1.Controls.Add(this.schedButton);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 280);
+            this.panel1.Location = new System.Drawing.Point(0, 395);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(600, 95);
+            this.panel1.Size = new System.Drawing.Size(800, 105);
             this.panel1.TabIndex = 7;
             // 
             // submitEditReqButton
             // 
-            this.submitEditReqButton.Location = new System.Drawing.Point(346, 26);
+            this.submitEditReqButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.submitEditReqButton.Location = new System.Drawing.Point(445, 21);
+            this.submitEditReqButton.Margin = new System.Windows.Forms.Padding(4);
             this.submitEditReqButton.Name = "submitEditReqButton";
-            this.submitEditReqButton.Size = new System.Drawing.Size(95, 44);
+            this.submitEditReqButton.Size = new System.Drawing.Size(127, 54);
             this.submitEditReqButton.TabIndex = 2;
             this.submitEditReqButton.Text = "Submit Edit Request";
             this.submitEditReqButton.UseVisualStyleBackColor = true;
             // 
             // schedButton
             // 
-            this.schedButton.Location = new System.Drawing.Point(154, 26);
+            this.schedButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.schedButton.Location = new System.Drawing.Point(201, 21);
+            this.schedButton.Margin = new System.Windows.Forms.Padding(4);
             this.schedButton.Name = "schedButton";
-            this.schedButton.Size = new System.Drawing.Size(95, 44);
+            this.schedButton.Size = new System.Drawing.Size(127, 54);
             this.schedButton.TabIndex = 0;
             this.schedButton.Text = "View Schedule";
             this.schedButton.UseVisualStyleBackColor = true;
             // 
             // coeLogo
             // 
+            this.coeLogo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.coeLogo.Image = global::WritingCenterForms.Properties.Resources.Coe_College;
-            this.coeLogo.Location = new System.Drawing.Point(22, 76);
-            this.coeLogo.Margin = new System.Windows.Forms.Padding(2);
+            this.coeLogo.Location = new System.Drawing.Point(89, 106);
+            this.coeLogo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.coeLogo.Name = "coeLogo";
-            this.coeLogo.Size = new System.Drawing.Size(227, 162);
+            this.coeLogo.Size = new System.Drawing.Size(303, 207);
             this.coeLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.coeLogo.TabIndex = 5;
             this.coeLogo.TabStop = false;
             // 
             // UserLand
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.schedulePlacehold);
             this.Controls.Add(this.coeLogo);
             this.Controls.Add(this.logOut);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "UserLand";
-            this.Size = new System.Drawing.Size(600, 375);
+            this.Size = new System.Drawing.Size(800, 500);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.coeLogo)).EndInit();
             this.ResumeLayout(false);

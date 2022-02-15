@@ -33,13 +33,16 @@
             this.button3 = new System.Windows.Forms.Button();
             this.logOut = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(85, 176);
+            this.button1.Location = new System.Drawing.Point(18, 56);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(100, 28);
             this.button1.TabIndex = 0;
             this.button1.Text = "upload CSV";
             this.button1.UseVisualStyleBackColor = true;
@@ -47,28 +50,32 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(263, 176);
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.button2.Location = new System.Drawing.Point(209, 56);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(100, 28);
             this.button2.TabIndex = 1;
             this.button2.Text = "View Current";
             this.button2.UseVisualStyleBackColor = true;
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(386, 176);
+            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button3.Location = new System.Drawing.Point(407, 56);
+            this.button3.Margin = new System.Windows.Forms.Padding(4);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(82, 23);
+            this.button3.Size = new System.Drawing.Size(109, 28);
             this.button3.TabIndex = 2;
             this.button3.Text = "Manual Entry";
             this.button3.UseVisualStyleBackColor = true;
             // 
             // logOut
             // 
-            this.logOut.Location = new System.Drawing.Point(509, 22);
-            this.logOut.Margin = new System.Windows.Forms.Padding(2);
+            this.logOut.Location = new System.Drawing.Point(679, 27);
+            this.logOut.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.logOut.Name = "logOut";
-            this.logOut.Size = new System.Drawing.Size(64, 30);
+            this.logOut.Size = new System.Drawing.Size(85, 37);
             this.logOut.TabIndex = 3;
             this.logOut.Text = "Log Out";
             this.logOut.UseVisualStyleBackColor = true;
@@ -78,16 +85,26 @@
             // 
             this.openFileDialog1.FileName = "AcctCSV";
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.button3);
+            this.panel1.Location = new System.Drawing.Point(132, 318);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(542, 100);
+            this.panel1.TabIndex = 4;
+            // 
             // AcctManagePage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.logOut);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AcctManagePage";
-            this.Size = new System.Drawing.Size(600, 375);
+            this.Size = new System.Drawing.Size(800, 500);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -99,5 +116,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button logOut;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Panel panel1;
     }
 }

@@ -36,7 +36,6 @@
             this.passwordLabel = new System.Windows.Forms.Label();
             this.acctManagePage1 = new WritingCenterForms.AcctManagePage();
             this.adminLand1 = new WritingCenterForms.AdminLand();
-            this.schedulePage1 = new WritingCenterForms.schedulePage();
             this.userLand1 = new WritingCenterForms.UserLand();
             ((System.ComponentModel.ISupportInitialize)(this.coeLogo)).BeginInit();
             this.SuspendLayout();
@@ -113,15 +112,6 @@
             this.adminLand1.Visible = false;
             this.adminLand1.Load += new System.EventHandler(this.adminLand1_Load);
             // 
-            // schedulePage1
-            // 
-            this.schedulePage1.Location = new System.Drawing.Point(-1, -1);
-            this.schedulePage1.Margin = new System.Windows.Forms.Padding(2);
-            this.schedulePage1.Name = "schedulePage1";
-            this.schedulePage1.Size = new System.Drawing.Size(599, 362);
-            this.schedulePage1.TabIndex = 12;
-            this.schedulePage1.Visible = false;
-            // 
             // userLand1
             // 
             this.userLand1.Location = new System.Drawing.Point(0, -1);
@@ -136,7 +126,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(603, 377);
             this.Controls.Add(this.adminLand1);
-            this.Controls.Add(this.schedulePage1);
             this.Controls.Add(this.userLand1);
             this.Controls.Add(this.passwordLabel);
             this.Controls.Add(this.usernameLabel);
@@ -162,7 +151,6 @@
         private System.Windows.Forms.Label usernameLabel;
         private System.Windows.Forms.Label passwordLabel;
         private UserLand userLand1;
-        private schedulePage schedulePage1;
         private AdminLand adminLand1;
         private AcctManagePage acctManagePage1;
     }

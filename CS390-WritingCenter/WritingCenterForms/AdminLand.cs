@@ -41,5 +41,10 @@ namespace WritingCenterForms
         {
             this.Hide();
         }
+
+        private void coeLogo_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

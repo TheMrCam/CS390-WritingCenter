@@ -41,7 +41,6 @@ namespace WritingCenterForms
         private void ManageSched_Click(object sender, EventArgs e)
         {
             adminLand1.Hide();
-            schedulePage1.Show();
         }
     }
 }

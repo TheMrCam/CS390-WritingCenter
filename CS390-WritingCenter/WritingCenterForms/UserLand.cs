@@ -12,9 +12,13 @@ namespace WritingCenterForms
 {
     public partial class UserLand : UserControl
     {
+        scheduleView scheduleView1 = new scheduleView();
         public UserLand()
         {
             InitializeComponent();
+            this.Controls.Add(scheduleView1);
+
+            scheduleView1.Hide();
         }
 
         private void logOut_Click(object sender, EventArgs e)
@@ -25,6 +29,12 @@ namespace WritingCenterForms
         private void submitEditReqButton_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void manageSched_Click(object sender, EventArgs e)
+        {
+            scheduleView1.Show();
+            scheduleView1.BringToFront();
         }
     }
 }

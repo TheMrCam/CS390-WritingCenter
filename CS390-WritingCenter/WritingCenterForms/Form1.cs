@@ -15,12 +15,12 @@ namespace WritingCenterForms
         scheduleView scheduleView1 = new scheduleView();
         AdminLand adminLand1 = new AdminLand();
         AcctManagePage acctManagePage1 = new AcctManagePage();
-        AccountDatabase Accounts;
+        AccountDatabase Accounts = new AccountDatabase();
         public Form1()
         {
             InitializeComponent();
             //this.Controls.Add(scheduleView1);
-            Accounts.ImportFromCSV(); //for testing
+            Accounts.ImportFromCSV("@dummy_accounts"); //for testing
         }
 
         private void logIn_Click(object sender, EventArgs e)

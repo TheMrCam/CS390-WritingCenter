@@ -27,7 +27,7 @@ namespace WritingCenterForms
         {
             if(Accounts.AuthenticateUser(username.Text,password.Text))
             {
-                if(Accounts.IsAdmin(username.Text))
+                if(Accounts.GetAccount(username.Text).Admin)
                 {
                     this.Controls.Add(adminLand1);
                     adminLand1.Show();

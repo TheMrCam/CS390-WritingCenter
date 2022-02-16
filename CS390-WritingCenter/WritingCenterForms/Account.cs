@@ -48,6 +48,10 @@ namespace WritingCenterForms
         public int Year
         {
             get { return year; }
+            set 
+            { //need to preform validation
+                year = value;
+            }
         }
 
         public string[] Majors

@@ -24,7 +24,7 @@ namespace WritingCenterForms
             ImportFromCSV(csv);
         }
 
-        private Account GetAccount(string user, bool name = false)
+        public Account GetAccount(string user, bool name = false)
         {
             foreach(Account currentAccount in accounts)
             {
@@ -88,10 +88,11 @@ namespace WritingCenterForms
                 Console.WriteLine($"{account.Username}: {(account.Admin ? "Admin" : "Consultant"),16}");
             }
         }
-
+        /* Unnecessary with public GetAccount()
         public bool IsAdmin(string username)
         {
             return GetAccount(username).Admin;
         }
+        */
     }
 }

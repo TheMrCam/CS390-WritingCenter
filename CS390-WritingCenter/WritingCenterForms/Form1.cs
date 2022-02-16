@@ -20,8 +20,6 @@ namespace WritingCenterForms
         {
             InitializeComponent();
             //this.Controls.Add(scheduleView1);
-            this.Controls.Add(adminLand1);
-            this.Controls.Add(acctManagePage1);
             Accounts.ImportFromCSV(); //for testing
         }
 
@@ -31,11 +29,13 @@ namespace WritingCenterForms
             {
                 if(Accounts.IsAdmin(username.Text))
                 {
+                    this.Controls.Add(adminLand1);
                     adminLand1.Show();
                     adminLand1.BringToFront();
                 }
                 else 
                 {
+                    this.Controls.Add(acctManagePage1);
                     scheduleView1.Show();
                     scheduleView1.BringToFront();
                 }

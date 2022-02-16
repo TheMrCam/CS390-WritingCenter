@@ -48,10 +48,10 @@ namespace WritingCenterForms
             scheduleFilled = true;
         }
 
-        public void importCSVFile(string filePath= @"C:\Users\shash\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\Data\schedule_draft.csv")
+        public void importCSVFile(string fileName = @"schedule_draft.csv")
         {
-            //string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Data\", fileName);
-            var reader = new StreamReader(File.OpenRead(filePath));
+            string path = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName, @"Data\", fileName);
+            var reader = new StreamReader(File.OpenRead(path));
             var line = reader.ReadLine(); //Take out the header
             while (!reader.EndOfStream)
             {

@@ -12,13 +12,21 @@ namespace WritingCenterForms
 {
     public partial class Form1 : Form
     {        
+        scheduleView scheduleView1 = new scheduleView();
+        AdminLand adminLand1 = new AdminLand();
+        AcctManagePage acctManagePage1 = new AcctManagePage();
         public Form1()
         {
             InitializeComponent();
+            this.Controls.Add(scheduleView1);
+            this.Controls.Add(adminLand1);
+            this.Controls.Add(acctManagePage1);
+
         }
 
         private void logIn_Click(object sender, EventArgs e)
         {
+
             scheduleView1.Show();
             scheduleView1.BringToFront();
         }

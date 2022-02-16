@@ -34,10 +34,7 @@
             this.eventLog1 = new System.Diagnostics.EventLog();
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.acctManagePage1 = new WritingCenterForms.AcctManagePage();
-            this.adminLand1 = new WritingCenterForms.AdminLand();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.scheduleView1 = new WritingCenterForms.scheduleView();
             ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -104,52 +101,20 @@
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             // 
-            // acctManagePage1
-            // 
-            this.acctManagePage1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.acctManagePage1.Location = new System.Drawing.Point(0, 0);
-            this.acctManagePage1.Margin = new System.Windows.Forms.Padding(5);
-            this.acctManagePage1.Name = "acctManagePage1";
-            this.acctManagePage1.Size = new System.Drawing.Size(800, 462);
-            this.acctManagePage1.TabIndex = 8;
-            this.acctManagePage1.Load += new System.EventHandler(this.acctManagePage1_Load);
-            // 
-            // adminLand1
-            // 
-            this.adminLand1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.adminLand1.Location = new System.Drawing.Point(1, -1);
-            this.adminLand1.Margin = new System.Windows.Forms.Padding(5);
-            this.adminLand1.Name = "adminLand1";
-            this.adminLand1.Size = new System.Drawing.Size(800, 462);
-            this.adminLand1.TabIndex = 7;
-            // 
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.Controls.Add(this.scheduleView1);
             this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.acctManagePage1);
             this.panel1.Controls.Add(this.username);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.logIn);
             this.panel1.Controls.Add(this.password);
-            this.panel1.Location = new System.Drawing.Point(1, -1);
+            this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(790, 425);
             this.panel1.TabIndex = 9;
-            // 
-            // scheduleView1
-            // 
-            this.scheduleView1.Location = new System.Drawing.Point(0, 3);
-            this.scheduleView1.Name = "scheduleView1";
-            this.scheduleView1.Size = new System.Drawing.Size(800, 500);
-            this.scheduleView1.TabIndex = 9;
             // 
             // Form1
             // 
@@ -158,7 +123,6 @@
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(803, 460);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.adminLand1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.Text = "WC Scheduler";
@@ -178,10 +142,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Diagnostics.EventLog eventLog1;
         private System.Windows.Forms.Button button1;
-        private AcctManagePage acctManagePage1;
-        private AdminLand adminLand1;
         private System.Windows.Forms.Panel panel1;
-        private scheduleView scheduleView1;
     }
 }
 

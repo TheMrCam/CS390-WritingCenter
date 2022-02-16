@@ -18,8 +18,8 @@ namespace WritingCenterForms
         private void prepareSchedule()
         {
             FlowLayoutPanel sPanel = new FlowLayoutPanel();
-            sPanel.Location = new System.Drawing.Point(75, 113);
-            sPanel.Size = new System.Drawing.Size(480, 330);
+            sPanel.Location = new System.Drawing.Point(75, 103);
+            sPanel.Size = new System.Drawing.Size(470, 340);
             sPanel.BackColor = System.Drawing.SystemColors.ActiveCaption;
 
             for (int i = 7; i < 23; i++)

@@ -42,7 +42,7 @@
             // 
             // logOut
             // 
-            this.logOut.Location = new System.Drawing.Point(679, 33);
+            this.logOut.Location = new System.Drawing.Point(872, 37);
             this.logOut.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.logOut.Name = "logOut";
             this.logOut.Size = new System.Drawing.Size(85, 37);
@@ -58,16 +58,16 @@
             this.panel1.Controls.Add(this.editReqButton);
             this.panel1.Controls.Add(this.acctButton);
             this.panel1.Controls.Add(this.schedButton);
-            this.panel1.Location = new System.Drawing.Point(0, 358);
+            this.panel1.Location = new System.Drawing.Point(0, 496);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 104);
+            this.panel1.Size = new System.Drawing.Size(1000, 104);
             this.panel1.TabIndex = 2;
             // 
             // settingsButton
             // 
             this.settingsButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.settingsButton.Location = new System.Drawing.Point(633, 26);
+            this.settingsButton.Location = new System.Drawing.Point(733, 26);
             this.settingsButton.Margin = new System.Windows.Forms.Padding(4);
             this.settingsButton.Name = "settingsButton";
             this.settingsButton.Size = new System.Drawing.Size(131, 54);
@@ -79,7 +79,7 @@
             // editReqButton
             // 
             this.editReqButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.editReqButton.Location = new System.Drawing.Point(449, 26);
+            this.editReqButton.Location = new System.Drawing.Point(549, 26);
             this.editReqButton.Margin = new System.Windows.Forms.Padding(4);
             this.editReqButton.Name = "editReqButton";
             this.editReqButton.Size = new System.Drawing.Size(127, 54);
@@ -91,7 +91,7 @@
             // acctButton
             // 
             this.acctButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.acctButton.Location = new System.Drawing.Point(217, 26);
+            this.acctButton.Location = new System.Drawing.Point(317, 26);
             this.acctButton.Margin = new System.Windows.Forms.Padding(4);
             this.acctButton.Name = "acctButton";
             this.acctButton.Size = new System.Drawing.Size(127, 54);
@@ -103,7 +103,7 @@
             // schedButton
             // 
             this.schedButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.schedButton.Location = new System.Drawing.Point(29, 26);
+            this.schedButton.Location = new System.Drawing.Point(129, 26);
             this.schedButton.Margin = new System.Windows.Forms.Padding(4);
             this.schedButton.Name = "schedButton";
             this.schedButton.Size = new System.Drawing.Size(127, 54);
@@ -114,7 +114,7 @@
             // 
             // schedulePlacehold
             // 
-            this.schedulePlacehold.Location = new System.Drawing.Point(432, 83);
+            this.schedulePlacehold.Location = new System.Drawing.Point(549, 164);
             this.schedulePlacehold.Margin = new System.Windows.Forms.Padding(12, 11, 12, 11);
             this.schedulePlacehold.Name = "schedulePlacehold";
             this.schedulePlacehold.TabIndex = 3;
@@ -122,7 +122,7 @@
             // coeLogo
             // 
             this.coeLogo.Image = global::WritingCenterForms.Properties.Resources.Coe_College;
-            this.coeLogo.Location = new System.Drawing.Point(111, 83);
+            this.coeLogo.Location = new System.Drawing.Point(192, 164);
             this.coeLogo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.coeLogo.Name = "coeLogo";
             this.coeLogo.Size = new System.Drawing.Size(265, 207);
@@ -141,7 +141,7 @@
             this.Controls.Add(this.logOut);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AdminLand";
-            this.Size = new System.Drawing.Size(800, 462);
+            this.Size = new System.Drawing.Size(1000, 700);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.coeLogo)).EndInit();
             this.ResumeLayout(false);

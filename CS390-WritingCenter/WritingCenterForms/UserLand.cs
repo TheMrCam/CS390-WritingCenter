@@ -21,5 +21,10 @@ namespace WritingCenterForms
         {
             this.Hide();
         }
+
+        private void submitEditReqButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

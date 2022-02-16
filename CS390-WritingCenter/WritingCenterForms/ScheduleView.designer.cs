@@ -42,7 +42,7 @@
             // Saturday
             // 
             this.Saturday.AutoSize = true;
-            this.Saturday.Location = new System.Drawing.Point(635, 94);
+            this.Saturday.Location = new System.Drawing.Point(821, 94);
             this.Saturday.Name = "Saturday";
             this.Saturday.Size = new System.Drawing.Size(61, 16);
             this.Saturday.TabIndex = 16;
@@ -51,7 +51,7 @@
             // Friday
             // 
             this.Friday.AutoSize = true;
-            this.Friday.Location = new System.Drawing.Point(569, 94);
+            this.Friday.Location = new System.Drawing.Point(716, 94);
             this.Friday.Name = "Friday";
             this.Friday.Size = new System.Drawing.Size(45, 16);
             this.Friday.TabIndex = 15;
@@ -60,7 +60,7 @@
             // Thursday
             // 
             this.Thursday.AutoSize = true;
-            this.Thursday.Location = new System.Drawing.Point(482, 94);
+            this.Thursday.Location = new System.Drawing.Point(593, 94);
             this.Thursday.Name = "Thursday";
             this.Thursday.Size = new System.Drawing.Size(64, 16);
             this.Thursday.TabIndex = 14;
@@ -69,7 +69,7 @@
             // Wednesday
             // 
             this.Wednesday.AutoSize = true;
-            this.Wednesday.Location = new System.Drawing.Point(381, 94);
+            this.Wednesday.Location = new System.Drawing.Point(458, 94);
             this.Wednesday.Name = "Wednesday";
             this.Wednesday.Size = new System.Drawing.Size(81, 16);
             this.Wednesday.TabIndex = 13;
@@ -78,7 +78,7 @@
             // Monday
             // 
             this.Monday.AutoSize = true;
-            this.Monday.Location = new System.Drawing.Point(204, 94);
+            this.Monday.Location = new System.Drawing.Point(238, 94);
             this.Monday.Name = "Monday";
             this.Monday.Size = new System.Drawing.Size(56, 16);
             this.Monday.TabIndex = 11;
@@ -87,7 +87,7 @@
             // Sunday
             // 
             this.Sunday.AutoSize = true;
-            this.Sunday.Location = new System.Drawing.Point(112, 94);
+            this.Sunday.Location = new System.Drawing.Point(126, 94);
             this.Sunday.Name = "Sunday";
             this.Sunday.Size = new System.Drawing.Size(53, 16);
             this.Sunday.TabIndex = 10;
@@ -105,17 +105,18 @@
             // 
             // logOut
             // 
-            this.logOut.Location = new System.Drawing.Point(671, 29);
+            this.logOut.Location = new System.Drawing.Point(856, 29);
             this.logOut.Name = "logOut";
             this.logOut.Size = new System.Drawing.Size(99, 41);
             this.logOut.TabIndex = 18;
             this.logOut.Text = "Log Out";
             this.logOut.UseVisualStyleBackColor = true;
+            this.logOut.Click += new System.EventHandler(this.logOut_Click);
             // 
             // Tuesday
             // 
             this.Tuesday.AutoSize = true;
-            this.Tuesday.Location = new System.Drawing.Point(292, 94);
+            this.Tuesday.Location = new System.Drawing.Point(347, 94);
             this.Tuesday.Name = "Tuesday";
             this.Tuesday.Size = new System.Drawing.Size(61, 16);
             this.Tuesday.TabIndex = 12;
@@ -135,7 +136,8 @@
             this.Controls.Add(this.Monday);
             this.Controls.Add(this.Sunday);
             this.Name = "scheduleView";
-            this.Size = new System.Drawing.Size(800, 500);
+            this.Size = new System.Drawing.Size(1000, 700);
+            this.Load += new System.EventHandler(this.scheduleView_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

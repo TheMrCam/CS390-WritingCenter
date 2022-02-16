@@ -43,7 +43,7 @@
             // logIn
             // 
             this.logIn.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.logIn.Location = new System.Drawing.Point(252, 323);
+            this.logIn.Location = new System.Drawing.Point(341, 420);
             this.logIn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.logIn.Name = "logIn";
             this.logIn.Size = new System.Drawing.Size(92, 40);
@@ -55,7 +55,7 @@
             // password
             // 
             this.password.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.password.Location = new System.Drawing.Point(320, 270);
+            this.password.Location = new System.Drawing.Point(409, 367);
             this.password.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.password.Name = "password";
             this.password.PasswordChar = '*';
@@ -66,7 +66,7 @@
             // username
             // 
             this.username.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.username.Location = new System.Drawing.Point(320, 230);
+            this.username.Location = new System.Drawing.Point(409, 327);
             this.username.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.username.Name = "username";
             this.username.Size = new System.Drawing.Size(149, 22);
@@ -80,7 +80,7 @@
             // button1
             // 
             this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button1.Location = new System.Drawing.Point(411, 323);
+            this.button1.Location = new System.Drawing.Point(500, 420);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(124, 40);
@@ -93,7 +93,7 @@
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.Image = global::WritingCenterForms.Properties.Resources.Coe_College;
-            this.pictureBox1.Location = new System.Drawing.Point(243, 14);
+            this.pictureBox1.Location = new System.Drawing.Point(332, 111);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(304, 202);
@@ -111,9 +111,9 @@
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.logIn);
             this.panel1.Controls.Add(this.password);
-            this.panel1.Location = new System.Drawing.Point(12, 12);
+            this.panel1.Location = new System.Drawing.Point(1, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(790, 425);
+            this.panel1.Size = new System.Drawing.Size(969, 618);
             this.panel1.TabIndex = 9;
             // 
             // Form1
@@ -121,7 +121,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(803, 460);
+            this.ClientSize = new System.Drawing.Size(982, 653);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";

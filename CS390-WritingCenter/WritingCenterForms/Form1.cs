@@ -29,7 +29,6 @@ namespace WritingCenterForms
 
             scheduleView1.Show();
             scheduleView1.BringToFront();
-            panel1.Hide();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -58,6 +57,11 @@ namespace WritingCenterForms
         }
 
         private void acctManagePage1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }

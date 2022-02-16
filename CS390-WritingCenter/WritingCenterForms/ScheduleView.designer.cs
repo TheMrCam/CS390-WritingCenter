@@ -42,7 +42,7 @@
             // Saturday
             // 
             this.Saturday.AutoSize = true;
-            this.Saturday.Location = new System.Drawing.Point(821, 94);
+            this.Saturday.Location = new System.Drawing.Point(830, 94);
             this.Saturday.Name = "Saturday";
             this.Saturday.Size = new System.Drawing.Size(61, 16);
             this.Saturday.TabIndex = 16;
@@ -51,7 +51,7 @@
             // Friday
             // 
             this.Friday.AutoSize = true;
-            this.Friday.Location = new System.Drawing.Point(716, 94);
+            this.Friday.Location = new System.Drawing.Point(725, 94);
             this.Friday.Name = "Friday";
             this.Friday.Size = new System.Drawing.Size(45, 16);
             this.Friday.TabIndex = 15;
@@ -69,7 +69,7 @@
             // Wednesday
             // 
             this.Wednesday.AutoSize = true;
-            this.Wednesday.Location = new System.Drawing.Point(458, 94);
+            this.Wednesday.Location = new System.Drawing.Point(465, 94);
             this.Wednesday.Name = "Wednesday";
             this.Wednesday.Size = new System.Drawing.Size(81, 16);
             this.Wednesday.TabIndex = 13;
@@ -116,7 +116,7 @@
             // Tuesday
             // 
             this.Tuesday.AutoSize = true;
-            this.Tuesday.Location = new System.Drawing.Point(347, 94);
+            this.Tuesday.Location = new System.Drawing.Point(353, 94);
             this.Tuesday.Name = "Tuesday";
             this.Tuesday.Size = new System.Drawing.Size(61, 16);
             this.Tuesday.TabIndex = 12;

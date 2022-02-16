@@ -19,7 +19,7 @@ namespace WritingCenterForms
         {
             FlowLayoutPanel sPanel = new FlowLayoutPanel();
             sPanel.Location = new System.Drawing.Point(75, 103);
-            sPanel.Size = new System.Drawing.Size(630, 340);
+            sPanel.Size = new System.Drawing.Size(625, 370);
             sPanel.BackColor = System.Drawing.SystemColors.ActiveCaption;
 
             for (int i = 7; i < 23; i++)
@@ -31,7 +31,7 @@ namespace WritingCenterForms
                     label.Height = 23;
                     label.Width = 83;
                     label.Left = i * (label.Width + 1);
-                    label.Top = i * (label.Height - 1);
+                    //label.Top = i * (label.Height + 1);
                     label.Name = "label" + i+j;
                     if (scheduleArray[i,j] == "--")
                     {

@@ -12,14 +12,22 @@ namespace WritingCenterForms
 {
     public partial class AdminLand : UserControl
     {
+        scheduleView scheduleView1 = new scheduleView();
+        AcctManagePage AcctManagePage1 = new AcctManagePage();
         public AdminLand()
         {
             InitializeComponent();
+            this.Controls.Add(scheduleView1);
+            this.Controls.Add(AcctManagePage1);
+
+            scheduleView1.Hide();
+            AcctManagePage1.Hide();
         }
 
         private void manageAcct_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            AcctManagePage1.Show();
+            AcctManagePage1.BringToFront();
         }
 
         private void settings_Click(object sender, EventArgs e)
@@ -34,7 +42,8 @@ namespace WritingCenterForms
 
         private void ManageSched_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            scheduleView1.Show();
+            scheduleView1.BringToFront();
         }
 
         private void logOut_Click(object sender, EventArgs e)

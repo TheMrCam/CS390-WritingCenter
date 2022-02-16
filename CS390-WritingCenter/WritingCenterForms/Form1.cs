@@ -15,20 +15,37 @@ namespace WritingCenterForms
         scheduleView scheduleView1 = new scheduleView();
         AdminLand adminLand1 = new AdminLand();
         AcctManagePage acctManagePage1 = new AcctManagePage();
+        AccountDatabase Accounts;
         public Form1()
         {
             InitializeComponent();
-            this.Controls.Add(scheduleView1);
-            this.Controls.Add(adminLand1);
-            this.Controls.Add(acctManagePage1);
-
+            //this.Controls.Add(scheduleView1);
+            Accounts.ImportFromCSV(); //for testing
         }
 
         private void logIn_Click(object sender, EventArgs e)
         {
-
-            scheduleView1.Show();
-            scheduleView1.BringToFront();
+            if(Accounts.AuthenticateUser(username.Text,password.Text))
+            {
+                if(Accounts.IsAdmin(username.Text))
+                {
+                    this.Controls.Add(adminLand1);
+                    adminLand1.Show();
+                    adminLand1.BringToFront();
+                }
+                else 
+                {
+                    this.Controls.Add(acctManagePage1);
+                    scheduleView1.Show();
+                    scheduleView1.BringToFront();
+                }
+                
+            }
+            else 
+            { 
+                //display User not authenticated error
+            }
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)

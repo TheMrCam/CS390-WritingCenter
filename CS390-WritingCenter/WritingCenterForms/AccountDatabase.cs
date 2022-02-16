@@ -88,5 +88,10 @@ namespace WritingCenterForms
                 Console.WriteLine($"{account.Username}: {(account.Admin ? "Admin" : "Consultant"),16}");
             }
         }
+
+        public bool IsAdmin(string username)
+        {
+            return GetAccount(username).Admin;
+        }
     }
 }

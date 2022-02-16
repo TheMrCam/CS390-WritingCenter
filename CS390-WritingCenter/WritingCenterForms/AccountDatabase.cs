@@ -55,12 +55,24 @@ namespace WritingCenterForms
             return false;
         }
 
-        //inspired by https://www.delftstack.com/howto/csharp/how-to-read-a-csv-file-and-store-its-values-into-an-array-in-csharp/
-        public void ImportFromCSV(string fileName = @"dummy_accounts.csv")//string pathToFile = testCSV)
+        public void TestCSV()
         {
-            //TODO: Test AppDomain.CurrentDomain.BaseDirectory vs Environment.CurrentDirectory
-            string path = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName, @"Data\", fileName);
-            var reader = new StreamReader(File.OpenRead(path));//OpenRead(pathToFile));
+            string path = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName, @"Data\dummy_accounts.csv");//fileName);
+            var reader = new StreamReader(File.OpenRead(path));
+            while (!reader.EndOfStream)
+            {
+                var line = reader.ReadLine();
+                var values = line.Split(',');
+                //username, password, Name, year, MAJOR-minor, reqHours, admin
+                AddAccount(new Account(values[0], values[1], values[2], Convert.ToInt32(values[3]), values[4].Split('-'), Convert.ToInt32(values[5]), Convert.ToBoolean(values[6])));
+            }
+        }
+
+        //currently not working, adds fileName becomes "@dummy_accounts"
+        public void ImportFromCSV(string fileName = "dummy_accounts.csv")//string pathToFile = testCSV)
+        {
+            string path = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName, "Data", "dummy_accounts.csv");//fileName);
+            var reader = new StreamReader(File.OpenRead(path));//OpenRead(@"Data\dummy_accounts.csv"));////OpenRead(pathToFile));
             //reader.ReadLine(); //use line if csv has row of column names
             while (!reader.EndOfStream)
             {

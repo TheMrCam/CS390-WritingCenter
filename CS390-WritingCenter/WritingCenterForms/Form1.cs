@@ -20,7 +20,7 @@ namespace WritingCenterForms
         {
             InitializeComponent();
             //this.Controls.Add(scheduleView1);
-            Accounts.ImportFromCSV("@dummy_accounts"); //for testing
+            Accounts.TestCSV(); //for testing
         }
 
         private void logIn_Click(object sender, EventArgs e)

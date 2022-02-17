@@ -29,20 +29,17 @@
         private void InitializeComponent()
         {
             this.logOut = new System.Windows.Forms.Button();
-            this.schedulePlacehold = new System.Windows.Forms.MonthCalendar();
             this.panel1 = new System.Windows.Forms.Panel();
             this.submitEditReqButton = new System.Windows.Forms.Button();
             this.schedButton = new System.Windows.Forms.Button();
-            this.coeLogo = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.coeLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // logOut
             // 
             this.logOut.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.logOut.Location = new System.Drawing.Point(659, 22);
-            this.logOut.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.logOut.Location = new System.Drawing.Point(789, 22);
+            this.logOut.Margin = new System.Windows.Forms.Padding(2);
             this.logOut.Name = "logOut";
             this.logOut.Size = new System.Drawing.Size(64, 30);
             this.logOut.TabIndex = 4;
@@ -50,19 +47,12 @@
             this.logOut.UseVisualStyleBackColor = true;
             this.logOut.Click += new System.EventHandler(this.logOut_Click);
             // 
-            // schedulePlacehold
-            // 
-            this.schedulePlacehold.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.schedulePlacehold.Location = new System.Drawing.Point(418, 201);
-            this.schedulePlacehold.Name = "schedulePlacehold";
-            this.schedulePlacehold.TabIndex = 6;
-            // 
             // panel1
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.panel1.Controls.Add(this.submitEditReqButton);
             this.panel1.Controls.Add(this.schedButton);
-            this.panel1.Location = new System.Drawing.Point(0, 483);
+            this.panel1.Location = new System.Drawing.Point(65, 554);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(750, 85);
             this.panel1.TabIndex = 7;
@@ -89,29 +79,15 @@
             this.schedButton.UseVisualStyleBackColor = true;
             this.schedButton.Click += new System.EventHandler(this.manageSched_Click);
             // 
-            // coeLogo
-            // 
-            this.coeLogo.Image = global::WritingCenterForms.Properties.Resources.Coe_College;
-            this.coeLogo.Location = new System.Drawing.Point(121, 201);
-            this.coeLogo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.coeLogo.Name = "coeLogo";
-            this.coeLogo.Size = new System.Drawing.Size(227, 168);
-            this.coeLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.coeLogo.TabIndex = 5;
-            this.coeLogo.TabStop = false;
-            // 
             // UserLand
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.schedulePlacehold);
-            this.Controls.Add(this.coeLogo);
             this.Controls.Add(this.logOut);
             this.Name = "UserLand";
-            this.Size = new System.Drawing.Size(750, 569);
+            this.Size = new System.Drawing.Size(880, 640);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.coeLogo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -119,8 +95,6 @@
         #endregion
 
         private System.Windows.Forms.Button logOut;
-        private System.Windows.Forms.PictureBox coeLogo;
-        private System.Windows.Forms.MonthCalendar schedulePlacehold;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button submitEditReqButton;
         private System.Windows.Forms.Button schedButton;

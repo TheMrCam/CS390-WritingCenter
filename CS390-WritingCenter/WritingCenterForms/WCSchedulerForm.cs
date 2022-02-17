@@ -12,15 +12,23 @@ namespace WritingCenterForms
 {
     public partial class WCSchedulerForm : Form
     {        
-        scheduleView scheduleView1 = new scheduleView();
+        //scheduleView scheduleView1 = new scheduleView();
         AdminLand adminLand1 = new AdminLand();
         AcctManagePage acctManagePage1 = new AcctManagePage();
         AccountDatabase Accounts = new AccountDatabase();
+        UserLand UserLand = new UserLand();
+        readonly String defaultPass = "coe"; // change based on user somehow, not sure how to do that - AT
+
         public WCSchedulerForm()
         {
             InitializeComponent();
-            this.Controls.Add(scheduleView1);
+            //this.Controls.Add(scheduleView1);
             Accounts.TestCSV(); //for testing
+        }
+
+        private void loginError()
+        {
+            
         }
 
         private void logIn_Click(object sender, EventArgs e)
@@ -33,17 +41,17 @@ namespace WritingCenterForms
                     adminLand1.Show();
                     adminLand1.BringToFront();
                 }
-                else
+                else if (Accounts.GetAccount(username.Text).Equals(defaultPass))  
                 {
                     this.Controls.Add(acctManagePage1);
-                    scheduleView1.Show();
-                    scheduleView1.BringToFront();
+                    //scheduleView1.Show();
+                    //scheduleView1.BringToFront();
                 }
 
             }
             else
             {
-                //display User not authenticated error
+                loginError();
             }
 
         }
@@ -52,9 +60,10 @@ namespace WritingCenterForms
         {
             adminLand1.Hide();
             acctManagePage1.Hide();
-            scheduleView1.Hide();
+            //scheduleView1.Hide();
             //this.Location = new Point(0,0);
             //this.Size = new Size(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
+            
         }
 
         private void username_TextChanged(object sender, EventArgs e)
@@ -72,22 +81,53 @@ namespace WritingCenterForms
 
         }
 
-        private void usernameBox_Click(object sender, MouseEventArgs e)
-        {
-            username.Text = "";
-        }
-
-        private void passwordBox_Click(object sender, MouseEventArgs e)
-        {
-            password.Text = "";
-            password.UseSystemPasswordChar = true;
-        }
-
         private void resetLogin(object sender, EventArgs e)
         {
             username.Text = "Username";
             password.UseSystemPasswordChar = false;
             password.Text = "Password";
+        }
+
+        private void leftUsernameBox(object sender, EventArgs e)
+        {
+            if (username.Text.Equals(""))
+            {
+                username.Text = "Username";
+            }
+                    
+        }
+
+        private void leftPasswordBox(object sender, EventArgs e)
+        {
+            if (password.Text == "")
+            {
+                password.Text = "Password";
+                password.UseSystemPasswordChar = false; 
+            }
+                
+        }
+
+        private void enterPasswordBox(object sender, EventArgs e)
+        {
+            if (password.Text.Equals("Password"))
+            {
+                password.Text = "";
+                password.UseSystemPasswordChar = true;
+            }
+            
+        }
+
+        private void enterUsernameBox(object sender, EventArgs e)
+        {
+            if (username.Text.Equals("Username"))
+            {
+                username.Text = "";
+            }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

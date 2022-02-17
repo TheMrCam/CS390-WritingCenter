@@ -93,6 +93,7 @@ namespace WritingCenterForms
         private void logOut_Click(object sender, EventArgs e)
         {
             this.Hide();
+            // add additional control to log user out
         }
 
         private void scheduleView_Load(object sender, EventArgs e)

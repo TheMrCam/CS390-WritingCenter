@@ -71,7 +71,7 @@
             // logOut
             // 
             this.logOut.Location = new System.Drawing.Point(650, 30);
-            this.logOut.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.logOut.Margin = new System.Windows.Forms.Padding(2);
             this.logOut.Name = "logOut";
             this.logOut.Size = new System.Drawing.Size(64, 30);
             this.logOut.TabIndex = 3;
@@ -89,7 +89,7 @@
             this.panel1.Controls.Add(this.viewAcctsButton);
             this.panel1.Controls.Add(this.manualEntryButton);
             this.panel1.Location = new System.Drawing.Point(201, 293);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(406, 81);
             this.panel1.TabIndex = 4;
@@ -101,7 +101,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.logOut);
             this.Name = "AcctManagePage";
-            this.Size = new System.Drawing.Size(750, 569);
+            this.Size = new System.Drawing.Size(880, 640);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 

@@ -26,12 +26,18 @@
         /// Required method for Designer support - do not modify 
         /// the contents of this method with the code editor.
         /// </summary>
+        /// 
+        object majorsList = new object[] {
+            "Computer Science",
+            "Data Science",
+            "Psychology",
+            "Philosiphy"};
         private void InitializeComponent()
         {
             this.FnameBox = new System.Windows.Forms.TextBox();
             this.year = new System.Windows.Forms.NumericUpDown();
             this.requestedHours = new System.Windows.Forms.NumericUpDown();
-            this.majors = new System.Windows.Forms.ListBox();
+            this.majorsBox = new System.Windows.Forms.ListBox();
             this.isAdminBox = new System.Windows.Forms.CheckBox();
             this.LnameBox = new System.Windows.Forms.TextBox();
             this.logOut = new System.Windows.Forms.Button();
@@ -42,6 +48,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.majorLabel = new System.Windows.Forms.Label();
             this.submitButton = new System.Windows.Forms.Button();
+            this.minorsBox = new System.Windows.Forms.Label();
+            this.minorBox = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.year)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.requestedHours)).BeginInit();
             this.SuspendLayout();
@@ -67,19 +75,15 @@
             this.requestedHours.Size = new System.Drawing.Size(120, 20);
             this.requestedHours.TabIndex = 3;
             // 
-            // majors
+            // majorsBox
             // 
-            this.majors.FormattingEnabled = true;
-            this.majors.Items.AddRange(new object[] {
-            "Computer Science",
-            "Data Science",
-            "Psychology",
-            "Philosiphy"});
-            this.majors.Location = new System.Drawing.Point(388, 261);
-            this.majors.Name = "majors";
-            this.majors.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.majors.Size = new System.Drawing.Size(120, 95);
-            this.majors.TabIndex = 4;
+            this.majorsBox.FormattingEnabled = true;
+            this.majorsBox.Items.AddRange((object[])majorsList);
+            this.majorsBox.Location = new System.Drawing.Point(388, 261);
+            this.majorsBox.Name = "majorsBox";
+            this.majorsBox.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.majorsBox.Size = new System.Drawing.Size(120, 95);
+            this.majorsBox.TabIndex = 4;
             // 
             // isAdminBox
             // 
@@ -100,7 +104,7 @@
             // 
             // logOut
             // 
-            this.logOut.Location = new System.Drawing.Point(664, 25);
+            this.logOut.Location = new System.Drawing.Point(776, 36);
             this.logOut.Margin = new System.Windows.Forms.Padding(2);
             this.logOut.Name = "logOut";
             this.logOut.Size = new System.Drawing.Size(64, 30);
@@ -167,17 +171,40 @@
             // 
             // submitButton
             // 
-            this.submitButton.Location = new System.Drawing.Point(302, 390);
+            this.submitButton.Location = new System.Drawing.Point(386, 450);
             this.submitButton.Name = "submitButton";
             this.submitButton.Size = new System.Drawing.Size(102, 49);
             this.submitButton.TabIndex = 24;
             this.submitButton.Text = "Submit";
             this.submitButton.UseVisualStyleBackColor = true;
             // 
+            // minorsBox
+            // 
+            this.minorsBox.AutoSize = true;
+            this.minorsBox.Location = new System.Drawing.Point(539, 245);
+            this.minorsBox.Name = "minorsBox";
+            this.minorsBox.Size = new System.Drawing.Size(44, 13);
+            this.minorsBox.TabIndex = 26;
+            this.minorsBox.Text = "Minor(s)";
+            this.minorsBox.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // minorBox
+            // 
+            this.minorBox.FormattingEnabled = true;
+            this.minorBox.Items.AddRange((object[])majorsList);
+            this.minorBox.Location = new System.Drawing.Point(542, 261);
+            this.minorBox.Name = "minorBox";
+            this.minorBox.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.minorBox.Size = new System.Drawing.Size(120, 95);
+            this.minorBox.TabIndex = 25;
+            this.minorBox.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            // 
             // EditAcctInfoPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.minorsBox);
+            this.Controls.Add(this.minorBox);
             this.Controls.Add(this.submitButton);
             this.Controls.Add(this.majorLabel);
             this.Controls.Add(this.label1);
@@ -188,12 +215,12 @@
             this.Controls.Add(this.logOut);
             this.Controls.Add(this.LnameBox);
             this.Controls.Add(this.isAdminBox);
-            this.Controls.Add(this.majors);
+            this.Controls.Add(this.majorsBox);
             this.Controls.Add(this.requestedHours);
             this.Controls.Add(this.year);
             this.Controls.Add(this.FnameBox);
             this.Name = "EditAcctInfoPage";
-            this.Size = new System.Drawing.Size(750, 569);
+            this.Size = new System.Drawing.Size(880, 640);
             ((System.ComponentModel.ISupportInitialize)(this.year)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.requestedHours)).EndInit();
             this.ResumeLayout(false);
@@ -206,7 +233,7 @@
         private System.Windows.Forms.TextBox FnameBox;
         private System.Windows.Forms.NumericUpDown year;
         private System.Windows.Forms.NumericUpDown requestedHours;
-        private System.Windows.Forms.ListBox majors;
+        private System.Windows.Forms.ListBox majorsBox;
         private System.Windows.Forms.CheckBox isAdminBox;
         private System.Windows.Forms.TextBox LnameBox;
         private System.Windows.Forms.Button logOut;
@@ -217,5 +244,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label majorLabel;
         private System.Windows.Forms.Button submitButton;
+        private System.Windows.Forms.Label minorsBox;
+        private System.Windows.Forms.ListBox minorBox;
     }
 }

@@ -7,69 +7,77 @@ namespace WritingCenterForms
     {
         private Schedule schedule;
         private string[,] scheduleArray;
+        private FlowLayoutPanel sPanel;
         public scheduleView()
         {
             InitializeComponent();
             schedule = new Schedule();
             scheduleArray = schedule.getSchedule();
+            sPanel = new FlowLayoutPanel();
             prepareSchedule();
         }
 
         private void prepareSchedule()
         {
             //creating a panel to create all the labels in
-            FlowLayoutPanel sPanel = new FlowLayoutPanel();
-            sPanel.Location = new System.Drawing.Point(75, 103);
-            sPanel.Size = new System.Drawing.Size(625, 370);
+            sPanel.Location = new System.Drawing.Point(25, 103);
+            sPanel.Size = new System.Drawing.Size(730, 370);
             sPanel.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            int cellHeight = 43;
+            int cellWidth = 83;
 
-            for (int i = 7; i < 23; i++)
+            for (int i = 8; i < 23; i++)
             {
+                createTimeLabels(cellHeight, cellWidth, i);
                 for (int j = 0; j < 7; j++)
                 {
-                    //making new labels
-                    Label label = new Label();
-                    label.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-                    label.Height = 23;
-                    label.Width = 83;
-                    label.Left = i * (label.Width + 1); //makes a new label adjacent to the current label
-                    //label.Top = i * (label.Height + 1);
-                    label.Name = "label" + i+j;
-                    //if (scheduleArray[i,j] == "--") //if schedule is empty then create a empty box
-                    //{
-                    //    label.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-                    //} else
-                    //{
-                    //    label.Text = scheduleArray[i, j];
-                    //}
-                    ((scheduleArray[i, j] == "--") ? (Action)(() => { label.BackColor = System.Drawing.SystemColors.ActiveCaptionText; })
-                                                : () => { label.Text = scheduleArray[i, j]; })();
-                    sPanel.Controls.Add(label);
+                    createListBoxes(cellHeight, cellWidth, i, j);
                 }
             }
 
-            FlowLayoutPanel timePanel = new FlowLayoutPanel();
-            timePanel.Location = new System.Drawing.Point(10, 103);
-            timePanel.Size = new System.Drawing.Size(100, 370);
-            timePanel.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            //Adding scroll bar to the panel
+            sPanel.AutoScroll = true;
+            this.Controls.Add(sPanel);
+        }
 
-            for (int i = 8; i < 24; i++)
+        private void createTimeLabels(int height, int weight, int time)
+        {
+            Label label = new Label();
+            label.BackColor = System.Drawing.SystemColors.Info;
+            label.Height = height;
+            label.Width = weight;
+            label.Left = time * (label.Width + 1); //makes a new label adjacent to the current label
+            label.Name = "label" + time;
+            label.Text = convertTime(time);
+            sPanel.Controls.Add(label);
+        }
+
+        private void createListBoxes(int height, int width, int time, int day)
+        {
+            //making new labels
+            ListBox lbox = new ListBox();
+            lbox.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            lbox.Height = height;
+            lbox.Width = width;
+            lbox.Left = time * (lbox.Width + 1); //makes a new lbox adjacent to the current lbox
+            lbox.Name = "lbox" + time + day;
+
+            //adds every worker that is in that shift to the listbox
+            foreach (string worker in schedule.getWorkers(time, day))
             {
-                //making new labels
-                Label label = new Label();
-                label.BackColor = System.Drawing.SystemColors.Info;
-                label.Height = 23;
-                label.Width = 80;
-                label.Left = i * (label.Width + 1); //makes a new label adjacent to the current label
-                                                    //label.Top = i * (label.Height + 1);
-                label.Name = "label" + i;
-                label.Text = convertTime(i);
-                timePanel.Controls.Add(label);
+                if (worker == "--") //if schedule is empty then create a empty box
+                {
+                    lbox.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+                }
+                else
+                {
+                    lbox.Items.Add(worker);
+                }
             }
 
-            this.Controls.Add(sPanel);
-            this.Controls.Add(timePanel);
-
+            //((scheduleArray[i, j] == "--") ? (Action)(() => { lbox.BackColor = System.Drawing.SystemColors.ActiveCaptionText; })
+            //                            : () => { lbox.Text = scheduleArray[i, j]; })();
+            sPanel.Controls.Add(lbox);
         }
 
         private void back_Click(object sender, EventArgs e)

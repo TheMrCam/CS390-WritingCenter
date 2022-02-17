@@ -19,33 +19,33 @@ namespace WritingCenterForms
         public Form1()
         {
             InitializeComponent();
-            //this.Controls.Add(scheduleView1);
+            this.Controls.Add(scheduleView1);
             Accounts.TestCSV(); //for testing
         }
 
         private void logIn_Click(object sender, EventArgs e)
         {
-            if(Accounts.AuthenticateUser(username.Text,password.Text))
+            if (Accounts.AuthenticateUser(username.Text, password.Text))
             {
-                if(Accounts.GetAccount(username.Text).Admin)
+                if (Accounts.GetAccount(username.Text).Admin)
                 {
                     this.Controls.Add(adminLand1);
                     adminLand1.Show();
                     adminLand1.BringToFront();
                 }
-                else 
+                else
                 {
                     this.Controls.Add(acctManagePage1);
                     scheduleView1.Show();
                     scheduleView1.BringToFront();
                 }
-                
+
             }
-            else 
-            { 
+            else
+            {
                 //display User not authenticated error
             }
-            
+
         }
 
         private void Form1_Load(object sender, EventArgs e)

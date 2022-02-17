@@ -7,6 +7,28 @@
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
+        /// <summary>
+        /// List of majors offered
+        /// </summary>
+
+        private object majorsList = new object[] {
+            "Computer Science",
+            "Data Science",
+            "Psychology",
+            "Philosiphy"};
+
+        /// <summary>
+        /// List of minors offered
+        /// </summary>
+
+        private object minorsList = new object[] {
+            "Computer Science",
+            "Data Science",
+            "Psychology",
+            "Philosiphy"};
+
+
+
         /// <summary> 
         /// Clean up any resources being used.
         /// </summary>
@@ -21,17 +43,13 @@
         }
 
         #region Component Designer generated code
-
+        ///
         /// <summary> 
         /// Required method for Designer support - do not modify 
         /// the contents of this method with the code editor.
         /// </summary>
         /// 
-        object majorsList = new object[] {
-            "Computer Science",
-            "Data Science",
-            "Psychology",
-            "Philosiphy"};
+        
         private void InitializeComponent()
         {
             this.FnameBox = new System.Windows.Forms.TextBox();
@@ -191,7 +209,7 @@
             // minorBox
             // 
             this.minorBox.FormattingEnabled = true;
-            this.minorBox.Items.AddRange((object[])majorsList);
+            this.minorBox.Items.AddRange((object[])minorsList);
             this.minorBox.Location = new System.Drawing.Point(542, 261);
             this.minorBox.Name = "minorBox";
             this.minorBox.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;

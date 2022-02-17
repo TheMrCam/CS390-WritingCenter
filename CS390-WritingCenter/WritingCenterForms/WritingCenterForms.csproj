@@ -88,10 +88,6 @@
     <Compile Include="UserLand.Designer.cs">
       <DependentUpon>UserLand.cs</DependentUpon>
     </Compile>
-    <Compile Include="WritingCenterScheduler.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="WritingCenterScheduler.designer.cs" />
     <EmbeddedResource Include="AcctManagePage.resx">
       <DependentUpon>AcctManagePage.cs</DependentUpon>
     </EmbeddedResource>
@@ -120,7 +116,6 @@
     <EmbeddedResource Include="UserLand.resx">
       <DependentUpon>UserLand.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WritingCenterScheduler.resx" />
     <None Include="Data\dummy_accounts.csv" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

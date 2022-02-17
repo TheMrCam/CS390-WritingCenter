@@ -32,21 +32,22 @@
             this.password = new System.Windows.Forms.TextBox();
             this.username = new System.Windows.Forms.TextBox();
             this.eventLog1 = new System.Diagnostics.EventLog();
-            this.button1 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.coePicture = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.usernameLabel = new System.Windows.Forms.Label();
+            this.passwordLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coePicture)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // logIn
             // 
             this.logIn.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.logIn.Location = new System.Drawing.Point(341, 420);
-            this.logIn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.logIn.Location = new System.Drawing.Point(328, 338);
+            this.logIn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.logIn.Name = "logIn";
-            this.logIn.Size = new System.Drawing.Size(92, 40);
+            this.logIn.Size = new System.Drawing.Size(69, 32);
             this.logIn.TabIndex = 3;
             this.logIn.Text = "Log In";
             this.logIn.UseVisualStyleBackColor = true;
@@ -55,21 +56,21 @@
             // password
             // 
             this.password.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.password.Location = new System.Drawing.Point(409, 367);
-            this.password.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.password.Location = new System.Drawing.Point(307, 305);
+            this.password.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.password.Name = "password";
             this.password.PasswordChar = '*';
-            this.password.Size = new System.Drawing.Size(149, 22);
+            this.password.Size = new System.Drawing.Size(170, 20);
             this.password.TabIndex = 2;
             this.password.TextChanged += new System.EventHandler(this.password_TextChanged);
             // 
             // username
             // 
             this.username.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.username.Location = new System.Drawing.Point(409, 327);
-            this.username.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.username.Location = new System.Drawing.Point(307, 268);
+            this.username.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.username.Name = "username";
-            this.username.Size = new System.Drawing.Size(149, 22);
+            this.username.Size = new System.Drawing.Size(170, 20);
             this.username.TabIndex = 1;
             this.username.TextChanged += new System.EventHandler(this.username_TextChanged);
             // 
@@ -77,59 +78,67 @@
             // 
             this.eventLog1.SynchronizingObject = this;
             // 
-            // button1
+            // coePicture
             // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button1.Location = new System.Drawing.Point(500, 420);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(124, 40);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Log In (Admin)";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.adminLogIn_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox1.Image = global::WritingCenterForms.Properties.Resources.Coe_College;
-            this.pictureBox1.Location = new System.Drawing.Point(332, 111);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(304, 202);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
+            this.coePicture.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.coePicture.Image = global::WritingCenterForms.Properties.Resources.Coe_College;
+            this.coePicture.Location = new System.Drawing.Point(249, 90);
+            this.coePicture.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.coePicture.Name = "coePicture";
+            this.coePicture.Size = new System.Drawing.Size(228, 164);
+            this.coePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.coePicture.TabIndex = 5;
+            this.coePicture.TabStop = false;
             // 
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.passwordLabel);
+            this.panel1.Controls.Add(this.usernameLabel);
+            this.panel1.Controls.Add(this.coePicture);
             this.panel1.Controls.Add(this.username);
-            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.logIn);
             this.panel1.Controls.Add(this.password);
-            this.panel1.Location = new System.Drawing.Point(1, 12);
+            this.panel1.Location = new System.Drawing.Point(1, 10);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(969, 618);
+            this.panel1.Size = new System.Drawing.Size(727, 502);
             this.panel1.TabIndex = 9;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
+            // usernameLabel
+            // 
+            this.usernameLabel.AutoSize = true;
+            this.usernameLabel.Location = new System.Drawing.Point(248, 270);
+            this.usernameLabel.Name = "usernameLabel";
+            this.usernameLabel.Size = new System.Drawing.Size(58, 13);
+            this.usernameLabel.TabIndex = 6;
+            this.usernameLabel.Text = "Username:";
+            // 
+            // passwordLabel
+            // 
+            this.passwordLabel.AutoSize = true;
+            this.passwordLabel.Location = new System.Drawing.Point(250, 308);
+            this.passwordLabel.Name = "passwordLabel";
+            this.passwordLabel.Size = new System.Drawing.Size(56, 13);
+            this.passwordLabel.TabIndex = 7;
+            this.passwordLabel.Text = "Password:";
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(982, 653);
+            this.ClientSize = new System.Drawing.Size(736, 531);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form1";
             this.Text = "WC Scheduler";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coePicture)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -140,10 +149,11 @@
         private System.Windows.Forms.Button logIn;
         private System.Windows.Forms.TextBox password;
         private System.Windows.Forms.TextBox username;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox coePicture;
         private System.Diagnostics.EventLog eventLog1;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label passwordLabel;
+        private System.Windows.Forms.Label usernameLabel;
     }
 }
 

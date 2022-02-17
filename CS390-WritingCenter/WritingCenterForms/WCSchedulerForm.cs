@@ -10,13 +10,13 @@ using System.Windows.Forms;
 
 namespace WritingCenterForms
 {
-    public partial class Form1 : Form
+    public partial class WCSchedulerForm : Form
     {        
         scheduleView scheduleView1 = new scheduleView();
         AdminLand adminLand1 = new AdminLand();
         AcctManagePage acctManagePage1 = new AcctManagePage();
         AccountDatabase Accounts = new AccountDatabase();
-        public Form1()
+        public WCSchedulerForm()
         {
             InitializeComponent();
             this.Controls.Add(scheduleView1);
@@ -67,20 +67,20 @@ namespace WritingCenterForms
 
         }
 
-        private void adminLogIn_Click(object sender, EventArgs e)
-        {
-            adminLand1.Show();
-            adminLand1.BringToFront();
-        }
-
-        private void acctManagePage1_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void usernameBox_Click(object sender, MouseEventArgs e)
+        {
+            username.Text = "";
+        }
+
+        private void passwordBox_Click(object sender, MouseEventArgs e)
+        {
+            password.Text = "";
+            password.PasswordChar = '*';
         }
     }
 }

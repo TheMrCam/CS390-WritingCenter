@@ -41,27 +41,28 @@
             this.yearLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.majorLabel = new System.Windows.Forms.Label();
+            this.submitButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.year)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.requestedHours)).BeginInit();
             this.SuspendLayout();
             // 
             // FnameBox
             // 
-            this.FnameBox.Location = new System.Drawing.Point(194, 132);
+            this.FnameBox.Location = new System.Drawing.Point(219, 212);
             this.FnameBox.Name = "FnameBox";
             this.FnameBox.Size = new System.Drawing.Size(100, 20);
             this.FnameBox.TabIndex = 0;
             // 
             // year
             // 
-            this.year.Location = new System.Drawing.Point(194, 181);
+            this.year.Location = new System.Drawing.Point(219, 261);
             this.year.Name = "year";
             this.year.Size = new System.Drawing.Size(120, 20);
             this.year.TabIndex = 2;
             // 
             // requestedHours
             // 
-            this.requestedHours.Location = new System.Drawing.Point(194, 227);
+            this.requestedHours.Location = new System.Drawing.Point(219, 307);
             this.requestedHours.Name = "requestedHours";
             this.requestedHours.Size = new System.Drawing.Size(120, 20);
             this.requestedHours.TabIndex = 3;
@@ -74,7 +75,7 @@
             "Data Science",
             "Psychology",
             "Philosiphy"});
-            this.majors.Location = new System.Drawing.Point(363, 181);
+            this.majors.Location = new System.Drawing.Point(388, 261);
             this.majors.Name = "majors";
             this.majors.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.majors.Size = new System.Drawing.Size(120, 95);
@@ -83,7 +84,7 @@
             // isAdminBox
             // 
             this.isAdminBox.AutoSize = true;
-            this.isAdminBox.Location = new System.Drawing.Point(194, 259);
+            this.isAdminBox.Location = new System.Drawing.Point(219, 339);
             this.isAdminBox.Name = "isAdminBox";
             this.isAdminBox.Size = new System.Drawing.Size(55, 17);
             this.isAdminBox.TabIndex = 5;
@@ -92,7 +93,7 @@
             // 
             // LnameBox
             // 
-            this.LnameBox.Location = new System.Drawing.Point(363, 132);
+            this.LnameBox.Location = new System.Drawing.Point(388, 212);
             this.LnameBox.Name = "LnameBox";
             this.LnameBox.Size = new System.Drawing.Size(100, 20);
             this.LnameBox.TabIndex = 6;
@@ -122,7 +123,7 @@
             // FnameLabel
             // 
             this.FnameLabel.AutoSize = true;
-            this.FnameLabel.Location = new System.Drawing.Point(191, 116);
+            this.FnameLabel.Location = new System.Drawing.Point(216, 196);
             this.FnameLabel.Name = "FnameLabel";
             this.FnameLabel.Size = new System.Drawing.Size(57, 13);
             this.FnameLabel.TabIndex = 19;
@@ -131,7 +132,7 @@
             // LnameLabel
             // 
             this.LnameLabel.AutoSize = true;
-            this.LnameLabel.Location = new System.Drawing.Point(360, 116);
+            this.LnameLabel.Location = new System.Drawing.Point(385, 196);
             this.LnameLabel.Name = "LnameLabel";
             this.LnameLabel.Size = new System.Drawing.Size(58, 13);
             this.LnameLabel.TabIndex = 20;
@@ -140,7 +141,7 @@
             // yearLabel
             // 
             this.yearLabel.AutoSize = true;
-            this.yearLabel.Location = new System.Drawing.Point(191, 165);
+            this.yearLabel.Location = new System.Drawing.Point(216, 245);
             this.yearLabel.Name = "yearLabel";
             this.yearLabel.Size = new System.Drawing.Size(29, 13);
             this.yearLabel.TabIndex = 21;
@@ -149,7 +150,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(191, 211);
+            this.label1.Location = new System.Drawing.Point(216, 291);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(90, 13);
             this.label1.TabIndex = 22;
@@ -158,16 +159,26 @@
             // majorLabel
             // 
             this.majorLabel.AutoSize = true;
-            this.majorLabel.Location = new System.Drawing.Point(360, 165);
+            this.majorLabel.Location = new System.Drawing.Point(385, 245);
             this.majorLabel.Name = "majorLabel";
             this.majorLabel.Size = new System.Drawing.Size(44, 13);
             this.majorLabel.TabIndex = 23;
             this.majorLabel.Text = "Major(s)";
             // 
+            // submitButton
+            // 
+            this.submitButton.Location = new System.Drawing.Point(302, 390);
+            this.submitButton.Name = "submitButton";
+            this.submitButton.Size = new System.Drawing.Size(102, 49);
+            this.submitButton.TabIndex = 24;
+            this.submitButton.Text = "Submit";
+            this.submitButton.UseVisualStyleBackColor = true;
+            // 
             // EditAcctInfoPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.submitButton);
             this.Controls.Add(this.majorLabel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.yearLabel);
@@ -205,5 +216,6 @@
         private System.Windows.Forms.Label yearLabel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label majorLabel;
+        private System.Windows.Forms.Button submitButton;
     }
 }

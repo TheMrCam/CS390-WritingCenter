@@ -55,10 +55,5 @@ namespace WritingCenterForms
         {
 
         }
-
-        private void AdminLand_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

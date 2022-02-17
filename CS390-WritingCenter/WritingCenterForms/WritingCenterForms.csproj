@@ -76,6 +76,12 @@
     <Compile Include="scheduleView.Designer.cs">
       <DependentUpon>scheduleView.cs</DependentUpon>
     </Compile>
+    <Compile Include="EditAcctInfoPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EditAcctInfoPage.Designer.cs">
+      <DependentUpon>EditAcctInfoPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserLand.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -91,6 +97,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdminLand.resx">
       <DependentUpon>AdminLand.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditAcctInfoPage.resx">
+      <DependentUpon>EditAcctInfoPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

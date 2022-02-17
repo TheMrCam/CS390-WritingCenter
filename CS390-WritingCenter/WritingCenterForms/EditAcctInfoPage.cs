@@ -16,5 +16,16 @@ namespace WritingCenterForms
         {
             InitializeComponent();
         }
+
+        private void logOut_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            //somthing to get out of last page too
+        }
+
+        private void back_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
     }
 }

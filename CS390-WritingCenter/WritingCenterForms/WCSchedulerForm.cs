@@ -80,7 +80,14 @@ namespace WritingCenterForms
         private void passwordBox_Click(object sender, MouseEventArgs e)
         {
             password.Text = "";
-            password.PasswordChar = '*';
+            password.UseSystemPasswordChar = true;
+        }
+
+        private void resetLogin(object sender, EventArgs e)
+        {
+            username.Text = "Username";
+            password.UseSystemPasswordChar = false;
+            password.Text = "Password";
         }
     }
 }

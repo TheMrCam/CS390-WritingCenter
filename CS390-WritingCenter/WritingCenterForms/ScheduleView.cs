@@ -6,13 +6,11 @@ namespace WritingCenterForms
     public partial class scheduleView : UserControl
     {
         private Schedule schedule;
-        private string[,] scheduleArray;
         private FlowLayoutPanel sPanel;
         public scheduleView()
         {
             InitializeComponent();
             schedule = new Schedule();
-            scheduleArray = schedule.getSchedule();
             sPanel = new FlowLayoutPanel();
             prepareSchedule();
         }
@@ -20,11 +18,11 @@ namespace WritingCenterForms
         private void prepareSchedule()
         {
             //creating a panel to create all the labels in
-            sPanel.Location = new System.Drawing.Point(25, 103);
-            sPanel.Size = new System.Drawing.Size(730, 370);
+            sPanel.Location = new System.Drawing.Point(60, 120);
+            sPanel.Size = new System.Drawing.Size(800, 470);
             sPanel.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            int cellHeight = 43;
-            int cellWidth = 83;
+            int cellHeight = 70;
+            int cellWidth = 90;
 
             for (int i = 8; i < 23; i++)
             {
@@ -34,21 +32,21 @@ namespace WritingCenterForms
                     createListBoxes(cellHeight, cellWidth, i, j);
                 }
             }
-
             //Adding scroll bar to the panel
             sPanel.AutoScroll = true;
             this.Controls.Add(sPanel);
         }
 
-        private void createTimeLabels(int height, int weight, int time)
+        private void createTimeLabels(int height, int width, int time)
         {
             Label label = new Label();
             label.BackColor = System.Drawing.SystemColors.Info;
             label.Height = height;
-            label.Width = weight;
-            label.Left = time * (label.Width + 1); //makes a new label adjacent to the current label
+            label.Width = width;
+            label.Left = time * (width + 1); //makes a new label adjacent to the current label
             label.Name = "label" + time;
             label.Text = convertTime(time);
+            label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             sPanel.Controls.Add(label);
         }
 
@@ -59,7 +57,7 @@ namespace WritingCenterForms
             lbox.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             lbox.Height = height;
             lbox.Width = width;
-            lbox.Left = time * (lbox.Width + 1); //makes a new lbox adjacent to the current lbox
+            lbox.Left = time * (width + 1); //makes a new lbox adjacent to the current lbox
             lbox.Name = "lbox" + time + day;
 
             //adds every worker that is in that shift to the listbox
@@ -71,7 +69,7 @@ namespace WritingCenterForms
                 }
                 else
                 {
-                    lbox.Items.Add(worker);
+                    lbox.Items.Add(worker.Trim().Trim('\"'));
                 }
             }
 

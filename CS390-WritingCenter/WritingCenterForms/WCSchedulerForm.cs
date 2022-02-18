@@ -12,12 +12,13 @@ namespace WritingCenterForms
 {
     public partial class WCSchedulerForm : Form
     {        
-        //scheduleView scheduleView1 = new scheduleView();
+        scheduleView scheduleView1 = new scheduleView();
         AdminLand adminLand1 = new AdminLand();
         AcctManagePage acctManagePage1 = new AcctManagePage();
         AccountDatabase Accounts = new AccountDatabase();
         UserLand UserLand = new UserLand();
         readonly String defaultPass = "coe"; // change based on user somehow, not sure how to do that - AT
+        ErrorProvider errorProvider = new ErrorProvider();
 
         public WCSchedulerForm()
         {
@@ -26,12 +27,27 @@ namespace WritingCenterForms
             Accounts.TestCSV(); //for testing
         }
 
-        private void loginError()
+        private void logIn_Click(object sender, EventArgs e)
         {
-            
+            //If username or password is empty, it shows error
+            if (string.IsNullOrWhiteSpace(username.Text) || username.Text.Equals("Username"))
+            {
+                errorProvider.Clear();
+                errorProvider.SetError(username, "Username required!");
+            }
+            else if (string.IsNullOrWhiteSpace(password.Text) || password.Text.Equals("Password"))
+            {
+                errorProvider.Clear();
+                errorProvider.SetError(username, "Password required!");
+            }
+            else
+            {
+                authenticateUser();
+            }
+
         }
 
-        private void logIn_Click(object sender, EventArgs e)
+        private void authenticateUser()
         {
             if (Accounts.AuthenticateUser(username.Text, password.Text))
             {
@@ -41,7 +57,7 @@ namespace WritingCenterForms
                     adminLand1.Show();
                     adminLand1.BringToFront();
                 }
-                else if (Accounts.GetAccount(username.Text).Equals(defaultPass))  
+                else if (Accounts.GetAccount(username.Text).Equals(defaultPass))
                 {
                     this.Controls.Add(acctManagePage1);
                     //scheduleView1.Show();
@@ -53,9 +69,12 @@ namespace WritingCenterForms
             {
                 loginError();
             }
-
         }
 
+        private void loginError()
+        {
+            MessageBox.Show("Incorrect Username or Password!");
+        }
         private void Form1_Load(object sender, EventArgs e)
         {
             adminLand1.Hide();

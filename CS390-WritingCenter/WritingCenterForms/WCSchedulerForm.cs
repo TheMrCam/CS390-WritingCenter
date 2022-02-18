@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,6 +17,7 @@ namespace WritingCenterForms
         AdminLand adminLand1 = new AdminLand();
         AcctManagePage acctManagePage1 = new AcctManagePage();
         AccountDatabase Accounts = new AccountDatabase();
+        Account currentAccount = null;
         UserLand UserLand = new UserLand();
         readonly String defaultPass = "coe"; // change based on user somehow, not sure how to do that - AT
         ErrorProvider errorProvider = new ErrorProvider();
@@ -51,7 +53,8 @@ namespace WritingCenterForms
         {
             if (Accounts.AuthenticateUser(username.Text, password.Text))
             {
-                if (Accounts.GetAccount(username.Text).Admin)
+                currentAccount = Accounts.GetAccount(username.Text);
+                if (currentAccount.Admin)
                 {
                     this.Controls.Add(adminLand1);
                     adminLand1.Show();
@@ -147,6 +150,40 @@ namespace WritingCenterForms
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+
+        private void DatabaseDebug_Click(object sender, EventArgs e)
+        {
+
+            string fileName;
+            using (var fileChooser = new SaveFileDialog())
+            {
+                fileChooser.CheckFileExists = false;
+                DialogResult result = fileChooser.ShowDialog();
+                fileName = fileChooser.FileName;
+            }
+            if(DialogResult == DialogResult.OK)
+            {
+                if(string.IsNullOrEmpty(fileName))
+                {
+                    MessageBox.Show("Invalid File Name", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    try
+                    {
+                        var output = new FileStream(fileName, FileMode.OpenOrCreate, FileAccess.Write);
+                        StreamWriter fileWriter = new StreamWriter(output);
+                        Accounts.PrintDatabase(fileWriter);
+                        fileWriter.Close();
+                    }
+                    catch(IOException)
+                    {
+                        MessageBox.Show("Error Opening File", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
         }
     }
 }

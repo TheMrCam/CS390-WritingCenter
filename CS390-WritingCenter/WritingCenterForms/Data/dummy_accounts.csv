@@ -1,3 +1,3 @@
-﻿admin,password,Admin_Person,2023,NULL,0,1
-user1,password2,FirstName_LastName,2023,CS-math,8,0
-user2,password,Guy_Person,2024,BIO,10,0
+﻿admin,password,Admin_Person,2023,NULL,0,true
+user1,password2,FirstName_LastName,2023,CS-math,8,false
+user2,password,Guy_Person,2024,BIO,10,false

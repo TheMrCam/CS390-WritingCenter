@@ -40,6 +40,11 @@ namespace WritingCenterForms
             get { return username; }
         }
 
+        public string Password
+        {
+            get { return password; }
+        }
+
         public bool ValidatePassword(string newPass)
         {
             return SecurePasswordHasher.Verify(newPass, password);

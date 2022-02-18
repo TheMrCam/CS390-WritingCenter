@@ -88,7 +88,7 @@ namespace WritingCenterForms
         {
             foreach(Account account in accounts)
             {
-                stream.WriteLine($"{account.Username}: {(account.Admin ? "Admin" : "Consultant"),16}");
+                stream.WriteLine($"{account.Username}: {(account.Admin ? "Admin" : "Consultant"),16}; Password Hash: {account.Password, -32}");
             }
         }
 

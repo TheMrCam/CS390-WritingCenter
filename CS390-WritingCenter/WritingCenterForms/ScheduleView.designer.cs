@@ -42,7 +42,7 @@
             // Saturday
             // 
             this.Saturday.AutoSize = true;
-            this.Saturday.Location = new System.Drawing.Point(830, 94);
+            this.Saturday.Location = new System.Drawing.Point(1004, 94);
             this.Saturday.Name = "Saturday";
             this.Saturday.Size = new System.Drawing.Size(61, 16);
             this.Saturday.TabIndex = 16;
@@ -51,7 +51,7 @@
             // Friday
             // 
             this.Friday.AutoSize = true;
-            this.Friday.Location = new System.Drawing.Point(725, 94);
+            this.Friday.Location = new System.Drawing.Point(891, 94);
             this.Friday.Name = "Friday";
             this.Friday.Size = new System.Drawing.Size(45, 16);
             this.Friday.TabIndex = 15;
@@ -60,7 +60,7 @@
             // Thursday
             // 
             this.Thursday.AutoSize = true;
-            this.Thursday.Location = new System.Drawing.Point(593, 94);
+            this.Thursday.Location = new System.Drawing.Point(747, 94);
             this.Thursday.Name = "Thursday";
             this.Thursday.Size = new System.Drawing.Size(64, 16);
             this.Thursday.TabIndex = 14;
@@ -69,7 +69,7 @@
             // Wednesday
             // 
             this.Wednesday.AutoSize = true;
-            this.Wednesday.Location = new System.Drawing.Point(465, 94);
+            this.Wednesday.Location = new System.Drawing.Point(603, 94);
             this.Wednesday.Name = "Wednesday";
             this.Wednesday.Size = new System.Drawing.Size(81, 16);
             this.Wednesday.TabIndex = 13;
@@ -78,7 +78,7 @@
             // Monday
             // 
             this.Monday.AutoSize = true;
-            this.Monday.Location = new System.Drawing.Point(238, 94);
+            this.Monday.Location = new System.Drawing.Point(370, 94);
             this.Monday.Name = "Monday";
             this.Monday.Size = new System.Drawing.Size(56, 16);
             this.Monday.TabIndex = 11;
@@ -87,7 +87,7 @@
             // Sunday
             // 
             this.Sunday.AutoSize = true;
-            this.Sunday.Location = new System.Drawing.Point(126, 94);
+            this.Sunday.Location = new System.Drawing.Point(253, 94);
             this.Sunday.Name = "Sunday";
             this.Sunday.Size = new System.Drawing.Size(53, 16);
             this.Sunday.TabIndex = 10;
@@ -95,7 +95,8 @@
             // 
             // back
             // 
-            this.back.Location = new System.Drawing.Point(29, 29);
+            this.back.Location = new System.Drawing.Point(29, 30);
+            this.back.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.back.Name = "back";
             this.back.Size = new System.Drawing.Size(99, 41);
             this.back.TabIndex = 17;
@@ -105,7 +106,8 @@
             // 
             // logOut
             // 
-            this.logOut.Location = new System.Drawing.Point(856, 29);
+            this.logOut.Location = new System.Drawing.Point(1029, 30);
+            this.logOut.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.logOut.Name = "logOut";
             this.logOut.Size = new System.Drawing.Size(99, 41);
             this.logOut.TabIndex = 18;
@@ -116,7 +118,7 @@
             // Tuesday
             // 
             this.Tuesday.AutoSize = true;
-            this.Tuesday.Location = new System.Drawing.Point(353, 94);
+            this.Tuesday.Location = new System.Drawing.Point(479, 94);
             this.Tuesday.Name = "Tuesday";
             this.Tuesday.Size = new System.Drawing.Size(61, 16);
             this.Tuesday.TabIndex = 12;
@@ -135,8 +137,9 @@
             this.Controls.Add(this.Wednesday);
             this.Controls.Add(this.Monday);
             this.Controls.Add(this.Sunday);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "scheduleView";
-            this.Size = new System.Drawing.Size(1000, 700);
+            this.Size = new System.Drawing.Size(1173, 788);
             this.Load += new System.EventHandler(this.scheduleView_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -60,12 +60,10 @@ namespace WritingCenterForms
                 {
                     Regex regx = new Regex("," + "(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))"); //separates by , but leaves , that are inside ""
                     string[] values = regx.Split(line);
-
                     string time = values[0].Split('y')[1].Split('-')[0];    //has values like 9:00pm
                     string day = values[0].Split('y')[0] + 'y';     //has the value sunday, monday...
                     string workers = values[1].Replace("\'", "").Replace("[", "").Replace("]", ""); //has "Natalie, Alice"...
                     string numOfWorkers = values[2];
-
                     schedule[convertTime(time), days[day]] = workers;
                 }
             }
@@ -84,6 +82,11 @@ namespace WritingCenterForms
                 hour = (hour % 12) + 12; //convert 12-hour time to 24-hour
             }
             return hour;
+        }
+
+        public string[] getWorkers(int i, int j)
+        {
+            return schedule[i, j].Split(',');
         }
 
         public void exportCSV()

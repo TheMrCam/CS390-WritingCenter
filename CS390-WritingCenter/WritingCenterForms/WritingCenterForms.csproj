@@ -55,11 +55,11 @@
       <DependentUpon>AcctManagePage.cs</DependentUpon>
     </Compile>
     <Compile Include="Schedule.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="WCSchedulerForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="WCSchedulerForm.Designer.cs">
+      <DependentUpon>WCSchedulerForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -76,24 +76,29 @@
     <Compile Include="scheduleView.Designer.cs">
       <DependentUpon>scheduleView.cs</DependentUpon>
     </Compile>
+    <Compile Include="EditAcctInfoPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EditAcctInfoPage.Designer.cs">
+      <DependentUpon>EditAcctInfoPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserLand.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UserLand.Designer.cs">
       <DependentUpon>UserLand.cs</DependentUpon>
     </Compile>
-    <Compile Include="WritingCenterScheduler.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="WritingCenterScheduler.designer.cs" />
     <EmbeddedResource Include="AcctManagePage.resx">
       <DependentUpon>AcctManagePage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminLand.resx">
       <DependentUpon>AdminLand.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="EditAcctInfoPage.resx">
+      <DependentUpon>EditAcctInfoPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WCSchedulerForm.resx">
+      <DependentUpon>WCSchedulerForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -111,7 +116,6 @@
     <EmbeddedResource Include="UserLand.resx">
       <DependentUpon>UserLand.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WritingCenterScheduler.resx" />
     <None Include="Data\dummy_accounts.csv" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

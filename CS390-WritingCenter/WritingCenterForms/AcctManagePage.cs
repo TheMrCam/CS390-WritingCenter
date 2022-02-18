@@ -12,9 +12,14 @@ namespace WritingCenterForms
 {
     public partial class AcctManagePage : UserControl
     {
+        EditAcctInfoPage EditAcctInfoPage1 = new EditAcctInfoPage();
         public AcctManagePage()
         {
             InitializeComponent();
+
+            this.Controls.Add(EditAcctInfoPage1);
+
+            EditAcctInfoPage1.Hide();
         }
 
         private void uploadCSV_Click(object sender, EventArgs e)
@@ -25,6 +30,12 @@ namespace WritingCenterForms
         private void logOut_Click(object sender, EventArgs e)
         {
             this.Hide();
+        }
+
+        private void manualEntry_Click(object sender, EventArgs e)
+        {
+            EditAcctInfoPage1.Show();
+            EditAcctInfoPage1.BringToFront();
         }
     }
 }

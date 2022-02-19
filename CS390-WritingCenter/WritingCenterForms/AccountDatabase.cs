@@ -84,14 +84,24 @@ namespace WritingCenterForms
         }
 
         //this one is for writing out to a file
-        public void PrintDatabase(StreamWriter stream)
+        /*
+        public void PrintDatabase(StreamWriter stream, bool clean = true)
         {
             foreach(Account account in accounts)
             {
-                stream.WriteLine($"{account.Username}: {(account.Admin ? "Admin" : "Consultant"),16}; Password Hash: {account.Password, -32}");
+                if (clean)
+                {
+                    //stream.WriteLine($"{account.Username,16}: {(account.Admin ? "Admin" : "Consultant"),12};\tPassword Hash: {account.Password,-60}");
+
+                }
+                else
+                {
+
+                }
                 //lines.Append($"{account.Username}: {(account.Admin ? "Admin" : "Consultant"),16}; Password Hash: {account.Password,-32}");
             }
         }
+        */
         /*
         List<Student> list = new List<Student>();
         list.Add(new Student("bob"));
@@ -99,13 +109,21 @@ namespace WritingCenterForms
         Student joe = list[1];
          */
         //this one is for writing out to Console
-        public string[] DatabaseLines()
+        public string[] DatabaseLines(bool clean = true)
         {
             ArrayList lines = new ArrayList();
             foreach (Account account in accounts)
             {
                 //stream.WriteLine($"{account.Username}: {(account.Admin ? "Admin" : "Consultant"),16}; Password Hash: {account.Password, -32}");
-                lines.Add($"{account.Username}: {(account.Admin ? "Admin" : "Consultant"),16}; Password Hash: {account.Password,-32}");
+                //lines.Add($"{account.Username}: {(account.Admin ? "Admin" : "Consultant"),16}; Password Hash: {account.Password,-32}");
+                if (clean)
+                {
+                    lines.Add($"{account.Username}: {(account.Admin ? "Admin" : "Consultant"),12};\tPassword Hash: {account.Password,-64}");
+                }
+                else
+                {
+                    lines.Add($"{account.Username},{account.Password},{account.Name},{account.Year},{(string.Join("-",account.Majors)+"-"+(string.Join("-", account.Minors)))},{account.RequestedHours},{account.Admin}");
+                }
             }
             return (string[])lines.ToArray(typeof(string));
         }

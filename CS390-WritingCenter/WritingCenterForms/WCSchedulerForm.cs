@@ -159,7 +159,8 @@ namespace WritingCenterForms
             string fileName;
             using (var fileChooser = new SaveFileDialog())
             {
-                fileChooser.Filter = "Plain Text|*.txt";
+                fileChooser.Title = "Save Database to file";
+                fileChooser.Filter = "Plain Text|*.txt|CSV Database|*.csv";
                 fileChooser.CheckFileExists = false;
                 DialogResult result = fileChooser.ShowDialog();
                 fileName = fileChooser.FileName;
@@ -178,7 +179,8 @@ namespace WritingCenterForms
                     //StreamWriter fileWriter = new StreamWriter(output);
                     //Accounts.PrintDatabase(fileWriter);
                     //fileWriter.Close();
-                    await Task.Run(() => File.WriteAllLines(fileName, Accounts.DatabaseLines()));
+                    bool clean = fileName[fileName.IndexOf('.')+1] != 'c';
+                    await Task.Run(() => File.WriteAllLines(fileName, Accounts.DatabaseLines(clean)));
                     //MessageBox.Show("No Error","Success",MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch(IOException)

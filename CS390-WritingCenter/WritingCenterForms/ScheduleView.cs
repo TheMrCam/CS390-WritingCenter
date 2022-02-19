@@ -12,6 +12,7 @@ namespace WritingCenterForms
             InitializeComponent();
             schedule = new Schedule();
             sPanel = new FlowLayoutPanel();
+            
             prepareSchedule();
         }
 
@@ -54,11 +55,13 @@ namespace WritingCenterForms
         {
             //making new labels
             ListBox lbox = new ListBox();
+            //Button lbox = new Button();
             lbox.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             lbox.Height = height;
             lbox.Width = width;
             lbox.Left = time * (width + 1); //makes a new lbox adjacent to the current lbox
             lbox.Name = "lbox" + time + day;
+            lbox.SelectionMode = SelectionMode.None;
 
             //adds every worker that is in that shift to the listbox
             foreach (string worker in schedule.getWorkers(time, day))
@@ -66,10 +69,12 @@ namespace WritingCenterForms
                 if (worker == "--") //if schedule is empty then create a empty box
                 {
                     lbox.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+                    break;
                 }
                 else
                 {
                     lbox.Items.Add(worker.Trim().Trim('\"'));
+                    //lbox.Text += worker.Trim().Trim('\"') + "\n";
                 }
             }
 

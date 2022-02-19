@@ -40,10 +40,10 @@
             // 
             // logOut
             // 
-            this.logOut.Location = new System.Drawing.Point(654, 30);
-            this.logOut.Margin = new System.Windows.Forms.Padding(2);
+            this.logOut.Location = new System.Drawing.Point(872, 37);
+            this.logOut.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.logOut.Name = "logOut";
-            this.logOut.Size = new System.Drawing.Size(64, 30);
+            this.logOut.Size = new System.Drawing.Size(85, 37);
             this.logOut.TabIndex = 1;
             this.logOut.Text = "Log Out";
             this.logOut.UseVisualStyleBackColor = true;
@@ -57,17 +57,19 @@
             this.panel1.Controls.Add(this.acctButton);
             this.panel1.Controls.Add(this.schedButton);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 541);
+            this.panel1.Location = new System.Drawing.Point(0, 666);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(880, 99);
+            this.panel1.Size = new System.Drawing.Size(1173, 122);
             this.panel1.TabIndex = 2;
             // 
             // settingsButton
             // 
             this.settingsButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.settingsButton.Location = new System.Drawing.Point(615, 28);
+            this.settingsButton.Location = new System.Drawing.Point(820, 34);
+            this.settingsButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.settingsButton.Name = "settingsButton";
-            this.settingsButton.Size = new System.Drawing.Size(98, 44);
+            this.settingsButton.Size = new System.Drawing.Size(131, 54);
             this.settingsButton.TabIndex = 3;
             this.settingsButton.Text = "Settings";
             this.settingsButton.UseVisualStyleBackColor = true;
@@ -76,9 +78,10 @@
             // editReqButton
             // 
             this.editReqButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.editReqButton.Location = new System.Drawing.Point(477, 28);
+            this.editReqButton.Location = new System.Drawing.Point(636, 34);
+            this.editReqButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.editReqButton.Name = "editReqButton";
-            this.editReqButton.Size = new System.Drawing.Size(95, 44);
+            this.editReqButton.Size = new System.Drawing.Size(127, 54);
             this.editReqButton.TabIndex = 2;
             this.editReqButton.Text = "Edit Requests";
             this.editReqButton.UseVisualStyleBackColor = true;
@@ -87,9 +90,10 @@
             // acctButton
             // 
             this.acctButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.acctButton.Location = new System.Drawing.Point(303, 28);
+            this.acctButton.Location = new System.Drawing.Point(404, 34);
+            this.acctButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.acctButton.Name = "acctButton";
-            this.acctButton.Size = new System.Drawing.Size(95, 44);
+            this.acctButton.Size = new System.Drawing.Size(127, 54);
             this.acctButton.TabIndex = 1;
             this.acctButton.Text = "Manage Accounts";
             this.acctButton.UseVisualStyleBackColor = true;
@@ -98,9 +102,10 @@
             // schedButton
             // 
             this.schedButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.schedButton.Location = new System.Drawing.Point(162, 28);
+            this.schedButton.Location = new System.Drawing.Point(216, 34);
+            this.schedButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.schedButton.Name = "schedButton";
-            this.schedButton.Size = new System.Drawing.Size(95, 44);
+            this.schedButton.Size = new System.Drawing.Size(127, 54);
             this.schedButton.TabIndex = 0;
             this.schedButton.Text = "Manage Schedule";
             this.schedButton.UseVisualStyleBackColor = true;
@@ -108,19 +113,22 @@
             // 
             // schedulePlacehold
             // 
-            this.schedulePlacehold.Location = new System.Drawing.Point(560, 213);
+            this.schedulePlacehold.Location = new System.Drawing.Point(747, 262);
+            this.schedulePlacehold.Margin = new System.Windows.Forms.Padding(12, 11, 12, 11);
             this.schedulePlacehold.Name = "schedulePlacehold";
             this.schedulePlacehold.TabIndex = 3;
             // 
             // AdminLand
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.schedulePlacehold);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.logOut);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "AdminLand";
-            this.Size = new System.Drawing.Size(880, 640);
+            this.Size = new System.Drawing.Size(1173, 788);
+            this.Load += new System.EventHandler(this.AdminLand_Load);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 

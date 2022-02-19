@@ -13,8 +13,8 @@ namespace WritingCenterForms
 {
     public partial class WCSchedulerForm : Form
     {        
-        scheduleView scheduleView1 = new scheduleView();
-        AdminLand adminLand1 = new AdminLand();
+        private static scheduleView scheduleView1 = new scheduleView();
+        AdminLand adminLand1 = new AdminLand(scheduleView1);
         AcctManagePage acctManagePage1 = new AcctManagePage();
         AccountDatabase Accounts = new AccountDatabase();
         Account currentAccount = null;
@@ -82,7 +82,7 @@ namespace WritingCenterForms
         {
             adminLand1.Hide();
             acctManagePage1.Hide();
-            //scheduleView1.Hide();
+            scheduleView1.Hide();
             //this.Location = new Point(0,0);
             //this.Size = new Size(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
             
@@ -190,6 +190,10 @@ namespace WritingCenterForms
                     }
                 }
             }
+        }
+
+        private void forgotPasswordButton_Click(object sender, EventArgs e)
+        {
         }
     }
 }

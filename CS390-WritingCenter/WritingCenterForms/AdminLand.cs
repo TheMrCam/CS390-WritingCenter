@@ -12,11 +12,12 @@ namespace WritingCenterForms
 {
     public partial class AdminLand : UserControl
     {
-        scheduleView scheduleView1 = new scheduleView();
+        scheduleView scheduleView1; //= new scheduleView();
         AcctManagePage AcctManagePage1 = new AcctManagePage();
-        public AdminLand()
+        public AdminLand(scheduleView scheduleView1)
         {
             InitializeComponent();
+            this.scheduleView1 = scheduleView1;
             this.Controls.Add(scheduleView1);
             this.Controls.Add(AcctManagePage1);
 
@@ -52,6 +53,11 @@ namespace WritingCenterForms
         }
 
         private void coeLogo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AdminLand_Load(object sender, EventArgs e)
         {
 
         }

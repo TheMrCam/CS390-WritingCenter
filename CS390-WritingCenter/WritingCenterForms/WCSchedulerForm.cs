@@ -76,7 +76,7 @@ namespace WritingCenterForms
 
         private void loginError()
         {
-            MessageBox.Show("Incorrect Username or Password!");
+            MessageBox.Show("Incorrect Username or Password!","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
         }
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -159,35 +159,35 @@ namespace WritingCenterForms
             string fileName;
             using (var fileChooser = new SaveFileDialog())
             {
+                fileChooser.Filter = "Plain Text|*.txt";
                 fileChooser.CheckFileExists = false;
                 DialogResult result = fileChooser.ShowDialog();
                 fileName = fileChooser.FileName;
             }
-            if(DialogResult == DialogResult.OK)
+            //MessageBox.Show("Here1");
+            if(string.IsNullOrEmpty(fileName))
             {
-                if(string.IsNullOrEmpty(fileName))
+                MessageBox.Show("Invalid File Name", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                //MessageBox.Show("Here2");
+                try
                 {
-                    MessageBox.Show("Invalid File Name", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //var output = new FileStream(fileName, FileMode.OpenOrCreate, FileAccess.Write);
+                    //StreamWriter fileWriter = new StreamWriter(output);
+                    //Accounts.PrintDatabase(fileWriter);
+                    //fileWriter.Close();
+                    await Task.Run(() => File.WriteAllLines(fileName, Accounts.DatabaseLines()));
+                    //MessageBox.Show("No Error","Success",MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                else
+                catch(IOException)
                 {
-                    try
-                    {
-                        //var output = new FileStream(fileName, FileMode.OpenOrCreate, FileAccess.Write);
-                        //StreamWriter fileWriter = new StreamWriter(output);
-                        //Accounts.PrintDatabase(fileWriter);
-                        //fileWriter.Close();
-                        await Task.Run(() => File.WriteAllLines(fileName, Accounts.DatabaseLines()));
-                        MessageBox.Show("No Error","Success",MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    catch(IOException)
-                    {
-                        MessageBox.Show("Error Opening File", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    catch
-                    {
-                        MessageBox.Show("Miscellaneous Error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    MessageBox.Show("Error Opening File", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch
+                {
+                    MessageBox.Show("Miscellaneous Error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

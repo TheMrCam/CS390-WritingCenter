@@ -89,16 +89,25 @@ namespace WritingCenterForms
             foreach(Account account in accounts)
             {
                 stream.WriteLine($"{account.Username}: {(account.Admin ? "Admin" : "Consultant"),16}; Password Hash: {account.Password, -32}");
+                //lines.Append($"{account.Username}: {(account.Admin ? "Admin" : "Consultant"),16}; Password Hash: {account.Password,-32}");
             }
         }
-
+        /*
+        List<Student> list = new List<Student>();
+        list.Add(new Student("bob"));
+        list.Add(new Student("joe"));
+        Student joe = list[1];
+         */
         //this one is for writing out to Console
-        public void PrintDatabase()
+        public string[] DatabaseLines()
         {
+            ArrayList lines = new ArrayList();
             foreach (Account account in accounts)
             {
-                Console.WriteLine($"{account.Username}: {(account.Admin ? "Admin" : "Consultant"),16}");
+                //stream.WriteLine($"{account.Username}: {(account.Admin ? "Admin" : "Consultant"),16}; Password Hash: {account.Password, -32}");
+                lines.Add($"{account.Username}: {(account.Admin ? "Admin" : "Consultant"),16}; Password Hash: {account.Password,-32}");
             }
+            return (string[])lines.ToArray(typeof(string));
         }
         /* Unnecessary with public GetAccount()
         public bool IsAdmin(string username)

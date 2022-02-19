@@ -153,7 +153,7 @@ namespace WritingCenterForms
         }
 
 
-        private void DatabaseDebug_Click(object sender, EventArgs e)
+        private async void DatabaseDebug_Click(object sender, EventArgs e)
         {
 
             string fileName;
@@ -173,14 +173,20 @@ namespace WritingCenterForms
                 {
                     try
                     {
-                        var output = new FileStream(fileName, FileMode.OpenOrCreate, FileAccess.Write);
-                        StreamWriter fileWriter = new StreamWriter(output);
-                        Accounts.PrintDatabase(fileWriter);
-                        fileWriter.Close();
+                        //var output = new FileStream(fileName, FileMode.OpenOrCreate, FileAccess.Write);
+                        //StreamWriter fileWriter = new StreamWriter(output);
+                        //Accounts.PrintDatabase(fileWriter);
+                        //fileWriter.Close();
+                        await Task.Run(() => File.WriteAllLines(fileName, Accounts.DatabaseLines()));
+                        MessageBox.Show("No Error","Success",MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch(IOException)
                     {
                         MessageBox.Show("Error Opening File", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Miscellaneous Error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }

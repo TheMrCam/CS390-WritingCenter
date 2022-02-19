@@ -76,7 +76,7 @@ namespace WritingCenterForms
 
         private void loginError()
         {
-            MessageBox.Show("Incorrect Username or Password!");
+            MessageBox.Show("Incorrect Username or Password!","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
         }
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -159,6 +159,7 @@ namespace WritingCenterForms
             string fileName;
             using (var fileChooser = new SaveFileDialog())
             {
+                fileChooser.Filter = "Plain Text|*.txt";
                 fileChooser.CheckFileExists = false;
                 DialogResult result = fileChooser.ShowDialog();
                 fileName = fileChooser.FileName;
@@ -171,6 +172,7 @@ namespace WritingCenterForms
                 }
                 else
                 {
+                    MessageBox.Show("Here");
                     try
                     {
                         //var output = new FileStream(fileName, FileMode.OpenOrCreate, FileAccess.Write);

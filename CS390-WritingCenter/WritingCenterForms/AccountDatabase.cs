@@ -69,9 +69,9 @@ namespace WritingCenterForms
         }
 
         //currently not working, adds fileName becomes "@dummy_accounts"
-        public void ImportFromCSV(string fileName = "dummy_accounts.csv")//string pathToFile = testCSV)
+        public void ImportFromCSV(string path)//string pathToFile = testCSV)
         {
-            string path = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName, "Data", "dummy_accounts.csv");//fileName);
+            //string path = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName, "Data", "dummy_accounts.csv");//fileName);
             var reader = new StreamReader(File.OpenRead(path));//OpenRead(@"Data\dummy_accounts.csv"));////OpenRead(pathToFile));
             //reader.ReadLine(); //use line if csv has row of column names
             while (!reader.EndOfStream)

@@ -60,6 +60,12 @@ namespace WritingCenterForms
                     adminLand1.Show();
                     adminLand1.BringToFront();
                 }
+                else if (!currentAccount.Admin)
+                {
+                    this.Controls.Add(UserLand);
+                    UserLand.Show();
+                    UserLand.BringToFront();
+                }
                 else if (Accounts.GetAccount(username.Text).Equals(defaultPass))
                 {
                     this.Controls.Add(acctManagePage1);

@@ -1,4 +1,5 @@
 ﻿admin,password,Admin_Person,2023,NULL,0,true
+admin2,password,Admin_Two,2023,NULL,0,true
 user0,password,FirstName_LastName,2023,CS-math,8,false
 user1,password1,Guy_Person,2024,BIO,10,false
 user2,geeksquad,Person_Guy,2025,CHEM-phys,6,false

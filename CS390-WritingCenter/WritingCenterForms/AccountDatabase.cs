@@ -81,6 +81,7 @@ namespace WritingCenterForms
                 //username, password, Name, year, MAJOR-minor, reqHours, admin
                 AddAccount(new Account(values[0], values[1], values[2], Convert.ToInt32(values[3]), values[4].Split('-'), Convert.ToInt32(values[5]), Convert.ToBoolean(values[6])));
             }
+            return;
         }
 
         //this one is for writing out to a file

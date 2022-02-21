@@ -134,5 +134,11 @@
   <ItemGroup>
     <None Include="Resources\Coe_College.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CWC logo_Black_Primary.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CWC logo_Black_Secondary.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

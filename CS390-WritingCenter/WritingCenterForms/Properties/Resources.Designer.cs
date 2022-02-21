@@ -71,8 +71,31 @@ namespace WritingCenterForms.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to admin,password,2023,NULL,0,true
-        ///user1,password,2023,CS-math,8,false.
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CWC_logo_Black_Primary {
+            get {
+                object obj = ResourceManager.GetObject("CWC logo_Black_Primary", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CWC_logo_Black_Secondary {
+            get {
+                object obj = ResourceManager.GetObject("CWC logo_Black_Secondary", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to admin,password,Admin_Person,2023,NULL,0,true
+        ///admin2,password,Admin_Two,2023,NULL,0,true
+        ///user0,password,FirstName_LastName,2023,CS-math,8,false
+        ///user1,password1,Guy_Person,2024,BIO,10,false
+        ///user2,geeksquad,Person_Guy,2025,CHEM-phys,6,false.
         /// </summary>
         internal static string dummy_accounts {
             get {

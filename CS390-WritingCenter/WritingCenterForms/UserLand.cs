@@ -36,5 +36,10 @@ namespace WritingCenterForms
             scheduleView1.Show();
             scheduleView1.BringToFront();
         }
+
+        private void UserLand_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

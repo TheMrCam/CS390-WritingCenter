@@ -16,7 +16,7 @@ namespace WritingCenterForms
         private static scheduleView scheduleView1 = new scheduleView();
         AdminLand adminLand1 = new AdminLand(scheduleView1);
         AcctManagePage acctManagePage1 = new AcctManagePage();
-        AccountDatabase Accounts = new AccountDatabase();
+        public static AccountDatabase Accounts = new AccountDatabase();
         Account currentAccount = null;
         UserLand UserLand = new UserLand();
         readonly String defaultPass = "coe"; // change based on user somehow, not sure how to do that - AT
@@ -202,6 +202,11 @@ namespace WritingCenterForms
 
         private void forgotPasswordButton_Click(object sender, EventArgs e)
         {
+        }
+
+        private void username_TextChanged_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

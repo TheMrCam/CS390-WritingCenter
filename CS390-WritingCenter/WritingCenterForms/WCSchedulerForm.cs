@@ -17,7 +17,7 @@ namespace WritingCenterForms
         AdminLand adminLand1 = new AdminLand(scheduleView1);
         AcctManagePage acctManagePage1 = new AcctManagePage();
         public static AccountDatabase Accounts = new AccountDatabase();
-        Account currentAccount = null;
+        public static Account currentAccount = null;
         UserLand UserLand = new UserLand();
         readonly String defaultPass = "coe"; // change based on user somehow, not sure how to do that - AT
         ErrorProvider errorProvider = new ErrorProvider();

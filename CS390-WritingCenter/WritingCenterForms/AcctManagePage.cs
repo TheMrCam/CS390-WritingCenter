@@ -82,5 +82,11 @@ namespace WritingCenterForms
             EditAcctInfoPage1.Show();
             EditAcctInfoPage1.BringToFront();
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            HelloLabel.Text = "Hello, " + WCSchedulerForm.currentAccount.Name + "!";
+            //this.Controls.Add(HelloLabel);
+        }
     }
 }

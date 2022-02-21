@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WritingCenterForms
 {
-    internal class Account
+    public class Account
     {
         private string username;
         private string password;

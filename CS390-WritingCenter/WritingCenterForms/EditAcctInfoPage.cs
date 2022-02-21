@@ -12,6 +12,7 @@ namespace WritingCenterForms
 {
     public partial class EditAcctInfoPage : UserControl
     {
+        Schedule schedule1 = null;
         public EditAcctInfoPage()
         {
             InitializeComponent();

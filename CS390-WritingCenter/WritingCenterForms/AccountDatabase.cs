@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace WritingCenterForms
 {
-    internal class AccountDatabase
+    public class AccountDatabase
     {
         //private const string testCSV = @"C:\Users\cmwoodbury19\source\repos\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\dummy_accounts.csv";
         private ArrayList accounts;

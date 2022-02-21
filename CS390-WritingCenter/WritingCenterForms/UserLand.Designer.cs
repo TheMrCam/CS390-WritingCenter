@@ -38,10 +38,10 @@
             // logOut
             // 
             this.logOut.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.logOut.Location = new System.Drawing.Point(789, 22);
-            this.logOut.Margin = new System.Windows.Forms.Padding(2);
+            this.logOut.Location = new System.Drawing.Point(1052, 27);
+            this.logOut.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.logOut.Name = "logOut";
-            this.logOut.Size = new System.Drawing.Size(64, 30);
+            this.logOut.Size = new System.Drawing.Size(85, 37);
             this.logOut.TabIndex = 4;
             this.logOut.Text = "Log Out";
             this.logOut.UseVisualStyleBackColor = true;
@@ -52,17 +52,19 @@
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.panel1.Controls.Add(this.submitEditReqButton);
             this.panel1.Controls.Add(this.schedButton);
-            this.panel1.Location = new System.Drawing.Point(65, 554);
+            this.panel1.Location = new System.Drawing.Point(87, 682);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(750, 85);
+            this.panel1.Size = new System.Drawing.Size(1000, 105);
             this.panel1.TabIndex = 7;
             // 
             // submitEditReqButton
             // 
             this.submitEditReqButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.submitEditReqButton.Location = new System.Drawing.Point(457, 17);
+            this.submitEditReqButton.Location = new System.Drawing.Point(609, 21);
+            this.submitEditReqButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.submitEditReqButton.Name = "submitEditReqButton";
-            this.submitEditReqButton.Size = new System.Drawing.Size(95, 44);
+            this.submitEditReqButton.Size = new System.Drawing.Size(127, 54);
             this.submitEditReqButton.TabIndex = 2;
             this.submitEditReqButton.Text = "Submit Edit Request";
             this.submitEditReqButton.UseVisualStyleBackColor = true;
@@ -71,9 +73,10 @@
             // schedButton
             // 
             this.schedButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.schedButton.Location = new System.Drawing.Point(235, 17);
+            this.schedButton.Location = new System.Drawing.Point(313, 21);
+            this.schedButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.schedButton.Name = "schedButton";
-            this.schedButton.Size = new System.Drawing.Size(95, 44);
+            this.schedButton.Size = new System.Drawing.Size(127, 54);
             this.schedButton.TabIndex = 0;
             this.schedButton.Text = "View Schedule";
             this.schedButton.UseVisualStyleBackColor = true;
@@ -81,12 +84,14 @@
             // 
             // UserLand
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.logOut);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "UserLand";
-            this.Size = new System.Drawing.Size(880, 640);
+            this.Size = new System.Drawing.Size(1173, 788);
+            this.Load += new System.EventHandler(this.UserLand_Load);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 

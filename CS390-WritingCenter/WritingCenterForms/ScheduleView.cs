@@ -67,7 +67,7 @@ namespace WritingCenterForms
             //adds every worker that is in that shift to the listbox
             foreach (string worker in schedule.getWorkers(time, day))
             {
-                if (worker == null) //if schedule is empty then create a empty box
+                if (worker == "--") //if schedule is empty then create a empty box
                 {
                     lbox.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
                     break;

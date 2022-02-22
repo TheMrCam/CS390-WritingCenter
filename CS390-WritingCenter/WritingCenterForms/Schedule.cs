@@ -28,6 +28,7 @@ namespace WritingCenterForms
         public Schedule()
         {    
             scheduleFilled = false;
+            schedule = new string[22,7];
             openHours = new ArrayList();
             days = new Dictionary<string, int>(){
                 { "sunday", 0},
@@ -44,7 +45,10 @@ namespace WritingCenterForms
                 for (int j = 8; j < 22; j++)
                 {
                     schedule[j, i] = "--";
-                    if (i != 6) openHours.Add(dayKeys[i] + " " + convertTimeS(j));
+                    if (i != 6)
+                    {
+                        openHours.Add(dayKeys[i] + " " + convertTimeS(j));
+                    }
                 }
             }
             importCSVFile();
@@ -100,7 +104,7 @@ namespace WritingCenterForms
         public string[] getWorkers(int i, int j)
         {
 
-            return schedule[i,j].Split(',');
+            return schedule[i, j].Split(',');
         }
 
         public void exportCSV()

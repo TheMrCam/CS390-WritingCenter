@@ -2,6 +2,7 @@
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,8 +18,8 @@ namespace WritingCenterForms
     //ScheduleFilled: bool
     internal class Schedule
     {
-        private bool scheduleFilled;
-        public int[] openHours;
+        public bool scheduleFilled;
+        public ArrayList openHours;
         public bool MixYears { get; set; }
         public bool MixMajors { get; set; }
         public string[,] schedule;
@@ -27,7 +28,7 @@ namespace WritingCenterForms
         public Schedule()
         {    
             scheduleFilled = false;
-            schedule = new string[24, 7];
+            openHours = new ArrayList();
             days = new Dictionary<string, int>(){
                 { "sunday", 0},
                 { "monday", 1},
@@ -37,11 +38,13 @@ namespace WritingCenterForms
                 { "friday", 5},
                 { "saturday", 6}
             };
-            for (int i = 0; i < 24; i++)
+            List<string> dayKeys = new List<string>(days.Keys);
+            for (int i = 0; i < 7; i++)
             {
-                for (int j = 0; j < 7; j++)
+                for (int j = 8; j < 22; j++)
                 {
-                    schedule[i, j] = "--";
+                    schedule[j, i] = "--";
+                    if (i != 6) openHours.Add(dayKeys[i] + " " + convertTimeS(j));
                 }
             }
             importCSVFile();
@@ -65,6 +68,7 @@ namespace WritingCenterForms
                     string workers = values[1].Replace("\'", "").Replace("[", "").Replace("]", ""); //has "Natalie, Alice"...
                     string numOfWorkers = values[2];
                     schedule[convertTime(time), days[day]] = workers;
+                    openHours.Remove(day + " " + time);
                 }
             }
         }
@@ -74,19 +78,29 @@ namespace WritingCenterForms
             return schedule;
         }
 
+        public ArrayList getOpenHours()
+        {
+            return openHours;
+        }
+
         private int convertTime(string s)
         {
             int hour = int.Parse(s.Split(':')[0]);
-            if (s.EndsWith("pm"))
-            {
-                hour = (hour % 12) + 12; //convert 12-hour time to 24-hour
-            }
+            if (s.EndsWith("pm")) hour = (hour % 12) + 12; //convert 12-hour time to 24-hour
             return hour;
+        }
+
+        private string convertTimeS(int i)
+        {
+            if (i > 12) return i - 12 + ":00pm";
+            else if (i < 12) return i + ":00am";
+            else return i + ":00pm";
         }
 
         public string[] getWorkers(int i, int j)
         {
-            return schedule[i, j].Split(',');
+
+            return schedule[i,j].Split(',');
         }
 
         public void exportCSV()

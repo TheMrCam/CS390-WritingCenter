@@ -38,5 +38,10 @@ namespace WritingCenterForms
         {
 
         }
+
+        private void sunHrBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

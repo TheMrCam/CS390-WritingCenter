@@ -91,57 +91,64 @@
             // 
             // FnameBox
             // 
-            this.FnameBox.Location = new System.Drawing.Point(134, 182);
+            this.FnameBox.Location = new System.Drawing.Point(179, 224);
+            this.FnameBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.FnameBox.Name = "FnameBox";
-            this.FnameBox.Size = new System.Drawing.Size(120, 20);
+            this.FnameBox.Size = new System.Drawing.Size(159, 22);
             this.FnameBox.TabIndex = 0;
             // 
             // year
             // 
-            this.year.Location = new System.Drawing.Point(134, 251);
+            this.year.Location = new System.Drawing.Point(179, 309);
+            this.year.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.year.Name = "year";
-            this.year.Size = new System.Drawing.Size(120, 20);
+            this.year.Size = new System.Drawing.Size(160, 22);
             this.year.TabIndex = 2;
             // 
             // requestedHours
             // 
-            this.requestedHours.Location = new System.Drawing.Point(325, 251);
+            this.requestedHours.Location = new System.Drawing.Point(433, 309);
+            this.requestedHours.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.requestedHours.Name = "requestedHours";
-            this.requestedHours.Size = new System.Drawing.Size(120, 20);
+            this.requestedHours.Size = new System.Drawing.Size(160, 22);
             this.requestedHours.TabIndex = 3;
             // 
             // majorsBox
             // 
             this.majorsBox.FormattingEnabled = true;
-            this.majorsBox.Location = new System.Drawing.Point(535, 182);
+            this.majorsBox.ItemHeight = 16;
+            this.majorsBox.Location = new System.Drawing.Point(713, 224);
+            this.majorsBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.majorsBox.Name = "majorsBox";
             this.majorsBox.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.majorsBox.Size = new System.Drawing.Size(120, 95);
+            this.majorsBox.Size = new System.Drawing.Size(159, 116);
             this.majorsBox.TabIndex = 4;
             // 
             // isAdminBox
             // 
             this.isAdminBox.AutoSize = true;
-            this.isAdminBox.Location = new System.Drawing.Point(327, 557);
+            this.isAdminBox.Location = new System.Drawing.Point(436, 686);
+            this.isAdminBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.isAdminBox.Name = "isAdminBox";
-            this.isAdminBox.Size = new System.Drawing.Size(55, 17);
+            this.isAdminBox.Size = new System.Drawing.Size(67, 20);
             this.isAdminBox.TabIndex = 5;
             this.isAdminBox.Text = "Admin";
             this.isAdminBox.UseVisualStyleBackColor = true;
             // 
             // LnameBox
             // 
-            this.LnameBox.Location = new System.Drawing.Point(324, 182);
+            this.LnameBox.Location = new System.Drawing.Point(432, 224);
+            this.LnameBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.LnameBox.Name = "LnameBox";
-            this.LnameBox.Size = new System.Drawing.Size(120, 20);
+            this.LnameBox.Size = new System.Drawing.Size(159, 22);
             this.LnameBox.TabIndex = 6;
             // 
             // logOut
             // 
-            this.logOut.Location = new System.Drawing.Point(776, 36);
-            this.logOut.Margin = new System.Windows.Forms.Padding(2);
+            this.logOut.Location = new System.Drawing.Point(1035, 44);
+            this.logOut.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.logOut.Name = "logOut";
-            this.logOut.Size = new System.Drawing.Size(64, 30);
+            this.logOut.Size = new System.Drawing.Size(85, 37);
             this.logOut.TabIndex = 7;
             this.logOut.Text = "Log Out";
             this.logOut.UseVisualStyleBackColor = true;
@@ -149,10 +156,10 @@
             // 
             // back
             // 
-            this.back.Location = new System.Drawing.Point(46, 36);
-            this.back.Margin = new System.Windows.Forms.Padding(2);
+            this.back.Location = new System.Drawing.Point(61, 44);
+            this.back.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.back.Name = "back";
-            this.back.Size = new System.Drawing.Size(74, 33);
+            this.back.Size = new System.Drawing.Size(99, 41);
             this.back.TabIndex = 18;
             this.back.Text = "Back";
             this.back.UseVisualStyleBackColor = true;
@@ -162,9 +169,10 @@
             // 
             this.FnameLabel.AutoSize = true;
             this.FnameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FnameLabel.Location = new System.Drawing.Point(131, 161);
+            this.FnameLabel.Location = new System.Drawing.Point(175, 198);
+            this.FnameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.FnameLabel.Name = "FnameLabel";
-            this.FnameLabel.Size = new System.Drawing.Size(81, 18);
+            this.FnameLabel.Size = new System.Drawing.Size(101, 24);
             this.FnameLabel.TabIndex = 19;
             this.FnameLabel.Text = "First Name";
             // 
@@ -172,9 +180,10 @@
             // 
             this.LnameLabel.AutoSize = true;
             this.LnameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LnameLabel.Location = new System.Drawing.Point(321, 161);
+            this.LnameLabel.Location = new System.Drawing.Point(428, 198);
+            this.LnameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LnameLabel.Name = "LnameLabel";
-            this.LnameLabel.Size = new System.Drawing.Size(80, 18);
+            this.LnameLabel.Size = new System.Drawing.Size(99, 24);
             this.LnameLabel.TabIndex = 20;
             this.LnameLabel.Text = "Last Name";
             // 
@@ -182,9 +191,10 @@
             // 
             this.yearLabel.AutoSize = true;
             this.yearLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.yearLabel.Location = new System.Drawing.Point(130, 230);
+            this.yearLabel.Location = new System.Drawing.Point(173, 283);
+            this.yearLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.yearLabel.Name = "yearLabel";
-            this.yearLabel.Size = new System.Drawing.Size(38, 18);
+            this.yearLabel.Size = new System.Drawing.Size(49, 24);
             this.yearLabel.TabIndex = 21;
             this.yearLabel.Text = "Year";
             // 
@@ -192,9 +202,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(321, 230);
+            this.label1.Location = new System.Drawing.Point(428, 283);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(124, 18);
+            this.label1.Size = new System.Drawing.Size(158, 24);
             this.label1.TabIndex = 22;
             this.label1.Text = "Hours Requested";
             // 
@@ -202,17 +213,19 @@
             // 
             this.majorLabel.AutoSize = true;
             this.majorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.majorLabel.Location = new System.Drawing.Point(532, 161);
+            this.majorLabel.Location = new System.Drawing.Point(709, 198);
+            this.majorLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.majorLabel.Name = "majorLabel";
-            this.majorLabel.Size = new System.Drawing.Size(64, 18);
+            this.majorLabel.Size = new System.Drawing.Size(78, 24);
             this.majorLabel.TabIndex = 23;
             this.majorLabel.Text = "Major(s)";
             // 
             // submitButton
             // 
-            this.submitButton.Location = new System.Drawing.Point(388, 540);
+            this.submitButton.Location = new System.Drawing.Point(517, 665);
+            this.submitButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.submitButton.Name = "submitButton";
-            this.submitButton.Size = new System.Drawing.Size(102, 49);
+            this.submitButton.Size = new System.Drawing.Size(136, 60);
             this.submitButton.TabIndex = 24;
             this.submitButton.Text = "Submit";
             this.submitButton.UseVisualStyleBackColor = true;
@@ -221,9 +234,10 @@
             // 
             this.minorsBox.AutoSize = true;
             this.minorsBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.minorsBox.Location = new System.Drawing.Point(717, 161);
+            this.minorsBox.Location = new System.Drawing.Point(956, 198);
+            this.minorsBox.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.minorsBox.Name = "minorsBox";
-            this.minorsBox.Size = new System.Drawing.Size(64, 18);
+            this.minorsBox.Size = new System.Drawing.Size(79, 24);
             this.minorsBox.TabIndex = 26;
             this.minorsBox.Text = "Minor(s)";
             this.minorsBox.Click += new System.EventHandler(this.label2_Click);
@@ -231,68 +245,77 @@
             // minorBox
             // 
             this.minorBox.FormattingEnabled = true;
-            this.minorBox.Location = new System.Drawing.Point(720, 182);
+            this.minorBox.ItemHeight = 16;
+            this.minorBox.Location = new System.Drawing.Point(960, 224);
+            this.minorBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.minorBox.Name = "minorBox";
             this.minorBox.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.minorBox.Size = new System.Drawing.Size(120, 95);
+            this.minorBox.Size = new System.Drawing.Size(159, 116);
             this.minorBox.TabIndex = 25;
             this.minorBox.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // monHrBox
             // 
             this.monHrBox.FormattingEnabled = true;
-            this.monHrBox.Location = new System.Drawing.Point(27, 362);
+            this.monHrBox.Location = new System.Drawing.Point(36, 446);
+            this.monHrBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.monHrBox.Name = "monHrBox";
-            this.monHrBox.Size = new System.Drawing.Size(111, 94);
+            this.monHrBox.Size = new System.Drawing.Size(147, 106);
             this.monHrBox.TabIndex = 27;
             // 
             // tuesHrBox
             // 
             this.tuesHrBox.FormattingEnabled = true;
-            this.tuesHrBox.Location = new System.Drawing.Point(144, 362);
+            this.tuesHrBox.Location = new System.Drawing.Point(192, 446);
+            this.tuesHrBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tuesHrBox.Name = "tuesHrBox";
-            this.tuesHrBox.Size = new System.Drawing.Size(111, 94);
+            this.tuesHrBox.Size = new System.Drawing.Size(147, 106);
             this.tuesHrBox.TabIndex = 28;
             // 
             // wedHrBox
             // 
             this.wedHrBox.FormattingEnabled = true;
-            this.wedHrBox.Location = new System.Drawing.Point(261, 362);
+            this.wedHrBox.Location = new System.Drawing.Point(348, 446);
+            this.wedHrBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.wedHrBox.Name = "wedHrBox";
-            this.wedHrBox.Size = new System.Drawing.Size(111, 94);
+            this.wedHrBox.Size = new System.Drawing.Size(147, 106);
             this.wedHrBox.TabIndex = 29;
             // 
             // thHrBox
             // 
             this.thHrBox.FormattingEnabled = true;
-            this.thHrBox.Location = new System.Drawing.Point(378, 362);
+            this.thHrBox.Location = new System.Drawing.Point(504, 446);
+            this.thHrBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.thHrBox.Name = "thHrBox";
-            this.thHrBox.Size = new System.Drawing.Size(111, 94);
+            this.thHrBox.Size = new System.Drawing.Size(147, 106);
             this.thHrBox.TabIndex = 30;
             // 
             // friHrBox
             // 
             this.friHrBox.FormattingEnabled = true;
-            this.friHrBox.Location = new System.Drawing.Point(496, 362);
+            this.friHrBox.Location = new System.Drawing.Point(661, 446);
+            this.friHrBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.friHrBox.Name = "friHrBox";
-            this.friHrBox.Size = new System.Drawing.Size(111, 94);
+            this.friHrBox.Size = new System.Drawing.Size(147, 106);
             this.friHrBox.TabIndex = 31;
             // 
             // satHrBox
             // 
             this.satHrBox.FormattingEnabled = true;
-            this.satHrBox.Location = new System.Drawing.Point(613, 362);
+            this.satHrBox.Location = new System.Drawing.Point(817, 446);
+            this.satHrBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.satHrBox.Name = "satHrBox";
-            this.satHrBox.Size = new System.Drawing.Size(111, 94);
+            this.satHrBox.Size = new System.Drawing.Size(147, 106);
             this.satHrBox.TabIndex = 32;
             // 
             // availibilityLabel
             // 
             this.availibilityLabel.AutoSize = true;
             this.availibilityLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.availibilityLabel.Location = new System.Drawing.Point(22, 312);
+            this.availibilityLabel.Location = new System.Drawing.Point(29, 384);
+            this.availibilityLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.availibilityLabel.Name = "availibilityLabel";
-            this.availibilityLabel.Size = new System.Drawing.Size(119, 29);
+            this.availibilityLabel.Size = new System.Drawing.Size(149, 36);
             this.availibilityLabel.TabIndex = 33;
             this.availibilityLabel.Text = "Availibility";
             // 
@@ -300,9 +323,10 @@
             // 
             this.wedLabel.AutoSize = true;
             this.wedLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.wedLabel.Location = new System.Drawing.Point(258, 341);
+            this.wedLabel.Location = new System.Drawing.Point(344, 420);
+            this.wedLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.wedLabel.Name = "wedLabel";
-            this.wedLabel.Size = new System.Drawing.Size(86, 18);
+            this.wedLabel.Size = new System.Drawing.Size(111, 24);
             this.wedLabel.TabIndex = 34;
             this.wedLabel.Text = "Wednesday";
             // 
@@ -310,9 +334,10 @@
             // 
             this.monLabel.AutoSize = true;
             this.monLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.monLabel.Location = new System.Drawing.Point(24, 341);
+            this.monLabel.Location = new System.Drawing.Point(32, 420);
+            this.monLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.monLabel.Name = "monLabel";
-            this.monLabel.Size = new System.Drawing.Size(61, 18);
+            this.monLabel.Size = new System.Drawing.Size(78, 24);
             this.monLabel.TabIndex = 35;
             this.monLabel.Text = "Monday";
             // 
@@ -320,27 +345,31 @@
             // 
             this.tuesLabel.AutoSize = true;
             this.tuesLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tuesLabel.Location = new System.Drawing.Point(141, 341);
+            this.tuesLabel.Location = new System.Drawing.Point(188, 420);
+            this.tuesLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.tuesLabel.Name = "tuesLabel";
-            this.tuesLabel.Size = new System.Drawing.Size(64, 18);
+            this.tuesLabel.Size = new System.Drawing.Size(83, 24);
             this.tuesLabel.TabIndex = 36;
             this.tuesLabel.Text = "Tuesday";
             // 
             // sunHrBox
             // 
             this.sunHrBox.FormattingEnabled = true;
-            this.sunHrBox.Location = new System.Drawing.Point(731, 362);
+            this.sunHrBox.Location = new System.Drawing.Point(975, 446);
+            this.sunHrBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.sunHrBox.Name = "sunHrBox";
-            this.sunHrBox.Size = new System.Drawing.Size(111, 94);
+            this.sunHrBox.Size = new System.Drawing.Size(147, 106);
             this.sunHrBox.TabIndex = 37;
+            this.sunHrBox.SelectedIndexChanged += new System.EventHandler(this.sunHrBox_SelectedIndexChanged);
             // 
             // thursLabel
             // 
             this.thursLabel.AutoSize = true;
             this.thursLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.thursLabel.Location = new System.Drawing.Point(375, 341);
+            this.thursLabel.Location = new System.Drawing.Point(500, 420);
+            this.thursLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.thursLabel.Name = "thursLabel";
-            this.thursLabel.Size = new System.Drawing.Size(69, 18);
+            this.thursLabel.Size = new System.Drawing.Size(89, 24);
             this.thursLabel.TabIndex = 38;
             this.thursLabel.Text = "Thursday";
             // 
@@ -348,9 +377,10 @@
             // 
             this.friLabel.AutoSize = true;
             this.friLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.friLabel.Location = new System.Drawing.Point(493, 341);
+            this.friLabel.Location = new System.Drawing.Point(657, 420);
+            this.friLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.friLabel.Name = "friLabel";
-            this.friLabel.Size = new System.Drawing.Size(48, 18);
+            this.friLabel.Size = new System.Drawing.Size(62, 24);
             this.friLabel.TabIndex = 39;
             this.friLabel.Text = "Friday";
             // 
@@ -358,9 +388,10 @@
             // 
             this.satLabel.AutoSize = true;
             this.satLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.satLabel.Location = new System.Drawing.Point(610, 341);
+            this.satLabel.Location = new System.Drawing.Point(813, 420);
+            this.satLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.satLabel.Name = "satLabel";
-            this.satLabel.Size = new System.Drawing.Size(66, 18);
+            this.satLabel.Size = new System.Drawing.Size(83, 24);
             this.satLabel.TabIndex = 40;
             this.satLabel.Text = "Saturday";
             // 
@@ -368,9 +399,10 @@
             // 
             this.sunLabel.AutoSize = true;
             this.sunLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sunLabel.Location = new System.Drawing.Point(728, 341);
+            this.sunLabel.Location = new System.Drawing.Point(971, 420);
+            this.sunLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.sunLabel.Name = "sunLabel";
-            this.sunLabel.Size = new System.Drawing.Size(57, 18);
+            this.sunLabel.Size = new System.Drawing.Size(74, 24);
             this.sunLabel.TabIndex = 41;
             this.sunLabel.Text = "Sunday";
             // 
@@ -393,7 +425,7 @@
             // 
             // EditAcctInfoPage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.usernameBox);
             this.Controls.Add(this.textBox1);
@@ -428,8 +460,9 @@
             this.Controls.Add(this.requestedHours);
             this.Controls.Add(this.year);
             this.Controls.Add(this.FnameBox);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "EditAcctInfoPage";
-            this.Size = new System.Drawing.Size(880, 640);
+            this.Size = new System.Drawing.Size(1173, 788);
             ((System.ComponentModel.ISupportInitialize)(this.year)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.requestedHours)).EndInit();
             this.ResumeLayout(false);

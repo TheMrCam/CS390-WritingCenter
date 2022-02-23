@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Windows.Forms;
 
 namespace WritingCenterForms
@@ -25,7 +26,7 @@ namespace WritingCenterForms
             int cellHeight = 70;
             int cellWidth = 90;
 
-            for (int i = 8; i < 23; i++)
+            for (int i = 8; i < 22; i++)
             {
                 createTimeLabels(cellHeight, cellWidth, i);
                 for (int j = 0; j < 7; j++)
@@ -81,6 +82,11 @@ namespace WritingCenterForms
             //((scheduleArray[i, j] == "--") ? (Action)(() => { lbox.BackColor = System.Drawing.SystemColors.ActiveCaptionText; })
             //                            : () => { lbox.Text = scheduleArray[i, j]; })();
             sPanel.Controls.Add(lbox);
+        }
+
+        public ArrayList getOpenHours()
+        {
+            return schedule.getOpenHours();
         }
 
         private void back_Click(object sender, EventArgs e)

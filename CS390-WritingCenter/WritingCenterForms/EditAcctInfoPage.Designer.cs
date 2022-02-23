@@ -83,6 +83,8 @@
             this.friLabel = new System.Windows.Forms.Label();
             this.satLabel = new System.Windows.Forms.Label();
             this.sunLabel = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.usernameBox = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.year)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.requestedHours)).BeginInit();
             this.SuspendLayout();
@@ -404,10 +406,29 @@
             this.sunLabel.TabIndex = 41;
             this.sunLabel.Text = "Sunday";
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(131, 129);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(313, 20);
+            this.textBox1.TabIndex = 42;
+            // 
+            // usernameBox
+            // 
+            this.usernameBox.AutoSize = true;
+            this.usernameBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usernameBox.Location = new System.Drawing.Point(131, 99);
+            this.usernameBox.Name = "usernameBox";
+            this.usernameBox.Size = new System.Drawing.Size(77, 18);
+            this.usernameBox.TabIndex = 43;
+            this.usernameBox.Text = "Username";
+            // 
             // EditAcctInfoPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.usernameBox);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.sunLabel);
             this.Controls.Add(this.satLabel);
             this.Controls.Add(this.friLabel);
@@ -482,5 +503,7 @@
         private System.Windows.Forms.Label friLabel;
         private System.Windows.Forms.Label satLabel;
         private System.Windows.Forms.Label sunLabel;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label usernameBox;
     }
 }

@@ -134,5 +134,9 @@ namespace WritingCenterForms
             return GetAccount(username).Admin;
         }
         */
+        public void submitUpdateRequest(string username, string name, int year, string[] majorsMinors, int reqHours)
+        {
+
+        }
     }
 }

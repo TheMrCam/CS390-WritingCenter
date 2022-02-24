@@ -130,5 +130,30 @@ namespace WritingCenterForms
             File.WriteAllText(path, s);
         }
 
+        public void OCBasicSchedule(int[] opens, int[] closes)
+        //initializes an empty schedule based on arrays of opening and closing hours
+        {
+            if(opens.Length != 7 || closes.Length != 7)
+            {
+                throw new ArgumentException();
+            }
+            else
+            {
+                for(int i = 0;i<7;i++)
+                {
+                    Days[i] = new Day(opens[i], closes[i]);
+                }
+            }
+        }
+
+        public string[] ScheduleLines()
+        {
+            ArrayList lines = new ArrayList();
+            foreach(Day day in Days)
+            {
+                lines.Add(day.PrintableDay());
+            }
+            return (string[])lines.ToArray(typeof(string));
+        }
     }
 }

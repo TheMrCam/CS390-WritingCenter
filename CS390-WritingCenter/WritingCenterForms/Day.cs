@@ -80,5 +80,28 @@ namespace WritingCenterForms
                 }
             }
         }
+
+        public void EditHour(int hour, bool available, string[] names)
+        {
+            Hours[hour].Open = available;
+            Hours[hour].Names = names;
+        }
+
+        public string PrintableDay()
+        {
+            string daystring = "[ ";
+            for(int i = 0; i < Slots; i++)
+            {
+                daystring += Hours[i].Open ? "1" : "0";
+                daystring += ": ";
+                foreach(string name in Hours[i].Names)
+                {
+                    daystring += name+" ";
+                }
+                daystring += " | ";
+            }
+            daystring += "]";
+            return daystring;
+        }
     }
 }

@@ -19,6 +19,16 @@ namespace WritingCenterForms
             Saturday,
             Sunday
         };
+        public enum daynames
+        {
+            monday,
+            tuesday,
+            wednesday,
+            thursday,
+            friday,
+            saturday,
+            sunday
+        };
         public struct Hour
         //Keeps the open bool and parameter string[] linked together in array of Hours[]
         {
@@ -35,6 +45,10 @@ namespace WritingCenterForms
         //public static int SlotSize { get { return SlotSize; } set { if (value == 15 || value == 20 || value == 30 || value == 60) { SlotSize = value; } else { SlotSize = 60; } } } //15, 20, 30, or 60 minute slots; default: 60
         private Hour[] hours;
         public Hour[] Hours { get { return hours; } set { hours = value;} }
+        public Day()
+        {
+            Hours = new Hour[Slots];
+        }
         public Day(int open, int close)
         //Constructs day based on opening to closing hours (24 hour time, midnight = 0)
         {

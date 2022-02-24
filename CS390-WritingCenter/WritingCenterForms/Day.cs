@@ -9,7 +9,7 @@ namespace WritingCenterForms
     internal class Day
     {
         private const int Slots = 24;
-        public enum Days
+        public enum DayNames
         {
             Monday,
             Tuesday,

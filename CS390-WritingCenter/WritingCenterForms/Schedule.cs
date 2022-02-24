@@ -24,6 +24,7 @@ namespace WritingCenterForms
         public bool MixMajors { get; set; }
         public string[,] schedule;
         public Dictionary<string, int> days;
+        public Day[] Days = new Day[7];
 
         public Schedule()
         {    

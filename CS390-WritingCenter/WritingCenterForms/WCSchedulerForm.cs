@@ -163,39 +163,38 @@ namespace WritingCenterForms
         {
 
             string fileName;
+            DialogResult result;
             using (var fileChooser = new SaveFileDialog())
             {
                 fileChooser.Title = "Save Database to file";
                 fileChooser.Filter = "Plain Text|*.txt|CSV Database|*.csv";
                 fileChooser.CheckFileExists = false;
-                DialogResult result = fileChooser.ShowDialog();
+                result = fileChooser.ShowDialog();
                 fileName = fileChooser.FileName;
             }
-            //MessageBox.Show("Here1");
-            if(string.IsNullOrEmpty(fileName))
+            if (result == DialogResult.OK)
             {
-                MessageBox.Show("Invalid File Name", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                //MessageBox.Show("Here2");
-                try
+                //MessageBox.Show("Here1");
+                if (string.IsNullOrEmpty(fileName))
                 {
-                    //var output = new FileStream(fileName, FileMode.OpenOrCreate, FileAccess.Write);
-                    //StreamWriter fileWriter = new StreamWriter(output);
-                    //Accounts.PrintDatabase(fileWriter);
-                    //fileWriter.Close();
-                    bool clean = fileName[fileName.IndexOf('.')+1] != 'c';
-                    await Task.Run(() => File.WriteAllLines(fileName, Accounts.DatabaseLines(clean)));
-                    //MessageBox.Show("No Error","Success",MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Invalid File Name", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                catch(IOException)
+                else
                 {
-                    MessageBox.Show("Error Opening File", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                catch
-                {
-                    MessageBox.Show("Miscellaneous Error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //MessageBox.Show("Here2");
+                    try
+                    {
+                        bool clean = fileName[fileName.IndexOf('.') + 1] != 'c';
+                        await Task.Run(() => File.WriteAllLines(fileName, Accounts.DatabaseLines(clean)));
+                    }
+                    catch (IOException)
+                    {
+                        MessageBox.Show("Error Opening File", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Miscellaneous Error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }

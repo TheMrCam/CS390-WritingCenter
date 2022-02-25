@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
+using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace WritingCenterForms
 {
@@ -108,6 +110,46 @@ namespace WritingCenterForms
         private void scheduleView_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private async void ExportSchedule_Click(object sender, EventArgs e)
+        {
+            string fileName;
+            DialogResult result;
+            using (var fileChooser = new SaveFileDialog())
+            {
+                fileChooser.Title = "Save Database to file";
+                fileChooser.Filter = "Plain Text|*.txt|CSV Database|*.csv";
+                fileChooser.CheckFileExists = false;
+                result = fileChooser.ShowDialog();
+                fileName = fileChooser.FileName;
+            }
+            if (result == DialogResult.OK)
+            {
+                //MessageBox.Show("Here1");
+                if (string.IsNullOrEmpty(fileName))
+                {
+                    MessageBox.Show("Invalid File Name", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    //MessageBox.Show("Here2");
+                    try
+                    {
+                        bool clean = fileName[fileName.IndexOf('.') + 1] != 'c';
+                        //await Task.Run(() => File.WriteAllLines(fileName, Accounts.DatabaseLines(clean)));
+                        //change Accounts.DatabaseLines above to Schedule export of string[]
+                    }
+                    catch (IOException)
+                    {
+                        MessageBox.Show("Error Opening File", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Miscellaneous Error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
         }
     }
 }

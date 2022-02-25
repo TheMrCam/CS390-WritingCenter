@@ -15,6 +15,7 @@ namespace WritingCenterForms
         private string[] majors;
         private int requestedHours;
         private bool admin;
+        private Day[] availability = new Day[7];
 
         public Account(string user, string pass)
         {
@@ -78,5 +79,18 @@ namespace WritingCenterForms
         {
             get { return admin; }
         }
+        /*
+        public Day AvailibilityOnDay(int d)
+        {
+            if(d >= 7 || d < 0)
+            {
+                throw new ArgumentOutOfRangeException("Day index must be between 0 and 6");
+            }
+            else
+            {
+                return availability[d];
+            }
+        }
+        */
     }
 }

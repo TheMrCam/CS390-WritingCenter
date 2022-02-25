@@ -79,18 +79,14 @@ namespace WritingCenterForms
         {
             get { return admin; }
         }
-        /*
-        public Day AvailibilityOnDay(int d)
+        
+        public Day Availability(int day)
         {
-            if(d >= 7 || d < 0)
-            {
-                throw new ArgumentOutOfRangeException("Day index must be between 0 and 6");
-            }
-            else
-            {
-                return availability[d];
-            }
+            return availability[day];
         }
-        */
+        public void SetAvailability(int day, bool[] availableTimes)
+        {
+            availability[day] = new Day(availableTimes, null);
+        }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WritingCenterForms
 {
-    internal class Day
+    public class Day
     {
         private const int Slots = 24;
         public enum DayNames

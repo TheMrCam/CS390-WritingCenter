@@ -94,11 +94,14 @@ namespace WritingCenterForms
             {
                 daystring += Hours[i].Open ? "1" : "0";
                 daystring += ": ";
-                foreach(string name in Hours[i].Names)
+                if (Hours[i].Names != null)
                 {
-                    daystring += name+" ";
+                    foreach (string name in Hours[i].Names)
+                    {
+                        daystring += name + " ";
+                    }
+                    daystring += " | ";
                 }
-                daystring += " | ";
             }
             daystring += "]";
             return daystring;

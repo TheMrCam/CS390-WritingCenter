@@ -6,31 +6,21 @@ using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WritingCenterForms;
 
 namespace WritingCenterForms
 {
-    //openHours: type Hours[7]
-    //busyShifts: type
-    //mixYears: bool
-    //mixMajors: bool
-    //perShift: int[2]
-    //adjacentShifts: int
-    //ScheduleFilled: bool
-    internal class Schedule
+    public class Schedule
     {
         public bool scheduleFilled;
-        public ArrayList openHours;
         public bool MixYears { get; set; }
         public bool MixMajors { get; set; }
-        public string[,] schedule;
         public Dictionary<string, int> days;
         public Day[] Days = new Day[7];
 
         public Schedule()
         {    
             scheduleFilled = false;
-            schedule = new string[22,7];
-            openHours = new ArrayList();
             days = new Dictionary<string, int>(){
                 { "sunday", 0},
                 { "monday", 1},
@@ -40,20 +30,10 @@ namespace WritingCenterForms
                 { "friday", 5},
                 { "saturday", 6}
             };
-            List<string> dayKeys = new List<string>(days.Keys);
-            for (int i = 0; i < 7; i++)
-            {
-                for (int j = 8; j < 22; j++)
-                {
-                    schedule[j, i] = "--";
-                    if (i != 6)
-                    {
-                        openHours.Add(dayKeys[i] + " " + convertTimeS(j));
-                    }
-                }
-            }
+            OCBasicSchedule(new int[] {11,8,8,8,8,8,23}, new int[] {23,23,23,23,23,23,23});
             importCSVFile();
             scheduleFilled = true;
+
         }
 
         public void importCSVFile(string fileName = @"schedule_draft.csv")
@@ -70,22 +50,11 @@ namespace WritingCenterForms
                     string[] values = regx.Split(line);
                     string time = values[0].Split('y')[1].Split('-')[0];    //has values like 9:00pm
                     string day = values[0].Split('y')[0] + 'y';     //has the value sunday, monday...
-                    string workers = values[1].Replace("\'", "").Replace("[", "").Replace("]", ""); //has "Natalie, Alice"...
-                    string numOfWorkers = values[2];
-                    schedule[convertTime(time), days[day]] = workers;
-                    openHours.Remove(day + " " + time);
+                    string[] workers = values[1].Replace("\'", "").Replace("[", "").Replace("]", "").Split(','); //has "Natalie, Alice"...
+                    Days[days[day]].EditHour(convertTime(time), true, workers);
+                    //openHours.Remove(day + " " + time);
                 }
             }
-        }
-
-        public string[,] getSchedule()
-        {
-            return schedule;
-        }
-
-        public ArrayList getOpenHours()
-        {
-            return openHours;
         }
 
         private int convertTime(string s)
@@ -102,10 +71,9 @@ namespace WritingCenterForms
             else return i + ":00pm";
         }
 
-        public string[] getWorkers(int i, int j)
+        public string[] getWorkers(int time, int day)
         {
-
-            return schedule[i, j].Split(',');
+            return Days[day].Hours[time].Names;
         }
 
         public void exportCSV()
@@ -121,8 +89,8 @@ namespace WritingCenterForms
             {
                 s += i.ToString() + delimiter;
                 for (int j = 0; j < 7; j++)
-                {
-                    s += schedule[i, j].Replace(",", "|") + delimiter;
+                { 
+                    //s += schedule[i, j].Replace(",", "|") + delimiter;
                 }
                 s = s.Substring(0, s.Length - 2) + "\n";
             }

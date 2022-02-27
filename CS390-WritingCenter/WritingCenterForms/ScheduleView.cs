@@ -28,7 +28,7 @@ namespace WritingCenterForms
             int cellHeight = 70;
             int cellWidth = 90;
 
-            for (int i = 8; i < 22; i++)
+            for (int i = 8; i < 24; i++)
             {
                 createTimeLabels(cellHeight, cellWidth, i);
                 for (int j = 0; j < 7; j++)
@@ -67,29 +67,23 @@ namespace WritingCenterForms
             //lbox.SelectionMode = SelectionMode.None;
 
             //adds every worker that is in that shift to the listbox
-            foreach (string worker in schedule.getWorkers(time, day))
+            string[] workers = schedule.getWorkers(time, day);
+            if (workers != null)
             {
-                if (worker == "--") //if schedule is empty then create a empty box
-                {
-                    lbox.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-                    break;
-                }
-                else
+                foreach (string worker in schedule.getWorkers(time, day))
                 {
                     //lbox.Items.Add(worker.Trim().Trim('\"'));
                     lbox.Text += worker.Trim().Trim('\"') + "\n";
                 }
-            }
-
-            //((scheduleArray[i, j] == "--") ? (Action)(() => { lbox.BackColor = System.Drawing.SystemColors.ActiveCaptionText; })
-            //                            : () => { lbox.Text = scheduleArray[i, j]; })();
+            } 
+            else  lbox.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             sPanel.Controls.Add(lbox);
         }
 
-        public ArrayList getOpenHours()
-        {
-            return schedule.getOpenHours();
-        }
+        //public ArrayList getOpenHours()
+        //{
+        //    return schedule.getOpenHours();
+        //}
 
         private void back_Click(object sender, EventArgs e)
         {
@@ -137,7 +131,7 @@ namespace WritingCenterForms
                     try
                     {
                         bool clean = fileName[fileName.IndexOf('.') + 1] != 'c';
-                        //await Task.Run(() => File.WriteAllLines(fileName, Accounts.DatabaseLines(clean)));
+                        await Task.Run(() => File.WriteAllLines(fileName, schedule.ScheduleLines()));  
                         //change Accounts.DatabaseLines above to Schedule export of string[]
                     }
                     catch (IOException)

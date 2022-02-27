@@ -21,13 +21,13 @@ namespace WritingCenterForms
         };
         public enum daynames
         {
+            sunday,
             monday,
             tuesday,
             wednesday,
             thursday,
             friday,
-            saturday,
-            sunday
+            saturday
         };
         public struct Hour
         //Keeps the open bool and parameter string[] linked together in array of Hours[]
@@ -103,5 +103,7 @@ namespace WritingCenterForms
             daystring += "]";
             return daystring;
         }
+
+        public daynames getDay { get; set; }
     }
 }

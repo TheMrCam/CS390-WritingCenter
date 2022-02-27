@@ -40,7 +40,7 @@ namespace WritingCenterForms
             else if (string.IsNullOrWhiteSpace(password.Text) || password.Text.Equals("Password"))
             {
                 errorProvider.Clear();
-                errorProvider.SetError(username, "Password required!");
+                errorProvider.SetError(password, "Password required!");
             }
             else
             {

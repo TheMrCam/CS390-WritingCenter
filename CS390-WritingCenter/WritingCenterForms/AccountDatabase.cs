@@ -68,7 +68,7 @@ namespace WritingCenterForms
             }
         }
 
-        //currently not working, adds fileName becomes "@dummy_accounts"
+        
         public void ImportFromCSV(string path)//string pathToFile = testCSV)
         {
             //string path = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName, "Data", "dummy_accounts.csv");//fileName);
@@ -137,6 +137,23 @@ namespace WritingCenterForms
         public void submitUpdateRequest(string username, string name, int year, string[] majorsMinors, int reqHours)
         {
 
+        }
+
+        public void UpdateAvailability(string user, bool[][] newAvailability)
+        {
+            if(newAvailability.Length != 7 || newAvailability[0].Length != 24)
+            {
+                throw new ArgumentException();
+            }
+            else
+            {
+                Account account = GetAccount(user);
+                for(int i = 0;i<7;i++)
+                {
+                    account.SetAvailability(i, newAvailability[i]);
+                }
+                
+            }
         }
     }
 }

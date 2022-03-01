@@ -17,8 +17,9 @@ namespace WritingCenterForms
         public bool MixMajors { get; set; }
         public Dictionary<string, int> days;
         public Day[] Days = new Day[7];
+        private ScheduleBuilder builder;
 
-        public Schedule()
+        public Schedule(AccountDatabase accounts) // version for the admins
         {    
             scheduleFilled = false;
             days = new Dictionary<string, int>(){
@@ -33,7 +34,25 @@ namespace WritingCenterForms
             OCBasicSchedule(new int[] {11,8,8,8,8,8,23}, new int[] {23,23,23,23,23,23,23});
             importCSVFile();
             scheduleFilled = true;
+            builder = new ScheduleBuilder(accounts);
 
+        }
+
+        public Schedule() // version for the users
+        {
+            scheduleFilled = false;
+            days = new Dictionary<string, int>(){
+                { "sunday", 0},
+                { "monday", 1},
+                { "tuesday", 2},
+                { "wednesday", 3},
+                { "thursday", 4},
+                { "friday", 5},
+                { "saturday", 6}
+            };
+            OCBasicSchedule(new int[] { 11, 8, 8, 8, 8, 8, 23 }, new int[] { 23, 23, 23, 23, 23, 23, 23 });
+            importCSVFile();
+            scheduleFilled = true;
         }
 
         public void importCSVFile(string fileName = @"schedule_draft.csv")
@@ -123,5 +142,7 @@ namespace WritingCenterForms
             }
             return (string[])lines.ToArray(typeof(string));
         }
+
+
     }
 }

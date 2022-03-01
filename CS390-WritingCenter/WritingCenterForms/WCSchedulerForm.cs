@@ -13,10 +13,10 @@ namespace WritingCenterForms
 {
     public partial class WCSchedulerForm : Form
     {        
-        private static scheduleView scheduleView1 = new scheduleView();
+        public static AccountDatabase Accounts = new AccountDatabase();
+        private static scheduleView scheduleView1 = new scheduleView(Accounts);
         AdminLand adminLand1 = new AdminLand(scheduleView1);
         AcctManagePage acctManagePage1 = new AcctManagePage();
-        public static AccountDatabase Accounts = new AccountDatabase();
         public static Account currentAccount = null;
         UserLand UserLand = new UserLand();
         readonly String defaultPass = "coe"; // change based on user somehow, not sure how to do that - AT

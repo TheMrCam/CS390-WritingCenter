@@ -10,12 +10,21 @@ namespace WritingCenterForms
     {
         private Schedule schedule;
         private FlowLayoutPanel sPanel;
-        public scheduleView()
+        public scheduleView(AccountDatabase Accounts) // version for the admin page
+        {
+            InitializeComponent();
+            schedule = new Schedule(Accounts);
+            sPanel = new FlowLayoutPanel();
+            
+            prepareSchedule();
+        }
+
+        public scheduleView() // version for consultant page
         {
             InitializeComponent();
             schedule = new Schedule();
             sPanel = new FlowLayoutPanel();
-            
+
             prepareSchedule();
         }
 

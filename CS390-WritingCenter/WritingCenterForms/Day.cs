@@ -34,11 +34,18 @@ namespace WritingCenterForms
         {
             private bool open;
             private string[] names;
+            public int minWorkers, maxWorkers;
             public bool Open { get { return open; } set { open = value; } }
             public string[] Names { get { return names; } set { names = value; } }
             public Hour(bool available, string[] workers = null)
             {
                 this.open = available;
+                if (available)
+                {
+                    minWorkers = 1;
+                    maxWorkers = 4;
+                }
+                else { minWorkers = 0; maxWorkers = 0; }
                 this.names = workers;
             }
         }

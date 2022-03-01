@@ -31,7 +31,7 @@ namespace WritingCenterForms
                 { "friday", 5},
                 { "saturday", 6}
             };
-            OCBasicSchedule(new int[] {11,8,8,8,8,8,23}, new int[] {23,23,23,23,23,23,23});
+            OCBasicSchedule(new int[] {11,8,8,8,8,8,23}, new int[] {23,23,23,23,23,23,23}); // default open hours?
             importCSVFile();
             scheduleFilled = true;
             builder = new ScheduleBuilder(accounts);
@@ -50,7 +50,7 @@ namespace WritingCenterForms
                 { "friday", 5},
                 { "saturday", 6}
             };
-            OCBasicSchedule(new int[] { 11, 8, 8, 8, 8, 8, 23 }, new int[] { 23, 23, 23, 23, 23, 23, 23 });
+            OCBasicSchedule(new int[] { 11, 8, 8, 8, 8, 8, 23 }, new int[] { 23, 23, 23, 23, 23, 23, 23 }); // default open hours?
             importCSVFile();
             scheduleFilled = true;
         }
@@ -143,6 +143,12 @@ namespace WritingCenterForms
             return (string[])lines.ToArray(typeof(string));
         }
 
-
+        public Schedule buildNewSchedule(int[] opens, int[] closes)
+        {
+            Schedule newSched = new Schedule();
+            newSched.OCBasicSchedule(opens, closes);
+            builder.buildSchedule(newSched);
+            return newSched;
+        }
     }
 }

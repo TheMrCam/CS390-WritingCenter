@@ -14,10 +14,9 @@ namespace WritingCenterForms
         {
             this.accounts = accounts;
         }
-
-        public Schedule buildSchedule(Schedule schedule, bool shiftInRow, bool expMix, bool majMix, int hrReqMargErr)
+                                                       //not implemented,        not implemented,     not implemented,     not implemented
+        public Schedule buildSchedule(Schedule schedule, bool shiftInRow = true, bool expMix = false, bool majMix = false, int hrReqMargErr = 2)
         {
-
             return schedule;
         }
 

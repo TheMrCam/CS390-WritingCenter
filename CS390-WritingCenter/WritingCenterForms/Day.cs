@@ -48,6 +48,14 @@ namespace WritingCenterForms
                 else { minWorkers = 0; maxWorkers = 0; }
                 this.names = workers;
             }
+            public string[] getNames()
+            {
+                return names;
+            }
+            public void setNames(string[] newNames)
+            {
+                this.names = newNames;
+            }
         }
         //public static int SlotSize { get { return SlotSize; } set { if (value == 15 || value == 20 || value == 30 || value == 60) { SlotSize = value; } else { SlotSize = 60; } } } //15, 20, 30, or 60 minute slots; default: 60
         private Hour[] hours;
@@ -113,7 +121,6 @@ namespace WritingCenterForms
             daystring += "]";
             return daystring;
         }
-
-        public daynames getDay { get; set; }
+    
     }
 }

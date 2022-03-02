@@ -155,5 +155,15 @@ namespace WritingCenterForms
                 
             }
         }
+
+        public string[] AccountNamesList()
+        {
+            ArrayList names = new ArrayList();
+            foreach(Account account in accounts)
+            {
+                names.Add(account.Name);
+            }
+            return (string[])names.ToArray(typeof(string));
+        }
     }
 }

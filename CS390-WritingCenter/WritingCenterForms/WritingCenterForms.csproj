@@ -57,6 +57,18 @@
     <Compile Include="ScheduleBuilder.cs" />
     <Compile Include="Day.cs" />
     <Compile Include="Schedule.cs" />
+    <Compile Include="Settings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Settings.Designer.cs">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ShiftControls.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ShiftControls.Designer.cs">
+      <DependentUpon>ShiftControls.cs</DependentUpon>
+    </Compile>
     <Compile Include="WCSchedulerForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,6 +110,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EditAcctInfoPage.resx">
       <DependentUpon>EditAcctInfoPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings.resx">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ShiftControls.resx">
+      <DependentUpon>ShiftControls.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WCSchedulerForm.resx">
       <DependentUpon>WCSchedulerForm.cs</DependentUpon>

@@ -83,7 +83,7 @@ namespace WritingCenterForms
             return hour;
         }
 
-        private string convertTimeS(int i)
+        private string convertTime(int i)
         {
             if (i > 12) return i - 12 + ":00pm";
             else if (i < 12) return i + ":00am";

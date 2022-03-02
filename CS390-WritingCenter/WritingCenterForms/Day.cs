@@ -9,16 +9,6 @@ namespace WritingCenterForms
     public class Day
     {
         private const int Slots = 24;
-        public enum DayNames
-        {
-            Monday,
-            Tuesday,
-            Wednesday,
-            Thursday,
-            Friday,
-            Saturday,
-            Sunday
-        };
         public enum daynames
         {
             sunday,

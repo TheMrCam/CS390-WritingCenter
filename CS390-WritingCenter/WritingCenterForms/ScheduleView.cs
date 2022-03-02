@@ -15,7 +15,6 @@ namespace WritingCenterForms
             InitializeComponent();
             schedule = new Schedule(Accounts);
             sPanel = new FlowLayoutPanel();
-            
             prepareSchedule();
         }
 
@@ -73,6 +72,7 @@ namespace WritingCenterForms
             lbox.Width = width;
             lbox.Left = time * (width + 1); //makes a new lbox adjacent to the current lbox
             lbox.Name = "lbox" + time + day;
+            lbox.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             //lbox.SelectionMode = SelectionMode.None;
 
             //adds every worker that is in that shift to the listbox
@@ -101,7 +101,9 @@ namespace WritingCenterForms
 
         private string convertTime(int i)
         {
-            return i > 12 ? i - 12 + ":00 PM": i+":00 AM";
+            if (i > 12) return i - 12 + ":00 PM";
+            else if (i < 12) return i + ":00 AM";
+            else return i + ":00 PM";
         }
 
         private void logOut_Click(object sender, EventArgs e)

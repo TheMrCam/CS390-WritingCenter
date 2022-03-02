@@ -14,15 +14,18 @@ namespace WritingCenterForms
     {
         scheduleView scheduleView1; //= new scheduleView();
         AcctManagePage AcctManagePage1 = new AcctManagePage();
+        Settings settingPage = new Settings();
         public AdminLand(scheduleView scheduleView1)
         {
             InitializeComponent();
             this.scheduleView1 = scheduleView1;
             this.Controls.Add(scheduleView1);
             this.Controls.Add(AcctManagePage1);
+            this.Controls.Add(settingPage);
 
             scheduleView1.Hide();
             AcctManagePage1.Hide();
+            settingPage.Hide();
         }
 
         private void manageAcct_Click(object sender, EventArgs e)
@@ -33,7 +36,8 @@ namespace WritingCenterForms
 
         private void settings_Click(object sender, EventArgs e)
         {
-
+            settingPage.Show();
+            settingPage.BringToFront();
         }
 
         private void EditReq_Click(object sender, EventArgs e)

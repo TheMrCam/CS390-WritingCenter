@@ -134,12 +134,15 @@ namespace WritingCenterForms
             return GetAccount(username).Admin;
         }
         */
-        public void submitUpdateRequest(string username, string name, int year, string[] majorsMinors, int reqHours)
+        public void submitUpdateRequest(string username, string name, int year, string[] majors, string[] minors, int reqHours)
         {
             Account userAccount = GetAccount(username);
             if (userAccount != null)
             {
-
+                userAccount.Name = name;
+                userAccount.Year = year;
+                userAccount.RequestedHours = reqHours;
+                userAccount.SetMajorsMinors(majors, minors);
             }
         }
 

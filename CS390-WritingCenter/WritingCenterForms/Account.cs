@@ -12,7 +12,7 @@ namespace WritingCenterForms
         private string password;
         public string Name { get; set; }
         private int year;
-        private string[] majors;
+        private string[] majorsMinors;
         private int requestedHours;
         private bool admin;
         private Day[] availability = new Day[7];
@@ -31,7 +31,7 @@ namespace WritingCenterForms
                 password = SecurePasswordHasher.Hash(pass);
             Name = name;
             year = y;
-            majors = mm;
+            majorsMinors = mm;
             requestedHours = reqHour;
             admin = isAdmin;
         }
@@ -44,6 +44,13 @@ namespace WritingCenterForms
         public string Password
         {
             get { return password; }
+            set
+            {
+                if (SecurePasswordHasher.IsHashSupported(value))
+                    password = value;
+                else
+                    password = SecurePasswordHasher.Hash(value);
+            }
         }
 
         public bool ValidatePassword(string newPass)
@@ -55,29 +62,45 @@ namespace WritingCenterForms
         {
             get { return year; }
             set 
-            { //need to preform validation
-                year = value;
+            { 
+                if (value.ToString().Length == 4) { year = value; }
             }
         }
 
         public string[] Majors
         {
-            get { return (from m in majors where Char.IsUpper(m[0]) select m).ToArray(); }
+            get { return (from m in majorsMinors where Char.IsUpper(m[0]) select m).ToArray(); }
         }
 
         public string[] Minors
         {
-            get { return (from m in majors where Char.IsLower(m[0]) select m).ToArray(); }
+            get { return (from m in majorsMinors where Char.IsLower(m[0]) select m).ToArray(); }
+        }
+
+        public void SetMajorsMinors(string[] majors, string[] minors)
+        {
+            List<string> mm = new List<string>();
+            foreach(string m in majors)
+            {
+                mm.Add(m.ToUpper());
+            }
+            foreach (string m in minors)
+            {
+                mm.Add(m.ToLower());
+            }
+            majorsMinors = (string[])mm.ToArray();
         }
 
         public int RequestedHours
         {
             get { return requestedHours; }
+            set { if (0 <= value && value <= 24) { requestedHours = value; } }
         }
 
         public bool Admin
         {
-            get { return admin; }
+            get => admin;
+            set => admin = value;
         }
         
         public Day Availability(int day)

@@ -17,8 +17,8 @@ namespace WritingCenterForms
                                                        //not implemented,        not implemented,     not implemented,     not implemented
         public void buildSchedule(Schedule schedule, bool shiftInRow = true, bool expMix = false, bool majMix = false, int hrReqMargErr = 2)
         {
-            //string[] workerList = new string[accounts.DatabaseLines];
-            string[] workerList = new string[1];
+            string[] workerList = accounts.AccountNamesList();
+            //string[] workerList = new string[1];
             foreach (Day day in schedule.Days)
             {
                 foreach (Day.Hour hour in day.Hours)

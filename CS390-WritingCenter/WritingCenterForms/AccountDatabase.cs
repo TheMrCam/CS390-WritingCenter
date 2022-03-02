@@ -26,14 +26,14 @@ namespace WritingCenterForms
 
         public Account GetAccount(string user, bool name = false)
         {
-            foreach(Account currentAccount in accounts)
+            foreach (Account currentAccount in accounts)
             {
-                if(name)
+                if (name)
                 {
                     if (currentAccount.Name == user)
                         return currentAccount;
                 }
-                else 
+                else
                 {
                     if (currentAccount.Username == user)
                         return currentAccount;
@@ -68,7 +68,7 @@ namespace WritingCenterForms
             }
         }
 
-        
+
         public void ImportFromCSV(string path)//string pathToFile = testCSV)
         {
             //string path = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName, "Data", "dummy_accounts.csv");//fileName);
@@ -123,7 +123,7 @@ namespace WritingCenterForms
                 }
                 else
                 {
-                    lines.Add($"{account.Username},{account.Password},{account.Name},{account.Year},{(string.Join("-",account.Majors)+"-"+(string.Join("-", account.Minors)))},{account.RequestedHours},{account.Admin}");
+                    lines.Add($"{account.Username},{account.Password},{account.Name},{account.Year},{(string.Join("-", account.Majors) + "-" + (string.Join("-", account.Minors)))},{account.RequestedHours},{account.Admin}");
                 }
             }
             return (string[])lines.ToArray(typeof(string));
@@ -136,24 +136,47 @@ namespace WritingCenterForms
         */
         public void submitUpdateRequest(string username, string name, int year, string[] majorsMinors, int reqHours)
         {
+            Account userAccount = GetAccount(username);
+            if (userAccount != null)
+            {
 
+            }
         }
 
         public void UpdateAvailability(string user, bool[][] newAvailability)
         {
-            if(newAvailability.Length != 7 || newAvailability[0].Length != 24)
+            if (newAvailability.Length != 7 || newAvailability[0].Length != 24)
             {
                 throw new ArgumentException();
             }
             else
             {
                 Account account = GetAccount(user);
-                for(int i = 0;i<7;i++)
+                for (int i = 0; i < 7; i++)
                 {
                     account.SetAvailability(i, newAvailability[i]);
                 }
-                
+
             }
+        }
+
+        public ArrayList GetDatabaseInformation()
+        {
+            ArrayList fullList = new ArrayList();
+            ArrayList list = new ArrayList();
+            foreach (Account account in accounts)
+            {
+                list.Add(account.Name);
+                list.Add(account.Year);
+                list.Add(account.RequestedHours);
+                list.Add(account.Majors);
+                list.Add(account.Minors);
+                for(int i = 0;i<7;i++) { list.Add(account.Availability(i)); }
+                fullList.Add(list);
+                list.Clear();
+            }
+            //Columns: String, Int, Int, String[], String[], Day, Day, Day, Day, Day, Day, Day
+            return fullList;
         }
 
         public string[] AccountNamesList()

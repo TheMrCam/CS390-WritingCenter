@@ -32,10 +32,10 @@
             this.password = new System.Windows.Forms.TextBox();
             this.username = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.forgotPasswordButton = new System.Windows.Forms.Button();
             this.bootRight = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -79,6 +79,8 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.BackgroundImage = global::WritingCenterForms.Properties.Resources.bgImage;
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.forgotPasswordButton);
@@ -91,6 +93,17 @@
             this.panel1.TabIndex = 9;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             this.panel1.Leave += new System.EventHandler(this.resetLogin);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = global::WritingCenterForms.Properties.Resources.CWC_logo_Black_Primary;
+            this.pictureBox1.Location = new System.Drawing.Point(248, 90);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(664, 314);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
             // 
             // button1
             // 
@@ -122,16 +135,6 @@
             this.bootRight.Size = new System.Drawing.Size(132, 22);
             this.bootRight.TabIndex = 6;
             this.bootRight.Text = "test";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::WritingCenterForms.Properties.Resources.CWC_logo_Black_Primary;
-            this.pictureBox1.Location = new System.Drawing.Point(248, 90);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(664, 314);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 7;
-            this.pictureBox1.TabStop = false;
             // 
             // WCSchedulerForm
             // 

@@ -14,7 +14,7 @@ namespace WritingCenterForms
     {
         scheduleView scheduleView1; //= new scheduleView();
         AcctManagePage AcctManagePage1 = new AcctManagePage();
-        Settings settingPage = new Settings();
+        SettingsPage settingPage = new SettingsPage();
         public AdminLand(scheduleView scheduleView1)
         {
             InitializeComponent();

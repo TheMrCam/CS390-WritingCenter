@@ -190,6 +190,7 @@
             this.label2.Size = new System.Drawing.Size(134, 25);
             this.label2.TabIndex = 6;
             this.label2.Text = "Min Workers";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1
             // 
@@ -200,6 +201,7 @@
             this.label1.Size = new System.Drawing.Size(60, 25);
             this.label1.TabIndex = 5;
             this.label1.Text = "Time";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label3
             // 
@@ -210,6 +212,7 @@
             this.label3.Size = new System.Drawing.Size(140, 25);
             this.label3.TabIndex = 7;
             this.label3.Text = "Max Workers";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
             // 
@@ -220,6 +223,7 @@
             this.label4.Size = new System.Drawing.Size(60, 25);
             this.label4.TabIndex = 8;
             this.label4.Text = "Busy";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -228,7 +232,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 79.09454F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.90546F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 145F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 140F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 143F));
             this.tableLayoutPanel1.Controls.Add(this.busyCheckBox9, 3, 8);
             this.tableLayoutPanel1.Controls.Add(this.checkBox9, 0, 8);
             this.tableLayoutPanel1.Controls.Add(this.busyCheckBox8, 3, 7);
@@ -361,7 +365,7 @@
             // 
             this.busyCheckBox9.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.busyCheckBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.busyCheckBox9.Location = new System.Drawing.Point(853, 299);
+            this.busyCheckBox9.Location = new System.Drawing.Point(850, 299);
             this.busyCheckBox9.Name = "busyCheckBox9";
             this.busyCheckBox9.Size = new System.Drawing.Size(131, 30);
             this.busyCheckBox9.TabIndex = 35;
@@ -373,7 +377,7 @@
             this.checkBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox9.Location = new System.Drawing.Point(3, 299);
             this.checkBox9.Name = "checkBox9";
-            this.checkBox9.Size = new System.Drawing.Size(552, 30);
+            this.checkBox9.Size = new System.Drawing.Size(550, 30);
             this.checkBox9.TabIndex = 32;
             this.checkBox9.Text = "8:00AM - 9:00AM";
             this.checkBox9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -384,7 +388,7 @@
             // 
             this.busyCheckBox8.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.busyCheckBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.busyCheckBox8.Location = new System.Drawing.Point(853, 263);
+            this.busyCheckBox8.Location = new System.Drawing.Point(850, 263);
             this.busyCheckBox8.Name = "busyCheckBox8";
             this.busyCheckBox8.Size = new System.Drawing.Size(131, 30);
             this.busyCheckBox8.TabIndex = 31;
@@ -395,7 +399,7 @@
             // 
             this.busyCheckBox7.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.busyCheckBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.busyCheckBox7.Location = new System.Drawing.Point(853, 226);
+            this.busyCheckBox7.Location = new System.Drawing.Point(850, 226);
             this.busyCheckBox7.Name = "busyCheckBox7";
             this.busyCheckBox7.Size = new System.Drawing.Size(131, 27);
             this.busyCheckBox7.TabIndex = 30;
@@ -406,7 +410,7 @@
             // 
             this.busyCheckBox6.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.busyCheckBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.busyCheckBox6.Location = new System.Drawing.Point(853, 189);
+            this.busyCheckBox6.Location = new System.Drawing.Point(850, 189);
             this.busyCheckBox6.Name = "busyCheckBox6";
             this.busyCheckBox6.Size = new System.Drawing.Size(131, 27);
             this.busyCheckBox6.TabIndex = 29;
@@ -417,7 +421,7 @@
             // 
             this.busyCheckBox5.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.busyCheckBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.busyCheckBox5.Location = new System.Drawing.Point(853, 151);
+            this.busyCheckBox5.Location = new System.Drawing.Point(850, 151);
             this.busyCheckBox5.Name = "busyCheckBox5";
             this.busyCheckBox5.Size = new System.Drawing.Size(131, 28);
             this.busyCheckBox5.TabIndex = 28;
@@ -428,7 +432,7 @@
             // 
             this.busyCheckBox4.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.busyCheckBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.busyCheckBox4.Location = new System.Drawing.Point(853, 115);
+            this.busyCheckBox4.Location = new System.Drawing.Point(850, 115);
             this.busyCheckBox4.Name = "busyCheckBox4";
             this.busyCheckBox4.Size = new System.Drawing.Size(131, 28);
             this.busyCheckBox4.TabIndex = 27;
@@ -439,7 +443,7 @@
             // 
             this.busyCheckBox3.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.busyCheckBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.busyCheckBox3.Location = new System.Drawing.Point(853, 77);
+            this.busyCheckBox3.Location = new System.Drawing.Point(850, 77);
             this.busyCheckBox3.Name = "busyCheckBox3";
             this.busyCheckBox3.Size = new System.Drawing.Size(131, 28);
             this.busyCheckBox3.TabIndex = 26;
@@ -450,7 +454,7 @@
             // 
             this.busyCheckBox2.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.busyCheckBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.busyCheckBox2.Location = new System.Drawing.Point(853, 40);
+            this.busyCheckBox2.Location = new System.Drawing.Point(850, 40);
             this.busyCheckBox2.Name = "busyCheckBox2";
             this.busyCheckBox2.Size = new System.Drawing.Size(131, 27);
             this.busyCheckBox2.TabIndex = 25;
@@ -462,7 +466,7 @@
             this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox1.Location = new System.Drawing.Point(3, 3);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(552, 29);
+            this.checkBox1.Size = new System.Drawing.Size(550, 29);
             this.checkBox1.TabIndex = 0;
             this.checkBox1.Text = "12:00AM - 1:00AM";
             this.checkBox1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -474,7 +478,7 @@
             this.checkBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox2.Location = new System.Drawing.Point(3, 40);
             this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(552, 27);
+            this.checkBox2.Size = new System.Drawing.Size(550, 27);
             this.checkBox2.TabIndex = 1;
             this.checkBox2.Text = "1:00AM - 2:00AM";
             this.checkBox2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -486,7 +490,7 @@
             this.checkBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox3.Location = new System.Drawing.Point(3, 77);
             this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(552, 28);
+            this.checkBox3.Size = new System.Drawing.Size(550, 28);
             this.checkBox3.TabIndex = 2;
             this.checkBox3.Text = "2:00AM - 3:00AM";
             this.checkBox3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -498,7 +502,7 @@
             this.checkBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox4.Location = new System.Drawing.Point(3, 115);
             this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(552, 28);
+            this.checkBox4.Size = new System.Drawing.Size(550, 28);
             this.checkBox4.TabIndex = 3;
             this.checkBox4.Text = "3:00AM - 4:00AM";
             this.checkBox4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -510,7 +514,7 @@
             this.checkBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox5.Location = new System.Drawing.Point(3, 151);
             this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(552, 28);
+            this.checkBox5.Size = new System.Drawing.Size(550, 28);
             this.checkBox5.TabIndex = 4;
             this.checkBox5.Text = "4:00AM - 5:00AM";
             this.checkBox5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -522,7 +526,7 @@
             this.checkBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox6.Location = new System.Drawing.Point(3, 189);
             this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(552, 27);
+            this.checkBox6.Size = new System.Drawing.Size(550, 27);
             this.checkBox6.TabIndex = 5;
             this.checkBox6.Text = "5:00AM - 6:00AM";
             this.checkBox6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -534,7 +538,7 @@
             this.checkBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox7.Location = new System.Drawing.Point(3, 226);
             this.checkBox7.Name = "checkBox7";
-            this.checkBox7.Size = new System.Drawing.Size(552, 27);
+            this.checkBox7.Size = new System.Drawing.Size(550, 27);
             this.checkBox7.TabIndex = 6;
             this.checkBox7.Text = "6:00AM - 7:00AM";
             this.checkBox7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -546,7 +550,7 @@
             this.checkBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox8.Location = new System.Drawing.Point(3, 263);
             this.checkBox8.Name = "checkBox8";
-            this.checkBox8.Size = new System.Drawing.Size(552, 30);
+            this.checkBox8.Size = new System.Drawing.Size(550, 30);
             this.checkBox8.TabIndex = 7;
             this.checkBox8.Text = "7:00AM - 8:00AM";
             this.checkBox8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -556,14 +560,14 @@
             // minWorkers1
             // 
             this.minWorkers1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.minWorkers1.Location = new System.Drawing.Point(561, 3);
+            this.minWorkers1.Location = new System.Drawing.Point(559, 3);
             this.minWorkers1.Maximum = new decimal(new int[] {
             10,
             0,
             0,
             0});
             this.minWorkers1.Name = "minWorkers1";
-            this.minWorkers1.Size = new System.Drawing.Size(141, 30);
+            this.minWorkers1.Size = new System.Drawing.Size(140, 30);
             this.minWorkers1.TabIndex = 8;
             this.minWorkers1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.minWorkers1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
@@ -572,7 +576,7 @@
             // 
             this.busyCheckBox1.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.busyCheckBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.busyCheckBox1.Location = new System.Drawing.Point(853, 3);
+            this.busyCheckBox1.Location = new System.Drawing.Point(850, 3);
             this.busyCheckBox1.Name = "busyCheckBox1";
             this.busyCheckBox1.Size = new System.Drawing.Size(131, 29);
             this.busyCheckBox1.TabIndex = 24;
@@ -584,7 +588,7 @@
             this.checkBox10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox10.Location = new System.Drawing.Point(3, 336);
             this.checkBox10.Name = "checkBox10";
-            this.checkBox10.Size = new System.Drawing.Size(552, 29);
+            this.checkBox10.Size = new System.Drawing.Size(550, 29);
             this.checkBox10.TabIndex = 36;
             this.checkBox10.Text = "9:00AM - 10:00AM";
             this.checkBox10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -595,7 +599,7 @@
             this.checkBox11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox11.Location = new System.Drawing.Point(3, 372);
             this.checkBox11.Name = "checkBox11";
-            this.checkBox11.Size = new System.Drawing.Size(552, 29);
+            this.checkBox11.Size = new System.Drawing.Size(550, 29);
             this.checkBox11.TabIndex = 37;
             this.checkBox11.Text = "10:00AM - 11:00AM";
             this.checkBox11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -606,7 +610,7 @@
             this.checkBox12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox12.Location = new System.Drawing.Point(3, 408);
             this.checkBox12.Name = "checkBox12";
-            this.checkBox12.Size = new System.Drawing.Size(552, 29);
+            this.checkBox12.Size = new System.Drawing.Size(550, 29);
             this.checkBox12.TabIndex = 38;
             this.checkBox12.Text = "11:00AM - 12:00PM";
             this.checkBox12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -617,7 +621,7 @@
             this.checkBox13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox13.Location = new System.Drawing.Point(3, 444);
             this.checkBox13.Name = "checkBox13";
-            this.checkBox13.Size = new System.Drawing.Size(552, 30);
+            this.checkBox13.Size = new System.Drawing.Size(550, 30);
             this.checkBox13.TabIndex = 39;
             this.checkBox13.Text = "12:00PM - 1:00PM";
             this.checkBox13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -628,7 +632,7 @@
             this.checkBox14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox14.Location = new System.Drawing.Point(3, 481);
             this.checkBox14.Name = "checkBox14";
-            this.checkBox14.Size = new System.Drawing.Size(552, 30);
+            this.checkBox14.Size = new System.Drawing.Size(550, 30);
             this.checkBox14.TabIndex = 40;
             this.checkBox14.Text = "1:00PM - 2:00PM";
             this.checkBox14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -639,7 +643,7 @@
             this.checkBox15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox15.Location = new System.Drawing.Point(3, 518);
             this.checkBox15.Name = "checkBox15";
-            this.checkBox15.Size = new System.Drawing.Size(552, 29);
+            this.checkBox15.Size = new System.Drawing.Size(550, 29);
             this.checkBox15.TabIndex = 41;
             this.checkBox15.Text = "2:00PM - 3:00PM";
             this.checkBox15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -650,7 +654,7 @@
             this.checkBox16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox16.Location = new System.Drawing.Point(3, 554);
             this.checkBox16.Name = "checkBox16";
-            this.checkBox16.Size = new System.Drawing.Size(552, 29);
+            this.checkBox16.Size = new System.Drawing.Size(550, 29);
             this.checkBox16.TabIndex = 42;
             this.checkBox16.Text = "3:00PM - 4:00PM";
             this.checkBox16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -661,7 +665,7 @@
             this.checkBox17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox17.Location = new System.Drawing.Point(3, 592);
             this.checkBox17.Name = "checkBox17";
-            this.checkBox17.Size = new System.Drawing.Size(552, 29);
+            this.checkBox17.Size = new System.Drawing.Size(550, 29);
             this.checkBox17.TabIndex = 43;
             this.checkBox17.Text = "4:00PM - 5:00PM";
             this.checkBox17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -672,7 +676,7 @@
             this.checkBox18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox18.Location = new System.Drawing.Point(3, 627);
             this.checkBox18.Name = "checkBox18";
-            this.checkBox18.Size = new System.Drawing.Size(552, 29);
+            this.checkBox18.Size = new System.Drawing.Size(550, 29);
             this.checkBox18.TabIndex = 44;
             this.checkBox18.Text = "5:00PM - 6:00PM";
             this.checkBox18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -683,7 +687,7 @@
             this.checkBox19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox19.Location = new System.Drawing.Point(3, 662);
             this.checkBox19.Name = "checkBox19";
-            this.checkBox19.Size = new System.Drawing.Size(552, 29);
+            this.checkBox19.Size = new System.Drawing.Size(550, 29);
             this.checkBox19.TabIndex = 45;
             this.checkBox19.Text = "6:00PM - 7:00PM";
             this.checkBox19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -694,7 +698,7 @@
             this.checkBox20.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox20.Location = new System.Drawing.Point(3, 698);
             this.checkBox20.Name = "checkBox20";
-            this.checkBox20.Size = new System.Drawing.Size(552, 29);
+            this.checkBox20.Size = new System.Drawing.Size(550, 29);
             this.checkBox20.TabIndex = 46;
             this.checkBox20.Text = "7:00PM - 8:00PM";
             this.checkBox20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -705,7 +709,7 @@
             this.checkBox21.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox21.Location = new System.Drawing.Point(3, 735);
             this.checkBox21.Name = "checkBox21";
-            this.checkBox21.Size = new System.Drawing.Size(552, 29);
+            this.checkBox21.Size = new System.Drawing.Size(550, 29);
             this.checkBox21.TabIndex = 47;
             this.checkBox21.Text = "8:00PM - 9:00PM";
             this.checkBox21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -716,7 +720,7 @@
             this.checkBox22.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox22.Location = new System.Drawing.Point(3, 773);
             this.checkBox22.Name = "checkBox22";
-            this.checkBox22.Size = new System.Drawing.Size(552, 29);
+            this.checkBox22.Size = new System.Drawing.Size(550, 29);
             this.checkBox22.TabIndex = 48;
             this.checkBox22.Text = "9:00PM - 10:00PM";
             this.checkBox22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -727,7 +731,7 @@
             this.checkBox23.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox23.Location = new System.Drawing.Point(3, 811);
             this.checkBox23.Name = "checkBox23";
-            this.checkBox23.Size = new System.Drawing.Size(552, 28);
+            this.checkBox23.Size = new System.Drawing.Size(550, 28);
             this.checkBox23.TabIndex = 49;
             this.checkBox23.Text = "10:00PM - 11:00PM";
             this.checkBox23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -738,7 +742,7 @@
             this.checkBox24.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox24.Location = new System.Drawing.Point(3, 845);
             this.checkBox24.Name = "checkBox24";
-            this.checkBox24.Size = new System.Drawing.Size(552, 29);
+            this.checkBox24.Size = new System.Drawing.Size(550, 29);
             this.checkBox24.TabIndex = 50;
             this.checkBox24.Text = "11:00PM - 12:00AM";
             this.checkBox24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -747,9 +751,9 @@
             // minWorkers18
             // 
             this.minWorkers18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.minWorkers18.Location = new System.Drawing.Point(561, 627);
+            this.minWorkers18.Location = new System.Drawing.Point(559, 627);
             this.minWorkers18.Name = "minWorkers18";
-            this.minWorkers18.Size = new System.Drawing.Size(141, 30);
+            this.minWorkers18.Size = new System.Drawing.Size(140, 30);
             this.minWorkers18.TabIndex = 34;
             this.minWorkers18.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.minWorkers18.ValueChanged += new System.EventHandler(this.numericUpDown18_ValueChanged);
@@ -757,9 +761,9 @@
             // minWorkers17
             // 
             this.minWorkers17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.minWorkers17.Location = new System.Drawing.Point(561, 592);
+            this.minWorkers17.Location = new System.Drawing.Point(559, 592);
             this.minWorkers17.Name = "minWorkers17";
-            this.minWorkers17.Size = new System.Drawing.Size(141, 30);
+            this.minWorkers17.Size = new System.Drawing.Size(140, 30);
             this.minWorkers17.TabIndex = 33;
             this.minWorkers17.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.minWorkers17.ValueChanged += new System.EventHandler(this.numericUpDown17_ValueChanged);
@@ -767,9 +771,9 @@
             // minWorkers16
             // 
             this.minWorkers16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.minWorkers16.Location = new System.Drawing.Point(561, 554);
+            this.minWorkers16.Location = new System.Drawing.Point(559, 554);
             this.minWorkers16.Name = "minWorkers16";
-            this.minWorkers16.Size = new System.Drawing.Size(141, 30);
+            this.minWorkers16.Size = new System.Drawing.Size(140, 30);
             this.minWorkers16.TabIndex = 23;
             this.minWorkers16.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.minWorkers16.ValueChanged += new System.EventHandler(this.numericUpDown16_ValueChanged);
@@ -777,9 +781,9 @@
             // minWorkers15
             // 
             this.minWorkers15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.minWorkers15.Location = new System.Drawing.Point(561, 518);
+            this.minWorkers15.Location = new System.Drawing.Point(559, 518);
             this.minWorkers15.Name = "minWorkers15";
-            this.minWorkers15.Size = new System.Drawing.Size(141, 30);
+            this.minWorkers15.Size = new System.Drawing.Size(140, 30);
             this.minWorkers15.TabIndex = 22;
             this.minWorkers15.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.minWorkers15.ValueChanged += new System.EventHandler(this.numericUpDown15_ValueChanged);
@@ -787,9 +791,9 @@
             // minWorkers14
             // 
             this.minWorkers14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.minWorkers14.Location = new System.Drawing.Point(561, 481);
+            this.minWorkers14.Location = new System.Drawing.Point(559, 481);
             this.minWorkers14.Name = "minWorkers14";
-            this.minWorkers14.Size = new System.Drawing.Size(141, 30);
+            this.minWorkers14.Size = new System.Drawing.Size(140, 30);
             this.minWorkers14.TabIndex = 21;
             this.minWorkers14.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.minWorkers14.ValueChanged += new System.EventHandler(this.numericUpDown14_ValueChanged);
@@ -797,9 +801,9 @@
             // minWorkers13
             // 
             this.minWorkers13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.minWorkers13.Location = new System.Drawing.Point(561, 444);
+            this.minWorkers13.Location = new System.Drawing.Point(559, 444);
             this.minWorkers13.Name = "minWorkers13";
-            this.minWorkers13.Size = new System.Drawing.Size(141, 30);
+            this.minWorkers13.Size = new System.Drawing.Size(140, 30);
             this.minWorkers13.TabIndex = 20;
             this.minWorkers13.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.minWorkers13.ValueChanged += new System.EventHandler(this.numericUpDown13_ValueChanged);
@@ -807,9 +811,9 @@
             // minWorkers12
             // 
             this.minWorkers12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.minWorkers12.Location = new System.Drawing.Point(561, 408);
+            this.minWorkers12.Location = new System.Drawing.Point(559, 408);
             this.minWorkers12.Name = "minWorkers12";
-            this.minWorkers12.Size = new System.Drawing.Size(141, 30);
+            this.minWorkers12.Size = new System.Drawing.Size(140, 30);
             this.minWorkers12.TabIndex = 19;
             this.minWorkers12.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.minWorkers12.ValueChanged += new System.EventHandler(this.numericUpDown12_ValueChanged);
@@ -817,9 +821,9 @@
             // minWorkers11
             // 
             this.minWorkers11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.minWorkers11.Location = new System.Drawing.Point(561, 372);
+            this.minWorkers11.Location = new System.Drawing.Point(559, 372);
             this.minWorkers11.Name = "minWorkers11";
-            this.minWorkers11.Size = new System.Drawing.Size(141, 30);
+            this.minWorkers11.Size = new System.Drawing.Size(140, 30);
             this.minWorkers11.TabIndex = 18;
             this.minWorkers11.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.minWorkers11.ValueChanged += new System.EventHandler(this.numericUpDown11_ValueChanged);
@@ -827,9 +831,9 @@
             // minWorkers10
             // 
             this.minWorkers10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.minWorkers10.Location = new System.Drawing.Point(561, 336);
+            this.minWorkers10.Location = new System.Drawing.Point(559, 336);
             this.minWorkers10.Name = "minWorkers10";
-            this.minWorkers10.Size = new System.Drawing.Size(141, 30);
+            this.minWorkers10.Size = new System.Drawing.Size(140, 30);
             this.minWorkers10.TabIndex = 17;
             this.minWorkers10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.minWorkers10.ValueChanged += new System.EventHandler(this.numericUpDown10_ValueChanged);
@@ -837,9 +841,9 @@
             // minWorkers9
             // 
             this.minWorkers9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.minWorkers9.Location = new System.Drawing.Point(561, 299);
+            this.minWorkers9.Location = new System.Drawing.Point(559, 299);
             this.minWorkers9.Name = "minWorkers9";
-            this.minWorkers9.Size = new System.Drawing.Size(141, 30);
+            this.minWorkers9.Size = new System.Drawing.Size(140, 30);
             this.minWorkers9.TabIndex = 16;
             this.minWorkers9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.minWorkers9.ValueChanged += new System.EventHandler(this.numericUpDown9_ValueChanged);
@@ -847,9 +851,9 @@
             // minWorkers8
             // 
             this.minWorkers8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.minWorkers8.Location = new System.Drawing.Point(561, 263);
+            this.minWorkers8.Location = new System.Drawing.Point(559, 263);
             this.minWorkers8.Name = "minWorkers8";
-            this.minWorkers8.Size = new System.Drawing.Size(141, 30);
+            this.minWorkers8.Size = new System.Drawing.Size(140, 30);
             this.minWorkers8.TabIndex = 15;
             this.minWorkers8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.minWorkers8.ValueChanged += new System.EventHandler(this.numericUpDown8_ValueChanged);
@@ -857,9 +861,9 @@
             // minWorkers7
             // 
             this.minWorkers7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.minWorkers7.Location = new System.Drawing.Point(561, 226);
+            this.minWorkers7.Location = new System.Drawing.Point(559, 226);
             this.minWorkers7.Name = "minWorkers7";
-            this.minWorkers7.Size = new System.Drawing.Size(141, 30);
+            this.minWorkers7.Size = new System.Drawing.Size(140, 30);
             this.minWorkers7.TabIndex = 14;
             this.minWorkers7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.minWorkers7.ValueChanged += new System.EventHandler(this.numericUpDown7_ValueChanged);
@@ -867,9 +871,9 @@
             // minWorkers6
             // 
             this.minWorkers6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.minWorkers6.Location = new System.Drawing.Point(561, 189);
+            this.minWorkers6.Location = new System.Drawing.Point(559, 189);
             this.minWorkers6.Name = "minWorkers6";
-            this.minWorkers6.Size = new System.Drawing.Size(141, 30);
+            this.minWorkers6.Size = new System.Drawing.Size(140, 30);
             this.minWorkers6.TabIndex = 13;
             this.minWorkers6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.minWorkers6.ValueChanged += new System.EventHandler(this.numericUpDown6_ValueChanged);
@@ -877,9 +881,9 @@
             // minWorkers5
             // 
             this.minWorkers5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.minWorkers5.Location = new System.Drawing.Point(561, 151);
+            this.minWorkers5.Location = new System.Drawing.Point(559, 151);
             this.minWorkers5.Name = "minWorkers5";
-            this.minWorkers5.Size = new System.Drawing.Size(141, 30);
+            this.minWorkers5.Size = new System.Drawing.Size(140, 30);
             this.minWorkers5.TabIndex = 12;
             this.minWorkers5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.minWorkers5.ValueChanged += new System.EventHandler(this.numericUpDown5_ValueChanged);
@@ -887,9 +891,9 @@
             // minWorkers4
             // 
             this.minWorkers4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.minWorkers4.Location = new System.Drawing.Point(561, 115);
+            this.minWorkers4.Location = new System.Drawing.Point(559, 115);
             this.minWorkers4.Name = "minWorkers4";
-            this.minWorkers4.Size = new System.Drawing.Size(141, 30);
+            this.minWorkers4.Size = new System.Drawing.Size(140, 30);
             this.minWorkers4.TabIndex = 11;
             this.minWorkers4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.minWorkers4.ValueChanged += new System.EventHandler(this.numericUpDown4_ValueChanged);
@@ -897,9 +901,9 @@
             // minWorkers3
             // 
             this.minWorkers3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.minWorkers3.Location = new System.Drawing.Point(561, 77);
+            this.minWorkers3.Location = new System.Drawing.Point(559, 77);
             this.minWorkers3.Name = "minWorkers3";
-            this.minWorkers3.Size = new System.Drawing.Size(141, 30);
+            this.minWorkers3.Size = new System.Drawing.Size(140, 30);
             this.minWorkers3.TabIndex = 10;
             this.minWorkers3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.minWorkers3.ValueChanged += new System.EventHandler(this.numericUpDown3_ValueChanged);
@@ -907,14 +911,14 @@
             // minWorkers2
             // 
             this.minWorkers2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.minWorkers2.Location = new System.Drawing.Point(561, 40);
+            this.minWorkers2.Location = new System.Drawing.Point(559, 40);
             this.minWorkers2.Maximum = new decimal(new int[] {
             10,
             0,
             0,
             0});
             this.minWorkers2.Name = "minWorkers2";
-            this.minWorkers2.Size = new System.Drawing.Size(141, 30);
+            this.minWorkers2.Size = new System.Drawing.Size(140, 30);
             this.minWorkers2.TabIndex = 9;
             this.minWorkers2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.minWorkers2.ValueChanged += new System.EventHandler(this.numericUpDown2_ValueChanged);
@@ -922,61 +926,61 @@
             // minWorkers19
             // 
             this.minWorkers19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.minWorkers19.Location = new System.Drawing.Point(561, 662);
+            this.minWorkers19.Location = new System.Drawing.Point(559, 662);
             this.minWorkers19.Name = "minWorkers19";
-            this.minWorkers19.Size = new System.Drawing.Size(141, 30);
+            this.minWorkers19.Size = new System.Drawing.Size(140, 30);
             this.minWorkers19.TabIndex = 51;
             this.minWorkers19.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // minWorkers20
             // 
             this.minWorkers20.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.minWorkers20.Location = new System.Drawing.Point(561, 698);
+            this.minWorkers20.Location = new System.Drawing.Point(559, 698);
             this.minWorkers20.Name = "minWorkers20";
-            this.minWorkers20.Size = new System.Drawing.Size(141, 30);
+            this.minWorkers20.Size = new System.Drawing.Size(140, 30);
             this.minWorkers20.TabIndex = 52;
             this.minWorkers20.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // minWorkers21
             // 
             this.minWorkers21.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.minWorkers21.Location = new System.Drawing.Point(561, 735);
+            this.minWorkers21.Location = new System.Drawing.Point(559, 735);
             this.minWorkers21.Name = "minWorkers21";
-            this.minWorkers21.Size = new System.Drawing.Size(141, 30);
+            this.minWorkers21.Size = new System.Drawing.Size(140, 30);
             this.minWorkers21.TabIndex = 53;
             this.minWorkers21.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // minWorkers22
             // 
             this.minWorkers22.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.minWorkers22.Location = new System.Drawing.Point(561, 773);
+            this.minWorkers22.Location = new System.Drawing.Point(559, 773);
             this.minWorkers22.Name = "minWorkers22";
-            this.minWorkers22.Size = new System.Drawing.Size(141, 30);
+            this.minWorkers22.Size = new System.Drawing.Size(140, 30);
             this.minWorkers22.TabIndex = 54;
             this.minWorkers22.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // minWorkers23
             // 
             this.minWorkers23.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.minWorkers23.Location = new System.Drawing.Point(561, 811);
+            this.minWorkers23.Location = new System.Drawing.Point(559, 811);
             this.minWorkers23.Name = "minWorkers23";
-            this.minWorkers23.Size = new System.Drawing.Size(141, 30);
+            this.minWorkers23.Size = new System.Drawing.Size(140, 30);
             this.minWorkers23.TabIndex = 55;
             this.minWorkers23.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // minWorkers24
             // 
             this.minWorkers24.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.minWorkers24.Location = new System.Drawing.Point(561, 845);
+            this.minWorkers24.Location = new System.Drawing.Point(559, 845);
             this.minWorkers24.Name = "minWorkers24";
-            this.minWorkers24.Size = new System.Drawing.Size(141, 30);
+            this.minWorkers24.Size = new System.Drawing.Size(140, 30);
             this.minWorkers24.TabIndex = 56;
             this.minWorkers24.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // maxWorkers1
             // 
             this.maxWorkers1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maxWorkers1.Location = new System.Drawing.Point(708, 3);
+            this.maxWorkers1.Location = new System.Drawing.Point(705, 3);
             this.maxWorkers1.Name = "maxWorkers1";
             this.maxWorkers1.Size = new System.Drawing.Size(139, 30);
             this.maxWorkers1.TabIndex = 57;
@@ -985,7 +989,7 @@
             // maxWorkers2
             // 
             this.maxWorkers2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maxWorkers2.Location = new System.Drawing.Point(708, 40);
+            this.maxWorkers2.Location = new System.Drawing.Point(705, 40);
             this.maxWorkers2.Name = "maxWorkers2";
             this.maxWorkers2.Size = new System.Drawing.Size(139, 30);
             this.maxWorkers2.TabIndex = 58;
@@ -994,7 +998,7 @@
             // maxWorkers3
             // 
             this.maxWorkers3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maxWorkers3.Location = new System.Drawing.Point(708, 77);
+            this.maxWorkers3.Location = new System.Drawing.Point(705, 77);
             this.maxWorkers3.Name = "maxWorkers3";
             this.maxWorkers3.Size = new System.Drawing.Size(139, 30);
             this.maxWorkers3.TabIndex = 59;
@@ -1003,7 +1007,7 @@
             // maxWorkers4
             // 
             this.maxWorkers4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maxWorkers4.Location = new System.Drawing.Point(708, 115);
+            this.maxWorkers4.Location = new System.Drawing.Point(705, 115);
             this.maxWorkers4.Name = "maxWorkers4";
             this.maxWorkers4.Size = new System.Drawing.Size(139, 30);
             this.maxWorkers4.TabIndex = 60;
@@ -1012,7 +1016,7 @@
             // maxWorkers5
             // 
             this.maxWorkers5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maxWorkers5.Location = new System.Drawing.Point(708, 151);
+            this.maxWorkers5.Location = new System.Drawing.Point(705, 151);
             this.maxWorkers5.Name = "maxWorkers5";
             this.maxWorkers5.Size = new System.Drawing.Size(139, 30);
             this.maxWorkers5.TabIndex = 61;
@@ -1021,7 +1025,7 @@
             // maxWorkers6
             // 
             this.maxWorkers6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maxWorkers6.Location = new System.Drawing.Point(708, 189);
+            this.maxWorkers6.Location = new System.Drawing.Point(705, 189);
             this.maxWorkers6.Name = "maxWorkers6";
             this.maxWorkers6.Size = new System.Drawing.Size(139, 30);
             this.maxWorkers6.TabIndex = 62;
@@ -1030,7 +1034,7 @@
             // maxWorkers7
             // 
             this.maxWorkers7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maxWorkers7.Location = new System.Drawing.Point(708, 226);
+            this.maxWorkers7.Location = new System.Drawing.Point(705, 226);
             this.maxWorkers7.Name = "maxWorkers7";
             this.maxWorkers7.Size = new System.Drawing.Size(139, 30);
             this.maxWorkers7.TabIndex = 63;
@@ -1039,7 +1043,7 @@
             // maxWorkers8
             // 
             this.maxWorkers8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maxWorkers8.Location = new System.Drawing.Point(708, 263);
+            this.maxWorkers8.Location = new System.Drawing.Point(705, 263);
             this.maxWorkers8.Name = "maxWorkers8";
             this.maxWorkers8.Size = new System.Drawing.Size(139, 30);
             this.maxWorkers8.TabIndex = 64;
@@ -1048,7 +1052,7 @@
             // maxWorkers9
             // 
             this.maxWorkers9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maxWorkers9.Location = new System.Drawing.Point(708, 299);
+            this.maxWorkers9.Location = new System.Drawing.Point(705, 299);
             this.maxWorkers9.Name = "maxWorkers9";
             this.maxWorkers9.Size = new System.Drawing.Size(139, 30);
             this.maxWorkers9.TabIndex = 65;
@@ -1057,7 +1061,7 @@
             // maxWorkers10
             // 
             this.maxWorkers10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maxWorkers10.Location = new System.Drawing.Point(708, 336);
+            this.maxWorkers10.Location = new System.Drawing.Point(705, 336);
             this.maxWorkers10.Name = "maxWorkers10";
             this.maxWorkers10.Size = new System.Drawing.Size(139, 30);
             this.maxWorkers10.TabIndex = 66;
@@ -1066,7 +1070,7 @@
             // maxWorkers11
             // 
             this.maxWorkers11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maxWorkers11.Location = new System.Drawing.Point(708, 372);
+            this.maxWorkers11.Location = new System.Drawing.Point(705, 372);
             this.maxWorkers11.Name = "maxWorkers11";
             this.maxWorkers11.Size = new System.Drawing.Size(139, 30);
             this.maxWorkers11.TabIndex = 67;
@@ -1075,7 +1079,7 @@
             // numericUpDown1
             // 
             this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown1.Location = new System.Drawing.Point(708, 408);
+            this.numericUpDown1.Location = new System.Drawing.Point(705, 408);
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(139, 30);
             this.numericUpDown1.TabIndex = 68;
@@ -1084,7 +1088,7 @@
             // numericUpDown2
             // 
             this.numericUpDown2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown2.Location = new System.Drawing.Point(708, 444);
+            this.numericUpDown2.Location = new System.Drawing.Point(705, 444);
             this.numericUpDown2.Name = "numericUpDown2";
             this.numericUpDown2.Size = new System.Drawing.Size(139, 30);
             this.numericUpDown2.TabIndex = 69;
@@ -1093,7 +1097,7 @@
             // numericUpDown3
             // 
             this.numericUpDown3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown3.Location = new System.Drawing.Point(708, 481);
+            this.numericUpDown3.Location = new System.Drawing.Point(705, 481);
             this.numericUpDown3.Name = "numericUpDown3";
             this.numericUpDown3.Size = new System.Drawing.Size(139, 30);
             this.numericUpDown3.TabIndex = 70;
@@ -1102,7 +1106,7 @@
             // numericUpDown4
             // 
             this.numericUpDown4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown4.Location = new System.Drawing.Point(708, 518);
+            this.numericUpDown4.Location = new System.Drawing.Point(705, 518);
             this.numericUpDown4.Name = "numericUpDown4";
             this.numericUpDown4.Size = new System.Drawing.Size(139, 30);
             this.numericUpDown4.TabIndex = 71;
@@ -1111,7 +1115,7 @@
             // numericUpDown5
             // 
             this.numericUpDown5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown5.Location = new System.Drawing.Point(708, 554);
+            this.numericUpDown5.Location = new System.Drawing.Point(705, 554);
             this.numericUpDown5.Name = "numericUpDown5";
             this.numericUpDown5.Size = new System.Drawing.Size(139, 30);
             this.numericUpDown5.TabIndex = 72;
@@ -1120,7 +1124,7 @@
             // numericUpDown6
             // 
             this.numericUpDown6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown6.Location = new System.Drawing.Point(708, 592);
+            this.numericUpDown6.Location = new System.Drawing.Point(705, 592);
             this.numericUpDown6.Name = "numericUpDown6";
             this.numericUpDown6.Size = new System.Drawing.Size(139, 30);
             this.numericUpDown6.TabIndex = 73;
@@ -1129,7 +1133,7 @@
             // numericUpDown7
             // 
             this.numericUpDown7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown7.Location = new System.Drawing.Point(708, 627);
+            this.numericUpDown7.Location = new System.Drawing.Point(705, 627);
             this.numericUpDown7.Name = "numericUpDown7";
             this.numericUpDown7.Size = new System.Drawing.Size(139, 30);
             this.numericUpDown7.TabIndex = 74;
@@ -1138,7 +1142,7 @@
             // numericUpDown8
             // 
             this.numericUpDown8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown8.Location = new System.Drawing.Point(708, 662);
+            this.numericUpDown8.Location = new System.Drawing.Point(705, 662);
             this.numericUpDown8.Name = "numericUpDown8";
             this.numericUpDown8.Size = new System.Drawing.Size(139, 30);
             this.numericUpDown8.TabIndex = 75;
@@ -1147,7 +1151,7 @@
             // numericUpDown9
             // 
             this.numericUpDown9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown9.Location = new System.Drawing.Point(708, 698);
+            this.numericUpDown9.Location = new System.Drawing.Point(705, 698);
             this.numericUpDown9.Name = "numericUpDown9";
             this.numericUpDown9.Size = new System.Drawing.Size(139, 30);
             this.numericUpDown9.TabIndex = 76;
@@ -1156,7 +1160,7 @@
             // numericUpDown10
             // 
             this.numericUpDown10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown10.Location = new System.Drawing.Point(708, 735);
+            this.numericUpDown10.Location = new System.Drawing.Point(705, 735);
             this.numericUpDown10.Name = "numericUpDown10";
             this.numericUpDown10.Size = new System.Drawing.Size(139, 30);
             this.numericUpDown10.TabIndex = 77;
@@ -1165,7 +1169,7 @@
             // numericUpDown11
             // 
             this.numericUpDown11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown11.Location = new System.Drawing.Point(708, 773);
+            this.numericUpDown11.Location = new System.Drawing.Point(705, 773);
             this.numericUpDown11.Name = "numericUpDown11";
             this.numericUpDown11.Size = new System.Drawing.Size(139, 30);
             this.numericUpDown11.TabIndex = 78;
@@ -1174,7 +1178,7 @@
             // numericUpDown12
             // 
             this.numericUpDown12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown12.Location = new System.Drawing.Point(708, 811);
+            this.numericUpDown12.Location = new System.Drawing.Point(705, 811);
             this.numericUpDown12.Name = "numericUpDown12";
             this.numericUpDown12.Size = new System.Drawing.Size(139, 30);
             this.numericUpDown12.TabIndex = 79;
@@ -1183,7 +1187,7 @@
             // numericUpDown13
             // 
             this.numericUpDown13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown13.Location = new System.Drawing.Point(708, 845);
+            this.numericUpDown13.Location = new System.Drawing.Point(705, 845);
             this.numericUpDown13.Name = "numericUpDown13";
             this.numericUpDown13.Size = new System.Drawing.Size(139, 30);
             this.numericUpDown13.TabIndex = 80;
@@ -1193,7 +1197,7 @@
             // 
             this.checkBox25.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.checkBox25.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox25.Location = new System.Drawing.Point(853, 336);
+            this.checkBox25.Location = new System.Drawing.Point(850, 336);
             this.checkBox25.Name = "checkBox25";
             this.checkBox25.Size = new System.Drawing.Size(131, 30);
             this.checkBox25.TabIndex = 81;
@@ -1203,7 +1207,7 @@
             // 
             this.checkBox26.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.checkBox26.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox26.Location = new System.Drawing.Point(853, 372);
+            this.checkBox26.Location = new System.Drawing.Point(850, 372);
             this.checkBox26.Name = "checkBox26";
             this.checkBox26.Size = new System.Drawing.Size(131, 30);
             this.checkBox26.TabIndex = 82;
@@ -1213,7 +1217,7 @@
             // 
             this.checkBox27.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.checkBox27.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox27.Location = new System.Drawing.Point(853, 408);
+            this.checkBox27.Location = new System.Drawing.Point(850, 408);
             this.checkBox27.Name = "checkBox27";
             this.checkBox27.Size = new System.Drawing.Size(131, 30);
             this.checkBox27.TabIndex = 83;
@@ -1223,7 +1227,7 @@
             // 
             this.checkBox28.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.checkBox28.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox28.Location = new System.Drawing.Point(853, 444);
+            this.checkBox28.Location = new System.Drawing.Point(850, 444);
             this.checkBox28.Name = "checkBox28";
             this.checkBox28.Size = new System.Drawing.Size(131, 30);
             this.checkBox28.TabIndex = 84;
@@ -1233,7 +1237,7 @@
             // 
             this.checkBox29.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.checkBox29.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox29.Location = new System.Drawing.Point(853, 481);
+            this.checkBox29.Location = new System.Drawing.Point(850, 481);
             this.checkBox29.Name = "checkBox29";
             this.checkBox29.Size = new System.Drawing.Size(131, 30);
             this.checkBox29.TabIndex = 85;
@@ -1243,7 +1247,7 @@
             // 
             this.checkBox30.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.checkBox30.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox30.Location = new System.Drawing.Point(853, 518);
+            this.checkBox30.Location = new System.Drawing.Point(850, 518);
             this.checkBox30.Name = "checkBox30";
             this.checkBox30.Size = new System.Drawing.Size(131, 30);
             this.checkBox30.TabIndex = 86;
@@ -1253,7 +1257,7 @@
             // 
             this.checkBox31.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.checkBox31.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox31.Location = new System.Drawing.Point(853, 554);
+            this.checkBox31.Location = new System.Drawing.Point(850, 554);
             this.checkBox31.Name = "checkBox31";
             this.checkBox31.Size = new System.Drawing.Size(131, 30);
             this.checkBox31.TabIndex = 87;
@@ -1263,7 +1267,7 @@
             // 
             this.checkBox32.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.checkBox32.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox32.Location = new System.Drawing.Point(853, 592);
+            this.checkBox32.Location = new System.Drawing.Point(850, 592);
             this.checkBox32.Name = "checkBox32";
             this.checkBox32.Size = new System.Drawing.Size(131, 29);
             this.checkBox32.TabIndex = 88;
@@ -1273,7 +1277,7 @@
             // 
             this.checkBox33.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.checkBox33.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox33.Location = new System.Drawing.Point(853, 627);
+            this.checkBox33.Location = new System.Drawing.Point(850, 627);
             this.checkBox33.Name = "checkBox33";
             this.checkBox33.Size = new System.Drawing.Size(131, 29);
             this.checkBox33.TabIndex = 89;
@@ -1283,7 +1287,7 @@
             // 
             this.checkBox34.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.checkBox34.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox34.Location = new System.Drawing.Point(853, 662);
+            this.checkBox34.Location = new System.Drawing.Point(850, 662);
             this.checkBox34.Name = "checkBox34";
             this.checkBox34.Size = new System.Drawing.Size(131, 30);
             this.checkBox34.TabIndex = 90;
@@ -1293,7 +1297,7 @@
             // 
             this.checkBox35.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.checkBox35.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox35.Location = new System.Drawing.Point(853, 698);
+            this.checkBox35.Location = new System.Drawing.Point(850, 698);
             this.checkBox35.Name = "checkBox35";
             this.checkBox35.Size = new System.Drawing.Size(131, 30);
             this.checkBox35.TabIndex = 91;
@@ -1303,7 +1307,7 @@
             // 
             this.checkBox36.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.checkBox36.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox36.Location = new System.Drawing.Point(853, 735);
+            this.checkBox36.Location = new System.Drawing.Point(850, 735);
             this.checkBox36.Name = "checkBox36";
             this.checkBox36.Size = new System.Drawing.Size(131, 30);
             this.checkBox36.TabIndex = 92;
@@ -1313,7 +1317,7 @@
             // 
             this.checkBox37.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.checkBox37.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox37.Location = new System.Drawing.Point(853, 773);
+            this.checkBox37.Location = new System.Drawing.Point(850, 773);
             this.checkBox37.Name = "checkBox37";
             this.checkBox37.Size = new System.Drawing.Size(131, 30);
             this.checkBox37.TabIndex = 93;
@@ -1323,7 +1327,7 @@
             // 
             this.checkBox38.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.checkBox38.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox38.Location = new System.Drawing.Point(853, 811);
+            this.checkBox38.Location = new System.Drawing.Point(850, 811);
             this.checkBox38.Name = "checkBox38";
             this.checkBox38.Size = new System.Drawing.Size(131, 28);
             this.checkBox38.TabIndex = 94;
@@ -1333,7 +1337,7 @@
             // 
             this.checkBox39.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.checkBox39.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox39.Location = new System.Drawing.Point(853, 845);
+            this.checkBox39.Location = new System.Drawing.Point(850, 845);
             this.checkBox39.Name = "checkBox39";
             this.checkBox39.Size = new System.Drawing.Size(131, 30);
             this.checkBox39.TabIndex = 95;
@@ -1348,6 +1352,7 @@
             this.label5.Size = new System.Drawing.Size(77, 25);
             this.label5.TabIndex = 9;
             this.label5.Text = "Open?";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // ShiftControls
             // 

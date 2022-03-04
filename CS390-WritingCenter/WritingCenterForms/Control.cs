@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace WritingCenterForms
 {
-    public partial class SettingsPage : UserControl
+    public partial class Control : UserControl
     {
         private TableLayoutPanel tableLayoutPanel1;
         private CheckBox checkBox1;
@@ -19,79 +19,49 @@ namespace WritingCenterForms
         private CheckBox checkBox2;
         public int[] minWorker = new int[24];
         public int[] maxWorker = new int[24];
-        public int[] openHours = new int[24];
+        public bool[] openHours = new bool[24];
         public int[] busyShifts = new int[24];
+        public string[][] settings = new string[24][];
 
-        public SettingsPage()
+        public Control()
         {
             InitializeComponent();
-
-            //SundayTab.Controls.Add(loadShiftControls());
-            SundayTab.BackColor = Color.Wheat;
-            MondayTab.BackColor = Color.Wheat;
-            TuedayTab.BackColor = Color.Wheat;
-            WednesdayTab.BackColor = Color.Wheat;
-            ThursdayTab.BackColor = Color.Wheat;
-            FridayTab.BackColor = Color.Wheat;
-            SaturdayTab.BackColor = Color.Wheat;
-
-        }
-
-        private void logOut_Click(object sender, EventArgs e)
-        {
-            //this.Hide();
-            foreach(string[] strg in control1.getSettings())
+            this.Controls.Add(loadShiftControls());
+            for(int i = 0; i < 24; i++)
             {
-                foreach(string str in strg)
-                {
-                    listBox2.Items.Add(str);
-
-                }
+                settings[i] = new string[3];
             }
 
         }
 
-        private void listBox1_MouseDoubleClick(object sender, MouseEventArgs e)
+        private void Control_Load(object sender, EventArgs e)
         {
-            listBox2.Items.Add(listBox1.SelectedItem);
-            listBox1.Items.Remove(listBox1.SelectedItem);
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            listBox1.Items.AddRange(listBox2.Items);
-            listBox2.Items.Clear();
-        }
-
-        private void shiftControls1_Load(object sender, EventArgs e)
-        {
-
+            this.BackColor = Color.Wheat;
         }
 
         private TableLayoutPanel loadShiftControls()
         {
             tableLayoutPanel1 = new TableLayoutPanel();
-            this.tabControl1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             this.tableLayoutPanel1.Location = new Point(54, 49);
-            this.tableLayoutPanel1.Size = new Size(SundayTab.Width, 950);
+            this.tableLayoutPanel1.Size = new Size(800, 950);
             this.tableLayoutPanel1.TabIndex = 0;
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 24;
             this.tableLayoutPanel1.AutoScroll = false;
             this.tableLayoutPanel1.ColumnCount = 4;
-            this.tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 79.09454F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20.90546F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 145F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 139F));
+            //this.tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 79.09454F));
+            //this.tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20.90546F));
+            //this.tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 145F));
+            //this.tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 139F));
             int tabIndex = 0;
-            for(int i = 0; i < 24; i++)
+            for (int i = 0; i < 24; i++)
             {
                 this.tableLayoutPanel1.Controls.Add(createOpenHourCheckboxes(i, tabIndex), 0, i);
                 this.tableLayoutPanel1.Controls.Add(createMinNumericUpDown(i, tabIndex++), 1, i);
                 this.tableLayoutPanel1.Controls.Add(createMaxNumericUpDown(i, tabIndex++), 2, i);
                 this.tableLayoutPanel1.Controls.Add(createBusyCheckbox(i, tabIndex++), 3, i);
             }
-            
+
             return tableLayoutPanel1;
         }
 
@@ -100,7 +70,7 @@ namespace WritingCenterForms
             checkBox1 = new CheckBox();
             this.checkBox1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             this.checkBox1.Name = "checkBox" + i;
-            this.checkBox1.Size = new Size(418, 29);
+            this.checkBox1.Size = new Size(518, 29);
             this.checkBox1.TabIndex = tabIndex;
             this.checkBox1.Text = convertTime(i);
             this.checkBox1.TextAlign = ContentAlignment.MiddleCenter;
@@ -111,16 +81,17 @@ namespace WritingCenterForms
 
         private void checkBox_valueChanged(object sender, EventArgs e)
         {
-            int i = int.Parse(checkBox1.Name.Substring(checkBox1.Name.Length - 1));
-            if (checkBox1.Checked) openHours[i] = 1;
-            else openHours[i] = 0;
+            CheckBox checkBox = (CheckBox)sender;
+            int i = int.Parse(checkBox.Name.Substring(8));
+            if (checkBox.Checked) openHours[i] = true;
+            else openHours[i] = false;
         }
 
         private NumericUpDown createMinNumericUpDown(int i, int tabIndex)
         {
             minNumericUpDown = new NumericUpDown();
             this.minNumericUpDown.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            this.minNumericUpDown.Name = "minNumericUpDown" + i;
+            this.minNumericUpDown.Name = "max" + i; //if you change name, change the i in value changed too.
             this.minNumericUpDown.Size = new Size(139, 30);
             this.minNumericUpDown.TabIndex = tabIndex;
             this.minNumericUpDown.TextAlign = HorizontalAlignment.Center;
@@ -130,15 +101,17 @@ namespace WritingCenterForms
 
         private void minNumericUpDown_valueChanged(object sender, EventArgs e)
         {
-            int i = int.Parse(minNumericUpDown.Name.Substring(maxNumericUpDown.Name.Length - 1));
-            minWorker[i] = i;//Convert.ToInt32();
+            NumericUpDown numericUpDown = (NumericUpDown)sender;
+            int i = int.Parse(numericUpDown.Name.Substring(3));
+            minWorker[i] = Convert.ToInt32(numericUpDown.Value);
+            settings[i][0] = Convert.ToString(numericUpDown.Value); 
         }
 
         private NumericUpDown createMaxNumericUpDown(int i, int tabIndex)
         {
             maxNumericUpDown = new NumericUpDown();
             this.maxNumericUpDown.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            this.maxNumericUpDown.Name = "maxNumericUpDown" + i;
+            this.maxNumericUpDown.Name = "max" + i;
             this.maxNumericUpDown.Size = new Size(139, 30);
             this.maxNumericUpDown.TabIndex = tabIndex;
             this.maxNumericUpDown.TextAlign = HorizontalAlignment.Center;
@@ -148,8 +121,11 @@ namespace WritingCenterForms
 
         private void maxNumericUpDown_valueChanged(object sender, EventArgs e)
         {
-            int i = int.Parse(maxNumericUpDown.Name.Substring(maxNumericUpDown.Name.Length - 1));
-            maxWorker[i] = Convert.ToInt32(maxNumericUpDown.Value);
+            NumericUpDown numeric = (NumericUpDown)sender;
+            int i = int.Parse(numeric.Name.Substring(3));
+            maxWorker[i] = Convert.ToInt32(numeric.Value);
+            settings[i][1] = Convert.ToString(numeric.Value);
+
         }
 
         private CheckBox createBusyCheckbox(int i, int tabIndex)
@@ -167,37 +143,23 @@ namespace WritingCenterForms
 
         private void checkBox2_valueChanged(object sender, EventArgs e)
         {
-            int i = int.Parse(checkBox2.Name.Substring(checkBox2.Name.Length - 1));
-            if (checkBox2.Checked) openHours[i] = 1;
-            else openHours[i] = 0;
+            CheckBox checkBox = (CheckBox)sender;
+            int i = int.Parse(checkBox.Name.Substring(12));
+            if (checkBox.Checked) settings[i][2] = "true";
+            else settings[i][2] = "false"; 
         }
 
         private string convertTime(int i)
         {
-            if (i > 12) return i - 12 + ":00pm - " + (i+1) + ":00pm";
+            if (i > 12) return i - 12 + ":00pm - " + (i + 1) + ":00pm";
             else if (i < 12) return i + ":00am - " + (i + 1) + ":00am";
             else return i + ":00pm - " + (i + 1) + ":00pm";
         }
 
-        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        public string[][] getSettings()
         {
-
-        }
-
-
-        private void TuedayTab_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void SaturdayTab_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
+            //return new Day(openHours, settings);
+            return settings;
         }
     }
 }

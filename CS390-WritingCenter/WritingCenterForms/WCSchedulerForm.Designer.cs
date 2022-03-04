@@ -43,9 +43,10 @@
             // logIn
             // 
             this.logIn.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.logIn.Location = new System.Drawing.Point(519, 541);
+            this.logIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.logIn.Location = new System.Drawing.Point(521, 543);
             this.logIn.Name = "logIn";
-            this.logIn.Size = new System.Drawing.Size(105, 51);
+            this.logIn.Size = new System.Drawing.Size(110, 52);
             this.logIn.TabIndex = 3;
             this.logIn.Text = "Log In";
             this.logIn.UseVisualStyleBackColor = true;
@@ -54,9 +55,10 @@
             // password
             // 
             this.password.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.password.Location = new System.Drawing.Point(429, 486);
+            this.password.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.password.Location = new System.Drawing.Point(427, 488);
             this.password.Name = "password";
-            this.password.Size = new System.Drawing.Size(303, 22);
+            this.password.Size = new System.Drawing.Size(303, 24);
             this.password.TabIndex = 2;
             this.password.Text = "Password";
             this.password.TextChanged += new System.EventHandler(this.password_TextChanged);
@@ -66,9 +68,10 @@
             // username
             // 
             this.username.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.username.Location = new System.Drawing.Point(429, 446);
+            this.username.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.username.Location = new System.Drawing.Point(427, 448);
             this.username.Name = "username";
-            this.username.Size = new System.Drawing.Size(303, 22);
+            this.username.Size = new System.Drawing.Size(303, 24);
             this.username.TabIndex = 1;
             this.username.Text = "Username";
             this.username.Enter += new System.EventHandler(this.enterUsernameBox);
@@ -79,7 +82,7 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackgroundImage = global::WritingCenterForms.Properties.Resources.bgImage;
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.button1);
@@ -87,9 +90,9 @@
             this.panel1.Controls.Add(this.username);
             this.panel1.Controls.Add(this.logIn);
             this.panel1.Controls.Add(this.password);
-            this.panel1.Location = new System.Drawing.Point(-3, -1);
+            this.panel1.Location = new System.Drawing.Point(0, -6);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1160, 854);
+            this.panel1.Size = new System.Drawing.Size(1157, 859);
             this.panel1.TabIndex = 9;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             this.panel1.Leave += new System.EventHandler(this.resetLogin);
@@ -107,10 +110,11 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(1049, 19);
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(1026, 19);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(101, 39);
+            this.button1.Size = new System.Drawing.Size(124, 46);
             this.button1.TabIndex = 6;
             this.button1.Text = "Database";
             this.button1.UseVisualStyleBackColor = true;
@@ -118,10 +122,11 @@
             // 
             // forgotPasswordButton
             // 
-            this.forgotPasswordButton.Location = new System.Drawing.Point(16, 678);
+            this.forgotPasswordButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.forgotPasswordButton.Location = new System.Drawing.Point(16, 674);
             this.forgotPasswordButton.Margin = new System.Windows.Forms.Padding(4);
             this.forgotPasswordButton.Name = "forgotPasswordButton";
-            this.forgotPasswordButton.Size = new System.Drawing.Size(105, 51);
+            this.forgotPasswordButton.Size = new System.Drawing.Size(117, 55);
             this.forgotPasswordButton.TabIndex = 4;
             this.forgotPasswordButton.Text = "Forgot Password";
             this.forgotPasswordButton.UseVisualStyleBackColor = true;
@@ -141,6 +146,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
+            this.BackgroundImage = global::WritingCenterForms.Properties.Resources.bgImage;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1155, 741);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.bootRight);

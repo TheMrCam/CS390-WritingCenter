@@ -12,7 +12,10 @@ namespace WritingCenterForms
 {
     public partial class ShiftControls : UserControl
     {
-
+        public int[] minWorker = new int[24];
+        public int[] maxWorker = new int[24];
+        public bool[] openHours = new bool[24];
+        public bool[] busyShifts = new bool[24];
         public ShiftControls()
         {
             InitializeComponent();
@@ -30,7 +33,7 @@ namespace WritingCenterForms
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
-
+            minWorker[0] = Convert.ToInt32(Math.Round(numericUpDown1.Value, 0));
         }
 
         private void checkBox14_CheckedChanged(object sender, EventArgs e)
@@ -40,7 +43,7 @@ namespace WritingCenterForms
 
         private void numericUpDown3_ValueChanged(object sender, EventArgs e)
         {
-
+            minWorker[2] = Convert.ToInt32(Math.Round(numericUpDown1.Value, 0));
         }
 
         private void checkBox13_CheckedChanged(object sender, EventArgs e)
@@ -55,17 +58,17 @@ namespace WritingCenterForms
 
         private void numericUpDown5_ValueChanged(object sender, EventArgs e)
         {
-
+            minWorker[4] = Convert.ToInt32(Math.Round(numericUpDown1.Value, 0));
         }
 
         private void numericUpDown4_ValueChanged(object sender, EventArgs e)
         {
-
+            minWorker[3] = Convert.ToInt32(Math.Round(numericUpDown1.Value, 0));
         }
 
         private void numericUpDown7_ValueChanged(object sender, EventArgs e)
         {
-
+            minWorker[6] = Convert.ToInt32(Math.Round(numericUpDown1.Value, 0));
         }
 
         private void checkBox4_CheckedChanged(object sender, EventArgs e)
@@ -175,7 +178,7 @@ namespace WritingCenterForms
 
         private void numericUpDown6_ValueChanged(object sender, EventArgs e)
         {
-
+            minWorker[5] = Convert.ToInt32(Math.Round(numericUpDown1.Value, 0));
         }
 
         private void checkBox17_CheckedChanged(object sender, EventArgs e)
@@ -200,7 +203,7 @@ namespace WritingCenterForms
 
         private void numericUpDown2_ValueChanged(object sender, EventArgs e)
         {
-
+            minWorker[1] = Convert.ToInt32(Math.Round(numericUpDown1.Value, 0));
         }
 
         private void numericUpDown15_ValueChanged(object sender, EventArgs e)

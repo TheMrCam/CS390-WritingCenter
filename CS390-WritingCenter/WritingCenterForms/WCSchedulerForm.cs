@@ -27,6 +27,7 @@ namespace WritingCenterForms
             InitializeComponent();
             //this.Controls.Add(scheduleView1);
             Accounts.TestCSV(); //for testing
+            this.SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
         }
 
         private void logIn_Click(object sender, EventArgs e)

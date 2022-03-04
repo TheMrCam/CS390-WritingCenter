@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -46,6 +47,16 @@ namespace WritingCenterForms
             {
                 this.names = newNames;
             }
+
+            public void setNames(List<string> newNames)
+            {
+                string[] addedNames = new string[newNames.Count];
+                for (int i = 0; i < newNames.Count; i++)
+                {
+                    addedNames[i] = newNames[i];
+                }
+                this.names = addedNames;
+            }
         }
         //public static int SlotSize { get { return SlotSize; } set { if (value == 15 || value == 20 || value == 30 || value == 60) { SlotSize = value; } else { SlotSize = 60; } } } //15, 20, 30, or 60 minute slots; default: 60
         private Hour[] hours;
@@ -85,6 +96,8 @@ namespace WritingCenterForms
                 }
             }
         }
+
+        public Hour GetHour(int day) { return hours[day]; }
 
         public void EditHour(int hour, bool available, string[] names)
         {

@@ -33,10 +33,9 @@ namespace WritingCenterForms
             //subtractive
             foreach (Day day in schedule.Days)
             {
-
+                int currentHour = 0;
                 foreach (Day.Hour hour in day.Hours)
                 {
-                    int currentHour = 0;
                     if (hour.Open.Equals(true))
                     {
                         List<string> availibleWorkers = new List<string>();

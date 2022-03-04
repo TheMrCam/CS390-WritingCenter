@@ -14,6 +14,7 @@ namespace WritingCenterForms
         private int year;
         private string[] majorsMinors;
         private int requestedHours;
+        private int currentWorkedHours { get; set; }
         private bool admin;
         private Day[] availability = new Day[7];
 

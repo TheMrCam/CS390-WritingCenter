@@ -36,15 +36,16 @@ namespace WritingCenterForms
                 int currentHour = 0;
                 foreach (Day.Hour hour in day.Hours)
                 {
-                    if (hour.Open.Equals(true))
+                    if (hour.Availible.Equals(true))
                     {
                         List<string> availibleWorkers = new List<string>();
                         foreach (ArrayList worker in workerList)
                         {
                             Day availibility = (Day)worker[DAY_INDEX];
-                            if (availibility.GetHour(currentHour).Open)
+                            if (availibility.GetHour(currentHour).Availible)
                             {
                                 availibleWorkers.Add((string)worker[NAME_INDEX]);
+
                             }
                         }
 

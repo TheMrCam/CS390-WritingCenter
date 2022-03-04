@@ -23,14 +23,14 @@ namespace WritingCenterForms
         public struct Hour
         //Keeps the open bool and parameter string[] linked together in array of Hours[]
         {
-            private bool open;
+            private bool availible;
             private string[] names;
             public int minWorkers, maxWorkers;
-            public bool Open { get { return open; } set { open = value; } }
+            public bool Availible { get { return availible; } set { availible = value; } }
             public string[] Names { get { return names; } set { names = value; } }
             public Hour(bool available, string[] workers = null)
             {
-                this.open = available;
+                this.availible = available;
                 if (available)
                 {
                     minWorkers = 1;
@@ -101,7 +101,7 @@ namespace WritingCenterForms
 
         public void EditHour(int hour, bool available, string[] names)
         {
-            Hours[hour].Open = available;
+            Hours[hour].Availible = available;
             Hours[hour].Names = names;
         }
 
@@ -110,7 +110,7 @@ namespace WritingCenterForms
             string daystring = "[ ";
             for(int i = 0; i < Slots; i++)
             {
-                daystring += Hours[i].Open ? "1" : "0";
+                daystring += Hours[i].Availible ? "1" : "0";
                 daystring += ": ";
                 if (Hours[i].Names != null)
                 {

@@ -32,38 +32,39 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.SundayTab = new System.Windows.Forms.TabPage();
+            this.control1 = new WritingCenterForms.Control();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.MondayTab = new System.Windows.Forms.TabPage();
+            this.control2 = new WritingCenterForms.Control();
             this.TuedayTab = new System.Windows.Forms.TabPage();
+            this.control3 = new WritingCenterForms.Control();
+            this.WednesdayTab = new System.Windows.Forms.TabPage();
+            this.control4 = new WritingCenterForms.Control();
             this.ThursdayTab = new System.Windows.Forms.TabPage();
+            this.control5 = new WritingCenterForms.Control();
             this.FridayTab = new System.Windows.Forms.TabPage();
+            this.control6 = new WritingCenterForms.Control();
             this.SaturdayTab = new System.Windows.Forms.TabPage();
+            this.control7 = new WritingCenterForms.Control();
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.control1 = new WritingCenterForms.Control();
-            this.control2 = new WritingCenterForms.Control();
-            this.control3 = new WritingCenterForms.Control();
-            this.WednesdayTab = new System.Windows.Forms.TabPage();
-            this.control4 = new WritingCenterForms.Control();
-            this.control5 = new WritingCenterForms.Control();
-            this.control6 = new WritingCenterForms.Control();
-            this.control7 = new WritingCenterForms.Control();
+            this.submitButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.SundayTab.SuspendLayout();
             this.MondayTab.SuspendLayout();
             this.TuedayTab.SuspendLayout();
+            this.WednesdayTab.SuspendLayout();
             this.ThursdayTab.SuspendLayout();
             this.FridayTab.SuspendLayout();
             this.SaturdayTab.SuspendLayout();
-            this.WednesdayTab.SuspendLayout();
             this.SuspendLayout();
             // 
             // logOut
@@ -127,6 +128,14 @@
             this.SundayTab.Text = "Sunday";
             this.SundayTab.UseVisualStyleBackColor = true;
             // 
+            // control1
+            // 
+            this.control1.BackColor = System.Drawing.Color.Wheat;
+            this.control1.Location = new System.Drawing.Point(-2, 0);
+            this.control1.Name = "control1";
+            this.control1.Size = new System.Drawing.Size(1057, 948);
+            this.control1.TabIndex = 15;
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -189,6 +198,14 @@
             this.MondayTab.Text = "Monday";
             this.MondayTab.UseVisualStyleBackColor = true;
             // 
+            // control2
+            // 
+            this.control2.BackColor = System.Drawing.Color.Wheat;
+            this.control2.Location = new System.Drawing.Point(0, 0);
+            this.control2.Name = "control2";
+            this.control2.Size = new System.Drawing.Size(1057, 948);
+            this.control2.TabIndex = 0;
+            // 
             // TuedayTab
             // 
             this.TuedayTab.AutoScroll = true;
@@ -200,6 +217,37 @@
             this.TuedayTab.Text = "Tuesday";
             this.TuedayTab.UseVisualStyleBackColor = true;
             this.TuedayTab.Click += new System.EventHandler(this.TuedayTab_Click);
+            // 
+            // control3
+            // 
+            this.control3.BackColor = System.Drawing.Color.Wheat;
+            this.control3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.control3.Location = new System.Drawing.Point(0, 0);
+            this.control3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.control3.Name = "control3";
+            this.control3.Size = new System.Drawing.Size(1057, 948);
+            this.control3.TabIndex = 0;
+            // 
+            // WednesdayTab
+            // 
+            this.WednesdayTab.AutoScroll = true;
+            this.WednesdayTab.Controls.Add(this.control4);
+            this.WednesdayTab.Location = new System.Drawing.Point(4, 34);
+            this.WednesdayTab.Name = "WednesdayTab";
+            this.WednesdayTab.Size = new System.Drawing.Size(1072, 421);
+            this.WednesdayTab.TabIndex = 3;
+            this.WednesdayTab.Text = "Wednesday";
+            this.WednesdayTab.UseVisualStyleBackColor = true;
+            // 
+            // control4
+            // 
+            this.control4.BackColor = System.Drawing.Color.Wheat;
+            this.control4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.control4.Location = new System.Drawing.Point(0, 0);
+            this.control4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.control4.Name = "control4";
+            this.control4.Size = new System.Drawing.Size(1057, 948);
+            this.control4.TabIndex = 0;
             // 
             // ThursdayTab
             // 
@@ -213,6 +261,14 @@
             this.ThursdayTab.Text = "Thursday";
             this.ThursdayTab.UseVisualStyleBackColor = true;
             // 
+            // control5
+            // 
+            this.control5.BackColor = System.Drawing.Color.Wheat;
+            this.control5.Location = new System.Drawing.Point(0, 0);
+            this.control5.Name = "control5";
+            this.control5.Size = new System.Drawing.Size(1057, 948);
+            this.control5.TabIndex = 0;
+            // 
             // FridayTab
             // 
             this.FridayTab.AutoScroll = true;
@@ -224,6 +280,14 @@
             this.FridayTab.TabIndex = 5;
             this.FridayTab.Text = "Friday";
             this.FridayTab.UseVisualStyleBackColor = true;
+            // 
+            // control6
+            // 
+            this.control6.BackColor = System.Drawing.Color.Wheat;
+            this.control6.Location = new System.Drawing.Point(0, 0);
+            this.control6.Name = "control6";
+            this.control6.Size = new System.Drawing.Size(1057, 948);
+            this.control6.TabIndex = 0;
             // 
             // SaturdayTab
             // 
@@ -237,6 +301,14 @@
             this.SaturdayTab.Text = "Saturday";
             this.SaturdayTab.UseVisualStyleBackColor = true;
             this.SaturdayTab.Click += new System.EventHandler(this.SaturdayTab_Click);
+            // 
+            // control7
+            // 
+            this.control7.BackColor = System.Drawing.Color.Wheat;
+            this.control7.Location = new System.Drawing.Point(0, 0);
+            this.control7.Name = "control7";
+            this.control7.Size = new System.Drawing.Size(1057, 948);
+            this.control7.TabIndex = 0;
             // 
             // label23
             // 
@@ -294,74 +366,22 @@
             this.listBox1.TabIndex = 5;
             this.listBox1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBox1_MouseDoubleClick);
             // 
-            // control1
+            // submitButton
             // 
-            this.control1.Location = new System.Drawing.Point(-2, 0);
-            this.control1.Name = "control1";
-            this.control1.Size = new System.Drawing.Size(1057, 948);
-            this.control1.TabIndex = 15;
-            // 
-            // control2
-            // 
-            this.control2.Location = new System.Drawing.Point(0, 0);
-            this.control2.Name = "control2";
-            this.control2.Size = new System.Drawing.Size(1057, 948);
-            this.control2.TabIndex = 0;
-            // 
-            // control3
-            // 
-            this.control3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.control3.Location = new System.Drawing.Point(0, 0);
-            this.control3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.control3.Name = "control3";
-            this.control3.Size = new System.Drawing.Size(1057, 948);
-            this.control3.TabIndex = 0;
-            // 
-            // WednesdayTab
-            // 
-            this.WednesdayTab.AutoScroll = true;
-            this.WednesdayTab.Controls.Add(this.control4);
-            this.WednesdayTab.Location = new System.Drawing.Point(4, 34);
-            this.WednesdayTab.Name = "WednesdayTab";
-            this.WednesdayTab.Size = new System.Drawing.Size(1072, 421);
-            this.WednesdayTab.TabIndex = 3;
-            this.WednesdayTab.Text = "Wednesday";
-            this.WednesdayTab.UseVisualStyleBackColor = true;
-            // 
-            // control4
-            // 
-            this.control4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.control4.Location = new System.Drawing.Point(0, 0);
-            this.control4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.control4.Name = "control4";
-            this.control4.Size = new System.Drawing.Size(1057, 948);
-            this.control4.TabIndex = 0;
-            // 
-            // control5
-            // 
-            this.control5.Location = new System.Drawing.Point(0, 0);
-            this.control5.Name = "control5";
-            this.control5.Size = new System.Drawing.Size(1057, 948);
-            this.control5.TabIndex = 0;
-            // 
-            // control6
-            // 
-            this.control6.Location = new System.Drawing.Point(0, 0);
-            this.control6.Name = "control6";
-            this.control6.Size = new System.Drawing.Size(1057, 948);
-            this.control6.TabIndex = 0;
-            // 
-            // control7
-            // 
-            this.control7.Location = new System.Drawing.Point(0, 0);
-            this.control7.Name = "control7";
-            this.control7.Size = new System.Drawing.Size(1057, 948);
-            this.control7.TabIndex = 0;
+            this.submitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.submitButton.Location = new System.Drawing.Point(520, 33);
+            this.submitButton.Name = "submitButton";
+            this.submitButton.Size = new System.Drawing.Size(120, 50);
+            this.submitButton.TabIndex = 2;
+            this.submitButton.Text = "Submit";
+            this.submitButton.UseVisualStyleBackColor = true;
             // 
             // SettingsPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.Controls.Add(this.submitButton);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.logOut);
             this.Name = "SettingsPage";
@@ -373,10 +393,10 @@
             this.SundayTab.PerformLayout();
             this.MondayTab.ResumeLayout(false);
             this.TuedayTab.ResumeLayout(false);
+            this.WednesdayTab.ResumeLayout(false);
             this.ThursdayTab.ResumeLayout(false);
             this.FridayTab.ResumeLayout(false);
             this.SaturdayTab.ResumeLayout(false);
-            this.WednesdayTab.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -410,5 +430,6 @@
         private Control control5;
         private Control control6;
         private Control control7;
+        private System.Windows.Forms.Button submitButton;
     }
 }

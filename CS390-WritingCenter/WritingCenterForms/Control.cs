@@ -19,9 +19,13 @@ namespace WritingCenterForms
         private CheckBox checkBox2;
         public int[] minWorker = new int[24];
         public int[] maxWorker = new int[24];
-        public bool[] openHours = new bool[24];
+        public bool[] openHours = new bool[24] {false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false};
         public int[] busyShifts = new int[24];
         public string[][] settings = new string[24][];
+
+        public int defaultMinWorker = 1;
+        public int defaultMaxWorker = 4;
+
 
         public Control()
         {
@@ -30,6 +34,9 @@ namespace WritingCenterForms
             for(int i = 0; i < 24; i++)
             {
                 settings[i] = new string[3];
+                settings[i][0] = Convert.ToString(defaultMinWorker);
+                settings[i][1] = Convert.ToString(defaultMaxWorker);
+                settings[i][2] = "false";
             }
 
         }
@@ -95,6 +102,7 @@ namespace WritingCenterForms
             this.minNumericUpDown.Size = new Size(139, 30);
             this.minNumericUpDown.TabIndex = tabIndex;
             this.minNumericUpDown.TextAlign = HorizontalAlignment.Center;
+            this.minNumericUpDown.Value = defaultMinWorker;
             this.minNumericUpDown.ValueChanged += new EventHandler(this.minNumericUpDown_valueChanged);
             return minNumericUpDown;
         }
@@ -115,6 +123,7 @@ namespace WritingCenterForms
             this.maxNumericUpDown.Size = new Size(139, 30);
             this.maxNumericUpDown.TabIndex = tabIndex;
             this.maxNumericUpDown.TextAlign = HorizontalAlignment.Center;
+            this.maxNumericUpDown.Value = defaultMaxWorker;
             this.maxNumericUpDown.ValueChanged += new EventHandler(this.maxNumericUpDown_valueChanged);
             return maxNumericUpDown;
         }
@@ -156,10 +165,9 @@ namespace WritingCenterForms
             else return i + ":00pm - " + (i + 1) + ":00pm";
         }
 
-        public string[][] getSettings()
+        public Day getDay()
         {
-            //return new Day(openHours, settings);
-            return settings;
+            return new Day(openHours, settings);
         }
     }
 }

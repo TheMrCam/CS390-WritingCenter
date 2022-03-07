@@ -160,10 +160,18 @@ namespace WritingCenterForms
 
         private string convertTime(int i)
         {
-            if (i > 12) return i - 12 + ":00pm - " + (i + 1) + ":00pm";
-            else if (i < 12) return i + ":00am - " + (i + 1) + ":00am";
-            else return i + ":00pm - " + (i + 1) + ":00pm";
+            if (i > 12) return i - 12 + ":00pm - " + convertTimeS(i+1);
+            else if (i < 12) return i + ":00am - " + convertTimeS(i+1);
+            else return i + ":00pm - " + convertTimeS(i+1);
         }
+
+        private string convertTimeS(int i)
+        {
+            if (i > 12) return i - 12 + ":00pm";
+            else if (i < 12) return i + ":00am";
+            else return i + ":00pm";
+        }
+
 
         public Day getDay()
         {

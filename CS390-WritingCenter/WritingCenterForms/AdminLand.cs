@@ -12,13 +12,14 @@ namespace WritingCenterForms
 {
     public partial class AdminLand : UserControl
     {
-        scheduleView scheduleView1; //= new scheduleView();
+        scheduleView scheduleView1;
         AcctManagePage AcctManagePage1 = new AcctManagePage();
-        SettingsPage settingPage = new SettingsPage();
+        SettingsPage settingPage;
         public AdminLand(scheduleView scheduleView1)
         {
             InitializeComponent();
             this.scheduleView1 = scheduleView1;
+            settingPage = new SettingsPage(scheduleView1);
             this.Controls.Add(scheduleView1);
             this.Controls.Add(AcctManagePage1);
             this.Controls.Add(settingPage);

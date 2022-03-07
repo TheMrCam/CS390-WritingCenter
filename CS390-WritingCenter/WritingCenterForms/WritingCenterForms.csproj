@@ -69,12 +69,6 @@
     <Compile Include="SettingsPage.Designer.cs">
       <DependentUpon>SettingsPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="ShiftControls.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="ShiftControls.Designer.cs">
-      <DependentUpon>ShiftControls.cs</DependentUpon>
-    </Compile>
     <Compile Include="WCSchedulerForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,9 +116,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SettingsPage.resx">
       <DependentUpon>SettingsPage.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ShiftControls.resx">
-      <DependentUpon>ShiftControls.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WCSchedulerForm.resx">
       <DependentUpon>WCSchedulerForm.cs</DependentUpon>

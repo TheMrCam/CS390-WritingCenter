@@ -5,7 +5,6 @@ C:\Users\shash\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\obj\De
 C:\Users\shash\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\obj\Debug\WritingCenterForms.AcctManagePage.resources
 C:\Users\shash\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\obj\Debug\WritingCenterForms.AdminLand.resources
 C:\Users\shash\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\obj\Debug\WritingCenterForms.EditAcctInfoPage.resources
-C:\Users\shash\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\obj\Debug\WritingCenterForms.ShiftControls.resources
 C:\Users\shash\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\obj\Debug\WritingCenterForms.WCSchedulerForm.resources
 C:\Users\shash\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\obj\Debug\WritingCenterForms.Properties.Resources.resources
 C:\Users\shash\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\obj\Debug\WritingCenterForms.scheduleView.resources

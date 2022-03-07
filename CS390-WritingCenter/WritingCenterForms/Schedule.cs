@@ -71,7 +71,6 @@ namespace WritingCenterForms
                     string day = values[0].Split('y')[0] + 'y';     //has the value sunday, monday...
                     string[] workers = values[1].Replace("\'", "").Replace("[", "").Replace("]", "").Split(','); //has "Natalie, Alice"...
                     Days[days[day]].EditHour(convertTime(time), true, workers);
-                    //openHours.Remove(day + " " + time);
                 }
             }
         }
@@ -81,13 +80,6 @@ namespace WritingCenterForms
             int hour = int.Parse(s.Split(':')[0]);
             if (s.EndsWith("pm")) hour = (hour % 12) + 12; //convert 12-hour time to 24-hour
             return hour;
-        }
-
-        private string convertTime(int i)
-        {
-            if (i > 12) return i - 12 + ":00pm";
-            else if (i < 12) return i + ":00am";
-            else return i + ":00pm";
         }
 
         public string[] getWorkers(int time, int day)
@@ -147,6 +139,19 @@ namespace WritingCenterForms
         {
             Schedule newSched = new Schedule();
             newSched.OCBasicSchedule(opens, closes);
+            builder.buildSchedule(newSched);
+            return newSched;
+        }
+
+        public void setDays(Day[] days)
+        {
+            this.Days = days;
+            buildSchedule();
+        }
+
+        public Schedule buildSchedule()
+        {
+            Schedule newSched = new Schedule();
             builder.buildSchedule(newSched);
             return newSched;
         }

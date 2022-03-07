@@ -23,7 +23,6 @@ namespace WritingCenterForms
             InitializeComponent();
             schedule = new Schedule();
             sPanel = new FlowLayoutPanel();
-
             prepareSchedule();
         }
 
@@ -89,11 +88,6 @@ namespace WritingCenterForms
             sPanel.Controls.Add(lbox);
         }
 
-        //public ArrayList getOpenHours()
-        //{
-        //    return schedule.getOpenHours();
-        //}
-
         private void back_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -114,7 +108,7 @@ namespace WritingCenterForms
 
         private void scheduleView_Load(object sender, EventArgs e)
         {
-
+            prepareSchedule();
         }
 
         private async void ExportSchedule_Click(object sender, EventArgs e)
@@ -155,6 +149,11 @@ namespace WritingCenterForms
                     }
                 }
             }
+        }
+
+        public void setDays(Day[] days)
+        {
+            this.schedule.setDays(days);
         }
     }
 }

@@ -32,30 +32,30 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.SundayTab = new System.Windows.Forms.TabPage();
-            this.control1 = new WritingCenterForms.Control();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.MondayTab = new System.Windows.Forms.TabPage();
-            this.control2 = new WritingCenterForms.Control();
             this.TuedayTab = new System.Windows.Forms.TabPage();
-            this.control3 = new WritingCenterForms.Control();
             this.WednesdayTab = new System.Windows.Forms.TabPage();
-            this.control4 = new WritingCenterForms.Control();
             this.ThursdayTab = new System.Windows.Forms.TabPage();
-            this.control5 = new WritingCenterForms.Control();
             this.FridayTab = new System.Windows.Forms.TabPage();
-            this.control6 = new WritingCenterForms.Control();
             this.SaturdayTab = new System.Windows.Forms.TabPage();
-            this.control7 = new WritingCenterForms.Control();
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.submitButton = new System.Windows.Forms.Button();
+            this.sundayControl = new WritingCenterForms.Control();
+            this.mondayControl = new WritingCenterForms.Control();
+            this.tuesdayControl = new WritingCenterForms.Control();
+            this.wednesdayControl = new WritingCenterForms.Control();
+            this.thursdayControl = new WritingCenterForms.Control();
+            this.fridayControl = new WritingCenterForms.Control();
+            this.saturdayControl = new WritingCenterForms.Control();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.SundayTab.SuspendLayout();
@@ -114,7 +114,7 @@
             // SundayTab
             // 
             this.SundayTab.AutoScroll = true;
-            this.SundayTab.Controls.Add(this.control1);
+            this.SundayTab.Controls.Add(this.sundayControl);
             this.SundayTab.Controls.Add(this.label5);
             this.SundayTab.Controls.Add(this.label4);
             this.SundayTab.Controls.Add(this.label3);
@@ -127,14 +127,6 @@
             this.SundayTab.TabIndex = 0;
             this.SundayTab.Text = "Sunday";
             this.SundayTab.UseVisualStyleBackColor = true;
-            // 
-            // control1
-            // 
-            this.control1.BackColor = System.Drawing.Color.Wheat;
-            this.control1.Location = new System.Drawing.Point(-2, 0);
-            this.control1.Name = "control1";
-            this.control1.Size = new System.Drawing.Size(1057, 948);
-            this.control1.TabIndex = 15;
             // 
             // label5
             // 
@@ -189,7 +181,7 @@
             // MondayTab
             // 
             this.MondayTab.AutoScroll = true;
-            this.MondayTab.Controls.Add(this.control2);
+            this.MondayTab.Controls.Add(this.mondayControl);
             this.MondayTab.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MondayTab.Location = new System.Drawing.Point(4, 34);
             this.MondayTab.Name = "MondayTab";
@@ -198,18 +190,10 @@
             this.MondayTab.Text = "Monday";
             this.MondayTab.UseVisualStyleBackColor = true;
             // 
-            // control2
-            // 
-            this.control2.BackColor = System.Drawing.Color.Wheat;
-            this.control2.Location = new System.Drawing.Point(0, 0);
-            this.control2.Name = "control2";
-            this.control2.Size = new System.Drawing.Size(1057, 948);
-            this.control2.TabIndex = 0;
-            // 
             // TuedayTab
             // 
             this.TuedayTab.AutoScroll = true;
-            this.TuedayTab.Controls.Add(this.control3);
+            this.TuedayTab.Controls.Add(this.tuesdayControl);
             this.TuedayTab.Location = new System.Drawing.Point(4, 34);
             this.TuedayTab.Name = "TuedayTab";
             this.TuedayTab.Size = new System.Drawing.Size(1072, 421);
@@ -218,20 +202,10 @@
             this.TuedayTab.UseVisualStyleBackColor = true;
             this.TuedayTab.Click += new System.EventHandler(this.TuedayTab_Click);
             // 
-            // control3
-            // 
-            this.control3.BackColor = System.Drawing.Color.Wheat;
-            this.control3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.control3.Location = new System.Drawing.Point(0, 0);
-            this.control3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.control3.Name = "control3";
-            this.control3.Size = new System.Drawing.Size(1057, 948);
-            this.control3.TabIndex = 0;
-            // 
             // WednesdayTab
             // 
             this.WednesdayTab.AutoScroll = true;
-            this.WednesdayTab.Controls.Add(this.control4);
+            this.WednesdayTab.Controls.Add(this.wednesdayControl);
             this.WednesdayTab.Location = new System.Drawing.Point(4, 34);
             this.WednesdayTab.Name = "WednesdayTab";
             this.WednesdayTab.Size = new System.Drawing.Size(1072, 421);
@@ -239,20 +213,10 @@
             this.WednesdayTab.Text = "Wednesday";
             this.WednesdayTab.UseVisualStyleBackColor = true;
             // 
-            // control4
-            // 
-            this.control4.BackColor = System.Drawing.Color.Wheat;
-            this.control4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.control4.Location = new System.Drawing.Point(0, 0);
-            this.control4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.control4.Name = "control4";
-            this.control4.Size = new System.Drawing.Size(1057, 948);
-            this.control4.TabIndex = 0;
-            // 
             // ThursdayTab
             // 
             this.ThursdayTab.AutoScroll = true;
-            this.ThursdayTab.Controls.Add(this.control5);
+            this.ThursdayTab.Controls.Add(this.thursdayControl);
             this.ThursdayTab.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ThursdayTab.Location = new System.Drawing.Point(4, 34);
             this.ThursdayTab.Name = "ThursdayTab";
@@ -261,18 +225,10 @@
             this.ThursdayTab.Text = "Thursday";
             this.ThursdayTab.UseVisualStyleBackColor = true;
             // 
-            // control5
-            // 
-            this.control5.BackColor = System.Drawing.Color.Wheat;
-            this.control5.Location = new System.Drawing.Point(0, 0);
-            this.control5.Name = "control5";
-            this.control5.Size = new System.Drawing.Size(1057, 948);
-            this.control5.TabIndex = 0;
-            // 
             // FridayTab
             // 
             this.FridayTab.AutoScroll = true;
-            this.FridayTab.Controls.Add(this.control6);
+            this.FridayTab.Controls.Add(this.fridayControl);
             this.FridayTab.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FridayTab.Location = new System.Drawing.Point(4, 34);
             this.FridayTab.Name = "FridayTab";
@@ -281,18 +237,10 @@
             this.FridayTab.Text = "Friday";
             this.FridayTab.UseVisualStyleBackColor = true;
             // 
-            // control6
-            // 
-            this.control6.BackColor = System.Drawing.Color.Wheat;
-            this.control6.Location = new System.Drawing.Point(0, 0);
-            this.control6.Name = "control6";
-            this.control6.Size = new System.Drawing.Size(1057, 948);
-            this.control6.TabIndex = 0;
-            // 
             // SaturdayTab
             // 
             this.SaturdayTab.AutoScroll = true;
-            this.SaturdayTab.Controls.Add(this.control7);
+            this.SaturdayTab.Controls.Add(this.saturdayControl);
             this.SaturdayTab.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SaturdayTab.Location = new System.Drawing.Point(4, 34);
             this.SaturdayTab.Name = "SaturdayTab";
@@ -301,14 +249,6 @@
             this.SaturdayTab.Text = "Saturday";
             this.SaturdayTab.UseVisualStyleBackColor = true;
             this.SaturdayTab.Click += new System.EventHandler(this.SaturdayTab_Click);
-            // 
-            // control7
-            // 
-            this.control7.BackColor = System.Drawing.Color.Wheat;
-            this.control7.Location = new System.Drawing.Point(0, 0);
-            this.control7.Name = "control7";
-            this.control7.Size = new System.Drawing.Size(1057, 948);
-            this.control7.TabIndex = 0;
             // 
             // label23
             // 
@@ -375,6 +315,67 @@
             this.submitButton.TabIndex = 2;
             this.submitButton.Text = "Submit";
             this.submitButton.UseVisualStyleBackColor = true;
+            this.submitButton.Click += new System.EventHandler(this.submitButton_Click);
+            // 
+            // sundayControl
+            // 
+            this.sundayControl.BackColor = System.Drawing.Color.Wheat;
+            this.sundayControl.Location = new System.Drawing.Point(-2, 0);
+            this.sundayControl.Name = "sundayControl";
+            this.sundayControl.Size = new System.Drawing.Size(1057, 948);
+            this.sundayControl.TabIndex = 15;
+            // 
+            // mondayControl
+            // 
+            this.mondayControl.BackColor = System.Drawing.Color.Wheat;
+            this.mondayControl.Location = new System.Drawing.Point(0, 0);
+            this.mondayControl.Name = "mondayControl";
+            this.mondayControl.Size = new System.Drawing.Size(1057, 948);
+            this.mondayControl.TabIndex = 0;
+            // 
+            // tuesdayControl
+            // 
+            this.tuesdayControl.BackColor = System.Drawing.Color.Wheat;
+            this.tuesdayControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tuesdayControl.Location = new System.Drawing.Point(0, 0);
+            this.tuesdayControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tuesdayControl.Name = "tuesdayControl";
+            this.tuesdayControl.Size = new System.Drawing.Size(1057, 948);
+            this.tuesdayControl.TabIndex = 0;
+            // 
+            // wednesdayControl
+            // 
+            this.wednesdayControl.BackColor = System.Drawing.Color.Wheat;
+            this.wednesdayControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.wednesdayControl.Location = new System.Drawing.Point(0, 0);
+            this.wednesdayControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.wednesdayControl.Name = "wednesdayControl";
+            this.wednesdayControl.Size = new System.Drawing.Size(1057, 948);
+            this.wednesdayControl.TabIndex = 0;
+            // 
+            // thursdayControl
+            // 
+            this.thursdayControl.BackColor = System.Drawing.Color.Wheat;
+            this.thursdayControl.Location = new System.Drawing.Point(0, 0);
+            this.thursdayControl.Name = "thursdayControl";
+            this.thursdayControl.Size = new System.Drawing.Size(1057, 948);
+            this.thursdayControl.TabIndex = 0;
+            // 
+            // fridayControl
+            // 
+            this.fridayControl.BackColor = System.Drawing.Color.Wheat;
+            this.fridayControl.Location = new System.Drawing.Point(0, 0);
+            this.fridayControl.Name = "fridayControl";
+            this.fridayControl.Size = new System.Drawing.Size(1057, 948);
+            this.fridayControl.TabIndex = 0;
+            // 
+            // saturdayControl
+            // 
+            this.saturdayControl.BackColor = System.Drawing.Color.Wheat;
+            this.saturdayControl.Location = new System.Drawing.Point(0, 0);
+            this.saturdayControl.Name = "saturdayControl";
+            this.saturdayControl.Size = new System.Drawing.Size(1057, 948);
+            this.saturdayControl.TabIndex = 0;
             // 
             // SettingsPage
             // 
@@ -422,14 +423,14 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private Control control1;
-        private Control control2;
-        private Control control3;
+        private Control sundayControl;
+        private Control mondayControl;
+        private Control tuesdayControl;
         private System.Windows.Forms.TabPage WednesdayTab;
-        private Control control4;
-        private Control control5;
-        private Control control6;
-        private Control control7;
+        private Control wednesdayControl;
+        private Control thursdayControl;
+        private Control fridayControl;
+        private Control saturdayControl;
         private System.Windows.Forms.Button submitButton;
     }
 }

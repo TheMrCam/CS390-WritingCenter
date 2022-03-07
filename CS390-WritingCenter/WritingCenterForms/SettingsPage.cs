@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WritingCenterForms
@@ -13,10 +6,11 @@ namespace WritingCenterForms
     public partial class SettingsPage : UserControl
     {
         Day[] days = new Day[7];
-        public SettingsPage()
+        private scheduleView scheduleView;
+        public SettingsPage(scheduleView scheduleView)
         {
             InitializeComponent();
-
+            this.scheduleView = scheduleView;
         }
 
         private void logOut_Click(object sender, EventArgs e)
@@ -35,13 +29,6 @@ namespace WritingCenterForms
             listBox1.Items.AddRange(listBox2.Items);
             listBox2.Items.Clear();
         }
-
-        private void shiftControls1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-       
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -62,6 +49,21 @@ namespace WritingCenterForms
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void submitButton_Click(object sender, EventArgs e)
+        {
+            days[0] = sundayControl.getDay();
+            days[1] = mondayControl.getDay();
+            days[2] = tuesdayControl.getDay();
+            days[3] = wednesdayControl.getDay();
+            days[4] = thursdayControl.getDay();
+            days[5] = fridayControl.getDay();
+            days[6] = saturdayControl.getDay();
+            //scheduleView.setDays(days);
+            this.Hide();
+            scheduleView.Show();
+            scheduleView.BringToFront();
         }
     }
 }

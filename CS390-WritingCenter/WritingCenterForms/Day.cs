@@ -97,7 +97,7 @@ namespace WritingCenterForms
             }
         }
 
-        public Hour GetHour(int day) { return hours[day]; }
+        public Hour GetHour(int whichOne) { return hours[whichOne]; }
 
         public void EditHour(int hour, bool available, string[] names)
         {

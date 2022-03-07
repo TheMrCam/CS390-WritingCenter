@@ -14,7 +14,8 @@ namespace WritingCenterForms
         private int year;
         private string[] majorsMinors;
         private int requestedHours;
-        private int currentWorkedHours { get; set; }
+        public int currentWorkedHours { get; set; }
+        private int possibleHours;
         private bool admin;
         private Day[] availability = new Day[7];
 
@@ -111,6 +112,16 @@ namespace WritingCenterForms
         public void SetAvailability(int day, bool[] availableTimes)
         {
             availability[day] = new Day(availableTimes, null);
+        }
+
+        public int PossibleHours()
+        {
+            return possibleHours;
+        }
+
+        public void setPossibleHours(int newHours)
+        {
+            possibleHours = newHours;
         }
     }
 }

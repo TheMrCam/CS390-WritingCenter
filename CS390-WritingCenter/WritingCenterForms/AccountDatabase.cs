@@ -154,11 +154,20 @@ namespace WritingCenterForms
             }
             else
             {
+                int possibleHrCnt = 0;
                 Account account = GetAccount(user);
                 for (int i = 0; i < 7; i++)
                 {
                     account.SetAvailability(i, newAvailability[i]);
+                    for (int n = 0; n < 24; n++)
+                    {
+                        if (newAvailability[i][n])
+                        {
+                            possibleHrCnt++;
+                        }
+                    }
                 }
+                account.setPossibleHours(possibleHrCnt);
 
             }
         }
@@ -172,13 +181,14 @@ namespace WritingCenterForms
                 list.Add(account.Name);
                 list.Add(account.Year);
                 list.Add(account.RequestedHours);
+                list.Add(account.currentWorkedHours);
                 list.Add(account.Majors);
                 list.Add(account.Minors);
                 for(int i = 0;i<7;i++) { list.Add(account.Availability(i)); }
                 fullList.Add(list);
                 list.Clear();
             }
-            //Columns: String, Int, Int, String[], String[], Day, Day, Day, Day, Day, Day, Day
+            //Columns: String, Int, Int, Int, String[], String[], Day, Day, Day, Day, Day, Day, Day
             return fullList;
         }
 
@@ -190,6 +200,15 @@ namespace WritingCenterForms
                 names.Add(account.Name);
             }
             return (string[])names.ToArray(typeof(string));
+        }
+
+        public int getCurrentWorkedHours(string worker)
+        {
+            return GetAccount(worker).currentWorkedHours;
+        }
+        public void setCurrentWorkedHours(string worker, int newHours)
+        {
+            GetAccount(worker).currentWorkedHours = newHours;
         }
     }
 }

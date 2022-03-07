@@ -19,56 +19,63 @@ namespace WritingCenterForms
         public void buildSchedule(Schedule schedule, bool shiftInRow = true, bool expMix = false, bool majMix = false, int hrReqMargErr = 2)
         {
 
-            ArrayList workerList = accounts.GetDatabaseInformation();
-            //Columns: String, Int, Int, String[], String[], Day, Day, Day, Day, Day, Day, Day
+            string[] workerList = accounts.AccountNamesList(); // list of worker names
+            
+            // subtractive method
+            // add all workers to all shifts theyve marked availible until they hit their number of requested hours, then remove based on difference between requested hours and currently scheduled hours
 
-            //starting indexes within arraylist of accounts
-            int NAME_INDEX = 0;
-            int REQ_HR_INDEX = 1;
-            int EXP_INDEX = 2;
-            int MJRS_INDEX = 3;
-            int MINR_INDEX = 4;
-            int DAY_INDEX = 5;
-
-            //subtractive
+            int currentDay = 0;
             foreach (Day day in schedule.Days)
             {
                 int currentHour = 0;
                 foreach (Day.Hour hour in day.Hours)
                 {
-                    if (hour.Availible.Equals(true))
+                    if (hour.Availible) // if open that hour on that day
                     {
-                        List<string> availibleWorkers = new List<string>();
-                        foreach (ArrayList worker in workerList)
+                        List<Account> availibleWorkers = new List<Account>(); // initialize list of workers marked as availible
+                        foreach (string worker in workerList)
                         {
-                            Day availibility = (Day)worker[DAY_INDEX];
-                            if (availibility.GetHour(currentHour).Availible)
-                            {
-                                availibleWorkers.Add((string)worker[NAME_INDEX]);
+                            Account accountViewing = accounts.GetAccount(worker, true); // find account using name from workerList
 
+                            if (accountViewing.Availability(currentDay).GetHour(currentHour).Availible && accountViewing.currentWorkedHours<accountViewing.RequestedHours) // If marked as avaible and not at limit of hours 
+                            {
+                                availibleWorkers.Add(accountViewing);   // add to list of workers who can work shift
+                                accounts.setCurrentWorkedHours(worker, accounts.getCurrentWorkedHours(worker) + 1); // increase number of hours worker is working
+                                
                             }
+                      
                         }
 
-                        hour.setNames(availibleWorkers);
-                    }
+                        while (schedule.Days[currentDay].GetHour(currentHour).maxWorkers < availibleWorkers.Count) // While # of workers in list is greater than max num of workers
+                        {
+                            availibleWorkers = removeAWorkerReqCurrent(availibleWorkers); // remove a worker based on lowest difference between requested and current hours
+                                                                                          // those with more hours requested but less scheduled will be prioritized
+                        }
 
-                    currentHour += 1;
-                    
+                        string[] availibleWorkersNames = (string[])(from worker in availibleWorkers select worker.Name);    // fetch names of avalible workers
+
+                        hour.setNames(availibleWorkersNames);    // set list of names for that hour to the list of availible people
+
+                    }
+                    currentHour += 1;   // Increment Hour Index for finding hour in availibility
+
                 }
 
-                
+                currentDay += 1;    // Increment Day Index for finding day in availibility
 
             }
 
-            //additive
-            foreach (Day day in schedule.Days)
-            {
-                
-            }
 
 
+        }
 
+        private List<Account> removeAWorkerReqCurrent(List<Account> unsortedAcctList)
+        {
+            List<Account> sortedAcctList= new List<Account>();
 
+            sortedAcctList = (List<Account>)unsortedAcctList.OrderByDescending(a => a.RequestedHours - a.currentWorkedHours).Take(unsortedAcctList.Count- 1);
+
+            return sortedAcctList;
         }
 
     }

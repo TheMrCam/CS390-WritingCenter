@@ -37,13 +37,15 @@ namespace WritingCenterForms
                         {
                             Account accountViewing = accounts.GetAccount(worker, true); // find account using name from workerList
 
-                            if (accountViewing.Availability(currentDay).GetHour(currentHour).Availible && accountViewing.currentWorkedHours<accountViewing.RequestedHours) // If marked as avaible and not at limit of hours 
+                            if (accountViewing != null)
                             {
-                                availibleWorkers.Add(accountViewing);   // add to list of workers who can work shift
-                                accounts.setCurrentWorkedHours(worker, accounts.getCurrentWorkedHours(worker) + 1); // increase number of hours worker is working
-                                
+                                if (accountViewing.Availability(currentDay).GetHour(currentHour).Availible && accountViewing.currentWorkedHours < accountViewing.RequestedHours) // If marked as avaible and not at limit of hours 
+                                {
+                                    availibleWorkers.Add(accountViewing);   // add to list of workers who can work shift
+                                    accounts.setCurrentWorkedHours(worker, accounts.getCurrentWorkedHours(worker) + 1); // increase number of hours worker is working
+                                }
                             }
-                      
+                            
                         }
 
                         while (schedule.Days[currentDay].GetHour(currentHour).maxWorkers < availibleWorkers.Count) // While # of workers in list is greater than max num of workers

@@ -12,6 +12,7 @@ namespace WritingCenterForms
         private string password;
         public string Name { get; set; }
         private int year;
+        private int semestersInWC;
         private string[] majorsMinors;
         private int requestedHours;
         public int currentWorkedHours { get; set; }
@@ -67,6 +68,12 @@ namespace WritingCenterForms
             { 
                 if (value.ToString().Length == 4) { year = value; }
             }
+        }
+
+        public int Semesters
+        {
+            get { return semestersInWC; }
+            set { semestersInWC = value; }
         }
 
         public string[] Majors

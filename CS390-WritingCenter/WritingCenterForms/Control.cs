@@ -56,10 +56,10 @@ namespace WritingCenterForms
             this.tableLayoutPanel1.RowCount = 24;
             this.tableLayoutPanel1.AutoScroll = false;
             this.tableLayoutPanel1.ColumnCount = 4;
-            //this.tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 79.09454F));
-            //this.tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20.90546F));
-            //this.tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 145F));
-            //this.tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 139F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 150F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 145F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 139F));
             int tabIndex = 0;
             for (int i = 0; i < 24; i++)
             {
@@ -77,10 +77,10 @@ namespace WritingCenterForms
             checkBox1 = new CheckBox();
             this.checkBox1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             this.checkBox1.Name = "checkBox" + i;
-            this.checkBox1.Size = new Size(518, 29);
+            this.checkBox1.Size = new Size(718, 29);
             this.checkBox1.TabIndex = tabIndex;
             this.checkBox1.Text = convertTime(i);
-            this.checkBox1.TextAlign = ContentAlignment.MiddleCenter;
+            this.checkBox1.TextAlign = ContentAlignment.MiddleRight;
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new EventHandler(checkBox_valueChanged);
             return checkBox1;

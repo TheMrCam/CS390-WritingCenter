@@ -43,5 +43,10 @@ namespace WritingCenterForms
         {
 
         }
+
+        private void submit_Click(object sender, EventArgs e)
+        {
+            WCSchedulerForm.Accounts.submitUpdateRequest("null", "null", 0, new string[1], new string[1], 0);
+        }
     }
 }

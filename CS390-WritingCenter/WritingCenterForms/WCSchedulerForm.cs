@@ -21,7 +21,6 @@ namespace WritingCenterForms
         UserLand UserLand = new UserLand();
         readonly String defaultPass = "coe"; // change based on user somehow, not sure how to do that - AT
         ErrorProvider errorProvider = new ErrorProvider();
-        Bitmap Background, BackgroundTemp;
 
         public WCSchedulerForm()
         {
@@ -93,62 +92,6 @@ namespace WritingCenterForms
             //this.Location = new Point(0,0);
             //this.Size = new Size(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
             
-        }
-
-        protected override void Dispose(bool disposing)
-
-        {
-
-            if (disposing)
-
-            {
-
-                if (components != null)
-
-                {
-
-                    components.Dispose();
-
-                }
-
-            }
-
-            base.Dispose(disposing);
-
-            BackgroundTemp.Dispose();
-
-            Background.Dispose();
-
-        }
-
-        private void initialize()
-
-        {
-
-            SetStyle(ControlStyles.UserPaint, true);
-
-            SetStyle(ControlStyles.AllPaintingInWmPaint, true);
-
-            SetStyle(ControlStyles.DoubleBuffer, true);
-
-            string AppPath = Application.StartupPath;
-
-            BackgroundTemp = new Bitmap("C:\\Users\\shash\\CS390-WritingCenter\\CS390-WritingCenter\\WritingCenterForms\\Resources\\bgImage.jpg");
-
-            Background = new Bitmap(BackgroundTemp, BackgroundTemp.Width, BackgroundTemp.Height);
-
-        }
-
-        protected override void OnPaint(PaintEventArgs e)
-
-        {
-
-            Graphics dc = e.Graphics;
-
-            dc.DrawImageUnscaled(Background, 0, 0);
-
-            base.OnPaint(e);
-
         }
 
         private void username_TextChanged(object sender, EventArgs e)

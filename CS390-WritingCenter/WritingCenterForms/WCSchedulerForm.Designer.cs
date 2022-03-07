@@ -11,7 +11,14 @@
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
 
         #region Windows Form Designer generated code
 
@@ -37,7 +44,7 @@
             // 
             this.logIn.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.logIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.logIn.Location = new System.Drawing.Point(521, 543);
+            this.logIn.Location = new System.Drawing.Point(521, 541);
             this.logIn.Name = "logIn";
             this.logIn.Size = new System.Drawing.Size(110, 52);
             this.logIn.TabIndex = 3;
@@ -49,7 +56,7 @@
             // 
             this.password.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.password.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.password.Location = new System.Drawing.Point(427, 488);
+            this.password.Location = new System.Drawing.Point(427, 486);
             this.password.Name = "password";
             this.password.Size = new System.Drawing.Size(303, 24);
             this.password.TabIndex = 2;
@@ -62,7 +69,7 @@
             // 
             this.username.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.username.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.username.Location = new System.Drawing.Point(427, 448);
+            this.username.Location = new System.Drawing.Point(427, 446);
             this.username.Name = "username";
             this.username.Size = new System.Drawing.Size(303, 24);
             this.username.TabIndex = 1;
@@ -83,9 +90,9 @@
             this.panel1.Controls.Add(this.username);
             this.panel1.Controls.Add(this.logIn);
             this.panel1.Controls.Add(this.password);
-            this.panel1.Location = new System.Drawing.Point(0, -6);
+            this.panel1.Location = new System.Drawing.Point(1, -2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1157, 859);
+            this.panel1.Size = new System.Drawing.Size(1156, 855);
             this.panel1.TabIndex = 9;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             this.panel1.Leave += new System.EventHandler(this.resetLogin);
@@ -139,7 +146,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.BackgroundImage = global::WritingCenterForms.Properties.Resources.bgImage;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1155, 741);
             this.Controls.Add(this.panel1);

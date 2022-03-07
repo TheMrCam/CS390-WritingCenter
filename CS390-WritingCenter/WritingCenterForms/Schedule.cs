@@ -149,11 +149,9 @@ namespace WritingCenterForms
             buildSchedule();
         }
 
-        public Schedule buildSchedule()
+        public void buildSchedule()
         {
-            Schedule newSched = new Schedule();
-            builder.buildSchedule(newSched);
-            return newSched;
+            builder.buildSchedule(this);
         }
     }
 }

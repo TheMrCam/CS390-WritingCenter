@@ -60,6 +60,12 @@
     <Compile Include="Control.Designer.cs">
       <DependentUpon>Control.cs</DependentUpon>
     </Compile>
+    <Compile Include="EditShift.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditShift.Designer.cs">
+      <DependentUpon>EditShift.cs</DependentUpon>
+    </Compile>
     <Compile Include="ScheduleBuilder.cs" />
     <Compile Include="Day.cs" />
     <Compile Include="Schedule.cs" />
@@ -113,6 +119,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EditAcctInfoPage.resx">
       <DependentUpon>EditAcctInfoPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditShift.resx">
+      <DependentUpon>EditShift.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SettingsPage.resx">
       <DependentUpon>SettingsPage.cs</DependentUpon>

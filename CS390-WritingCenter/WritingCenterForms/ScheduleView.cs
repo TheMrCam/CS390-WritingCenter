@@ -85,7 +85,18 @@ namespace WritingCenterForms
                 }
             } 
             else  lbox.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            lbox.Click += new EventHandler(this.lbox_editShift);
             sPanel.Controls.Add(lbox);
+        }
+
+        private void lbox_editShift(object sender, EventArgs e)
+        {
+            EditShift edit = new EditShift();
+            Button shift = (Button)sender;
+            //currentHour -> AccountDatabase
+            edit.loadWorkers(shift.Text);
+            edit.Show();
+            edit.BringToFront();
         }
 
         private void back_Click(object sender, EventArgs e)

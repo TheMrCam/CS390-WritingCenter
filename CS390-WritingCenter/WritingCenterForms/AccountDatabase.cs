@@ -155,7 +155,7 @@ namespace WritingCenterForms
             else
             {
                 int possibleHrCnt = 0;
-                Account account = GetAccount(user);
+                Account account = GetAccount(user,true);
                 for (int i = 0; i < 7; i++)
                 {
                     account.SetAvailability(i, newAvailability[i]);

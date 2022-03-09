@@ -139,7 +139,7 @@ namespace WritingCenterForms
         {
             Schedule newSched = new Schedule();
             newSched.OCBasicSchedule(opens, closes);
-            builder.buildSchedule(newSched);
+            builder.buildSchedule(newSched, 4);
             return newSched;
         }
 
@@ -151,7 +151,7 @@ namespace WritingCenterForms
 
         public void buildSchedule()
         {
-            builder.buildSchedule(this);
+            builder.buildSchedule(this, 4);
         }
     }
 }

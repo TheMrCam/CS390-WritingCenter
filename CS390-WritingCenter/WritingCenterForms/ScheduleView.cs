@@ -13,7 +13,7 @@ namespace WritingCenterForms
         public scheduleView(AccountDatabase Accounts) // version for the admin page
         {
             InitializeComponent();
-            schedule = new Schedule(Accounts);
+            schedule = new Schedule(Accounts, this);
             sPanel = new FlowLayoutPanel();
             prepareSchedule();
         }
@@ -21,12 +21,12 @@ namespace WritingCenterForms
         public scheduleView() // version for consultant page
         {
             InitializeComponent();
-            schedule = new Schedule();
+            schedule = new Schedule(this);
             sPanel = new FlowLayoutPanel();
             prepareSchedule();
         }
 
-        private void prepareSchedule()
+        public void prepareSchedule()
         {
             //creating a panel to create all the labels in
             sPanel.Location = new System.Drawing.Point(60, 120);

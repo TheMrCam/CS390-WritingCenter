@@ -17,9 +17,10 @@ namespace WritingCenterForms
         public bool MixMajors { get; set; }
         public Dictionary<string, int> days;
         public Day[] Days = new Day[7];
+        private scheduleView sView;
         private ScheduleBuilder builder;
 
-        public Schedule(AccountDatabase accounts) // version for the admins
+        public Schedule(AccountDatabase accounts, scheduleView scheduleView) // version for the admins
         {    
             scheduleFilled = false;
             days = new Dictionary<string, int>(){
@@ -33,12 +34,13 @@ namespace WritingCenterForms
             };
             OCBasicSchedule(new int[] {11,8,8,8,8,8,23}, new int[] {23,23,23,23,23,23,23}); // default open hours?
             importCSVFile();
+            sView = scheduleView;
             scheduleFilled = true;
             builder = new ScheduleBuilder(accounts);
 
         }
 
-        public Schedule() // version for the users
+        public Schedule(scheduleView scheduleView) // version for the users
         {
             scheduleFilled = false;
             days = new Dictionary<string, int>(){
@@ -51,6 +53,7 @@ namespace WritingCenterForms
                 { "saturday", 6}
             };
             OCBasicSchedule(new int[] { 11, 8, 8, 8, 8, 8, 23 }, new int[] { 23, 23, 23, 23, 23, 23, 23 }); // default open hours?
+            this.sView = scheduleView;
             importCSVFile();
             scheduleFilled = true;
         }
@@ -137,16 +140,17 @@ namespace WritingCenterForms
 
         public Schedule buildNewSchedule(int[] opens, int[] closes)
         {
-            Schedule newSched = new Schedule();
-            newSched.OCBasicSchedule(opens, closes);
-            builder.buildSchedule(newSched, 4);
-            return newSched;
+            //Schedule newSched = new Schedule();
+            this.OCBasicSchedule(opens, closes);
+            builder.buildSchedule(this, 4);
+            return this;
         }
 
         public void setDays(Day[] days)
         {
             this.Days = days;
             buildSchedule();
+            sView.prepareSchedule();
         }
 
         public void buildSchedule()

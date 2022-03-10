@@ -22,6 +22,7 @@ namespace WritingCenterForms
             InitializeComponent();
             this.schedule = schedule;
             this.accountDb = accountDb;
+            this.Location = new Point(500, 500);
         }
 
         private void EditShift_Load(object sender, EventArgs e)
@@ -42,7 +43,7 @@ namespace WritingCenterForms
 
         private void addWorkerButton_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void removeWorkerButton_Click(object sender, EventArgs e)
@@ -52,7 +53,7 @@ namespace WritingCenterForms
                 listBox1.Items.Remove(s);
                 string[] workers = workerNames.Where(x => x != s).ToArray();
                 schedule.editDays(day, time, workers);
-                accountDb.decrementCurrentWorkedHours(s);
+                //accountDb.decrementCurrentWorkedHours(s);
             }     
         }
     }

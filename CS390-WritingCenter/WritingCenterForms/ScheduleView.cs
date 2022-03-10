@@ -77,16 +77,7 @@ namespace WritingCenterForms
             //lbox.SelectionMode = SelectionMode.None;
 
             //adds every worker that is in that shift to the listbox
-            string[] workers = schedule.getWorkers(time, day);
-            if (workers != null)
-            {
-                foreach (string worker in workers)
-                {
-                    //lbox.Items.Add(worker.Trim().Trim('\"'));
-                    lbox.Text += worker.Trim().Trim('\"') + "\n";
-                }
-            } 
-            else  lbox.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            displayWorkers(lbox, time, day);
             lbox.Click += new EventHandler(this.lbox_editShift);
             sPanel.Controls.Add(lbox);
         }
@@ -103,6 +94,20 @@ namespace WritingCenterForms
         private void back_Click(object sender, EventArgs e)
         {
             this.Hide();
+        }
+
+        private void displayWorkers(Button lbox, int time, int day)
+        {
+            string[] workers = schedule.getWorkers(time, day);
+            if (workers != null)
+            {
+                foreach (string worker in workers)
+                {
+                    //lbox.Items.Add(worker.Trim().Trim('\"'));
+                    lbox.Text += worker.Trim().Trim('\"') + "\n";
+                }
+            }
+            else lbox.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
         }
 
         private string convertTime(int i)

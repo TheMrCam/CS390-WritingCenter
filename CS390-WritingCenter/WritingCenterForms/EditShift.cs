@@ -12,9 +12,16 @@ namespace WritingCenterForms
 {
     public partial class EditShift : Form
     {
-        public EditShift()
+        private Schedule schedule;
+        private AccountDatabase accountDb;
+        private string[] workerNames;
+        private int day;
+        private int time;
+        public EditShift(Schedule schedule, AccountDatabase accountDb)
         {
             InitializeComponent();
+            this.schedule = schedule;
+            this.accountDb = accountDb;
         }
 
         private void EditShift_Load(object sender, EventArgs e)
@@ -22,9 +29,11 @@ namespace WritingCenterForms
 
         }
 
-        public void loadWorkers(string workers)
+        public void loadWorkers(string workers, int day, int time)
         {
-            string[] workerNames = workers.Split('\n');
+            workerNames = workers.Split('\n');
+            this.day = day;
+            this.time = time;
             foreach(string workerName in workerNames)
             {
                 listBox1.Items.Add(workerName);
@@ -38,7 +47,13 @@ namespace WritingCenterForms
 
         private void removeWorkerButton_Click(object sender, EventArgs e)
         {
-
+            foreach (string s in listBox1.SelectedItems.OfType<string>().ToList())
+            {
+                listBox1.Items.Remove(s);
+                string[] workers = workerNames.Where(x => x != s).ToArray();
+                schedule.editDays(day, time, workers);
+                accountDb.decrementCurrentWorkedHours(s);
+            }     
         }
     }
 }

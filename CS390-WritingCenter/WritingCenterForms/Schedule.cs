@@ -153,6 +153,11 @@ namespace WritingCenterForms
             sView.prepareSchedule();
         }
 
+        public void editDays(int day, int time, string[] workers)
+        {
+            Days[day].EditHour(time, true, workers);
+        }
+
         public void buildSchedule()
         {
             builder.buildSchedule(this, 4);

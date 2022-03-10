@@ -210,5 +210,15 @@ namespace WritingCenterForms
         {
             GetAccount(worker).currentWorkedHours = newHours;
         }
+        public void decrementCurrentWorkedHours(string worker) //decrements the worked hours by 1
+        {
+            GetAccount(worker).currentWorkedHours -= 1;
+        }
+        public void incrementCurrentWorkedHours(string worker) //increments the worked hours by 1
+        {
+            GetAccount(worker).currentWorkedHours += 1;
+        }
+
+
     }
 }

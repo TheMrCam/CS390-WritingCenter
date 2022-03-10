@@ -10,9 +10,11 @@ namespace WritingCenterForms
     {
         private Schedule schedule;
         private FlowLayoutPanel sPanel;
+        private AccountDatabase Accounts;
         public scheduleView(AccountDatabase Accounts) // version for the admin page
         {
             InitializeComponent();
+            this.Accounts = Accounts;
             schedule = new Schedule(Accounts, this);
             sPanel = new FlowLayoutPanel();
             prepareSchedule();
@@ -70,7 +72,7 @@ namespace WritingCenterForms
             lbox.Height = height;
             lbox.Width = width;
             lbox.Left = time * (width + 1); //makes a new lbox adjacent to the current lbox
-            lbox.Name = "lbox" + time + day;
+            lbox.Name = "lbox" + day + time; //if you change the lbox change the number in scheduleV
             lbox.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             //lbox.SelectionMode = SelectionMode.None;
 
@@ -78,7 +80,7 @@ namespace WritingCenterForms
             string[] workers = schedule.getWorkers(time, day);
             if (workers != null)
             {
-                foreach (string worker in schedule.getWorkers(time, day))
+                foreach (string worker in workers)
                 {
                     //lbox.Items.Add(worker.Trim().Trim('\"'));
                     lbox.Text += worker.Trim().Trim('\"') + "\n";
@@ -91,10 +93,9 @@ namespace WritingCenterForms
 
         private void lbox_editShift(object sender, EventArgs e)
         {
-            EditShift edit = new EditShift();
+            EditShift edit = new EditShift(schedule, Accounts);
             Button shift = (Button)sender;
-            //currentHour -> AccountDatabase
-            edit.loadWorkers(shift.Text);
+            edit.loadWorkers(shift.Text, int.Parse(shift.Name.Substring(4, 1)), int.Parse(shift.Name.Substring(5)));
             edit.Show();
             edit.BringToFront();
         }

@@ -16,6 +16,7 @@ namespace WritingCenterForms
         //private const string testCSV = @"C:\Users\cmwoodbury19\source\repos\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\dummy_accounts.csv";
         private ArrayList accounts;
         private const string DEFAULT_PASSWORD = "coe";
+        private const string ADMIN_PASSWORD = "password";
         private const int CURRENT_YEAR = 2022;
         /*private enum Years
         {
@@ -128,6 +129,7 @@ namespace WritingCenterForms
         //works according to Responses.csv
         public void new_ImportFromCSV(string filePath)
         {
+            accounts.Add(new Account("admin",ADMIN_PASSWORD));
             Regex regx = new Regex("," + "(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))"); //separates by , but leaves , that are inside ""
             var reader = new StreamReader(File.OpenRead(filePath));
             reader.ReadLine(); //take out header

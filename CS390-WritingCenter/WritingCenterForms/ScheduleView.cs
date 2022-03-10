@@ -84,9 +84,11 @@ namespace WritingCenterForms
 
         private void lbox_editShift(object sender, EventArgs e)
         {
-            EditShift edit = new EditShift(schedule, Accounts);
             Button shift = (Button)sender;
-            edit.loadWorkers(shift.Text, int.Parse(shift.Name.Substring(4, 1)), int.Parse(shift.Name.Substring(5)));
+            EditShift edit = new EditShift(schedule, Accounts, shift);
+            int day = int.Parse(shift.Name.Substring(4, 1));
+            int time = int.Parse(shift.Name.Substring(5));
+            edit.loadWorkers(shift.Text, day, time);
             edit.Show();
             edit.BringToFront();
         }

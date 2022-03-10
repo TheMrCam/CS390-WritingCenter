@@ -160,7 +160,14 @@ namespace WritingCenterForms
 
         public void buildSchedule()
         {
-            builder.buildSchedule(this, 4);
+            try
+            {
+                builder.buildSchedule(this, 4);
+            }
+            catch(Exception e)
+            {
+                this.
+            }
         }
     }
 }

@@ -78,12 +78,17 @@ namespace WritingCenterForms
                 currentDay++;         //move on to the next day 
             }
 
+            List<string> noHours = new List<string>();
             foreach(string name in workerList)      // checking if all workers are scheduled for at least one shift
             {
                 if (accounts.getCurrentWorkedHours(name) == 0)
                 {
-                    // here's where an error needs to be raised that a person is not working any hours
+                    noHours.Add(name);
                 }
+            }
+            if (noHours.Count > 0)
+            {
+                throw new Exception(noHours.Count() + "worker(s) have no scheduled hours");
             }
         }
 

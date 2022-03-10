@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using System.IO;
 using System.Linq;
+using System.Diagnostics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,8 +15,22 @@ namespace WritingCenterForms
     {
         //private const string testCSV = @"C:\Users\cmwoodbury19\source\repos\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\dummy_accounts.csv";
         private ArrayList accounts;
-
-        public AccountDatabase()
+        private const string DEFAULT_PASSWORD = "coe";
+        private const int CURRENT_YEAR = 2022;
+        /*private enum Years
+        {
+            Senior,
+            Junior,
+            Sophomore,
+            Freshman
+        };*/
+        public Dictionary<string, int> Years = new Dictionary<string, int>(){
+                { "Senior", 0},
+                { "Junior", 1},
+                { "Sophomore", 2},
+                { "Freshman", 3},
+            };
+    public AccountDatabase()
         {
             accounts = new ArrayList();
         }
@@ -58,14 +75,21 @@ namespace WritingCenterForms
         public void TestCSV()
         {
             string path = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName, @"Data\dummy_accounts.csv");//fileName);
-            var reader = new StreamReader(File.OpenRead(path));
+            ImportFromCSV(path);
+            /*var reader = new StreamReader(File.OpenRead(path));
             while (!reader.EndOfStream)
             {
                 var line = reader.ReadLine();
                 var values = line.Split(',');
                 //username, password, Name, year, MAJOR-minor, reqHours, admin
                 AddAccount(new Account(values[0], values[1], values[2], Convert.ToInt32(values[3]), values[4].Split('-'), Convert.ToInt32(values[5]), Convert.ToBoolean(values[6])));
-            }
+            }*/
+        }
+
+        public void TestResponsesCSV()
+        {
+            string path = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName, @"Data\Responses.csv");
+            new_ImportFromCSV(path);
         }
 
 
@@ -82,6 +106,67 @@ namespace WritingCenterForms
                 AddAccount(new Account(values[0], values[1], values[2], Convert.ToInt32(values[3]), values[4].Split('-'), Convert.ToInt32(values[5]), Convert.ToBoolean(values[6])));
             }
             return;
+        }
+        private bool[] ParseAvailableDay(string fromCSV)
+        {
+            bool[] available = new bool[24];
+            if (fromCSV.Contains(':'))
+            {
+                string[] timeSlots = fromCSV.Replace("\"", "").Replace(" ", "").Split(',');
+                foreach (string time in timeSlots)
+                {
+                    //Debug.WriteLine(time);
+                    int timeIndex = int.Parse(time.Split(':')[0]) % 12;
+                    //Debug.WriteLine(timeIndex.ToString());
+                    if (time.Split('-')[0].Contains('p')) { timeIndex += 12; }
+                    available[timeIndex] = true;
+                }
+            }
+            return available;
+        }
+
+        //works according to Responses.csv
+        public void new_ImportFromCSV(string filePath)
+        {
+            Regex regx = new Regex("," + "(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))"); //separates by , but leaves , that are inside ""
+            var reader = new StreamReader(File.OpenRead(filePath));
+            reader.ReadLine(); //take out header
+            while(!reader.EndOfStream)
+            {
+                var line = reader.ReadLine();
+                string[] values = regx.Split(line); //line is just a line from a csv
+                /*foreach(string v in values)
+                {
+                    Debug.Write(v+"| ");
+                }
+                Debug.WriteLine(";");*/
+                //Timestamp,First Name,Last Name,Year?,Majors,Minors,Number of Hours Per Week,Hours I can work [Sunday],Hours I can work [Monday],Hours I can work [Tuesday],Hours I can work [Wednesday],Hours I can work [Thursday],Hours I can work [Friday],Hours I can work [Saturday]
+                //values[0],values[1] ,values[2],val[3],val[4],val[5], values[6]             ,values[7]                ,values[8]                ,values[9]                 ,values[10]                  ,values[11]                 ,values[12]               ,values[13]
+                //dropped  ,Add together = Name ,Year ,MAJOR + minor, reqHours               , availability--->
+                //username = f_initial+lastname; password = defaultPass; admin = false
+                
+                string username = (values[1][0] + values[2]).ToLower();
+                string name = values[1] + " " + values[2];
+                int year = CURRENT_YEAR + Years[values[3]];
+                string[] majorsMinors = values[4].Replace("\"", "").ToUpper().Split(',')
+                                        .Concat(values[5].Replace("\"", "").ToLower().Split(',')).ToArray();
+                AddAccount(new Account(username,DEFAULT_PASSWORD,name,year,majorsMinors,Convert.ToInt32(values[6]),false));
+                bool[][] weeklyAvailability = new bool[7][];
+                for(int i = 7;i<14;i++)
+                {
+                    weeklyAvailability[i-7] = ParseAvailableDay(values[i]);
+                }
+                /*Debug.Write(name + ": ");
+                foreach(bool[] dayA in weeklyAvailability)
+                {
+                    foreach(bool available in dayA)
+                    {
+                        Debug.Write(available.ToString() + " ");
+                    }
+                    Debug.WriteLine("");
+                }*/
+                UpdateAvailability(name, weeklyAvailability);
+            }
         }
 
         //this one is for writing out to a file
@@ -219,6 +304,11 @@ namespace WritingCenterForms
             GetAccount(worker).currentWorkedHours += 1;
         }
 
+
+        public void ClearDatabase()
+        {
+            accounts.Clear();
+        }
 
     }
 }

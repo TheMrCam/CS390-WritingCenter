@@ -118,7 +118,7 @@ namespace WritingCenterForms
         }
         public void SetAvailability(int day, bool[] availableTimes)
         {
-            availability[day] = new Day(availableTimes, null);
+            availability[day] = new Day(availableTimes);
         }
 
         public int PossibleHours()

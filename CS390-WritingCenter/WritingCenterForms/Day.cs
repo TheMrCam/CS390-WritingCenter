@@ -81,6 +81,22 @@ namespace WritingCenterForms
                 }
             }
         }
+        public Day(bool[] available)
+        {
+            if (available.Length != Slots) //For now, hardcoded 1 hour time slots
+            {
+                throw new ArgumentException();
+            }
+            else
+            {
+                Hours = new Hour[Slots];
+                for (int i = 0; i < Hours.Length; i++)
+                {
+                    Hours[i] = new Hour(available[i]);
+                }
+            }
+        }
+
         public Day(bool[] available, string[][] names)
         {
             if(available.Length != Slots || names.Length != Slots) //For now, hardcoded 1 hour time slots
@@ -96,6 +112,7 @@ namespace WritingCenterForms
                 }
             }
         }
+        
 
         public Hour GetHour(int whichOne) { return hours[whichOne]; }
 

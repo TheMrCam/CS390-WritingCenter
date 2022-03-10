@@ -19,6 +19,7 @@ namespace WritingCenterForms
         public Day[] Days = new Day[7];
         private scheduleView sView;
         private ScheduleBuilder builder;
+        private IDictionary workersWNoHours;
 
         public Schedule(AccountDatabase accounts, scheduleView scheduleView) // version for the admins
         {    
@@ -149,7 +150,7 @@ namespace WritingCenterForms
         public void setDays(Day[] days)
         {
             this.Days = days;
-            buildSchedule();
+            //buildSchedule();
             sView.prepareSchedule();
         }
 
@@ -158,15 +159,15 @@ namespace WritingCenterForms
             Days[day].EditHour(time, true, workers);
         }
 
-        public void buildSchedule()
+        public void buildSchedule( int N)
         {
             try
             {
-                builder.buildSchedule(this, 4);
+                builder.buildSchedule(this, N);
             }
             catch(Exception e)
             {
-                this.
+                workersWNoHours = e.Data;
             }
         }
     }

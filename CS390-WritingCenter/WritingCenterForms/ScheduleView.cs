@@ -160,7 +160,7 @@ namespace WritingCenterForms
                     try
                     {
                         bool clean = fileName[fileName.IndexOf('.') + 1] != 'c';
-                        await Task.Run(() => File.WriteAllLines(fileName, schedule.ScheduleLines()));  
+                        await Task.Run(() => File.WriteAllText(fileName, schedule.exportCSV()));  
                         //change Accounts.DatabaseLines above to Schedule export of string[]
                     }
                     catch (IOException)

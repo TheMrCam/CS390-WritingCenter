@@ -38,7 +38,6 @@ namespace WritingCenterForms
             sView = scheduleView;
             scheduleFilled = true;
             builder = new ScheduleBuilder(accounts);
-            //importCSVFile();
 
         }
 
@@ -92,7 +91,7 @@ namespace WritingCenterForms
             return Days[day].Hours[time].Names;
         }
 
-        public void exportCSV()
+        public string exportCSV()
         {
             string delimiter = ", ";
             string s = "Time" + delimiter;
@@ -105,13 +104,23 @@ namespace WritingCenterForms
             {
                 s += i.ToString() + delimiter;
                 for (int j = 0; j < 7; j++)
-                { 
-                    //s += schedule[i, j].Replace(",", "|") + delimiter;
+                {
+                    if (getWorkers(i, j) != null)
+                    {
+                        foreach (string name in getWorkers(i, j))
+                        {
+                            s += name + "|";
+                        }
+                    }
+                    //else s += "--" + delimiter;
+                    s += delimiter;
                 }
                 s = s.Substring(0, s.Length - 2) + "\n";
+
             }
-            string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Data\", "schedule.csv");
-            File.WriteAllText(path, s);
+            //string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Data\", "schedule.csv");
+            //File.WriteAllText(path, s);
+            return s;
         }
 
         public void OCBasicSchedule(int[] opens, int[] closes)
@@ -130,14 +139,14 @@ namespace WritingCenterForms
             }
         }
 
-        public string[] ScheduleLines()
+        public string ScheduleLines()
         {
-            ArrayList lines = new ArrayList();
+            string lines = "";
             foreach(Day day in Days)
             {
-                lines.Add(day.PrintableDay());
+                lines += day.PrintableDay();
             }
-            return (string[])lines.ToArray(typeof(string));
+            return lines;
         }
 
         public Schedule buildNewSchedule(int[] opens, int[] closes)

@@ -39,7 +39,7 @@ namespace WritingCenterForms
                         {
                             Account acctViewing = accounts.GetAccount(worker,true);
                             
-                            if (acctViewing != null && acctViewing.Availability(currentDay).GetHour(currentHour).Availible) // if acct is not null and user is availible,
+                            if (acctViewing != null && !acctViewing.Admin && acctViewing.Availability(currentDay).GetHour(currentHour).Availible) // if acct is not null and user is availible,
                             { availibleWorkers.Add(acctViewing); }                                                          // add into possible workers for the shift
 
                         }
@@ -155,5 +155,6 @@ namespace WritingCenterForms
 
             return shiftsWorked; // return integer of previous consecutive hours worked
         }
+
     }
 }

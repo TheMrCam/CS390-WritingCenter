@@ -31,7 +31,8 @@ namespace WritingCenterForms
                 { "Sophomore", 2},
                 { "Freshman", 3},
             };
-    public AccountDatabase()
+
+        public AccountDatabase()
         {
             accounts = new ArrayList();
         }
@@ -77,14 +78,14 @@ namespace WritingCenterForms
         {
             string path = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName, @"Data\dummy_accounts.csv");//fileName);
             ImportFromCSV(path);
-            /*var reader = new StreamReader(File.OpenRead(path));
+            var reader = new StreamReader(File.OpenRead(path));
             while (!reader.EndOfStream)
             {
                 var line = reader.ReadLine();
                 var values = line.Split(',');
                 //username, password, Name, year, MAJOR-minor, reqHours, admin
                 AddAccount(new Account(values[0], values[1], values[2], Convert.ToInt32(values[3]), values[4].Split('-'), Convert.ToInt32(values[5]), Convert.ToBoolean(values[6])));
-            }*/
+            }
         }
 
         public void TestResponsesCSV()
@@ -129,7 +130,7 @@ namespace WritingCenterForms
         //works according to Responses.csv
         public void new_ImportFromCSV(string filePath)
         {
-            accounts.Add(new Account("admin",ADMIN_PASSWORD));
+            accounts.Add(new Account("admin",ADMIN_PASSWORD, true));
             Regex regx = new Regex("," + "(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))"); //separates by , but leaves , that are inside ""
             var reader = new StreamReader(File.OpenRead(filePath));
             reader.ReadLine(); //take out header

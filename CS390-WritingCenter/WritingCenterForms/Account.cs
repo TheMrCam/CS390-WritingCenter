@@ -20,12 +20,13 @@ namespace WritingCenterForms
         private bool admin;
         private Day[] availability = new Day[7];
 
-        public Account(string user, string pass)
+        public Account(string user, string pass, bool isAdmin)
         {
             username = user;
             password = SecurePasswordHasher.Hash(pass);
+            admin = isAdmin;
         }
-        public Account(string user, string pass, string name, int y, string[] mm, int reqHour, bool isAdmin = false)
+        public Account(string user, string pass, string name, int y = 0, string[] mm = null, int reqHour = 1, bool isAdmin = false)
         {
             username = user;
             if (SecurePasswordHasher.IsHashSupported(pass))

@@ -54,7 +54,7 @@ namespace WritingCenterForms
                 { "saturday", 6}
             };
             OCBasicSchedule(new int[] { 11, 8, 8, 8, 8, 8, 23 }, new int[] { 23, 23, 23, 23, 23, 23, 23 }); // default open hours?
-            this.sView = scheduleView;
+            sView = scheduleView;
             importCSVFile();
             scheduleFilled = true;
         }
@@ -164,11 +164,17 @@ namespace WritingCenterForms
             try
             {
                 builder.buildSchedule(this, N);
+                testPrintSched();
             }
             catch(Exception e)
             {
                 workersWNoHours = e.Data;
             }
+        }
+
+        public void testPrintSched()
+        {
+            
         }
     }
 }

@@ -31,6 +31,7 @@
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.addWorkerButton = new System.Windows.Forms.Button();
             this.removeWorkerButton = new System.Windows.Forms.Button();
+            this.saveButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listBox1
@@ -45,7 +46,7 @@
             // 
             // addWorkerButton
             // 
-            this.addWorkerButton.Location = new System.Drawing.Point(68, 269);
+            this.addWorkerButton.Location = new System.Drawing.Point(68, 232);
             this.addWorkerButton.Name = "addWorkerButton";
             this.addWorkerButton.Size = new System.Drawing.Size(111, 45);
             this.addWorkerButton.TabIndex = 1;
@@ -55,7 +56,7 @@
             // 
             // removeWorkerButton
             // 
-            this.removeWorkerButton.Location = new System.Drawing.Point(195, 269);
+            this.removeWorkerButton.Location = new System.Drawing.Point(196, 232);
             this.removeWorkerButton.Name = "removeWorkerButton";
             this.removeWorkerButton.Size = new System.Drawing.Size(111, 45);
             this.removeWorkerButton.TabIndex = 2;
@@ -63,11 +64,22 @@
             this.removeWorkerButton.UseVisualStyleBackColor = true;
             this.removeWorkerButton.Click += new System.EventHandler(this.removeWorkerButton_Click);
             // 
+            // saveButton
+            // 
+            this.saveButton.Location = new System.Drawing.Point(137, 283);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(111, 45);
+            this.saveButton.TabIndex = 3;
+            this.saveButton.Text = "Save";
+            this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click_1);
+            // 
             // EditShift
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(371, 353);
+            this.Controls.Add(this.saveButton);
             this.Controls.Add(this.removeWorkerButton);
             this.Controls.Add(this.addWorkerButton);
             this.Controls.Add(this.listBox1);
@@ -83,5 +95,6 @@
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button addWorkerButton;
         private System.Windows.Forms.Button removeWorkerButton;
+        private System.Windows.Forms.Button saveButton;
     }
 }

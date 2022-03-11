@@ -38,6 +38,7 @@ namespace WritingCenterForms
             sView = scheduleView;
             scheduleFilled = true;
             builder = new ScheduleBuilder(accounts);
+            //importCSVFile();
 
         }
 

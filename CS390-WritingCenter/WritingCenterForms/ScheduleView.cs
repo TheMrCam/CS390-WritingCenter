@@ -6,11 +6,13 @@ using System.IO;
 
 namespace WritingCenterForms
 {
-    public partial class scheduleView : UserControl
+    public partial class scheduleView : UserControl, Observer
     {
         private Schedule schedule;
         private FlowLayoutPanel sPanel;
         private AccountDatabase Accounts;
+        private Observable obsv;
+        private Button selectedButton;
         public scheduleView(AccountDatabase Accounts) // version for the admin page
         {
             InitializeComponent();
@@ -85,11 +87,13 @@ namespace WritingCenterForms
 
         private void lbox_editShift(object sender, EventArgs e)
         {
-            Button shift = (Button)sender;
-            EditShift edit = new EditShift(schedule, Accounts, shift);
-            int day = int.Parse(shift.Name.Substring(4, 1));
-            int time = int.Parse(shift.Name.Substring(5));
-            edit.loadWorkers(shift.Text, day, time);
+            selectedButton = (Button)sender;
+            EditShift edit = new EditShift(schedule, Accounts);
+            int day = int.Parse(selectedButton.Name.Substring(4, 1));
+            int time = int.Parse(selectedButton.Name.Substring(5));
+            this.addObservable(edit);
+            edit.add(this);
+            edit.loadWorkers(selectedButton.Text, day, time);
             edit.Show();
             edit.BringToFront();
         }
@@ -182,6 +186,17 @@ namespace WritingCenterForms
             try { schedule.buildSchedule(N); }
             catch { MessageBox.Show("Issue generating new schedule", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
             prepareSchedule();
+        }
+
+        public void addObservable(Observable observable)
+        {
+            obsv = observable;
+        }
+
+        public void update(int time, int day)
+        {
+            selectedButton.Text = "";
+            displayWorkers(selectedButton, time, day);
         }
     }
 }

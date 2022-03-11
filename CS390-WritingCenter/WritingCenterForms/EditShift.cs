@@ -10,18 +10,20 @@ using System.Windows.Forms;
 
 namespace WritingCenterForms
 {
-    public partial class EditShift : Form
+    public partial class EditShift : Form, Observable
     {
         private Schedule schedule;
         private AccountDatabase accountDb;
+        private List<Observer> sViews;
         private string[] workerNames;
         private int day;
         private int time;
-        public EditShift(Schedule schedule, AccountDatabase accountDb, Button shift)
+        public EditShift(Schedule schedule, AccountDatabase accountDb)
         {
             InitializeComponent();
             this.schedule = schedule;
             this.accountDb = accountDb;
+            sViews = new List<Observer>();
             this.Location = new Point(500, 500);
             this.StartPosition = FormStartPosition.CenterScreen;
         }
@@ -37,7 +39,7 @@ namespace WritingCenterForms
             workerNames = workers.Split('\n');
             this.day = day;
             this.time = time;
-            foreach(string workerName in workerNames)
+            foreach (string workerName in workerNames)
             {
                 listBox1.Items.Add(workerName);
             }
@@ -46,12 +48,14 @@ namespace WritingCenterForms
         private void addWorkerButton_Click(object sender, EventArgs e)
         {
             string name = "";
-            //DialogResult dialog = InputBox(ref name);
             if (InputBox(ref name) == DialogResult.OK)
             {
                 listBox1.Items.Add(name);
             }
-            
+            string[] workers = listBox1.Items.OfType<string>().ToArray();
+            schedule.editDays(day, time, workers);
+            //accountDb.incrementCurrentWorkedHours(name);
+
         }
 
         private void removeWorkerButton_Click(object sender, EventArgs e)
@@ -61,8 +65,11 @@ namespace WritingCenterForms
                 listBox1.Items.Remove(s);
                 string[] workers = workerNames.Where(x => x != s).ToArray();
                 schedule.editDays(day, time, workers);
+                workerNames = workers;
                 //accountDb.decrementCurrentWorkedHours(s);
-            }     
+            }
+
+
         }
 
         //code taken from https://www.csharp-examples.net/inputbox/
@@ -109,6 +116,33 @@ namespace WritingCenterForms
             DialogResult dialogResult = form.ShowDialog();
             value = textBox.Text;
             return dialogResult;
+        }
+
+        public void add(Observer obs)
+        {
+            if (!sViews.Contains(obs))
+            {
+                sViews.Add(obs);
+            }
+        }
+
+        public void remove(Observer obs)
+        {
+           sViews.Remove(obs);
+        }
+
+        public void notifyObservers()
+        {
+            foreach(var view in sViews)
+            {
+                view.update(time, day);
+            }
+        }
+
+        private void saveButton_Click_1(object sender, EventArgs e)
+        {
+            notifyObservers();
+            this.Close();
         }
     }
 }

@@ -66,6 +66,8 @@
     <Compile Include="EditShift.Designer.cs">
       <DependentUpon>EditShift.cs</DependentUpon>
     </Compile>
+    <Compile Include="Observable.cs" />
+    <Compile Include="Observer.cs" />
     <Compile Include="ScheduleBuilder.cs" />
     <Compile Include="Day.cs" />
     <Compile Include="Schedule.cs" />

@@ -17,7 +17,7 @@ namespace WritingCenterForms
         public bool MixMajors { get; set; }
         public Dictionary<string, int> days;
         public Day[] Days = new Day[7];
-        private scheduleView sView;
+        public scheduleView sView;
         private ScheduleBuilder builder;
         private IDictionary workersWNoHours;
 
@@ -161,19 +161,11 @@ namespace WritingCenterForms
 
         public void buildSchedule( int N)
         {
-            try
+            Schedule newsched = builder.buildSchedule(this, N);
+            for(int i = 0;i<Days.Count();i++)
             {
-                builder.buildSchedule(this, N);
-                testPrintSched();
+                Days[i] = newsched.Days[i];
             }
-            catch(Exception e)
-            {
-                workersWNoHours = e.Data;
-            }
-        }
-
-        public void testPrintSched()
-        {
             
         }
     }

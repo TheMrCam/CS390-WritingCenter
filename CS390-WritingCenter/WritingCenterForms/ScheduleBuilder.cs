@@ -16,13 +16,85 @@ namespace WritingCenterForms
             this.accounts = accounts;
         }
 
+        public Schedule buildSchedule(Schedule currentSched, int N)
+        {
+            Schedule newSched = new Schedule(accounts, currentSched.sView);
+            string[] workerList = accounts.AccountNamesList();
+
+            for (int currentday = 0; currentday < currentSched.Days.Count() - 1; currentday++)
+            {
+                for (int currentHour = 0; currentHour < currentSched.Days[currentday].Hours.Count() - 1; currentHour++)
+                {
+                    if (currentSched.Days[currentday].Hours[currentHour].Availible)                        // if the writing center is open this hour
+                    {
+                        List<Account> availibleWorkers = new List<Account>();
+
+                        foreach (string worker in workerList)
+                        {
+                            Account acctViewing = accounts.GetAccount(worker, true);
+
+                            if (!acctViewing.Admin && acctViewing.Availability(currentday).GetHour(currentHour).Availible) // if acct is not null and user is availible,
+                            {
+                                if (previousShiftsWorked(acctViewing, newSched, currentday, currentHour) < N)
+                                {
+                                    availibleWorkers.Add(acctViewing); 
+                                }
+                            }                                                          // add into possible workers for the shift
+                        }
+
+                        //List<Account> zeroHoursWorked = new List<Account>();
+                        //List<Account> nonZeroHoursWorked = new List<Account>();
+                        //foreach(Account account in availibleWorkers)
+                        //{
+                        //    if (account.currentWorkedHours == 0)
+                        //    {
+                        //        zeroHoursWorked.Add(account);
+                        //    }
+                        //    else { nonZeroHoursWorked.Add(account);}
+                        //}
+
+
+                        //while(zeroHoursWorked.Count() + nonZeroHoursWorked.Count() > currentSched.Days[currentday].Hours[currentHour].maxWorkers)
+                        //{
+                        //    if (nonZeroHoursWorked.Count() < 1)
+                        //    {
+                        //        zeroHoursWorked.RemoveAt(zeroHoursWorked.Count() - 1);
+                        //    }
+                        //    else
+                        //    {
+                        //        removeAWorker_WorkedLastShift(nonZeroHoursWorked,currentday,currentHour,currentSched);
+                        //    }
+                        //}
+                        
+                        string[] namesToAdd = new string[availibleWorkers.Count];                           // initialize collection of strings for final list of names
+                        int i = 0;                                                                  // current index of list
+                        foreach (Account worker in availibleWorkers)
+                        {
+                            worker.currentWorkedHours++;          // add hour to the worker's current worked hours
+                            namesToAdd.SetValue(worker.Name, i);                                    // add to list of names to add
+                            i++;                                                         // increment index
+                            Console.WriteLine(worker.Name);
+                        }
+                         
+                        newSched.editDays(currentday, currentHour, namesToAdd); // set names of workers to the availible workers we found
+
+
+                    }
+
+                }
+                
+            }
+            return newSched;
+        }
+
 
         //
         // Takes in an already initialized schedule, and an integer N representing the maximum number of shifts allowed in a row
         // Returns nothing, edits schedule passed in
         //
-        public void buildSchedule(Schedule schedule,int N)
+        public Schedule buildScheduleb(Schedule schedule,int N)
         {
+            
             string[] workerList = accounts.AccountNamesList(); // a list of the names of all workers
 
             int currentDay = 0;                                // for indexing into days
@@ -39,23 +111,29 @@ namespace WritingCenterForms
                         {
                             Account acctViewing = accounts.GetAccount(worker,true);
                             
-                            if (acctViewing != null && !acctViewing.Admin && acctViewing.Availability(currentDay).GetHour(currentHour).Availible) // if acct is not null and user is availible,
-                            { availibleWorkers.Add(acctViewing); }                                                          // add into possible workers for the shift
-
+                            if (!accounts.GetAccount(worker, true).Admin && accounts.GetAccount(worker, true).Availability(currentDay).GetHour(currentHour).Availible) // if acct is not null and user is availible,
+                            { availibleWorkers.Add(accounts.GetAccount(worker, true)); }                                                          // add into possible workers for the shift
+                            
                         }
 
-                        while (availibleWorkers.Count > hour.maxWorkers)                                                    //while there is more than the defined number of max workers per shift
+                        Console.WriteLine(availibleWorkers.Count);
+
+                        while (availibleWorkers.Count > schedule.Days[currentDay].Hours[currentHour].maxWorkers && availibleWorkers.Count>0)                                                    //while there is more than the defined number of max workers per shift
                         {
                             List<Account> nonZeroHours = new List<Account>(availibleWorkers.Where(a => a.currentWorkedHours != 0)); // list of accounts who are working more than 0 hours (possible to remove)
                             List<Account> ZeroHours = new List<Account>(availibleWorkers.Where(a => a.currentWorkedHours == 0)); // list of accounts who are NOT working ANY hours (impossible to remove)
                             availibleWorkers.Clear();                                                       // reset availible workers
-                            if (currentHour>0)                                                              // arrr, there be subtraction ahead. no negative hours allowed
+                            Console.WriteLine(availibleWorkers.Count);
+                            Console.WriteLine(nonZeroHours.Count);
+                            if (currentHour>0 && nonZeroHours.Count>0)                                                              // arrr, there be subtraction ahead. no negative hours allowed
                             {
+                                Console.WriteLine(nonZeroHours.Count);
                                 foreach(Account acct in nonZeroHours)                                       // for all accounts currently working non-zero hours
                                 {
                                     if (previousShiftsWorked(acct, schedule, currentDay, currentHour)>=N) { nonZeroHours.Remove(acct); } // if their shifts in a row exceed N, remove from the pool of possible workers
+                                    Console.WriteLine(nonZeroHours.Count);
                                 }
-                                while(nonZeroHours.Count+ZeroHours.Count > hour.maxWorkers)                 // while the total number of workers is more than the max number of workers
+                                while(nonZeroHours.Count+ZeroHours.Count > schedule.Days[currentDay].Hours[currentHour].maxWorkers && nonZeroHours.Count + ZeroHours.Count > 0)                 // while the total number of workers is more than the max number of workers
                                 {
                                     nonZeroHours = removeAWorker_WorkedLastShift(nonZeroHours,currentDay,currentHour,schedule); // remove a worker if they did not work last shift
                                 }
@@ -90,6 +168,8 @@ namespace WritingCenterForms
             {
                 throw new Exception(noHours.Count() + "worker(s) have no scheduled hours");
             }
+
+            return schedule;
         }
 
 
@@ -108,21 +188,25 @@ namespace WritingCenterForms
         //
         private List<Account> removeAWorker_WorkedLastShift(List<Account> unsortedAcctList, int currentDay, int currentHour, Schedule schedule)
         {
-            
-            List<Account> sortedAcctList = new List<Account>(); // initialize list to return 
+            if (unsortedAcctList.Count() > 1)
+            { 
+                List<Account> sortedAcctList = new List<Account>(); // initialize list to return 
 
 
-            foreach( Account account in unsortedAcctList)
-            {
-                if (workedLastShift(account,schedule,currentDay,currentHour)) 
+                foreach( Account account in unsortedAcctList)
                 {
-                    sortedAcctList.Prepend(account); // if account worked during the last shift, add to front of list
+                    if (workedLastShift(account,schedule,currentDay,currentHour)) 
+                    {
+                        sortedAcctList = sortedAcctList.Prepend(account).ToList(); // if account worked during the last shift, add to front of list
+                    }
+                    else { sortedAcctList = sortedAcctList.Append(account).ToList(); } // if account did not work previous shift, add to end of list
                 }
-                else { sortedAcctList.Append(account); } // if account did not work previous shift, add to end of list
-
-            }
             
-            return ((List<Account>)sortedAcctList.Take(sortedAcctList.Count-1)); // return the whole list except the last element
+                sortedAcctList.RemoveAt(sortedAcctList.Count()-1);
+                return sortedAcctList; // return the whole list except the last element
+            }
+            return unsortedAcctList;
+            
         }
 
 
@@ -132,11 +216,16 @@ namespace WritingCenterForms
         //
         private bool workedLastShift(Account account, Schedule schedule,int currentDay, int currentHour)
         {
-
-            foreach(string name in schedule.getWorkers(currentHour - 1, currentDay)) // for all names in the list of names who worked last hour
+            if (currentHour >= 1 && schedule.getWorkers(currentHour - 1, currentDay) != null)
             {
-                if (account.Name == name){ return true; }                           // check if it is the name of the account, if so return true
+                string[] workers = schedule.getWorkers(currentHour - 1, currentDay);
+                foreach (string name in workers)
+                {
+                    if (account.Name == name){ return true; } 
+                }
+                                          // check if it is the name of the account, if so return true
             }
+            
             return false;                                                           // else return false
         }
 

@@ -28,7 +28,7 @@ namespace WritingCenterForms
             public int minWorkers, maxWorkers;
             public bool Availible { get { return availible; } set { availible = value; } }
             public string[] Names { get { return names; } set { names = value; } }
-            public Hour(bool available, string[] workers = null)
+            public Hour(bool available = true, string[] workers = null)
             {
                 this.availible = available;
                 if (available)
@@ -45,7 +45,7 @@ namespace WritingCenterForms
             }
             public void setNames(string[] newNames)
             {
-                this.names = newNames;
+                names = newNames;
             }
 
             public void setNames(List<string> newNames)
@@ -141,6 +141,8 @@ namespace WritingCenterForms
             daystring += "]";
             return daystring;
         }
+
+        
     
     }
 }

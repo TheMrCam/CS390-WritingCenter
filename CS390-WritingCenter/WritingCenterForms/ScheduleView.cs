@@ -179,8 +179,7 @@ namespace WritingCenterForms
         private void generateSchedule_Click(object sender, EventArgs e)
         {
             int N = 4; // we need to get the setting out of the settings page somehow
-            try { schedule.buildSchedule(N); }
-            catch { MessageBox.Show("Issue generating new schedule", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            schedule.buildSchedule(N); 
             prepareSchedule();
         }
     }

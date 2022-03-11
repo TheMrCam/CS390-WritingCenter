@@ -25,6 +25,7 @@ namespace WritingCenterForms
             username = user;
             password = SecurePasswordHasher.Hash(pass);
             admin = isAdmin;
+            currentWorkedHours = 0;
         }
         public Account(string user, string pass, string name, int y = 0, string[] mm = null, int reqHour = 1, bool isAdmin = false)
         {
@@ -38,6 +39,7 @@ namespace WritingCenterForms
             majorsMinors = mm;
             requestedHours = reqHour;
             admin = isAdmin;
+            currentWorkedHours = 0;
         }
 
         public string Username

@@ -292,7 +292,11 @@ namespace WritingCenterForms
 
         public int getCurrentWorkedHours(string worker)
         {
-            return GetAccount(worker).currentWorkedHours;
+      
+            int cwh = GetAccount(worker,true).currentWorkedHours;
+           
+            
+            return cwh;
         }
         public void setCurrentWorkedHours(string worker, int newHours)
         {

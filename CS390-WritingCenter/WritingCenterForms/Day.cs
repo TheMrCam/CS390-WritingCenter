@@ -124,33 +124,23 @@ namespace WritingCenterForms
 
         public string PrintableDay()
         {
-            string delimiter = ", ";
-            string daystring = "Time" + delimiter;
-            foreach (string day in new string[] {"sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"})
-            {
-                daystring += day + delimiter;
-            }
-            daystring = daystring.Substring(0, daystring.Length - 2) + "\n";
+            string daystring = "[ ";
             for (int i = 0; i < Slots; i++)
             {
-                //daystring += Hours[i].Availible ? "1" : "0";
-                //daystring += ": ";
+                daystring += Hours[i].Availible ? "1" : "0";
+                daystring += ": ";
                 if (Hours[i].Names != null)
                 {
                     foreach (string name in Hours[i].Names)
                     {
-                        daystring += name + "|";
+                        daystring += name + " ";
                     }
-                    //daystring += " | ";
+                    daystring += " | ";
                 }
-                else
-                {
-                    daystring += "--" + delimiter;
-                }
-                daystring = daystring.Substring(0, daystring.Length - 2) + "\n";
             }
+            daystring += "]";
             return daystring;
         }
-    
+
     }
 }

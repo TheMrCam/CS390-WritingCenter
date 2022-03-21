@@ -60,7 +60,7 @@ namespace WritingCenterForms
             days[4] = thursdayControl.getDay();
             days[5] = fridayControl.getDay();
             days[6] = saturdayControl.getDay();
-            //scheduleView.setDays(days);
+            scheduleView.setDays(days);
             this.Hide();
             scheduleView.Show();
             scheduleView.BringToFront();

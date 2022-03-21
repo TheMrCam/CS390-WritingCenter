@@ -71,6 +71,7 @@
     <Compile Include="ScheduleBuilder.cs" />
     <Compile Include="Day.cs" />
     <Compile Include="Schedule.cs" />
+    <Compile Include="BinaryFiles.cs" />
     <Compile Include="SettingsPage.cs">
       <SubType>UserControl</SubType>
     </Compile>

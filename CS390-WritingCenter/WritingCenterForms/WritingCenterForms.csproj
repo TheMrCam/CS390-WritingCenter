@@ -149,6 +149,7 @@
     </EmbeddedResource>
     <None Include="Data\dummy_accounts.csv" />
     <None Include="Data\Responses.csv" />
+    <None Include="Data\schedule.csv" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

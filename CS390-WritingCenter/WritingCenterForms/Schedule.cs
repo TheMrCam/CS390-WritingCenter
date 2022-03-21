@@ -59,7 +59,7 @@ namespace WritingCenterForms
             scheduleFilled = true;
         }
 
-        public void importCSVFile(string fileName = @"schedule_draft.csv")
+        public void importCSVFile(string fileName = @"schedule.csv")
         {
             string path = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName, @"Data\", fileName);
             var reader = new StreamReader(File.OpenRead(path));
@@ -67,21 +67,26 @@ namespace WritingCenterForms
             while (!reader.EndOfStream)
             {
                 line = reader.ReadLine();
-                if (line != ",," && line != null)    //get rid of the blank lines in the csv file
+                if (line != null)    //get rid of the blank lines in the csv file
                 {
-                    Regex regx = new Regex("," + "(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))"); //separates by , but leaves , that are inside ""
-                    string[] values = regx.Split(line);
-                    string time = values[0].Split('y')[1].Split('-')[0];    //has values like 9:00pm
-                    string day = values[0].Split('y')[0] + 'y';     //has the value sunday, monday...
-                    string[] workers = values[1].Replace("\'", "").Replace("[", "").Replace("]", "").Split(','); //has "Natalie, Alice"...
-                    Days[days[day]].EditHour(convertTime(time), true, workers);
+                    //Regex regx = new Regex("," + "(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))"); //separates by , but leaves , that are inside ""
+                    //string[] values = regx.Split(line);
+                    string[] values = line.Split(',');
+                    int time = convertTime(values[0]);
+                    for (int day = 1; day < values.Length; day++)
+                    {
+                        string[] workers = values[day].Split('|');
+                        Days[day-1].EditHour(time, true, workers);
+                    }
+                    //string day = values[0].Split('y')[0] + 'y';     //has the value sunday, monday...
+                    //string[] workers = values[1].Replace("\'", "").Replace("[", "").Replace("]", "").Split(','); //has "Natalie, Alice"...
                 }
             }
         }
 
-        private int convertTime(string s)
+        public int convertTime(string s)
         {
-            int hour = int.Parse(s.Split(':')[0]);
+            int hour = int.Parse(s);
             if (s.EndsWith("pm")) hour = (hour % 12) + 12; //convert 12-hour time to 24-hour
             return hour;
         }
@@ -93,7 +98,7 @@ namespace WritingCenterForms
 
         public string exportCSV()
         {
-            string delimiter = ", ";
+            string delimiter = ",";
             string s = "Time" + delimiter;
             foreach (string day in days.Keys)
             {
@@ -109,14 +114,15 @@ namespace WritingCenterForms
                     {
                         foreach (string name in getWorkers(i, j))
                         {
-                            s += name + "|";
+                            string n = name.Trim(' ');
+                            if (!n.Equals(""))
+                                s += n + '|';
                         }
                     }
-                    //else s += "--" + delimiter;
+                    else s += "--";
                     s += delimiter;
                 }
                 s = s.Substring(0, s.Length - 2) + "\n";
-
             }
             //string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Data\", "schedule.csv");
             //File.WriteAllText(path, s);

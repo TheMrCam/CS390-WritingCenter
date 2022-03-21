@@ -38,6 +38,7 @@ namespace WritingCenterForms
             majorsMinors = mm;
             requestedHours = reqHour;
             admin = isAdmin;
+            currentWorkedHours = 0;
         }
 
         public string Username

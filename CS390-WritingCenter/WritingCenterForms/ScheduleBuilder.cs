@@ -42,40 +42,52 @@ namespace WritingCenterForms
                             }                                                          // add into possible workers for the shift
                         }
 
-                        //List<Account> zeroHoursWorked = new List<Account>();
-                        //List<Account> nonZeroHoursWorked = new List<Account>();
-                        //foreach(Account account in availibleWorkers)
-                        //{
-                        //    if (account.currentWorkedHours == 0)
-                        //    {
-                        //        zeroHoursWorked.Add(account);
-                        //    }
-                        //    else { nonZeroHoursWorked.Add(account);}
-                        //}
+                        List<Account> zeroHoursWorked = new List<Account>();
+                        List<Account> nonZeroHoursWorked = new List<Account>();
 
+                        foreach(Account account in availibleWorkers)
+                        {
+                            if (account.currentWorkedHours == 0)
+                            {
+                                zeroHoursWorked.Add(account);
+                            }
+                            else { nonZeroHoursWorked.Add(account);}
+                        }
 
-                        //while(zeroHoursWorked.Count() + nonZeroHoursWorked.Count() > currentSched.Days[currentday].Hours[currentHour].maxWorkers)
-                        //{
-                        //    if (nonZeroHoursWorked.Count() < 1)
-                        //    {
-                        //        zeroHoursWorked.RemoveAt(zeroHoursWorked.Count() - 1);
-                        //    }
-                        //    else
-                        //    {
-                        //        removeAWorker_WorkedLastShift(nonZeroHoursWorked,currentday,currentHour,currentSched);
-                        //    }
-                        //}
+                        availibleWorkers.Clear();
+                        
+                        while (zeroHoursWorked.Count + nonZeroHoursWorked.Count > currentSched.Days[currentday].Hours[currentHour].maxWorkers && currentSched.Days[currentday].Hours[currentHour].maxWorkers > 0)
+                        {
+                            if (nonZeroHoursWorked.Count < 1 && zeroHoursWorked.Count > 0)
+                            {
+                                zeroHoursWorked.RemoveAt(zeroHoursWorked.Count - 1);
+                            }
+
+                            else if (nonZeroHoursWorked.Count != 0)
+                            {
+                                nonZeroHoursWorked = removeAWorker_WorkedLastShift(nonZeroHoursWorked,currentday,currentHour,currentSched);
+                            }
+
+                            else { break; }
+                        }
+                        
+                        if (zeroHoursWorked.Count > 0 | nonZeroHoursWorked.Count > 0)
+                        {
+                            availibleWorkers.AddRange(zeroHoursWorked);
+                            availibleWorkers.AddRange(nonZeroHoursWorked);
+                        }
+
+                        availibleWorkers = alphebetiseAccounts(availibleWorkers);
                         
                         string[] namesToAdd = new string[availibleWorkers.Count];                           // initialize collection of strings for final list of names
                         int i = 0;                                                                  // current index of list
                         foreach (Account worker in availibleWorkers)
-                        {
+                        { 
                             worker.currentWorkedHours++;          // add hour to the worker's current worked hours
                             namesToAdd.SetValue(worker.Name, i);                                    // add to list of names to add
-                            i++;                                                         // increment index
-                            Console.WriteLine(worker.Name);
+                            i++;      
                         }
-                         
+
                         newSched.editDays(currentday, currentHour, namesToAdd); // set names of workers to the availible workers we found
 
 
@@ -125,6 +137,7 @@ namespace WritingCenterForms
                             availibleWorkers.Clear();                                                       // reset availible workers
                             Console.WriteLine(availibleWorkers.Count);
                             Console.WriteLine(nonZeroHours.Count);
+
                             if (currentHour>0 && nonZeroHours.Count>0)                                                              // arrr, there be subtraction ahead. no negative hours allowed
                             {
                                 Console.WriteLine(nonZeroHours.Count);
@@ -188,7 +201,7 @@ namespace WritingCenterForms
         //
         private List<Account> removeAWorker_WorkedLastShift(List<Account> unsortedAcctList, int currentDay, int currentHour, Schedule schedule)
         {
-            if (unsortedAcctList.Count() > 1)
+            if (unsortedAcctList.Count > 1)
             { 
                 List<Account> sortedAcctList = new List<Account>(); // initialize list to return 
 
@@ -201,8 +214,7 @@ namespace WritingCenterForms
                     }
                     else { sortedAcctList = sortedAcctList.Append(account).ToList(); } // if account did not work previous shift, add to end of list
                 }
-            
-                sortedAcctList.RemoveAt(sortedAcctList.Count()-1);
+                sortedAcctList.RemoveAt(sortedAcctList.Count - 1);
                 return sortedAcctList; // return the whole list except the last element
             }
             return unsortedAcctList;
@@ -243,6 +255,23 @@ namespace WritingCenterForms
             { shiftsWorked++; localHour--; } // add one to previous shifts worked and check the shift before it by going back an hour locally
 
             return shiftsWorked; // return integer of previous consecutive hours worked
+        }
+
+
+        //
+        // Takes in an unsorted account list
+        // Returns list sorted based on name
+        //
+
+        private List<Account> alphebetiseAccounts( List<Account> unsortedAcctList)
+        {
+            List<Account> sortedAcctOrderedList = unsortedAcctList.OrderBy(x => x.Name).ToList();
+            List<Account> sortedAcctList = new List<Account>();
+
+            foreach(Account account in sortedAcctOrderedList)
+            { sortedAcctList.Add(account); }
+
+            return sortedAcctList;
         }
 
     }

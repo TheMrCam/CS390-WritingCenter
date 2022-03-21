@@ -104,7 +104,7 @@ namespace WritingCenterForms
             {
                 s += day + delimiter;
             }
-            s = s.Substring(0, s.Length - 2) + "\n";
+            s = s.Substring(0, s.Length - 1) + "\n";
             for (int i = 7; i < 24; i++)
             {
                 s += i.ToString() + delimiter;
@@ -122,7 +122,7 @@ namespace WritingCenterForms
                     else s += "--";
                     s += delimiter;
                 }
-                s = s.Substring(0, s.Length - 2) + "\n";
+                s = s.Substring(0, s.Length - 1) + "\n";
             }
             //string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Data\", "schedule.csv");
             //File.WriteAllText(path, s);

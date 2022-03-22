@@ -35,11 +35,13 @@
             this.editSchedule = new FontAwesome.Sharp.IconButton();
             this.viewSchedule = new FontAwesome.Sharp.IconButton();
             this.panelLogo = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelTitle = new System.Windows.Forms.Panel();
-            this.iconLogo = new FontAwesome.Sharp.IconPictureBox();
+            this.logOutBtn = new FontAwesome.Sharp.IconButton();
             this.labelTitle = new System.Windows.Forms.Label();
+            this.iconLogo = new FontAwesome.Sharp.IconPictureBox();
+            this.userControlPanel = new System.Windows.Forms.Panel();
             this.panelMenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -49,7 +51,6 @@
             // 
             // panelMenu
             // 
-            this.panelMenu.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(30)))), ((int)(((byte)(34)))));
             this.panelMenu.Controls.Add(this.settings);
             this.panelMenu.Controls.Add(this.editRequests);
@@ -57,6 +58,7 @@
             this.panelMenu.Controls.Add(this.editSchedule);
             this.panelMenu.Controls.Add(this.viewSchedule);
             this.panelMenu.Controls.Add(this.panelLogo);
+            this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(318, 788);
@@ -72,10 +74,10 @@
             this.settings.IconColor = System.Drawing.Color.WhiteSmoke;
             this.settings.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.settings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.settings.Location = new System.Drawing.Point(0, 483);
+            this.settings.Location = new System.Drawing.Point(3, 483);
             this.settings.Name = "settings";
             this.settings.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.settings.Size = new System.Drawing.Size(315, 72);
+            this.settings.Size = new System.Drawing.Size(312, 72);
             this.settings.TabIndex = 6;
             this.settings.Text = "Settings";
             this.settings.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -93,10 +95,10 @@
             this.editRequests.IconColor = System.Drawing.Color.WhiteSmoke;
             this.editRequests.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.editRequests.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.editRequests.Location = new System.Drawing.Point(0, 414);
+            this.editRequests.Location = new System.Drawing.Point(3, 414);
             this.editRequests.Name = "editRequests";
             this.editRequests.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.editRequests.Size = new System.Drawing.Size(315, 72);
+            this.editRequests.Size = new System.Drawing.Size(312, 72);
             this.editRequests.TabIndex = 5;
             this.editRequests.Text = "Edit Requests";
             this.editRequests.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -114,10 +116,10 @@
             this.manageAccounts.IconColor = System.Drawing.Color.WhiteSmoke;
             this.manageAccounts.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.manageAccounts.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.manageAccounts.Location = new System.Drawing.Point(0, 347);
+            this.manageAccounts.Location = new System.Drawing.Point(3, 347);
             this.manageAccounts.Name = "manageAccounts";
             this.manageAccounts.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.manageAccounts.Size = new System.Drawing.Size(315, 72);
+            this.manageAccounts.Size = new System.Drawing.Size(312, 72);
             this.manageAccounts.TabIndex = 4;
             this.manageAccounts.Text = "Manage Accounts";
             this.manageAccounts.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -135,10 +137,10 @@
             this.editSchedule.IconColor = System.Drawing.Color.WhiteSmoke;
             this.editSchedule.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.editSchedule.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.editSchedule.Location = new System.Drawing.Point(0, 280);
+            this.editSchedule.Location = new System.Drawing.Point(3, 280);
             this.editSchedule.Name = "editSchedule";
             this.editSchedule.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.editSchedule.Size = new System.Drawing.Size(315, 72);
+            this.editSchedule.Size = new System.Drawing.Size(312, 72);
             this.editSchedule.TabIndex = 3;
             this.editSchedule.Text = "Edit Schedule";
             this.editSchedule.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -156,10 +158,10 @@
             this.viewSchedule.IconColor = System.Drawing.Color.WhiteSmoke;
             this.viewSchedule.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.viewSchedule.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.viewSchedule.Location = new System.Drawing.Point(0, 211);
+            this.viewSchedule.Location = new System.Drawing.Point(3, 211);
             this.viewSchedule.Name = "viewSchedule";
             this.viewSchedule.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.viewSchedule.Size = new System.Drawing.Size(315, 72);
+            this.viewSchedule.Size = new System.Drawing.Size(312, 72);
             this.viewSchedule.TabIndex = 2;
             this.viewSchedule.Text = "View Schedule";
             this.viewSchedule.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -176,6 +178,13 @@
             this.panelLogo.Size = new System.Drawing.Size(312, 202);
             this.panelLogo.TabIndex = 1;
             // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(318, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(836, 94);
+            this.panel1.TabIndex = 7;
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::WritingCenterForms.Properties.Resources.CWC_logo_Red_Logomark;
@@ -187,23 +196,42 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // panel1
-            // 
-            this.panel1.Location = new System.Drawing.Point(318, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(836, 94);
-            this.panel1.TabIndex = 7;
-            // 
             // panelTitle
             // 
-            this.panelTitle.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panelTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(30)))), ((int)(((byte)(34)))));
+            this.panelTitle.Controls.Add(this.logOutBtn);
             this.panelTitle.Controls.Add(this.labelTitle);
             this.panelTitle.Controls.Add(this.iconLogo);
-            this.panelTitle.Location = new System.Drawing.Point(311, 0);
+            this.panelTitle.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelTitle.Location = new System.Drawing.Point(318, 0);
             this.panelTitle.Name = "panelTitle";
-            this.panelTitle.Size = new System.Drawing.Size(849, 100);
+            this.panelTitle.Size = new System.Drawing.Size(842, 82);
             this.panelTitle.TabIndex = 1;
+            // 
+            // logOutBtn
+            // 
+            this.logOutBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.logOutBtn.FlatAppearance.BorderSize = 0;
+            this.logOutBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.logOutBtn.IconChar = FontAwesome.Sharp.IconChar.DoorClosed;
+            this.logOutBtn.IconColor = System.Drawing.Color.White;
+            this.logOutBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.logOutBtn.Location = new System.Drawing.Point(726, 31);
+            this.logOutBtn.Name = "logOutBtn";
+            this.logOutBtn.Size = new System.Drawing.Size(91, 38);
+            this.logOutBtn.TabIndex = 2;
+            this.logOutBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.logOutBtn.UseVisualStyleBackColor = true;
+            // 
+            // labelTitle
+            // 
+            this.labelTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTitle.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.labelTitle.Location = new System.Drawing.Point(82, 31);
+            this.labelTitle.Name = "labelTitle";
+            this.labelTitle.Size = new System.Drawing.Size(236, 38);
+            this.labelTitle.TabIndex = 1;
+            this.labelTitle.Text = "Home";
             // 
             // iconLogo
             // 
@@ -213,27 +241,26 @@
             this.iconLogo.IconColor = System.Drawing.SystemColors.ControlLight;
             this.iconLogo.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconLogo.IconSize = 38;
-            this.iconLogo.Location = new System.Drawing.Point(37, 31);
+            this.iconLogo.Location = new System.Drawing.Point(37, 22);
             this.iconLogo.Name = "iconLogo";
             this.iconLogo.Size = new System.Drawing.Size(39, 38);
             this.iconLogo.TabIndex = 0;
             this.iconLogo.TabStop = false;
             // 
-            // labelTitle
+            // userControlPanel
             // 
-            this.labelTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTitle.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.labelTitle.Location = new System.Drawing.Point(82, 31);
-            this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(166, 23);
-            this.labelTitle.TabIndex = 1;
-            this.labelTitle.Text = "Home";
+            this.userControlPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.userControlPanel.Location = new System.Drawing.Point(318, 82);
+            this.userControlPanel.Name = "userControlPanel";
+            this.userControlPanel.Size = new System.Drawing.Size(842, 706);
+            this.userControlPanel.TabIndex = 2;
             // 
             // AdminPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(226)))), ((int)(((byte)(183)))));
+            this.Controls.Add(this.userControlPanel);
             this.Controls.Add(this.panelTitle);
             this.Controls.Add(this.panelMenu);
             this.Name = "AdminPage";
@@ -262,5 +289,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label labelTitle;
         private FontAwesome.Sharp.IconPictureBox iconLogo;
+        private FontAwesome.Sharp.IconButton logOutBtn;
+        private System.Windows.Forms.Panel userControlPanel;
     }
 }

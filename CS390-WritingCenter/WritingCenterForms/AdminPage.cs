@@ -16,10 +16,12 @@ namespace WritingCenterForms
 
         private IconButton currentBtn;
         private Panel leftBorderBtn;
+        private UserControl currentChildUC;
 
         scheduleView sView;
         AcctManagePage AcctManagePage1 = new AcctManagePage();
         SettingsPage settingPage;
+
         public AdminPage(scheduleView sView)
         {
             InitializeComponent();
@@ -82,7 +84,7 @@ namespace WritingCenterForms
                 currentBtn.BackColor = panelMenu.BackColor;
                 currentBtn.ForeColor = Color.White;
                 currentBtn.TextAlign = ContentAlignment.MiddleLeft;
-                currentBtn.IconColor = panelMenu.ForeColor;
+                currentBtn.IconColor = Color.White;
                 currentBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
                 currentBtn.ImageAlign = ContentAlignment.MiddleLeft;
             }
@@ -91,16 +93,19 @@ namespace WritingCenterForms
         private void viewSchedule_Click(object sender, EventArgs e)
         {
             activateButton(sender, RGBColors.color1);
+            openChildUserControl(sView);
         }
 
         private void editSchedule_Click(object sender, EventArgs e)
         {
             activateButton(sender, RGBColors.color2);
+            openChildUserControl(settingPage);
         }
 
         private void manageAccounts_Click(object sender, EventArgs e)
         {
             activateButton(sender, RGBColors.color3);
+            openChildUserControl(AcctManagePage1);
         }
 
         private void editRequests_Click(object sender, EventArgs e)
@@ -118,6 +123,20 @@ namespace WritingCenterForms
             disableButton();
             leftBorderBtn.Visible = false;
             labelTitle.Text = "Home";
+            iconLogo.IconChar = IconChar.Home;
+        }
+
+        private void openChildUserControl(UserControl uc)
+        {
+            if (currentChildUC != null) 
+                currentChildUC.Hide();
+            currentChildUC = uc;
+            currentChildUC.BorderStyle = BorderStyle.None;
+            currentChildUC.Dock = DockStyle.Fill;
+            userControlPanel.Controls.Add(currentChildUC);
+            userControlPanel.Tag = currentChildUC;
+            currentChildUC.BringToFront();
+            currentChildUC.Show();
         }
     }
 }

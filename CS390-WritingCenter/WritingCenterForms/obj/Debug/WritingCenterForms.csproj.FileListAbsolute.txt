@@ -1,7 +1,6 @@
 C:\Users\shash\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\bin\Debug\WritingCenterForms.exe.config
 C:\Users\shash\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\bin\Debug\WritingCenterForms.exe
 C:\Users\shash\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\bin\Debug\WritingCenterForms.pdb
-C:\Users\shash\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\obj\Debug\WritingCenterForms.csproj.AssemblyReference.cache
 C:\Users\shash\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\obj\Debug\WritingCenterForms.csproj.SuggestedBindingRedirects.cache
 C:\Users\shash\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\obj\Debug\WritingCenterForms.AcctManagePage.resources
 C:\Users\shash\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\obj\Debug\WritingCenterForms.AdminLand.resources
@@ -55,3 +54,7 @@ C:\Users\cmwoodbury19\source\repos\CS390-WritingCenter\CS390-WritingCenter\Writi
 C:\Users\cmwoodbury19\source\repos\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\obj\Debug\WritingCenterForms.csproj.CoreCompileInputs.cache
 C:\Users\cmwoodbury19\source\repos\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\obj\Debug\WritingCenterForms.exe
 C:\Users\cmwoodbury19\source\repos\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\obj\Debug\WritingCenterForms.pdb
+C:\Users\shash\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\bin\Debug\FontAwesome.Sharp.dll
+C:\Users\shash\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\obj\Debug\WritingCenterForms.AdminPage.resources
+C:\Users\shash\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\obj\Debug\WritingCenterForms.csproj.CopyComplete
+C:\Users\shash\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\obj\Debug\WritingCenterForms.csproj.AssemblyReference.cache

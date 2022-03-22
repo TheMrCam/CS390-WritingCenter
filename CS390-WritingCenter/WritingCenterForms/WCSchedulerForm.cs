@@ -15,7 +15,8 @@ namespace WritingCenterForms
     {        
         public static AccountDatabase Accounts = new AccountDatabase();
         private static scheduleView scheduleView1 = new scheduleView(Accounts);
-        AdminLand adminLand1 = new AdminLand(scheduleView1);
+        //AdminLand adminLand1 = new AdminLand(scheduleView1);
+        AdminPage adminPage = new AdminPage(scheduleView1);
         AcctManagePage acctManagePage1 = new AcctManagePage();
         public static Account currentAccount = null;
         UserLand UserLand = new UserLand();
@@ -58,9 +59,12 @@ namespace WritingCenterForms
                 currentAccount = Accounts.GetAccount(username.Text);
                 if (currentAccount.Admin)
                 {
-                    this.Controls.Add(adminLand1);
-                    adminLand1.Show();
-                    adminLand1.BringToFront();
+                    //this.Controls.Add(adminLand1);
+                    //adminLand1.Show();
+                    //adminLand1.BringToFront();
+                    this.Controls.Add(adminPage);
+                    adminPage.Show();
+                    adminPage.BringToFront();
                 }
                 else if (!currentAccount.Admin)
                 {
@@ -88,9 +92,10 @@ namespace WritingCenterForms
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            adminLand1.Hide();
+            //adminLand1.Hide();
             acctManagePage1.Hide();
             scheduleView1.Hide();
+            adminPage.Hide();
             //this.Location = new Point(0,0);
             //this.Size = new Size(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
             

@@ -35,6 +35,7 @@
             this.editSchedule = new FontAwesome.Sharp.IconButton();
             this.viewSchedule = new FontAwesome.Sharp.IconButton();
             this.panelLogo = new System.Windows.Forms.Panel();
+            this.menuButton = new FontAwesome.Sharp.IconButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelTitle = new System.Windows.Forms.Panel();
@@ -79,6 +80,7 @@
             this.settings.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.settings.Size = new System.Drawing.Size(312, 72);
             this.settings.TabIndex = 6;
+            this.settings.Tag = "Settings";
             this.settings.Text = "Settings";
             this.settings.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.settings.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -100,6 +102,7 @@
             this.editRequests.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.editRequests.Size = new System.Drawing.Size(312, 72);
             this.editRequests.TabIndex = 5;
+            this.editRequests.Tag = "Edit Requests";
             this.editRequests.Text = "Edit Requests";
             this.editRequests.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.editRequests.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -121,6 +124,7 @@
             this.manageAccounts.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.manageAccounts.Size = new System.Drawing.Size(312, 72);
             this.manageAccounts.TabIndex = 4;
+            this.manageAccounts.Tag = "Manage Accounts";
             this.manageAccounts.Text = "Manage Accounts";
             this.manageAccounts.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.manageAccounts.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -142,6 +146,7 @@
             this.editSchedule.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.editSchedule.Size = new System.Drawing.Size(312, 72);
             this.editSchedule.TabIndex = 3;
+            this.editSchedule.Tag = "Edit Schedule";
             this.editSchedule.Text = "Edit Schedule";
             this.editSchedule.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.editSchedule.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -163,6 +168,7 @@
             this.viewSchedule.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.viewSchedule.Size = new System.Drawing.Size(312, 72);
             this.viewSchedule.TabIndex = 2;
+            this.viewSchedule.Tag = "View Schedule";
             this.viewSchedule.Text = "View Schedule";
             this.viewSchedule.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.viewSchedule.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -171,12 +177,27 @@
             // 
             // panelLogo
             // 
+            this.panelLogo.Controls.Add(this.menuButton);
             this.panelLogo.Controls.Add(this.panel1);
             this.panelLogo.Controls.Add(this.pictureBox1);
             this.panelLogo.Location = new System.Drawing.Point(3, 3);
             this.panelLogo.Name = "panelLogo";
             this.panelLogo.Size = new System.Drawing.Size(312, 202);
             this.panelLogo.TabIndex = 1;
+            // 
+            // menuButton
+            // 
+            this.menuButton.FlatAppearance.BorderSize = 0;
+            this.menuButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.menuButton.IconChar = FontAwesome.Sharp.IconChar.Bars;
+            this.menuButton.IconColor = System.Drawing.Color.White;
+            this.menuButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.menuButton.Location = new System.Drawing.Point(246, 3);
+            this.menuButton.Name = "menuButton";
+            this.menuButton.Size = new System.Drawing.Size(69, 54);
+            this.menuButton.TabIndex = 7;
+            this.menuButton.UseVisualStyleBackColor = true;
+            this.menuButton.Click += new System.EventHandler(this.menuButton_Click);
             // 
             // panel1
             // 
@@ -190,7 +211,7 @@
             this.pictureBox1.Image = global::WritingCenterForms.Properties.Resources.CWC_logo_Red_Logomark;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(312, 199);
+            this.pictureBox1.Size = new System.Drawing.Size(248, 199);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
@@ -214,7 +235,7 @@
             this.logOutBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.logOutBtn.FlatAppearance.BorderSize = 0;
             this.logOutBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.logOutBtn.IconChar = FontAwesome.Sharp.IconChar.DoorClosed;
+            this.logOutBtn.IconChar = FontAwesome.Sharp.IconChar.SignOutAlt;
             this.logOutBtn.IconColor = System.Drawing.Color.White;
             this.logOutBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.logOutBtn.Location = new System.Drawing.Point(966, 31);
@@ -237,7 +258,7 @@
             // 
             // iconLogo
             // 
-            this.iconLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(30)))), ((int)(((byte)(34)))));
+            this.iconLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
             this.iconLogo.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.iconLogo.IconChar = FontAwesome.Sharp.IconChar.Home;
             this.iconLogo.IconColor = System.Drawing.SystemColors.ControlLight;
@@ -251,10 +272,8 @@
             // 
             // userControlPanel
             // 
-            this.userControlPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.userControlPanel.AutoScroll = true;
+            this.userControlPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.userControlPanel.Location = new System.Drawing.Point(318, 82);
             this.userControlPanel.Name = "userControlPanel";
             this.userControlPanel.Size = new System.Drawing.Size(1082, 718);
@@ -265,6 +284,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(226)))), ((int)(((byte)(183)))));
             this.Controls.Add(this.userControlPanel);
             this.Controls.Add(this.panelTitle);
@@ -297,5 +317,6 @@
         private FontAwesome.Sharp.IconPictureBox iconLogo;
         private FontAwesome.Sharp.IconButton logOutBtn;
         private System.Windows.Forms.Panel userControlPanel;
+        private FontAwesome.Sharp.IconButton menuButton;
     }
 }

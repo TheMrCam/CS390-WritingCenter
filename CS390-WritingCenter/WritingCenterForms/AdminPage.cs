@@ -34,6 +34,7 @@ namespace WritingCenterForms
             this.Controls.Add(sView);
             this.Controls.Add(AcctManagePage1);
             this.Controls.Add(settingPage);
+            collapseMenu();
             sView.Hide();
             AcctManagePage1.Hide();
             settingPage.Hide();
@@ -149,6 +150,41 @@ namespace WritingCenterForms
         private void panelTitle_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void menuButton_Click(object sender, EventArgs e)
+        {
+            collapseMenu();
+        }
+
+        private void collapseMenu()
+        {
+            if (this.panelMenu.Width > 200) //Collapse menu
+            {
+                panelMenu.Width = 100;
+                pictureBox1.Visible = false;
+                menuButton.Dock = DockStyle.Top;
+                menuButton.ImageAlign = ContentAlignment.MiddleLeft;
+                menuButton.Padding = new Padding(15);
+                foreach (Button btn in panelMenu.Controls.OfType<Button>())
+                {
+                    btn.Text = "";
+                    btn.ImageAlign = ContentAlignment.MiddleLeft;
+                    btn.Padding = new Padding(15);
+                }
+            }
+            else
+            { //Expand menu
+                panelMenu.Width = 250;
+                pictureBox1.Visible = true;
+                menuButton.Dock = DockStyle.None;
+                foreach (Button btn in panelMenu.Controls.OfType<Button>())
+                {
+                    btn.Text = "   " + btn.Tag.ToString();
+                    btn.ImageAlign = ContentAlignment.MiddleLeft;
+                    btn.Padding = new Padding(10, 0, 0, 0);
+                }
+            }
         }
     }
 }

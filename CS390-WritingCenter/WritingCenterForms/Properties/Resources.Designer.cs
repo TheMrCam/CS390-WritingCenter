@@ -111,6 +111,16 @@ namespace WritingCenterForms.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CWC_logo_Red_Logomark {
+            get {
+                object obj = ResourceManager.GetObject("CWC logo_Red_Logomark", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to admin,password,Admin_Person,2023,NULL,0,true
         ///admin2,password,Admin_Two,2023,NULL,0,true
         ///user0,password,FirstName_LastName,2023,CS-math,8,false

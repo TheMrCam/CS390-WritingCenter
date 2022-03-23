@@ -15,8 +15,9 @@ namespace WritingCenterForms
     {        
         public static AccountDatabase Accounts = new AccountDatabase();
         private static scheduleView scheduleView1 = new scheduleView(Accounts);
-        AdminLand adminLand1 = new AdminLand(scheduleView1);
-        AcctManagePage acctManagePage1 = new AcctManagePage();
+        //AdminLand adminLand1 = new AdminLand(scheduleView1);
+        AdminPage adminPage = new AdminPage(scheduleView1);
+        AcctManagePage acctManagePage1 = new AcctManagePage(Accounts);
         public static Account currentAccount = null;
         UserLand UserLand = new UserLand();
         readonly String defaultPass = "coe"; // change based on user somehow, not sure how to do that - AT
@@ -28,7 +29,9 @@ namespace WritingCenterForms
             //this.Controls.Add(scheduleView1);
             //Accounts.TestCSV(); //for testing
             Accounts.TestResponsesCSV();
-            
+            this.StartPosition = FormStartPosition.CenterScreen;
+            //this.MinimumSize = new Size(1400, 800);
+
         }
 
         private void logIn_Click(object sender, EventArgs e)
@@ -58,9 +61,12 @@ namespace WritingCenterForms
                 currentAccount = Accounts.GetAccount(username.Text);
                 if (currentAccount.Admin)
                 {
-                    this.Controls.Add(adminLand1);
-                    adminLand1.Show();
-                    adminLand1.BringToFront();
+                    //this.Controls.Add(adminLand1);
+                    //adminLand1.Show();
+                    //adminLand1.BringToFront();
+                    this.Controls.Add(adminPage);
+                    adminPage.Show();
+                    adminPage.BringToFront();
                 }
                 else if (!currentAccount.Admin)
                 {
@@ -88,9 +94,10 @@ namespace WritingCenterForms
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            adminLand1.Hide();
+            //adminLand1.Hide();
             acctManagePage1.Hide();
             scheduleView1.Hide();
+            adminPage.Hide();
             //this.Location = new Point(0,0);
             //this.Size = new Size(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
             
@@ -208,6 +215,14 @@ namespace WritingCenterForms
         private void username_TextChanged_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void passwordKeyPressed(object sender, KeyPressEventArgs e)
+        {
+            if (Convert.ToInt32(e.KeyChar) == 13)
+            {
+                logIn_Click(sender, e);
+            }
         }
     }
 }

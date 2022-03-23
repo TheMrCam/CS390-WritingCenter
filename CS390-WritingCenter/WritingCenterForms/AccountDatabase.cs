@@ -216,6 +216,16 @@ namespace WritingCenterForms
             }
             return (string[])lines.ToArray(typeof(string));
         }
+
+        public string[] DisplayLines()
+        {
+            ArrayList list = new ArrayList();
+            foreach(Account account in accounts)
+            {
+                list.Add($"{account.Name}: {account.Year}; {(account.Majors == null ? "" : string.Join(", ", account.Majors))}; {(account.Minors == null ? "" : string.Join(", ", account.Minors))}") ;
+            }
+            return (string[])list.ToArray(typeof(string));
+        }
         /* Unnecessary with public GetAccount()
         public bool IsAdmin(string username)
         {

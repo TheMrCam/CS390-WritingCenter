@@ -35,7 +35,7 @@ namespace WritingCenterForms
             if (sPanel.HasChildren) { sPanel.Controls.Clear(); } // if there is stuff in the current panel, removes everything
             //creating a panel to create all the labels in
             sPanel.Location = new System.Drawing.Point(10, 120);
-            sPanel.Size = new System.Drawing.Size(800, 470);
+            sPanel.Size = new System.Drawing.Size(800, 455);
             sPanel.BackColor = System.Drawing.SystemColors.ActiveCaption;
             int cellHeight = 70;
             int cellWidth = 90;

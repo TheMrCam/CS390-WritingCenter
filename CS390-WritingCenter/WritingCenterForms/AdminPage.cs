@@ -44,8 +44,8 @@ namespace WritingCenterForms
             public static Color color1 = Color.FromArgb(171, 126, 241);
             public static Color color2 = Color.FromArgb(249, 118, 176);
             public static Color color3 = Color.FromArgb(253, 138, 114);
-            public static Color color4 = Color.FromArgb(95, 77, 221);
-            public static Color color5 = Color.FromArgb(24, 161, 251);
+            public static Color color4 = Color.FromArgb(255, 204, 204);
+            public static Color color5 = Color.FromArgb(204, 204, 0);
         }
 
         private void AdminPage_Load(object sender, EventArgs e)
@@ -59,7 +59,7 @@ namespace WritingCenterForms
             {
                 disableButton();
                 currentBtn = (IconButton)senderBtn;
-                currentBtn.BackColor = Color.FromArgb(37, 36, 81);
+                currentBtn.BackColor = Color.FromArgb(0, 115, 230);
                 currentBtn.ForeColor = color;
                 currentBtn.TextAlign = ContentAlignment.MiddleCenter;
                 currentBtn.IconColor = color;
@@ -144,6 +144,11 @@ namespace WritingCenterForms
         private void logOutBtn_Click(object sender, EventArgs e)
         {
             this.Hide();
+        }
+
+        private void panelTitle_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

@@ -51,7 +51,7 @@
             // 
             // panelMenu
             // 
-            this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(30)))), ((int)(((byte)(34)))));
+            this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
             this.panelMenu.Controls.Add(this.settings);
             this.panelMenu.Controls.Add(this.editRequests);
             this.panelMenu.Controls.Add(this.manageAccounts);
@@ -198,7 +198,7 @@
             // 
             // panelTitle
             // 
-            this.panelTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(30)))), ((int)(((byte)(34)))));
+            this.panelTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(102)))));
             this.panelTitle.Controls.Add(this.logOutBtn);
             this.panelTitle.Controls.Add(this.labelTitle);
             this.panelTitle.Controls.Add(this.iconLogo);
@@ -207,6 +207,7 @@
             this.panelTitle.Name = "panelTitle";
             this.panelTitle.Size = new System.Drawing.Size(1082, 82);
             this.panelTitle.TabIndex = 1;
+            this.panelTitle.Paint += new System.Windows.Forms.PaintEventHandler(this.panelTitle_Paint);
             // 
             // logOutBtn
             // 
@@ -250,8 +251,10 @@
             // 
             // userControlPanel
             // 
+            this.userControlPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.userControlPanel.AutoScroll = true;
-            this.userControlPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.userControlPanel.Location = new System.Drawing.Point(318, 82);
             this.userControlPanel.Name = "userControlPanel";
             this.userControlPanel.Size = new System.Drawing.Size(1082, 718);

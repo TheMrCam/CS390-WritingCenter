@@ -30,6 +30,7 @@ namespace WritingCenterForms
             //Accounts.TestCSV(); //for testing
             Accounts.TestResponsesCSV();
             this.StartPosition = FormStartPosition.CenterScreen;
+            //this.MinimumSize = new Size(1400, 800);
 
         }
 

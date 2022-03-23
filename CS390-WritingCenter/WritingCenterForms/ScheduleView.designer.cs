@@ -148,7 +148,7 @@
             this.Controls.Add(this.Sunday);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "scheduleView";
-            this.Size = new System.Drawing.Size(1173, 788);
+            this.Size = new System.Drawing.Size(1024, 788);
             this.Load += new System.EventHandler(this.scheduleView_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

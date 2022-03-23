@@ -31,10 +31,8 @@
             this.uploadCsvButton = new System.Windows.Forms.Button();
             this.viewAcctsButton = new System.Windows.Forms.Button();
             this.manualEntryButton = new System.Windows.Forms.Button();
-            this.logOut = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.HelloLabel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,17 +67,6 @@
             this.manualEntryButton.UseVisualStyleBackColor = true;
             this.manualEntryButton.Click += new System.EventHandler(this.manualEntry_Click);
             // 
-            // logOut
-            // 
-            this.logOut.Location = new System.Drawing.Point(650, 30);
-            this.logOut.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.logOut.Name = "logOut";
-            this.logOut.Size = new System.Drawing.Size(64, 30);
-            this.logOut.TabIndex = 3;
-            this.logOut.Text = "Log Out";
-            this.logOut.UseVisualStyleBackColor = true;
-            this.logOut.Click += new System.EventHandler(this.logOut_Click);
-            // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "AcctCSV";
@@ -90,34 +77,20 @@
             this.panel1.Controls.Add(this.viewAcctsButton);
             this.panel1.Controls.Add(this.manualEntryButton);
             this.panel1.Location = new System.Drawing.Point(201, 293);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(406, 81);
             this.panel1.TabIndex = 4;
-            // 
-            // HelloLabel
-            // 
-            this.HelloLabel.AutoSize = true;
-            this.HelloLabel.Location = new System.Drawing.Point(308, 34);
-            this.HelloLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.HelloLabel.Name = "HelloLabel";
-            this.HelloLabel.Size = new System.Drawing.Size(35, 13);
-            this.HelloLabel.TabIndex = 5;
-            this.HelloLabel.Text = "label1";
-            this.HelloLabel.Click += new System.EventHandler(this.label1_Click);
             // 
             // AcctManagePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.HelloLabel);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.logOut);
             this.Name = "AcctManagePage";
             this.Size = new System.Drawing.Size(880, 640);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -126,9 +99,7 @@
         private System.Windows.Forms.Button uploadCsvButton;
         private System.Windows.Forms.Button viewAcctsButton;
         private System.Windows.Forms.Button manualEntryButton;
-        private System.Windows.Forms.Button logOut;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label HelloLabel;
     }
 }

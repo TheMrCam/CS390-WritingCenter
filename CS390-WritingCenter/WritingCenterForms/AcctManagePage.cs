@@ -15,7 +15,7 @@ namespace WritingCenterForms
     {
         EditAcctInfoPage EditAcctInfoPage1 = new EditAcctInfoPage();
         //public AccountDatabase Accounts { get; set; }
-        public AcctManagePage(AccountDatabase accounts)
+        public AcctManagePage()
         {
             InitializeComponent();
 
@@ -80,6 +80,11 @@ namespace WritingCenterForms
         }
 
         private void refreshDatabase_click(object sender, EventArgs e)
+        {
+            AcctDisplayListBox.Items.AddRange(WCSchedulerForm.Accounts.DisplayLines());
+        }
+
+        private void AcctDisplayListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

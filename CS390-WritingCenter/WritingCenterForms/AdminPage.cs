@@ -25,7 +25,7 @@ namespace WritingCenterForms
         public AdminPage(scheduleView sView)
         {
             InitializeComponent();
-            AcctManagePage1 = new AcctManagePage(sView.GetAccountDatabase());
+            AcctManagePage1 = new AcctManagePage();
             leftBorderBtn = new Panel();
             leftBorderBtn.Size = new Size(5, viewSchedule.Size.Height);
             panelMenu.Controls.Add(leftBorderBtn);
@@ -144,6 +144,7 @@ namespace WritingCenterForms
 
         private void logOutBtn_Click(object sender, EventArgs e)
         {
+            WCSchedulerForm.currentAccount = null;
             this.Hide();
         }
 

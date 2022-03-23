@@ -20,7 +20,7 @@ namespace WritingCenterForms
             InitializeComponent();
             this.scheduleView1 = scheduleView1;
             settingPage = new SettingsPage(scheduleView1);
-            AcctManagePage1 = new AcctManagePage(scheduleView1.GetAccountDatabase()); 
+            AcctManagePage1 = new AcctManagePage(); 
             this.Controls.Add(scheduleView1);
             this.Controls.Add(AcctManagePage1);
             this.Controls.Add(settingPage);

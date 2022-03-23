@@ -19,12 +19,13 @@ namespace WritingCenterForms
         private UserControl currentChildUC;
 
         scheduleView sView;
-        AcctManagePage AcctManagePage1 = new AcctManagePage();
+        AcctManagePage AcctManagePage1;
         SettingsPage settingPage;
 
         public AdminPage(scheduleView sView)
         {
             InitializeComponent();
+            AcctManagePage1 = new AcctManagePage(sView.GetAccountDatabase());
             leftBorderBtn = new Panel();
             leftBorderBtn.Size = new Size(5, viewSchedule.Size.Height);
             panelMenu.Controls.Add(leftBorderBtn);

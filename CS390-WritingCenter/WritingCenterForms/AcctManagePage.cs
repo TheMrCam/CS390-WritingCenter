@@ -15,7 +15,7 @@ namespace WritingCenterForms
     {
         EditAcctInfoPage EditAcctInfoPage1 = new EditAcctInfoPage();
         //public AccountDatabase Accounts { get; set; }
-        public AcctManagePage()
+        public AcctManagePage(AccountDatabase accounts)
         {
             InitializeComponent();
 
@@ -72,10 +72,6 @@ namespace WritingCenterForms
             
         }
 
-        private void logOut_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-        }
 
         private void manualEntry_Click(object sender, EventArgs e)
         {
@@ -83,6 +79,9 @@ namespace WritingCenterForms
             EditAcctInfoPage1.BringToFront();
         }
 
-        
+        private void refreshDatabase_click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

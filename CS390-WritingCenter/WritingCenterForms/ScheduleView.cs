@@ -13,6 +13,8 @@ namespace WritingCenterForms
         private AccountDatabase Accounts;
         private Observable obsv;
         private Button selectedButton;
+
+        public AccountDatabase GetAccountDatabase() { return Accounts; }
         public scheduleView(AccountDatabase Accounts) // version for the admin page
         {
             InitializeComponent();

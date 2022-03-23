@@ -216,5 +216,13 @@ namespace WritingCenterForms
         {
 
         }
+
+        private void passwordKeyPressed(object sender, KeyPressEventArgs e)
+        {
+            if (Convert.ToInt32(e.KeyChar) == 13)
+            {
+                logIn_Click(sender, e);
+            }
+        }
     }
 }

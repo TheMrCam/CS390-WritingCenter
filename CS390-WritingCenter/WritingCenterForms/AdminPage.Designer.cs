@@ -61,7 +61,7 @@
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(318, 788);
+            this.panelMenu.Size = new System.Drawing.Size(318, 800);
             this.panelMenu.TabIndex = 0;
             // 
             // settings
@@ -205,7 +205,7 @@
             this.panelTitle.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTitle.Location = new System.Drawing.Point(318, 0);
             this.panelTitle.Name = "panelTitle";
-            this.panelTitle.Size = new System.Drawing.Size(842, 82);
+            this.panelTitle.Size = new System.Drawing.Size(1082, 82);
             this.panelTitle.TabIndex = 1;
             // 
             // logOutBtn
@@ -216,12 +216,13 @@
             this.logOutBtn.IconChar = FontAwesome.Sharp.IconChar.DoorClosed;
             this.logOutBtn.IconColor = System.Drawing.Color.White;
             this.logOutBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.logOutBtn.Location = new System.Drawing.Point(726, 31);
+            this.logOutBtn.Location = new System.Drawing.Point(966, 31);
             this.logOutBtn.Name = "logOutBtn";
             this.logOutBtn.Size = new System.Drawing.Size(91, 38);
             this.logOutBtn.TabIndex = 2;
             this.logOutBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.logOutBtn.UseVisualStyleBackColor = true;
+            this.logOutBtn.Click += new System.EventHandler(this.logOutBtn_Click);
             // 
             // labelTitle
             // 
@@ -249,22 +250,24 @@
             // 
             // userControlPanel
             // 
+            this.userControlPanel.AutoScroll = true;
             this.userControlPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.userControlPanel.Location = new System.Drawing.Point(318, 82);
             this.userControlPanel.Name = "userControlPanel";
-            this.userControlPanel.Size = new System.Drawing.Size(842, 706);
+            this.userControlPanel.Size = new System.Drawing.Size(1082, 718);
             this.userControlPanel.TabIndex = 2;
             // 
             // AdminPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(226)))), ((int)(((byte)(183)))));
             this.Controls.Add(this.userControlPanel);
             this.Controls.Add(this.panelTitle);
             this.Controls.Add(this.panelMenu);
             this.Name = "AdminPage";
-            this.Size = new System.Drawing.Size(1160, 788);
+            this.Size = new System.Drawing.Size(1400, 800);
             this.Load += new System.EventHandler(this.AdminPage_Load);
             this.panelMenu.ResumeLayout(false);
             this.panelLogo.ResumeLayout(false);

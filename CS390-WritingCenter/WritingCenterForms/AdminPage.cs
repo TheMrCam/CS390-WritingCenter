@@ -124,6 +124,7 @@ namespace WritingCenterForms
             leftBorderBtn.Visible = false;
             labelTitle.Text = "Home";
             iconLogo.IconChar = IconChar.Home;
+            currentChildUC.Hide();
         }
 
         private void openChildUserControl(UserControl uc)
@@ -135,8 +136,14 @@ namespace WritingCenterForms
             currentChildUC.Dock = DockStyle.Fill;
             userControlPanel.Controls.Add(currentChildUC);
             userControlPanel.Tag = currentChildUC;
+            currentChildUC.AutoScroll = true;
             currentChildUC.BringToFront();
             currentChildUC.Show();
+        }
+
+        private void logOutBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
         }
     }
 }

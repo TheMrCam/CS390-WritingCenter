@@ -29,7 +29,8 @@ namespace WritingCenterForms
             //this.Controls.Add(scheduleView1);
             //Accounts.TestCSV(); //for testing
             Accounts.TestResponsesCSV();
-            
+            this.StartPosition = FormStartPosition.CenterScreen;
+
         }
 
         private void logIn_Click(object sender, EventArgs e)

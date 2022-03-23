@@ -65,8 +65,6 @@ namespace WritingCenterForms
                 currentBtn.ForeColor = color;
                 currentBtn.TextAlign = ContentAlignment.MiddleCenter;
                 currentBtn.IconColor = color;
-                currentBtn.TextImageRelation = TextImageRelation.TextBeforeImage;
-                currentBtn.ImageAlign = ContentAlignment.MiddleRight;
 
                 leftBorderBtn.BackColor = color;
                 leftBorderBtn.Location = new Point(0, currentBtn.Location.Y);
@@ -75,7 +73,7 @@ namespace WritingCenterForms
 
                 iconLogo.IconChar = currentBtn.IconChar;
                 iconLogo.IconColor = color;
-                labelTitle.Text = currentBtn.Text;
+                labelTitle.Text = currentBtn.Tag.ToString();
             }
         }
 
@@ -126,7 +124,8 @@ namespace WritingCenterForms
             leftBorderBtn.Visible = false;
             labelTitle.Text = "Home";
             iconLogo.IconChar = IconChar.Home;
-            currentChildUC.Hide();
+            if (currentChildUC != null)
+                currentChildUC.Hide();
         }
 
         private void openChildUserControl(UserControl uc)
@@ -166,7 +165,7 @@ namespace WritingCenterForms
                 pictureBox1.Visible = false;
                 menuButton.Dock = DockStyle.Top;
                 menuButton.ImageAlign = ContentAlignment.MiddleLeft;
-                menuButton.Padding = new Padding(15);
+                menuButton.Padding = new Padding(15, 20, 0, 0);
                 foreach (Button btn in panelMenu.Controls.OfType<Button>())
                 {
                     btn.Text = "";

@@ -164,8 +164,9 @@
     <EmbeddedResource Include="UserLand.resx">
       <DependentUpon>UserLand.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="Data\dummy_accounts.csv" />
     <None Include="Data\Responses.csv" />
+    <None Include="Data\dummy_accounts.csv" />
+    <None Include="Data\Old_Responses.csv" />
     <None Include="Data\schedule.csv" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

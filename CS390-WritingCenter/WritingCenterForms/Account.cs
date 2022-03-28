@@ -40,6 +40,21 @@ namespace WritingCenterForms
             admin = isAdmin;
             currentWorkedHours = 0;
         }
+        public Account(string user, string pass, string name, int y = 0, int sem = 0, string[] mm = null, int reqHour = 1, bool isAdmin = false)
+        {
+            username = user;
+            if (SecurePasswordHasher.IsHashSupported(pass))
+                password = pass;
+            else
+                password = SecurePasswordHasher.Hash(pass);
+            Name = name;
+            year = y;
+            semestersInWC = sem;
+            majorsMinors = mm;
+            requestedHours = reqHour;
+            admin = isAdmin;
+            currentWorkedHours = 0;
+        }
 
         public string Username
         {

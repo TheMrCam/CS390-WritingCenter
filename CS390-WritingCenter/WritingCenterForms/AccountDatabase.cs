@@ -30,6 +30,8 @@ namespace WritingCenterForms
                 { "Junior", 1},
                 { "Sophomore", 2},
                 { "Freshman", 3},
+                { "Graduate", 0},
+                { "Faculty",0},
             };
 
         public AccountDatabase()
@@ -143,21 +145,30 @@ namespace WritingCenterForms
                     Debug.Write(v+"| ");
                 }
                 Debug.WriteLine(";");*/
-                //Timestamp,First Name,Last Name,Year?,Majors,Minors,Number of Hours Per Week,Hours I can work [Sunday],Hours I can work [Monday],Hours I can work [Tuesday],Hours I can work [Wednesday],Hours I can work [Thursday],Hours I can work [Friday],Hours I can work [Saturday]
+                //Timestamp,Email,First Name,Last Name,Year?,Semesters,Majors,Minors,Number of Hours Per Week,Hours I can work [Sunday],Hours I can work [Monday],Hours I can work [Tuesday],Hours I can work [Wednesday],Hours I can work [Thursday],Hours I can work [Friday],Hours I can work [Saturday]
+                //values[0],va[1], values[2],values[3],val[4],value[5],val[6],val[7],values[8]               ,values[9]               ,values[10]
                 //values[0],values[1] ,values[2],val[3],val[4],val[5], values[6]             ,values[7]                ,values[8]                ,values[9]                 ,values[10]                  ,values[11]                 ,values[12]               ,values[13]
                 //dropped  ,Add together = Name ,Year ,MAJOR + minor, reqHours               , availability--->
                 //username = f_initial+lastname; password = defaultPass; admin = false
-                
-                string username = (values[1][0] + values[2]).ToLower();
+                string username = values[1].Split('@')[0]; //pre-@ of email
+                string name = values[2] + " " + values[3];
+                int year = DateTime.Now.Year + Years[values[4]];
+                int WCsemesters = Convert.ToInt32(values[5]);
+                string[] majorsMinors = values[6].Replace("\"", "").ToUpper().Split(',')
+                                        .Concat(values[7].Replace("\"", "").ToLower().Split(',')).ToArray();
+                int reqHours = Convert.ToInt32(values[8]);
+                bool admin = false;
+                AddAccount(new Account(username, DEFAULT_PASSWORD, name, year, WCsemesters, majorsMinors, reqHours, admin));
+                /*string username = (values[1][0] + values[2]).ToLower();
                 string name = values[1] + " " + values[2];
                 int year = CURRENT_YEAR + Years[values[3]];
                 string[] majorsMinors = values[4].Replace("\"", "").ToUpper().Split(',')
                                         .Concat(values[5].Replace("\"", "").ToLower().Split(',')).ToArray();
-                AddAccount(new Account(username,DEFAULT_PASSWORD,name,year,majorsMinors,Convert.ToInt32(values[6]),false));
+                AddAccount(new Account(username,DEFAULT_PASSWORD,name,year,majorsMinors,Convert.ToInt32(values[6]),false));*/
                 bool[][] weeklyAvailability = new bool[7][];
-                for(int i = 7;i<14;i++)
+                for(int i = 9;i<16;i++)
                 {
-                    weeklyAvailability[i-7] = ParseAvailableDay(values[i]);
+                    weeklyAvailability[i-9] = ParseAvailableDay(values[i]);
                 }
                 /*Debug.Write(name + ": ");
                 foreach(bool[] dayA in weeklyAvailability)
@@ -244,7 +255,7 @@ namespace WritingCenterForms
             }
         }
 
-        public void UpdateAvailability(string user, bool[][] newAvailability)
+        public void UpdateAvailability(string user, bool[][] newAvailability, bool nameIndex = true)
         {
             if (newAvailability.Length != 7 || newAvailability[0].Length != 24)
             {
@@ -253,7 +264,7 @@ namespace WritingCenterForms
             else
             {
                 int possibleHrCnt = 0;
-                Account account = GetAccount(user,true);
+                Account account = GetAccount(user,nameIndex);
                 for (int i = 0; i < 7; i++)
                 {
                     account.SetAvailability(i, newAvailability[i]);

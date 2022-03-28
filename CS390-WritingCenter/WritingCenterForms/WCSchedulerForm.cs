@@ -15,7 +15,6 @@ namespace WritingCenterForms
     {        
         public static AccountDatabase Accounts = new AccountDatabase();
         private static scheduleView scheduleView1 = new scheduleView(Accounts);
-        //AdminLand adminLand1 = new AdminLand(scheduleView1);
         AdminPage adminPage = new AdminPage(scheduleView1);
         AcctManagePage acctManagePage1 = new AcctManagePage();
         public static Account currentAccount = null;

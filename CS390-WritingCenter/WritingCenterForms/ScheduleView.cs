@@ -21,6 +21,8 @@ namespace WritingCenterForms
             this.Accounts = Accounts;
             schedule = new Schedule(Accounts, this);
             sPanel = new FlowLayoutPanel();
+            this.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            this.Dock = DockStyle.Fill;
             prepareSchedule();
         }
 
@@ -29,6 +31,7 @@ namespace WritingCenterForms
             InitializeComponent();
             schedule = new Schedule(this);
             sPanel = new FlowLayoutPanel();
+            this.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             prepareSchedule();
         }
 

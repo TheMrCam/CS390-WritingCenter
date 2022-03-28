@@ -238,7 +238,7 @@
             this.logOutBtn.IconChar = FontAwesome.Sharp.IconChar.SignOutAlt;
             this.logOutBtn.IconColor = System.Drawing.Color.White;
             this.logOutBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.logOutBtn.Location = new System.Drawing.Point(966, 31);
+            this.logOutBtn.Location = new System.Drawing.Point(988, 27);
             this.logOutBtn.Name = "logOutBtn";
             this.logOutBtn.Size = new System.Drawing.Size(91, 38);
             this.logOutBtn.TabIndex = 2;
@@ -278,6 +278,7 @@
             this.userControlPanel.Name = "userControlPanel";
             this.userControlPanel.Size = new System.Drawing.Size(1082, 718);
             this.userControlPanel.TabIndex = 2;
+            this.userControlPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.userControlPanel_Paint);
             // 
             // AdminPage
             // 

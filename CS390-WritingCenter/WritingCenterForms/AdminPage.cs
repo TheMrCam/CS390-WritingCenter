@@ -32,6 +32,7 @@ namespace WritingCenterForms
 
             this.sView = sView;
             this.settingPage = new SettingsPage(sView);
+            sView.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             this.Controls.Add(sView);
             this.Controls.Add(AcctManagePage1);
             this.Controls.Add(settingPage);
@@ -39,6 +40,8 @@ namespace WritingCenterForms
             sView.Hide();
             AcctManagePage1.Hide();
             settingPage.Hide();
+
+            this.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
         }
 
         private struct RGBColors
@@ -186,6 +189,11 @@ namespace WritingCenterForms
                     btn.Padding = new Padding(10, 0, 0, 0);
                 }
             }
+        }
+
+        private void userControlPanel_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

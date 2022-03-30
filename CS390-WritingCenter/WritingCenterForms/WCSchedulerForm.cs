@@ -15,7 +15,7 @@ namespace WritingCenterForms
     {        
         public static AccountDatabase Accounts = new AccountDatabase();
         private static scheduleView scheduleView1 = new scheduleView(Accounts);
-        AdminPage adminPage;
+        AdminPage adminPage = new AdminPage(scheduleView1);
         AcctManagePage acctManagePage1 = new AcctManagePage();
         public static Account currentAccount = null;
         readonly String defaultPass = "coe"; // change based on user somehow, not sure how to do that - AT
@@ -27,7 +27,6 @@ namespace WritingCenterForms
             //Accounts.TestCSV(); //for testing
             Accounts.TestResponsesCSV();
             this.StartPosition = FormStartPosition.CenterScreen;
-            //this.MinimumSize = new Size(1400, 800);
 
         }
 
@@ -58,14 +57,13 @@ namespace WritingCenterForms
                 currentAccount = Accounts.GetAccount(username.Text);
                 if (currentAccount.Admin)
                 {
-                    adminPage = new AdminPage(scheduleView1, true);
                     this.Controls.Add(adminPage);
                     adminPage.Show();
                     adminPage.BringToFront();
                 }
                 else if (!currentAccount.Admin)
                 {
-                    adminPage = new AdminPage(scheduleView1, false);
+                    adminPage.isNotAdmin();
                     this.Controls.Add(adminPage);
                     adminPage.Show();
                     adminPage.BringToFront();
@@ -212,6 +210,11 @@ namespace WritingCenterForms
             {
                 logIn_Click(sender, e);
             }
+        }
+
+        private void WCSchedulerForm_SizeChanged(object sender, EventArgs e)
+        {
+            scheduleView1.sizeChanged(this.WindowState);
         }
     }
 }

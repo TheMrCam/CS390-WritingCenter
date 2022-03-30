@@ -26,6 +26,7 @@ namespace WritingCenterForms
             private bool availible;
             private string[] names;
             public int minWorkers, maxWorkers;
+            public bool Busy;
             public bool Availible { get { return availible; } set { availible = value; } }
             public string[] Names { get { return names; } set { names = value; } }
             public Hour(bool available, string[] workers = null)
@@ -38,6 +39,23 @@ namespace WritingCenterForms
                 }
                 else { minWorkers = 0; maxWorkers = 0; }
                 this.names = workers;
+                this.Busy = false;
+            }
+            public Hour(bool open, int min, int max, bool busy)
+            {
+                this.availible=open;
+                this.minWorkers = min;
+                this.maxWorkers = max;
+                this.Busy = busy;
+                this.names = null;
+            }
+
+            public void overwriteSettings(bool open,int min,int max,bool busy)
+            {
+                this.availible = open;
+                this.minWorkers = min;
+                this.maxWorkers = max;
+                this.Busy = busy;
             }
             public string[] getNames()
             {
@@ -78,6 +96,37 @@ namespace WritingCenterForms
                 else
                 {
                     Hours[i] = new Hour(false); //closed hours
+                }
+            }
+        }
+        public Day(bool[] openHours, int[] minWorkers, int[] maxWorkers, bool[] busyHours)
+        //new Day, empty names
+        {
+            if (openHours.Length != Slots) //For now, hardcoded 1 hour time slots
+            {
+                throw new ArgumentException();
+            }
+            else
+            {
+                Hours = new Hour[Slots];
+                for (int i = 0; i < Hours.Length; i++)
+                {
+                    Hours[i] = new Hour(openHours[i],minWorkers[i],maxWorkers[i],busyHours[i]);
+                }
+            }
+        }
+        public void overwriteDaySettings(bool[] openHours, int[] minWorkers, int[] maxWorkers, bool[] busyHours)
+        //changes the settings without overwriting the names
+        {
+            if (openHours.Length != Slots) //For now, hardcoded 1 hour time slots
+            {
+                throw new ArgumentException();
+            }
+            else
+            {
+                for (int i = 0; i < Hours.Length; i++)
+                {
+                    Hours[i].overwriteSettings(openHours[i], minWorkers[i], maxWorkers[i], busyHours[i]);
                 }
             }
         }

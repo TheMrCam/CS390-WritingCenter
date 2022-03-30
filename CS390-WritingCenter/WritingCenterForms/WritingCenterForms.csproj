@@ -146,13 +146,7 @@
     <EmbeddedResource Include="scheduleView.resx">
       <DependentUpon>scheduleView.cs</DependentUpon>
     </EmbeddedResource>
-<<<<<<< Updated upstream
-    <EmbeddedResource Include="UserLand.resx">
-      <DependentUpon>UserLand.cs</DependentUpon>
-    </EmbeddedResource>
-=======
     <None Include="Data\dummy_accounts.csv" />
->>>>>>> Stashed changes
     <None Include="Data\Responses.csv" />
     <None Include="Data\dummy_accounts.csv" />
     <None Include="Data\Old_Responses.csv" />

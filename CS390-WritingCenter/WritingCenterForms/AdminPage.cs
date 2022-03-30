@@ -17,30 +17,43 @@ namespace WritingCenterForms
         private IconButton currentBtn;
         private Panel leftBorderBtn;
         private UserControl currentChildUC;
+        private bool maximize;
 
         scheduleView sView;
         AcctManagePage AcctManagePage1;
         SettingsPage settingPage;
+        EditAcctInfoPage EditAcctInfoPage1;
 
-        public AdminPage(scheduleView sView)
+        public AdminPage(scheduleView sView, Boolean isAdmin)
         {
             InitializeComponent();
-            AcctManagePage1 = new AcctManagePage();
+            if (isAdmin)
+            {
+                AcctManagePage1 = new AcctManagePage();
+                this.settingPage = new SettingsPage(sView);
+                this.Controls.Add(AcctManagePage1);
+                this.Controls.Add(settingPage);
+                AcctManagePage1.Hide();
+                settingPage.Hide();
+                settings.Hide();
+        
+            }
+            else
+            {
+                manageAccounts.Hide();
+                editSchedule.Hide();
+                editRequests.Hide();
+                EditAcctInfoPage1 = new EditAcctInfoPage();
+                this.Controls.Add(EditAcctInfoPage1);
+                EditAcctInfoPage1.Hide();
+            }
             leftBorderBtn = new Panel();
             leftBorderBtn.Size = new Size(5, viewSchedule.Size.Height);
             panelMenu.Controls.Add(leftBorderBtn);
-
             this.sView = sView;
-            this.settingPage = new SettingsPage(sView);
-            sView.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             this.Controls.Add(sView);
-            this.Controls.Add(AcctManagePage1);
-            this.Controls.Add(settingPage);
             collapseMenu();
             sView.Hide();
-            AcctManagePage1.Hide();
-            settingPage.Hide();
-
             this.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
         }
 
@@ -119,6 +132,7 @@ namespace WritingCenterForms
         private void settings_Click(object sender, EventArgs e)
         {
             activateButton(sender, RGBColors.color5);
+            openChildUserControl(EditAcctInfoPage1);
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -189,6 +203,26 @@ namespace WritingCenterForms
                     btn.Padding = new Padding(10, 0, 0, 0);
                 }
             }
+        }
+
+        protected override void WndProc(ref Message message)
+        {
+            const int WM_SYSCOMMAND = 0x0112;
+            const int SC_MAXIMIZE = 0xF030;
+
+            switch (message.Msg)
+            {
+                case WM_SYSCOMMAND:
+                    int command = message.WParam.ToInt32() & 0xfff0;
+                    if (command == SC_MAXIMIZE)
+                    {
+                        this.maximize = true;
+                        this.MaximumSize = new System.Drawing.Size(0, 0);
+                    }
+                    break;
+            }
+
+            base.WndProc(ref message);
         }
 
         private void userControlPanel_Paint(object sender, PaintEventArgs e)

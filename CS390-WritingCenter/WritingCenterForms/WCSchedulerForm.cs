@@ -15,17 +15,15 @@ namespace WritingCenterForms
     {        
         public static AccountDatabase Accounts = new AccountDatabase();
         private static scheduleView scheduleView1 = new scheduleView(Accounts);
-        AdminPage adminPage = new AdminPage(scheduleView1);
+        AdminPage adminPage;
         AcctManagePage acctManagePage1 = new AcctManagePage();
         public static Account currentAccount = null;
-        UserLand UserLand = new UserLand();
         readonly String defaultPass = "coe"; // change based on user somehow, not sure how to do that - AT
         ErrorProvider errorProvider = new ErrorProvider();
 
         public WCSchedulerForm()
         {
             InitializeComponent();
-            //this.Controls.Add(scheduleView1);
             //Accounts.TestCSV(); //for testing
             Accounts.TestResponsesCSV();
             this.StartPosition = FormStartPosition.CenterScreen;
@@ -60,24 +58,21 @@ namespace WritingCenterForms
                 currentAccount = Accounts.GetAccount(username.Text);
                 if (currentAccount.Admin)
                 {
-                    //this.Controls.Add(adminLand1);
-                    //adminLand1.Show();
-                    //adminLand1.BringToFront();
+                    adminPage = new AdminPage(scheduleView1, true);
                     this.Controls.Add(adminPage);
                     adminPage.Show();
                     adminPage.BringToFront();
                 }
                 else if (!currentAccount.Admin)
                 {
-                    this.Controls.Add(UserLand);
-                    UserLand.Show();
-                    UserLand.BringToFront();
+                    adminPage = new AdminPage(scheduleView1, false);
+                    this.Controls.Add(adminPage);
+                    adminPage.Show();
+                    adminPage.BringToFront();
                 }
                 else if (Accounts.GetAccount(username.Text).Equals(defaultPass))
                 {
                     this.Controls.Add(acctManagePage1);
-                    //scheduleView1.Show();
-                    //scheduleView1.BringToFront();
                 }
 
             }
@@ -93,13 +88,8 @@ namespace WritingCenterForms
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            //adminLand1.Hide();
             acctManagePage1.Hide();
             scheduleView1.Hide();
-            adminPage.Hide();
-            //this.Location = new Point(0,0);
-            //this.Size = new Size(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
-            
         }
 
         private void username_TextChanged(object sender, EventArgs e)

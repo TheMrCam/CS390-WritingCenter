@@ -3,24 +3,35 @@ using System.Collections;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Drawing;
+using System.Linq;
 
 namespace WritingCenterForms
 {
     public partial class scheduleView : UserControl, Observer
     {
         private Schedule schedule;
-        private FlowLayoutPanel sPanel;
+        private FlowLayoutPanel sPanel = new FlowLayoutPanel();
         private AccountDatabase Accounts;
         private Observable obsv;
         private Button selectedButton;
+        private int cellHeight;
+        private int cellWidth;
+        private int panelHeight;
+        private int panelWidth;
 
         public AccountDatabase GetAccountDatabase() { return Accounts; }
         public scheduleView(AccountDatabase Accounts) // version for the admin page
         {
             InitializeComponent();
+            cellHeight = 70;
+            cellWidth = 90;
+            panelHeight = 455;
+            panelWidth = 800;
             this.Accounts = Accounts;
             schedule = new Schedule(Accounts, this);
-            sPanel = new FlowLayoutPanel();
+            sPanel.Size = new Size(panelWidth, panelHeight);
+            sPanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             this.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             this.Dock = DockStyle.Fill;
             prepareSchedule();
@@ -30,8 +41,15 @@ namespace WritingCenterForms
         {
             InitializeComponent();
             schedule = new Schedule(this);
-            sPanel = new FlowLayoutPanel();
+            cellHeight = 70;
+            cellWidth = 90;
+            panelHeight = 455;
+            panelWidth = 800;
+            sPanel.Size = new Size(panelWidth, panelHeight);
+            sPanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             this.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            this.Dock = DockStyle.Fill;
+
             prepareSchedule();
         }
 
@@ -39,18 +57,16 @@ namespace WritingCenterForms
         {
             if (sPanel.HasChildren) { sPanel.Controls.Clear(); } // if there is stuff in the current panel, removes everything
             //creating a panel to create all the labels in
-            sPanel.Location = new System.Drawing.Point(10, 120);
-            sPanel.Size = new System.Drawing.Size(800, 455);
-            sPanel.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            int cellHeight = 70;
-            int cellWidth = 90;
+            sPanel.Location = new Point(10, 120);
+            sPanel.Size = new Size(panelWidth, panelHeight);
+            sPanel.BackColor = SystemColors.ActiveCaption;
 
-            for (int i = 8; i < 24; i++)
+            for (int i = 0; i < 24; i++)
             {
-                createTimeLabels(cellHeight, cellWidth, i);
+                createTimeLabels(i);
                 for (int j = 0; j < 7; j++)
                 {
-                    createListBoxes(cellHeight, cellWidth, i, j);
+                    createListBoxes(i, j);
                 }
             }
             //Adding scroll bar to the panel
@@ -58,28 +74,28 @@ namespace WritingCenterForms
             this.Controls.Add(sPanel);
         }
 
-        private void createTimeLabels(int height, int width, int time)
+        private void createTimeLabels(int time)
         {
             Label label = new Label();
             label.BackColor = System.Drawing.SystemColors.Info;
-            label.Height = height;
-            label.Width = width;
-            label.Left = time * (width + 1); //makes a new label adjacent to the current label
+            label.Height = cellHeight;
+            label.Width = cellWidth;
+            label.Left = time * ((int)cellWidth + 1); //makes a new label adjacent to the current label
             label.Name = "label" + time;
             label.Text = convertTime(time);
             label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             sPanel.Controls.Add(label);
         }
 
-        private void createListBoxes(int height, int width, int time, int day)
+        private void createListBoxes(int time, int day)
         {
             //making new labels
             //ListBox lbox = new ListBox();
             Button lbox = new Button();
             lbox.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            lbox.Height = height;
-            lbox.Width = width;
-            lbox.Left = time * (width + 1); //makes a new lbox adjacent to the current lbox
+            lbox.Height = cellHeight;
+            lbox.Width = cellWidth;
+            lbox.Left = time * ((int)cellWidth + 1); //makes a new lbox adjacent to the current lbox
             lbox.Name = "lbox" + day + time; //if you change the lbox change the number in scheduleV
             lbox.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             //lbox.SelectionMode = SelectionMode.None;
@@ -202,6 +218,24 @@ namespace WritingCenterForms
         {
             selectedButton.Text = "";
             displayWorkers(selectedButton, time, day);
+        }
+
+        private void scheduleView_SizeChanged(object sender, EventArgs e)
+        {
+            this.BackColor = SystemColors.Window;
+            int heightDifference = sPanel.Height - panelHeight;
+            int widthDifference = sPanel.Width - panelWidth;
+            cellHeight = cellHeight + heightDifference;
+            cellWidth = cellWidth + widthDifference;
+
+            foreach(Label control in sPanel.Controls.OfType<Label>())
+            {
+                control.Size = new Size(cellWidth, cellHeight);
+            }
+            foreach (Button control in sPanel.Controls.OfType<Button>())
+            {
+                control.Size = new Size(cellWidth, cellHeight);
+            }
         }
     }
 }

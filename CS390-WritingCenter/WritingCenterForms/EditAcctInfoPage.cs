@@ -16,6 +16,8 @@ namespace WritingCenterForms
         public EditAcctInfoPage()
         {
             InitializeComponent();
+            this.Dock = DockStyle.Fill;
+
         }
 
         private void logOut_Click(object sender, EventArgs e)

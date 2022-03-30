@@ -30,6 +30,7 @@ namespace WritingCenterForms
         public Control()
         {
             InitializeComponent();
+            this.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             this.Controls.Add(loadShiftControls());
             for(int i = 0; i < 24; i++)
             {

@@ -10,7 +10,6 @@ C:\Users\shash\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\obj\De
 C:\Users\shash\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\obj\Debug\WritingCenterForms.WCSchedulerForm.resources
 C:\Users\shash\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\obj\Debug\WritingCenterForms.Properties.Resources.resources
 C:\Users\shash\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\obj\Debug\WritingCenterForms.scheduleView.resources
-C:\Users\shash\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\obj\Debug\WritingCenterForms.UserLand.resources
 C:\Users\shash\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\obj\Debug\WritingCenterForms.csproj.GenerateResource.cache
 C:\Users\shash\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\obj\Debug\WritingCenterForms.csproj.CoreCompileInputs.cache
 C:\Users\shash\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\obj\Debug\WritingCenterForms.exe
@@ -56,7 +55,7 @@ C:\Users\cmwoodbury19\source\repos\CS390-WritingCenter\CS390-WritingCenter\Writi
 C:\Users\shash\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\bin\Debug\FontAwesome.Sharp.dll
 C:\Users\shash\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\obj\Debug\WritingCenterForms.AdminPage.resources
 C:\Users\shash\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\obj\Debug\WritingCenterForms.csproj.CopyComplete
-C:\Users\shash\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\obj\Debug\WritingCenterForms.csproj.AssemblyReference.cache
 C:\Users\Alex\OneDrive\Desktop\Git\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\bin\Debug\FontAwesome.Sharp.dll
 C:\Users\Alex\OneDrive\Desktop\Git\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\obj\Debug\WritingCenterForms.AdminPage.resources
 C:\Users\Alex\OneDrive\Desktop\Git\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\obj\Debug\WritingCenterForms.csproj.CopyComplete
+C:\Users\shash\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\obj\Debug\WritingCenterForms.csproj.AssemblyReference.cache

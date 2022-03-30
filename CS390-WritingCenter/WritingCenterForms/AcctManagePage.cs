@@ -79,7 +79,6 @@ namespace WritingCenterForms
             string[] tempAcctList = WCSchedulerForm.Accounts.DisplayLines();
             foreach (string line in tempAcctList)
             {
-                Console.WriteLine(line);
                 AcctDisplayListBox.Items.Add(line);
             }
         }

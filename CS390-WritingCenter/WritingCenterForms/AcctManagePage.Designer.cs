@@ -52,7 +52,7 @@
             // viewAcctsButton
             // 
             this.viewAcctsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.viewAcctsButton.Location = new System.Drawing.Point(214, 46);
+            this.viewAcctsButton.Location = new System.Drawing.Point(217, 33);
             this.viewAcctsButton.Name = "viewAcctsButton";
             this.viewAcctsButton.Size = new System.Drawing.Size(83, 23);
             this.viewAcctsButton.TabIndex = 1;
@@ -62,7 +62,7 @@
             // manualEntryButton
             // 
             this.manualEntryButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.manualEntryButton.Location = new System.Drawing.Point(601, 46);
+            this.manualEntryButton.Location = new System.Drawing.Point(607, 33);
             this.manualEntryButton.Name = "manualEntryButton";
             this.manualEntryButton.Size = new System.Drawing.Size(82, 23);
             this.manualEntryButton.TabIndex = 2;
@@ -90,7 +90,7 @@
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(401, 46);
+            this.button1.Location = new System.Drawing.Point(413, 33);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(83, 23);
             this.button1.TabIndex = 3;
@@ -110,7 +110,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(119, 15);
+            this.button2.Location = new System.Drawing.Point(14, 17);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 4;

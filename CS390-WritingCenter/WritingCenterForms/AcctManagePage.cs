@@ -81,7 +81,13 @@ namespace WritingCenterForms
 
         private void refreshDatabase_click(object sender, EventArgs e)
         {
-            AcctDisplayListBox.Items.AddRange(WCSchedulerForm.Accounts.DisplayLines());
+            AcctDisplayListBox.Items.Clear();
+            string[] tempAcctList = WCSchedulerForm.Accounts.DisplayLines();
+            foreach (string line in tempAcctList)
+            {
+                Console.WriteLine(line);
+                AcctDisplayListBox.Items.Add(line);
+            }
         }
 
         private void AcctDisplayListBox_SelectedIndexChanged(object sender, EventArgs e)

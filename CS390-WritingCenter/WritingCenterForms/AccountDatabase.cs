@@ -107,6 +107,7 @@ namespace WritingCenterForms
                 var line = reader.ReadLine();
                 var values = line.Split(',');
                 //username, password, Name, year, MAJOR-minor, reqHours, admin
+                Console.Write(values);
                 AddAccount(new Account(values[0], values[1], values[2], Convert.ToInt32(values[3]), values[4].Split('-'), Convert.ToInt32(values[5]), Convert.ToBoolean(values[6])));
             }
             return;

@@ -44,7 +44,7 @@
             // 
             this.logIn.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.logIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.logIn.Location = new System.Drawing.Point(643, 538);
+            this.logIn.Location = new System.Drawing.Point(643, 513);
             this.logIn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.logIn.Name = "logIn";
             this.logIn.Size = new System.Drawing.Size(109, 52);
@@ -57,7 +57,7 @@
             // 
             this.password.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.password.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.password.Location = new System.Drawing.Point(549, 482);
+            this.password.Location = new System.Drawing.Point(549, 457);
             this.password.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.password.Name = "password";
             this.password.Size = new System.Drawing.Size(303, 28);
@@ -72,7 +72,7 @@
             // 
             this.username.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.username.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.username.Location = new System.Drawing.Point(549, 442);
+            this.username.Location = new System.Drawing.Point(549, 417);
             this.username.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.username.Name = "username";
             this.username.Size = new System.Drawing.Size(303, 28);
@@ -97,7 +97,7 @@
             this.panel1.Location = new System.Drawing.Point(1, -2);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1400, 850);
+            this.panel1.Size = new System.Drawing.Size(1400, 800);
             this.panel1.TabIndex = 9;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             this.panel1.Leave += new System.EventHandler(this.resetLogin);
@@ -133,8 +133,8 @@
             // 
             this.forgotPasswordButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.forgotPasswordButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.forgotPasswordButton.Location = new System.Drawing.Point(27, 678);
-            this.forgotPasswordButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.forgotPasswordButton.Location = new System.Drawing.Point(30, 665);
+            this.forgotPasswordButton.Margin = new System.Windows.Forms.Padding(4);
             this.forgotPasswordButton.Name = "forgotPasswordButton";
             this.forgotPasswordButton.Size = new System.Drawing.Size(117, 57);
             this.forgotPasswordButton.TabIndex = 4;
@@ -145,7 +145,7 @@
             // bootRight
             // 
             this.bootRight.Location = new System.Drawing.Point(415, 455);
-            this.bootRight.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bootRight.Margin = new System.Windows.Forms.Padding(4);
             this.bootRight.Name = "bootRight";
             this.bootRight.Size = new System.Drawing.Size(132, 22);
             this.bootRight.TabIndex = 6;
@@ -157,13 +157,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1381, 753);
+            this.ClientSize = new System.Drawing.Size(1382, 753);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.bootRight);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "WCSchedulerForm";
             this.Text = "WC Scheduler";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.SizeChanged += new System.EventHandler(this.WCSchedulerForm_SizeChanged);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

@@ -17,36 +17,23 @@ namespace WritingCenterForms
         private IconButton currentBtn;
         private Panel leftBorderBtn;
         private UserControl currentChildUC;
-        private bool maximize;
+        public bool isAdmin { get; set; }
 
         scheduleView sView;
         AcctManagePage AcctManagePage1;
         SettingsPage settingPage;
         EditAcctInfoPage EditAcctInfoPage1;
 
-        public AdminPage(scheduleView sView, Boolean isAdmin)
+        public AdminPage(scheduleView sView)
         {
             InitializeComponent();
-            if (isAdmin)
-            {
-                AcctManagePage1 = new AcctManagePage();
-                this.settingPage = new SettingsPage(sView);
-                this.Controls.Add(AcctManagePage1);
-                this.Controls.Add(settingPage);
-                AcctManagePage1.Hide();
-                settingPage.Hide();
-                settings.Hide();
-        
-            }
-            else
-            {
-                manageAccounts.Hide();
-                editSchedule.Hide();
-                editRequests.Hide();
-                EditAcctInfoPage1 = new EditAcctInfoPage();
-                this.Controls.Add(EditAcctInfoPage1);
-                EditAcctInfoPage1.Hide();
-            }
+            AcctManagePage1 = new AcctManagePage();
+            this.settingPage = new SettingsPage(sView);
+            this.Controls.Add(AcctManagePage1);
+            this.Controls.Add(settingPage);
+            AcctManagePage1.Hide();
+            settingPage.Hide();
+            settings.Hide();
             leftBorderBtn = new Panel();
             leftBorderBtn.Size = new Size(5, viewSchedule.Size.Height);
             panelMenu.Controls.Add(leftBorderBtn);
@@ -55,6 +42,18 @@ namespace WritingCenterForms
             collapseMenu();
             sView.Hide();
             this.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+        }
+
+        public void isNotAdmin()
+        {
+            manageAccounts.Hide();
+            editSchedule.Hide();
+            editRequests.Hide();
+            EditAcctInfoPage1 = new EditAcctInfoPage();
+            this.Controls.Add(EditAcctInfoPage1);
+            EditAcctInfoPage1.Hide();
+            this.Controls.Remove(AcctManagePage1);
+            this.Controls.Remove(settingPage);
         }
 
         private struct RGBColors
@@ -203,26 +202,6 @@ namespace WritingCenterForms
                     btn.Padding = new Padding(10, 0, 0, 0);
                 }
             }
-        }
-
-        protected override void WndProc(ref Message message)
-        {
-            const int WM_SYSCOMMAND = 0x0112;
-            const int SC_MAXIMIZE = 0xF030;
-
-            switch (message.Msg)
-            {
-                case WM_SYSCOMMAND:
-                    int command = message.WParam.ToInt32() & 0xfff0;
-                    if (command == SC_MAXIMIZE)
-                    {
-                        this.maximize = true;
-                        this.MaximumSize = new System.Drawing.Size(0, 0);
-                    }
-                    break;
-            }
-
-            base.WndProc(ref message);
         }
 
         private void userControlPanel_Paint(object sender, PaintEventArgs e)

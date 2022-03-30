@@ -182,7 +182,6 @@
             this.Name = "scheduleView";
             this.Size = new System.Drawing.Size(1074, 788);
             this.Load += new System.EventHandler(this.scheduleView_Load);
-            this.SizeChanged += new System.EventHandler(this.scheduleView_SizeChanged);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

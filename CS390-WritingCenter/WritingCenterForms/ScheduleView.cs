@@ -32,7 +32,7 @@ namespace WritingCenterForms
             schedule = new Schedule(Accounts, this);
             sPanel.Size = new Size(panelWidth, panelHeight);
             sPanel.AutoSizeMode = AutoSizeMode.GrowOnly;
-            sPanel.Anchor = AnchorStyles.Top | AnchorStyles.Left;
+            sPanel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom;
             this.Anchor = AnchorStyles.Top |  AnchorStyles.Left;
             this.Dock = DockStyle.Fill;
             prepareSchedule();
@@ -221,21 +221,22 @@ namespace WritingCenterForms
             displayWorkers(selectedButton, time, day);
         }
 
-        private void scheduleView_SizeChanged(object sender, EventArgs e)
+        public void sizeChanged(FormWindowState ws)
         {
-            this.BackColor = SystemColors.Window;
-            int heightDifference = sPanel.Height - panelHeight;
-            int widthDifference = sPanel.Width - panelWidth;
-            cellHeight = cellHeight + heightDifference;
-            cellWidth = cellWidth + widthDifference;
-
-            foreach(Label control in sPanel.Controls.OfType<Label>())
+            if (ws == FormWindowState.Maximized)
             {
-                control.Size = new Size(cellWidth, cellHeight);
+                foreach (Button button in this.Controls.OfType<Button>())
+                {
+                    button.BackColor = Color.AliceBlue;
+                    button.Size = new Size(200, 90);
+                }
             }
-            foreach (Button control in sPanel.Controls.OfType<Button>())
+            else
             {
-                control.Size = new Size(cellWidth, cellHeight);
+                foreach (Button button in this.Controls.OfType<Button>())
+                {
+                    button.Size = new Size(90, 70);
+                }
             }
         }
     }

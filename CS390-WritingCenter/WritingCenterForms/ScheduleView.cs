@@ -31,6 +31,7 @@ namespace WritingCenterForms
             this.Accounts = Accounts;
             schedule = new Schedule(Accounts, this);
             sPanel.Size = new Size(panelWidth, panelHeight);
+            sPanel.AutoSizeMode = AutoSizeMode.GrowOnly;
             sPanel.Anchor = AnchorStyles.Top | AnchorStyles.Left;
             this.Anchor = AnchorStyles.Top |  AnchorStyles.Left;
             this.Dock = DockStyle.Fill;

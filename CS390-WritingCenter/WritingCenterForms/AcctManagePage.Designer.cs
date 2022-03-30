@@ -35,6 +35,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.AcctDisplayListBox = new System.Windows.Forms.ListBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -75,12 +76,13 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.uploadCsvButton);
             this.panel1.Controls.Add(this.viewAcctsButton);
             this.panel1.Controls.Add(this.manualEntryButton);
             this.panel1.Location = new System.Drawing.Point(153, 38);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(702, 81);
             this.panel1.TabIndex = 4;
@@ -106,6 +108,16 @@
             this.AcctDisplayListBox.SelectedIndexChanged += new System.EventHandler(this.AcctDisplayListBox_SelectedIndexChanged);
             this.AcctDisplayListBox.Enter += new System.EventHandler(this.refreshDatabase_click);
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(119, 15);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "CLEAR DB";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.clearDBClick);
+            // 
             // AcctManagePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -128,5 +140,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ListBox AcctDisplayListBox;
+        private System.Windows.Forms.Button button2;
     }
 }

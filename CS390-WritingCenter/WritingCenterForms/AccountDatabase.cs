@@ -120,7 +120,7 @@ namespace WritingCenterForms
                 string[] timeSlots = fromCSV.Replace("\"", "").Replace(" ", "").Split(',');
                 foreach (string time in timeSlots)
                 {
-                    //Debug.WriteLine(time);
+                    Debug.WriteLine(time);
                     int timeIndex = int.Parse(time.Split(':')[0]) % 12;
                     //Debug.WriteLine(timeIndex.ToString());
                     if (time.Split('-')[0].Contains('p')) { timeIndex += 12; }
@@ -180,7 +180,7 @@ namespace WritingCenterForms
                     }
                     Debug.WriteLine("");
                 }*/
-                UpdateAvailability(name, weeklyAvailability);
+                UpdateAvailability(username, weeklyAvailability);
             }
         }
 
@@ -266,7 +266,7 @@ namespace WritingCenterForms
             else
             {
                 int possibleHrCnt = 0;
-                Account account = GetAccount(user,nameIndex);
+                Account account = GetAccount(user);
                 for (int i = 0; i < 7; i++)
                 {
                     account.SetAvailability(i, newAvailability[i]);

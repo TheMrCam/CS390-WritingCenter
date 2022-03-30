@@ -50,7 +50,7 @@ namespace WritingCenterForms
                     try
                     {
                         //NEED TO GET AcctManagePage TO UPDATE WCSchedulerForm.Account
-                        WCSchedulerForm.Accounts.ImportFromCSV(fileName);
+                        WCSchedulerForm.Accounts.new_ImportFromCSV(fileName);
                         MessageBox.Show($"Successfully imported database from {fileName}","Success",MessageBoxButtons.OK,MessageBoxIcon.Information);
                         //var output = new FileStream(fileName, FileMode.OpenOrCreate, FileAccess.Write);
                         //StreamWriter fileWriter = new StreamWriter(output);
@@ -98,6 +98,11 @@ namespace WritingCenterForms
         private void AcctDisplayListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void clearDBClick(object sender, EventArgs e)
+        {
+            WCSchedulerForm.Accounts.ClearDatabase();
         }
     }
 }

@@ -20,6 +20,7 @@ namespace WritingCenterForms
             InitializeComponent();
 
             this.Controls.Add(EditAcctInfoPage1);
+            this.refreshAccounts();
 
             EditAcctInfoPage1.Hide();
         }
@@ -72,6 +73,17 @@ namespace WritingCenterForms
             
         }
 
+        private void refreshAccounts()
+        {
+            AcctDisplayListBox.Items.Clear();
+            string[] tempAcctList = WCSchedulerForm.Accounts.DisplayLines();
+            foreach (string line in tempAcctList)
+            {
+                Console.WriteLine(line);
+                AcctDisplayListBox.Items.Add(line);
+            }
+        }
+
 
         private void manualEntry_Click(object sender, EventArgs e)
         {
@@ -81,13 +93,7 @@ namespace WritingCenterForms
 
         private void refreshDatabase_click(object sender, EventArgs e)
         {
-            AcctDisplayListBox.Items.Clear();
-            string[] tempAcctList = WCSchedulerForm.Accounts.DisplayLines();
-            foreach (string line in tempAcctList)
-            {
-                Console.WriteLine(line);
-                AcctDisplayListBox.Items.Add(line);
-            }
+            refreshAccounts();
         }
 
         private void AcctDisplayListBox_SelectedIndexChanged(object sender, EventArgs e)

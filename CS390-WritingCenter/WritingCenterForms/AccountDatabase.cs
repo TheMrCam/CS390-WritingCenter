@@ -226,6 +226,7 @@ namespace WritingCenterForms
                     lines.Add($"{account.Username},{account.Password},{account.Name},{account.Year},{(string.Join("-", account.Majors) + "-" + (string.Join("-", account.Minors)))},{account.RequestedHours},{account.Admin}");
                 }
             }
+
             return (string[])lines.ToArray(typeof(string));
         }
 

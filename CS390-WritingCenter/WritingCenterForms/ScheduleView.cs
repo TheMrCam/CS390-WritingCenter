@@ -31,8 +31,8 @@ namespace WritingCenterForms
             this.Accounts = Accounts;
             schedule = new Schedule(Accounts, this);
             sPanel.Size = new Size(panelWidth, panelHeight);
-            sPanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            this.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            sPanel.Anchor = AnchorStyles.Top | AnchorStyles.Left;
+            this.Anchor = AnchorStyles.Top |  AnchorStyles.Left;
             this.Dock = DockStyle.Fill;
             prepareSchedule();
         }
@@ -46,8 +46,8 @@ namespace WritingCenterForms
             panelHeight = 455;
             panelWidth = 800;
             sPanel.Size = new Size(panelWidth, panelHeight);
-            sPanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            this.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            sPanel.Anchor = AnchorStyles.Top | AnchorStyles.Left;
+            this.Anchor = AnchorStyles.Top | AnchorStyles.Left;
             this.Dock = DockStyle.Fill;
 
             prepareSchedule();

@@ -27,6 +27,7 @@ namespace WritingCenterForms
             //Accounts.TestCSV(); //for testing
             Accounts.TestResponsesCSV();
             this.StartPosition = FormStartPosition.CenterScreen;
+            this.MaximumSize = Screen.PrimaryScreen.WorkingArea.Size;
 
         }
 

@@ -36,7 +36,6 @@ namespace WritingCenterForms
             sPanel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom;
             this.Anchor = AnchorStyles.Top |  AnchorStyles.Left;
             this.Dock = DockStyle.Fill;
-            //panel1.Hide();
             //prepareSchedule();
             loadSchedule();
         }
@@ -49,8 +48,8 @@ namespace WritingCenterForms
             cellWidth = 105;
             panelHeight = 510;
             panelWidth = 800;
-            sPanel.Size = new Size(panelWidth, panelHeight);
-            sPanel.Anchor = AnchorStyles.Top | AnchorStyles.Left;
+            //sPanel.Size = new Size(panelWidth, panelHeight);
+            //sPanel.Anchor = AnchorStyles.Top | AnchorStyles.Left;
             this.Anchor = AnchorStyles.Top | AnchorStyles.Left;
             this.Dock = DockStyle.Fill;
 
@@ -88,7 +87,7 @@ namespace WritingCenterForms
             this.tableLayoutPanel.RowCount = 25;
             this.tableLayoutPanel.AutoScroll = true;
             this.tableLayoutPanel.ColumnCount = 8;
-            tableLayoutPanel.Location = new Point(5, 76);
+            tableLayoutPanel.Location = new Point(0, 76);
             tableLayoutPanel.BackColor = SystemColors.ActiveCaption;
             
             tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
@@ -217,7 +216,7 @@ namespace WritingCenterForms
             using (var fileChooser = new SaveFileDialog())
             {
                 fileChooser.Title = "Save Database to file";
-                fileChooser.Filter = "Plain Text|*.txt|CSV Database|*.csv";
+                fileChooser.Filter = "CSV Database|*.csv|Plain Text|*.txt";
                 fileChooser.CheckFileExists = false;
                 result = fileChooser.ShowDialog();
                 fileName = fileChooser.FileName;

@@ -21,8 +21,7 @@ namespace WritingCenterForms
         public int[] minWorker = new int[24];
         public int[] maxWorker = new int[24];
         public bool[] openHours = new bool[24] {false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false};
-        public int[] busyShifts = new int[24];
-        public string[][] settings = new string[24][];
+        public bool[] busyShifts = new bool[24] {false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false };
 
         public int defaultMinWorker = 1;
         public int defaultMaxWorker = 4;
@@ -33,14 +32,6 @@ namespace WritingCenterForms
             InitializeComponent();
             this.Dock = DockStyle.Fill;
             this.Controls.Add(loadShiftControls());
-            for(int i = 0; i < 24; i++)
-            {
-                settings[i] = new string[3];
-                settings[i][0] = Convert.ToString(defaultMinWorker);
-                settings[i][1] = Convert.ToString(defaultMaxWorker);
-                settings[i][2] = "false";
-            }
-            //tableLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
         }
 
         private void Control_Load(object sender, EventArgs e)
@@ -51,8 +42,6 @@ namespace WritingCenterForms
         private TableLayoutPanel loadShiftControls()
         {
             tableLayoutPanel1 = new TableLayoutPanel();
-            //this.tableLayoutPanel1.Location = new Point(54, 49);
-            //this.tableLayoutPanel1.Size = new Size(800, 750);
             this.tableLayoutPanel1.TabIndex = 0;
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 25;
@@ -117,12 +106,12 @@ namespace WritingCenterForms
         {
             minNumericUpDown = new NumericUpDown();
             this.minNumericUpDown.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            this.minNumericUpDown.Name = "max" + i; //if you change name, change the i in value changed too.
+            this.minNumericUpDown.Name = "max" + i; //if you change name, change the i in valueChanged too.
             this.minNumericUpDown.Size = new Size(139, 30);
             this.minNumericUpDown.TabIndex = tabIndex;
             this.minNumericUpDown.TextAlign = HorizontalAlignment.Center;
             this.minNumericUpDown.Value = defaultMinWorker;
-            this.minNumericUpDown.Maximum = 4;
+            this.minNumericUpDown.Maximum = defaultMaxWorker;
             this.minNumericUpDown.ValueChanged += new EventHandler(this.minNumericUpDown_valueChanged);
             return minNumericUpDown;
         }
@@ -132,7 +121,6 @@ namespace WritingCenterForms
             NumericUpDown numericUpDown = (NumericUpDown)sender;
             int i = int.Parse(numericUpDown.Name.Substring(3));
             minWorker[i] = Convert.ToInt32(numericUpDown.Value);
-            settings[i][0] = Convert.ToString(numericUpDown.Value); 
         }
 
         private NumericUpDown createMaxNumericUpDown(int i, int tabIndex)
@@ -144,7 +132,7 @@ namespace WritingCenterForms
             this.maxNumericUpDown.TabIndex = tabIndex;
             this.maxNumericUpDown.TextAlign = HorizontalAlignment.Center;
             this.maxNumericUpDown.Value = defaultMaxWorker;
-            this.maxNumericUpDown.Maximum = 4;
+            this.maxNumericUpDown.Maximum = defaultMaxWorker;
             this.maxNumericUpDown.ValueChanged += new EventHandler(this.maxNumericUpDown_valueChanged);
             return maxNumericUpDown;
         }
@@ -154,7 +142,6 @@ namespace WritingCenterForms
             NumericUpDown numeric = (NumericUpDown)sender;
             int i = int.Parse(numeric.Name.Substring(3));
             maxWorker[i] = Convert.ToInt32(numeric.Value);
-            settings[i][1] = Convert.ToString(numeric.Value);
 
         }
 
@@ -175,8 +162,8 @@ namespace WritingCenterForms
         {
             CheckBox checkBox = (CheckBox)sender;
             int i = int.Parse(checkBox.Name.Substring(12));
-            if (checkBox.Checked) settings[i][2] = "true";
-            else settings[i][2] = "false"; 
+            if (checkBox.Checked) busyShifts[i] = true;
+            else busyShifts[i] = false; 
         }
 
         private string convertTime(int i)
@@ -196,7 +183,7 @@ namespace WritingCenterForms
 
         public Day getDay()
         {
-            return new Day(openHours, settings);
+            return new Day(openHours, minWorker, maxWorker, busyShifts);
         }
 
         private void label4_Click(object sender, EventArgs e)

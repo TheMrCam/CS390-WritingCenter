@@ -58,3 +58,4 @@ C:\Users\shash\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\obj\De
 C:\Users\Alex\OneDrive\Desktop\Git\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\bin\Debug\FontAwesome.Sharp.dll
 C:\Users\Alex\OneDrive\Desktop\Git\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\obj\Debug\WritingCenterForms.AdminPage.resources
 C:\Users\Alex\OneDrive\Desktop\Git\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\obj\Debug\WritingCenterForms.csproj.CopyComplete
+C:\Users\shash\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\obj\Debug\WritingCenterForms.csproj.AssemblyReference.cache

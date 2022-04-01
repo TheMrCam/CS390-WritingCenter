@@ -214,7 +214,7 @@ namespace WritingCenterForms
 
         private void WCSchedulerForm_SizeChanged(object sender, EventArgs e)
         {
-            scheduleView1.sizeChanged(this.WindowState);
+            //scheduleView1.sizeChanged(this.WindowState);
         }
     }
 }

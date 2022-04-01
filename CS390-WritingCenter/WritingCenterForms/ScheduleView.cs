@@ -12,6 +12,7 @@ namespace WritingCenterForms
     {
         private Schedule schedule;
         private FlowLayoutPanel sPanel = new FlowLayoutPanel();
+        private TableLayoutPanel tableLayoutPanel = new TableLayoutPanel();
         private AccountDatabase Accounts;
         private Observable obsv;
         private Button selectedButton;
@@ -25,8 +26,8 @@ namespace WritingCenterForms
         {
             InitializeComponent();
             cellHeight = 70;
-            cellWidth = 90;
-            panelHeight = 455;
+            cellWidth = 105;
+            panelHeight = 510;
             panelWidth = 800;
             this.Accounts = Accounts;
             schedule = new Schedule(Accounts, this);
@@ -35,7 +36,9 @@ namespace WritingCenterForms
             sPanel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom;
             this.Anchor = AnchorStyles.Top |  AnchorStyles.Left;
             this.Dock = DockStyle.Fill;
-            prepareSchedule();
+            //panel1.Hide();
+            //prepareSchedule();
+            loadSchedule();
         }
 
         public scheduleView() // version for consultant page
@@ -43,15 +46,16 @@ namespace WritingCenterForms
             InitializeComponent();
             schedule = new Schedule(this);
             cellHeight = 70;
-            cellWidth = 90;
-            panelHeight = 455;
+            cellWidth = 105;
+            panelHeight = 510;
             panelWidth = 800;
             sPanel.Size = new Size(panelWidth, panelHeight);
             sPanel.Anchor = AnchorStyles.Top | AnchorStyles.Left;
             this.Anchor = AnchorStyles.Top | AnchorStyles.Left;
             this.Dock = DockStyle.Fill;
 
-            prepareSchedule();
+            //prepareSchedule();
+            loadSchedule();
         }
 
         public void prepareSchedule()
@@ -67,7 +71,7 @@ namespace WritingCenterForms
                 createTimeLabels(i);
                 for (int j = 0; j < 7; j++)
                 {
-                    createListBoxes(i, j);
+                    createButtons(i, j);
                 }
             }
             //Adding scroll bar to the panel
@@ -75,7 +79,51 @@ namespace WritingCenterForms
             this.Controls.Add(sPanel);
         }
 
-        private void createTimeLabels(int time)
+        public void loadSchedule()
+        {
+            if (tableLayoutPanel.HasChildren) { tableLayoutPanel.Controls.Clear(); } // if there is stuff in the current panel, removes everything
+
+            this.tableLayoutPanel.Name = "tableLayoutPanel1";
+            tableLayoutPanel.Size = new Size(panelWidth, panelHeight);
+            this.tableLayoutPanel.RowCount = 25;
+            this.tableLayoutPanel.AutoScroll = true;
+            this.tableLayoutPanel.ColumnCount = 8;
+            tableLayoutPanel.Location = new Point(5, 76);
+            tableLayoutPanel.BackColor = SystemColors.ActiveCaption;
+            
+            tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+
+
+            tableLayoutPanel.Controls.Add(createDayLabels("Sunday"), 1, 0);
+            tableLayoutPanel.Controls.Add(createDayLabels("Monday"), 2, 0);
+            tableLayoutPanel.Controls.Add(createDayLabels("Tuesday"), 3, 0);
+            tableLayoutPanel.Controls.Add(createDayLabels("Wednesday"), 4, 0);
+            tableLayoutPanel.Controls.Add(createDayLabels("Thursday"), 5, 0);
+            tableLayoutPanel.Controls.Add(createDayLabels("Friday"), 6, 0);
+            tableLayoutPanel.Controls.Add(createDayLabels("Saturday"), 7, 0);
+
+            for (int i = 0; i < 24; i++)
+            {
+                tableLayoutPanel.Controls.Add(createTimeLabels(i), 0, i+1);
+                for (int j = 0; j < 7; j++)
+                {
+                    tableLayoutPanel.Controls.Add(createButtons(i, j), j+1, i+1);
+                }
+            }
+            tableLayoutPanel.AutoScroll = true;
+            tableLayoutPanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            //tableLayoutPanel.Dock = DockStyle.Fill;
+            this.Controls.Add(tableLayoutPanel);
+        }
+
+        private Label createTimeLabels(int time)
         {
             Label label = new Label();
             label.BackColor = System.Drawing.SystemColors.Info;
@@ -84,13 +132,27 @@ namespace WritingCenterForms
             label.Left = time * ((int)cellWidth + 1); //makes a new label adjacent to the current label
             label.Name = "label" + time;
             label.Text = convertTime(time);
+            label.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            sPanel.Controls.Add(label);
+            label.Dock = DockStyle.Fill;
+            return label;
         }
 
-        private void createListBoxes(int time, int day)
+        private Label createDayLabels(string day)
         {
-            //making new labels
+            Label label = new Label();
+            label.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            label.Height = cellHeight;
+            label.Width = cellWidth;
+            label.Text = day;
+            label.TextAlign = ContentAlignment.MiddleCenter;
+            label.Dock= DockStyle.Fill;
+            return label;
+        }
+
+        private Button createButtons(int time, int day)
+        {
+            //making new buttons
             //ListBox lbox = new ListBox();
             Button lbox = new Button();
             lbox.BackColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -99,12 +161,14 @@ namespace WritingCenterForms
             lbox.Left = time * ((int)cellWidth + 1); //makes a new lbox adjacent to the current lbox
             lbox.Name = "lbox" + day + time; //if you change the lbox change the number in scheduleV
             lbox.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            lbox.Dock = DockStyle.Fill;
             //lbox.SelectionMode = SelectionMode.None;
 
             //adds every worker that is in that shift to the listbox
             displayWorkers(lbox, time, day);
             lbox.Click += new EventHandler(this.lbox_editShift);
-            sPanel.Controls.Add(lbox);
+            //sPanel.Controls.Add(lbox);
+            return lbox;
         }
 
         private void lbox_editShift(object sender, EventArgs e)
@@ -119,12 +183,6 @@ namespace WritingCenterForms
             edit.Show();
             edit.BringToFront();
         }
-
-        private void back_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-        }
-
         private void displayWorkers(Button lbox, int time, int day)
         {
             string[] workers = schedule.getWorkers(time, day);
@@ -146,15 +204,10 @@ namespace WritingCenterForms
             else return i + ":00 PM";
         }
 
-        private void logOut_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            // add additional control to log user out
-        }
-
         private void scheduleView_Load(object sender, EventArgs e)
         {
-            prepareSchedule();
+            //prepareSchedule();
+            //loadSchedule();
         }
 
         private async void ExportSchedule_Click(object sender, EventArgs e)
@@ -207,7 +260,8 @@ namespace WritingCenterForms
             int N = 4; // we need to get the setting out of the settings page somehow
             try { schedule.buildSchedule(N); }
             catch { MessageBox.Show("Issue generating new schedule", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
-            prepareSchedule();
+            //prepareSchedule();
+            loadSchedule();
         }
 
         public void addObservable(Observable observable)

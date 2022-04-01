@@ -78,8 +78,6 @@ namespace WritingCenterForms
                         string[] workers = values[day].Split('|');
                         Days[day-1].EditHour(time, true, workers);
                     }
-                    //string day = values[0].Split('y')[0] + 'y';     //has the value sunday, monday...
-                    //string[] workers = values[1].Replace("\'", "").Replace("[", "").Replace("]", "").Split(','); //has "Natalie, Alice"...
                 }
             }
         }

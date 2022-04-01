@@ -7,10 +7,26 @@ namespace WritingCenterForms
     {
         Day[] days = new Day[7];
         private scheduleView scheduleView;
+        private Control sundayControl = new Control();
+        private Control mondayControl = new Control();
+        private Control tuesdayControl = new Control();
+        private Control wednesdayControl = new Control();
+        private Control thursdayControl = new Control();
+        private Control fridayControl = new Control();
+        private Control saturdayControl = new Control();
+
+
         public SettingsPage(scheduleView scheduleView)
         {
             InitializeComponent();
             this.scheduleView = scheduleView;
+            SundayTab.Controls.Add(sundayControl);
+            MondayTab.Controls.Add(mondayControl);
+            TuedayTab.Controls.Add(tuesdayControl);
+            WednesdayTab.Controls.Add(wednesdayControl);
+            ThursdayTab.Controls.Add(thursdayControl);
+            FridayTab.Controls.Add(fridayControl);
+            SaturdayTab.Controls.Add(saturdayControl);
         }
 
         private void logOut_Click(object sender, EventArgs e)

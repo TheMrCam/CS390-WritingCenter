@@ -33,7 +33,6 @@ namespace WritingCenterForms
             this.Controls.Add(settingPage);
             AcctManagePage1.Hide();
             settingPage.Hide();
-            settings.Hide();
             leftBorderBtn = new Panel();
             leftBorderBtn.Size = new Size(5, viewSchedule.Size.Height);
             panelMenu.Controls.Add(leftBorderBtn);

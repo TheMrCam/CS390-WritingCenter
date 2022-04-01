@@ -17,6 +17,7 @@ namespace WritingCenterForms
         private NumericUpDown minNumericUpDown;
         private NumericUpDown maxNumericUpDown;
         private CheckBox checkBox2;
+        private Label labels;
         public int[] minWorker = new int[24];
         public int[] maxWorker = new int[24];
         public bool[] openHours = new bool[24] {false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false};
@@ -30,7 +31,7 @@ namespace WritingCenterForms
         public Control()
         {
             InitializeComponent();
-            this.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            this.Dock = DockStyle.Fill;
             this.Controls.Add(loadShiftControls());
             for(int i = 0; i < 24; i++)
             {
@@ -39,7 +40,7 @@ namespace WritingCenterForms
                 settings[i][1] = Convert.ToString(defaultMaxWorker);
                 settings[i][2] = "false";
             }
-
+            //tableLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
         }
 
         private void Control_Load(object sender, EventArgs e)
@@ -50,27 +51,44 @@ namespace WritingCenterForms
         private TableLayoutPanel loadShiftControls()
         {
             tableLayoutPanel1 = new TableLayoutPanel();
-            this.tableLayoutPanel1.Location = new Point(54, 49);
-            this.tableLayoutPanel1.Size = new Size(800, 950);
+            //this.tableLayoutPanel1.Location = new Point(54, 49);
+            //this.tableLayoutPanel1.Size = new Size(800, 750);
             this.tableLayoutPanel1.TabIndex = 0;
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 24;
-            this.tableLayoutPanel1.AutoScroll = false;
+            this.tableLayoutPanel1.RowCount = 25;
+            this.tableLayoutPanel1.AutoScroll = true;
             this.tableLayoutPanel1.ColumnCount = 4;
             this.tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 150F));
             this.tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 145F));
             this.tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 139F));
             int tabIndex = 0;
+            this.tableLayoutPanel1.Controls.Add(createLabel(0, "Open Hours"), 0, 0);
+            this.tableLayoutPanel1.Controls.Add(createLabel(1, "Min Workers"), 1, 0);
+            this.tableLayoutPanel1.Controls.Add(createLabel(2, "Max Workers"), 2, 0);
+            this.tableLayoutPanel1.Controls.Add(createLabel(3, "Busy"), 3, 0);
+
             for (int i = 0; i < 24; i++)
             {
-                this.tableLayoutPanel1.Controls.Add(createOpenHourCheckboxes(i, tabIndex), 0, i);
-                this.tableLayoutPanel1.Controls.Add(createMinNumericUpDown(i, tabIndex++), 1, i);
-                this.tableLayoutPanel1.Controls.Add(createMaxNumericUpDown(i, tabIndex++), 2, i);
-                this.tableLayoutPanel1.Controls.Add(createBusyCheckbox(i, tabIndex++), 3, i);
+                this.tableLayoutPanel1.Controls.Add(createOpenHourCheckboxes(i, tabIndex), 0, i+1);
+                this.tableLayoutPanel1.Controls.Add(createMinNumericUpDown(i, tabIndex++), 1, i+1);
+                this.tableLayoutPanel1.Controls.Add(createMaxNumericUpDown(i, tabIndex++), 2, i+1);
+                this.tableLayoutPanel1.Controls.Add(createBusyCheckbox(i, tabIndex++), 3, i+1);
             }
+            tableLayoutPanel1.Dock = DockStyle.Fill;
 
             return tableLayoutPanel1;
+        }
+
+        private Label createLabel(int i, string name)
+        {
+            this.labels = new Label();
+            this.labels.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
+            this.labels.Name = "label"+i;
+            this.labels.Size = new Size(718, 29);
+            this.labels.Text = name;
+            this.labels.TextAlign = ContentAlignment.MiddleCenter;
+            return labels;
         }
 
         private CheckBox createOpenHourCheckboxes(int i, int tabIndex)
@@ -104,6 +122,7 @@ namespace WritingCenterForms
             this.minNumericUpDown.TabIndex = tabIndex;
             this.minNumericUpDown.TextAlign = HorizontalAlignment.Center;
             this.minNumericUpDown.Value = defaultMinWorker;
+            this.minNumericUpDown.Maximum = 4;
             this.minNumericUpDown.ValueChanged += new EventHandler(this.minNumericUpDown_valueChanged);
             return minNumericUpDown;
         }
@@ -125,6 +144,7 @@ namespace WritingCenterForms
             this.maxNumericUpDown.TabIndex = tabIndex;
             this.maxNumericUpDown.TextAlign = HorizontalAlignment.Center;
             this.maxNumericUpDown.Value = defaultMaxWorker;
+            this.maxNumericUpDown.Maximum = 4;
             this.maxNumericUpDown.ValueChanged += new EventHandler(this.maxNumericUpDown_valueChanged);
             return maxNumericUpDown;
         }
@@ -141,7 +161,7 @@ namespace WritingCenterForms
         private CheckBox createBusyCheckbox(int i, int tabIndex)
         {
             checkBox2 = new CheckBox();
-            this.checkBox2.CheckAlign = ContentAlignment.MiddleCenter;
+            this.checkBox2.CheckAlign = ContentAlignment.MiddleRight;
             this.checkBox2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             this.checkBox2.Name = "busyCheckBox" + i;
             this.checkBox2.Size = new Size(50, 27);
@@ -177,6 +197,31 @@ namespace WritingCenterForms
         public Day getDay()
         {
             return new Day(openHours, settings);
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

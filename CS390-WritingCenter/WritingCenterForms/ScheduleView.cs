@@ -225,15 +225,37 @@ namespace WritingCenterForms
         {
             if (ws == FormWindowState.Maximized)
             {
-                foreach (Button button in this.Controls.OfType<Button>())
+                Sunday.Location = new Point(200, 104);
+                Monday.Location = new Point(400, 104);
+                Tuesday.Location = new Point(600, 104);
+                Wednesday.Location = new Point(800, 104);
+                Thursday.Location = new Point(900, 104);
+                Friday.Location = new Point(1000, 104);
+                Saturday.Location = new Point(1200, 104);
+                foreach (Label label in sPanel.Controls.OfType<Label>())
                 {
-                    button.BackColor = Color.AliceBlue;
+                    label.Size = new Size(110, 90);
+                }
+                foreach (Button button in sPanel.Controls.OfType<Button>())
+                {
                     button.Size = new Size(200, 90);
+                    button.Font = new Font("Microsoft Sans Serif", 10);
                 }
             }
             else
             {
-                foreach (Button button in this.Controls.OfType<Button>())
+                //Sunday.Location = new Point(157, 104);
+                //Monday.Location = new Point(293, 104);
+                //Tuesday.Location = new Point(412, 104);
+                //Wednesday.Location = new Point(529, 104);
+                //Thursday.Location = new Point(670, 104);
+                //Friday.Location = new Point(811, 104);
+                //Saturday.Location = new Point(926, 104);
+                foreach (Label label in sPanel.Controls.OfType<Label>())
+                {
+                    label.Size = new Size(90, 70);
+                }
+                foreach (Button button in sPanel.Controls.OfType<Button>())
                 {
                     button.Size = new Size(90, 70);
                 }

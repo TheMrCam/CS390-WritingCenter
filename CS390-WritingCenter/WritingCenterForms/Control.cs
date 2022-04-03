@@ -49,8 +49,8 @@ namespace WritingCenterForms
             this.tableLayoutPanel1.ColumnCount = 4;
             this.tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 150F));
             this.tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 145F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 139F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
             int tabIndex = 0;
             this.tableLayoutPanel1.Controls.Add(createLabel(0, "Open Hours"), 0, 0);
             this.tableLayoutPanel1.Controls.Add(createLabel(1, "Min Workers"), 1, 0);
@@ -88,8 +88,9 @@ namespace WritingCenterForms
             this.checkBox1.Size = new Size(718, 29);
             this.checkBox1.TabIndex = tabIndex;
             this.checkBox1.Text = convertTime(i);
-            this.checkBox1.TextAlign = ContentAlignment.MiddleRight;
+            this.checkBox1.TextAlign = ContentAlignment.MiddleCenter;
             this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.Dock = DockStyle.Fill;
             this.checkBox1.CheckedChanged += new EventHandler(checkBox_valueChanged);
             return checkBox1;
         }
@@ -112,6 +113,7 @@ namespace WritingCenterForms
             this.minNumericUpDown.TextAlign = HorizontalAlignment.Center;
             this.minNumericUpDown.Value = defaultMinWorker;
             this.minNumericUpDown.Maximum = defaultMaxWorker;
+            this.minNumericUpDown.Dock = DockStyle.Fill;
             this.minNumericUpDown.ValueChanged += new EventHandler(this.minNumericUpDown_valueChanged);
             return minNumericUpDown;
         }
@@ -131,6 +133,7 @@ namespace WritingCenterForms
             this.maxNumericUpDown.Size = new Size(139, 30);
             this.maxNumericUpDown.TabIndex = tabIndex;
             this.maxNumericUpDown.TextAlign = HorizontalAlignment.Center;
+            this.maxNumericUpDown.Dock = DockStyle.Fill;
             this.maxNumericUpDown.Value = defaultMaxWorker;
             this.maxNumericUpDown.Maximum = defaultMaxWorker;
             this.maxNumericUpDown.ValueChanged += new EventHandler(this.maxNumericUpDown_valueChanged);
@@ -154,6 +157,7 @@ namespace WritingCenterForms
             this.checkBox2.Size = new Size(50, 27);
             this.checkBox2.TabIndex = tabIndex;
             this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBox2.Dock = DockStyle.Fill;
             this.checkBox2.CheckedChanged += new EventHandler(checkBox2_valueChanged);
             return checkBox2;
         }

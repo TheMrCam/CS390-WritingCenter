@@ -160,6 +160,7 @@ namespace WritingCenterForms
             lbox.Left = time * ((int)cellWidth + 1); //makes a new lbox adjacent to the current lbox
             lbox.Name = "lbox" + day + time; //if you change the lbox change the number in scheduleV
             lbox.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            lbox.FlatStyle = FlatStyle.Flat;
             lbox.Dock = DockStyle.Fill;
             //lbox.SelectionMode = SelectionMode.None;
 

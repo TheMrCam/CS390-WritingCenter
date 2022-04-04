@@ -153,7 +153,9 @@ namespace WritingCenterForms
                 //username = f_initial+lastname; password = defaultPass; admin = false
                 string username = values[1].Split('@')[0]; //pre-@ of email
                 string name = values[2] + " " + values[3];
-                int year = DateTime.Now.Year + Years[values[4]];
+                int year = 0;
+                if (int.TryParse(values[4], out year)) { }
+                else { year = DateTime.Now.Year + Years[values[4]]; }
                 int WCsemesters = Convert.ToInt32(values[5]);
                 string[] majorsMinors = values[6].Replace("\"", "").ToUpper().Split(',')
                                         .Concat(values[7].Replace("\"", "").ToLower().Split(',')).ToArray();
@@ -227,6 +229,21 @@ namespace WritingCenterForms
                 }
             }
 
+            return (string[])lines.ToArray(typeof(string));
+        }
+
+        public string[] CSVLines()
+        {
+            ArrayList lines = new ArrayList();
+            lines.Add("FakeTimestamp,Username,First Name,Last Name,Year?,Semesters in the Writing Center?,Majors,Minors,Number of Hours Per Week,Hours I can work [Sunday],Hours I can work [Monday],Hours I can work [Tuesday],Hours I can work [Wednesday],Hours I can work [Thursday],Hours I can work [Friday],Hours I can work [Saturday]");
+            int num = 0;
+            foreach(Account account in accounts)
+            {
+                string majorString = account.Majors.Length <= 1 ? account.Majors[0] : '"'+string.Join(", ", account.Majors)+'"';
+                string minorString = account.Minors.Length <= 1 ? account.Minors[0] : '"' + string.Join(", ", account.Minors) + '"';
+                //TODO: string AvailabilityString = account.AvailableDayString();
+                lines.Add($"{num++},{account.Username},{account.Name.Split(' ')[0]},{account.Name.Split(' ')[1]},{account.Year},{account.Semesters},{majorString},{minorString},{account.RequestedHours},");
+            }
             return (string[])lines.ToArray(typeof(string));
         }
 

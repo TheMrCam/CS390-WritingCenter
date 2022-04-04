@@ -242,7 +242,7 @@ namespace WritingCenterForms
                 string majorString = account.Majors.Length <= 1 ? account.Majors[0] : '"'+string.Join(", ", account.Majors)+'"';
                 string minorString = account.Minors.Length <= 1 ? account.Minors[0] : '"' + string.Join(", ", account.Minors) + '"';
                 //TODO: string AvailabilityString = account.AvailableDayString();
-                lines.Add($"{num++},{account.Username},{account.Name.Split(' ')[0]},{account.Name.Split(' ')[1]},{account.Year},{account.Semesters},{majorString},{minorString},{account.RequestedHours},");
+                lines.Add($"{num++},{account.Username},{account.Name.Split(' ')[0]},{account.Name.Split(' ')[1]},{account.Year},{account.Semesters},{majorString},{minorString},{account.RequestedHours},{account.FullAvailabilityString()}");
             }
             return (string[])lines.ToArray(typeof(string));
         }

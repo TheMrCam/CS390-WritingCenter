@@ -157,5 +157,35 @@ namespace WritingCenterForms
         {
             possibleHours = newHours;
         }
+        private string DayAvailabilityString(Day day)
+        {
+            StringBuilder sb = new StringBuilder();
+            bool primeComma = false;
+            bool needsQuotes = false;
+            for(int i = 0;i < 24;i++)
+            {
+                if(day.GetHour(i).Availible)
+                {
+                    if (primeComma) { sb.Append(","); needsQuotes = true; }
+                    int time = (i + 12) % 12;
+                    if (time == 0) { time = 12; }
+                    string tSuffix1 = (i<12) ? "am"  : "pm";
+                    string tSuffix2 = ((i + 1) < 12) ? "am" : "pm";
+                    sb.Append(time.ToString() + ":00" + tSuffix1 + "-" + (time+1).ToString() + ":00" + tSuffix2);
+                    primeComma = true;
+                }
+            }
+            if(needsQuotes) { sb.Insert(0, "\""); sb.Append("\""); }
+            return sb.ToString();
+        }
+        public string FullAvailabilityString()
+        {
+            string[] dayStrings = new string[7];
+            for(int i = 0;i<7; i++)
+            {
+                dayStrings[i] = DayAvailabilityString(Availability(i));
+            }
+            return string.Join(",", dayStrings);
+        }
     }
 }

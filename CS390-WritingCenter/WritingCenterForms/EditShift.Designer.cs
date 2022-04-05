@@ -41,14 +41,15 @@
             this.listBox1.ItemHeight = 25;
             this.listBox1.Location = new System.Drawing.Point(28, 29);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(311, 179);
+            this.listBox1.Size = new System.Drawing.Size(329, 204);
             this.listBox1.TabIndex = 0;
             // 
             // addWorkerButton
             // 
-            this.addWorkerButton.Location = new System.Drawing.Point(68, 232);
+            this.addWorkerButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addWorkerButton.Location = new System.Drawing.Point(68, 259);
             this.addWorkerButton.Name = "addWorkerButton";
-            this.addWorkerButton.Size = new System.Drawing.Size(111, 45);
+            this.addWorkerButton.Size = new System.Drawing.Size(132, 69);
             this.addWorkerButton.TabIndex = 1;
             this.addWorkerButton.Text = "Add New Worker";
             this.addWorkerButton.UseVisualStyleBackColor = true;
@@ -56,9 +57,10 @@
             // 
             // removeWorkerButton
             // 
-            this.removeWorkerButton.Location = new System.Drawing.Point(196, 232);
+            this.removeWorkerButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.removeWorkerButton.Location = new System.Drawing.Point(206, 259);
             this.removeWorkerButton.Name = "removeWorkerButton";
-            this.removeWorkerButton.Size = new System.Drawing.Size(111, 45);
+            this.removeWorkerButton.Size = new System.Drawing.Size(128, 69);
             this.removeWorkerButton.TabIndex = 2;
             this.removeWorkerButton.Text = "Remove Worker";
             this.removeWorkerButton.UseVisualStyleBackColor = true;
@@ -66,9 +68,10 @@
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(137, 283);
+            this.saveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.saveButton.Location = new System.Drawing.Point(152, 334);
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(111, 45);
+            this.saveButton.Size = new System.Drawing.Size(111, 67);
             this.saveButton.TabIndex = 3;
             this.saveButton.Text = "Save";
             this.saveButton.UseVisualStyleBackColor = true;
@@ -78,7 +81,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(371, 353);
+            this.ClientSize = new System.Drawing.Size(384, 413);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.removeWorkerButton);
             this.Controls.Add(this.addWorkerButton);

@@ -25,7 +25,7 @@ namespace WritingCenterForms
         public scheduleView(AccountDatabase Accounts) // version for the admin page
         {
             InitializeComponent();
-            cellHeight = 70;
+            cellHeight = 80;
             cellWidth = 105;
             panelHeight = 510;
             panelWidth = 800;
@@ -44,7 +44,7 @@ namespace WritingCenterForms
         {
             InitializeComponent();
             schedule = new Schedule(this);
-            cellHeight = 70;
+            cellHeight = 80;
             cellWidth = 105;
             panelHeight = 510;
             panelWidth = 800;
@@ -52,7 +52,6 @@ namespace WritingCenterForms
             //sPanel.Anchor = AnchorStyles.Top | AnchorStyles.Left;
             this.Anchor = AnchorStyles.Top | AnchorStyles.Left;
             this.Dock = DockStyle.Fill;
-
             //prepareSchedule();
             loadSchedule();
         }
@@ -60,6 +59,7 @@ namespace WritingCenterForms
         public void prepareSchedule()
         {
             if (sPanel.HasChildren) { sPanel.Controls.Clear(); } // if there is stuff in the current panel, removes everything
+            tableLayoutPanel.Controls.Clear();
             //creating a panel to create all the labels in
             sPanel.Location = new Point(10, 120);
             sPanel.Size = new Size(panelWidth, panelHeight);
@@ -67,10 +67,10 @@ namespace WritingCenterForms
 
             for (int i = 0; i < 24; i++)
             {
-                createTimeLabels(i);
+                sPanel.Controls.Add(createTimeLabels(i));
                 for (int j = 0; j < 7; j++)
                 {
-                    createButtons(i, j);
+                    sPanel.Controls.Add(createButtons(i, j));
                 }
             }
             //Adding scroll bar to the panel
@@ -98,7 +98,6 @@ namespace WritingCenterForms
             tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
             tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
             tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-
 
             tableLayoutPanel.Controls.Add(createDayLabels("Sunday"), 1, 0);
             tableLayoutPanel.Controls.Add(createDayLabels("Monday"), 2, 0);
@@ -145,6 +144,7 @@ namespace WritingCenterForms
             label.Width = cellWidth;
             label.Text = day;
             label.TextAlign = ContentAlignment.MiddleCenter;
+            label.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             label.Dock= DockStyle.Fill;
             return label;
         }
@@ -260,8 +260,8 @@ namespace WritingCenterForms
             int N = 4; // we need to get the setting out of the settings page somehow
             try { schedule.buildSchedule(N); }
             catch { MessageBox.Show("Issue generating new schedule", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
-            //prepareSchedule();
-            loadSchedule();
+            prepareSchedule();
+            //loadSchedule();
         }
 
         public void addObservable(Observable observable)
@@ -275,45 +275,9 @@ namespace WritingCenterForms
             displayWorkers(selectedButton, time, day);
         }
 
-        public void sizeChanged(FormWindowState ws)
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
-            if (ws == FormWindowState.Maximized)
-            {
-                Sunday.Location = new Point(200, 104);
-                Monday.Location = new Point(400, 104);
-                Tuesday.Location = new Point(600, 104);
-                Wednesday.Location = new Point(800, 104);
-                Thursday.Location = new Point(900, 104);
-                Friday.Location = new Point(1000, 104);
-                Saturday.Location = new Point(1200, 104);
-                foreach (Label label in sPanel.Controls.OfType<Label>())
-                {
-                    label.Size = new Size(110, 90);
-                }
-                foreach (Button button in sPanel.Controls.OfType<Button>())
-                {
-                    button.Size = new Size(200, 90);
-                    button.Font = new Font("Microsoft Sans Serif", 10);
-                }
-            }
-            else
-            {
-                //Sunday.Location = new Point(157, 104);
-                //Monday.Location = new Point(293, 104);
-                //Tuesday.Location = new Point(412, 104);
-                //Wednesday.Location = new Point(529, 104);
-                //Thursday.Location = new Point(670, 104);
-                //Friday.Location = new Point(811, 104);
-                //Saturday.Location = new Point(926, 104);
-                foreach (Label label in sPanel.Controls.OfType<Label>())
-                {
-                    label.Size = new Size(90, 70);
-                }
-                foreach (Button button in sPanel.Controls.OfType<Button>())
-                {
-                    button.Size = new Size(90, 70);
-                }
-            }
+
         }
     }
 }

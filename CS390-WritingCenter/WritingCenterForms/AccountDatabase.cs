@@ -133,7 +133,8 @@ namespace WritingCenterForms
         //works according to Responses.csv
         public void new_ImportFromCSV(string filePath)
         {
-            accounts.Add(new Account("admin",ADMIN_PASSWORD, true));
+            //accounts.Add(new Account("admin",ADMIN_PASSWORD, true));
+            accounts.Add(new Account("admin", ADMIN_PASSWORD, "Admin", CURRENT_YEAR, 8, null, 0, true));
             Regex regx = new Regex("," + "(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))"); //separates by , but leaves , that are inside ""
             var reader = new StreamReader(File.OpenRead(filePath));
             reader.ReadLine(); //take out header
@@ -141,16 +142,10 @@ namespace WritingCenterForms
             {
                 var line = reader.ReadLine();
                 string[] values = regx.Split(line); //line is just a line from a csv
-                /*foreach(string v in values)
-                {
-                    Debug.Write(v+"| ");
-                }
-                Debug.WriteLine(";");*/
                 //Timestamp,Email,First Name,Last Name,Year?,Semesters,Majors,Minors,Number of Hours Per Week,Hours I can work [Sunday],Hours I can work [Monday],Hours I can work [Tuesday],Hours I can work [Wednesday],Hours I can work [Thursday],Hours I can work [Friday],Hours I can work [Saturday]
                 //values[0],va[1], values[2],values[3],val[4],value[5],val[6],val[7],values[8]               ,values[9]               ,values[10]
                 //values[0],values[1] ,values[2],val[3],val[4],val[5], values[6]             ,values[7]                ,values[8]                ,values[9]                 ,values[10]                  ,values[11]                 ,values[12]               ,values[13]
-                //dropped  ,Add together = Name ,Year ,MAJOR + minor, reqHours               , availability--->
-                //username = f_initial+lastname; password = defaultPass; admin = false
+                //username = email pre-@; password = defaultPass; admin = false
                 string username = values[1].Split('@')[0]; //pre-@ of email
                 string name = values[2] + " " + values[3];
                 int year = 0;
@@ -162,56 +157,17 @@ namespace WritingCenterForms
                 int reqHours = Convert.ToInt32(values[8]);
                 bool admin = false;
                 AddAccount(new Account(username, DEFAULT_PASSWORD, name, year, WCsemesters, majorsMinors, reqHours, admin));
-                /*string username = (values[1][0] + values[2]).ToLower();
-                string name = values[1] + " " + values[2];
-                int year = CURRENT_YEAR + Years[values[3]];
-                string[] majorsMinors = values[4].Replace("\"", "").ToUpper().Split(',')
-                                        .Concat(values[5].Replace("\"", "").ToLower().Split(',')).ToArray();
-                AddAccount(new Account(username,DEFAULT_PASSWORD,name,year,majorsMinors,Convert.ToInt32(values[6]),false));*/
+                
                 bool[][] weeklyAvailability = new bool[7][];
                 for(int i = 9;i<16;i++)
                 {
                     weeklyAvailability[i-9] = ParseAvailableDay(values[i]);
                 }
-                /*Debug.Write(name + ": ");
-                foreach(bool[] dayA in weeklyAvailability)
-                {
-                    foreach(bool available in dayA)
-                    {
-                        Debug.Write(available.ToString() + " ");
-                    }
-                    Debug.WriteLine("");
-                }*/
+                
                 UpdateAvailability(username, weeklyAvailability);
             }
         }
 
-        //this one is for writing out to a file
-        /*
-        public void PrintDatabase(StreamWriter stream, bool clean = true)
-        {
-            foreach(Account account in accounts)
-            {
-                if (clean)
-                {
-                    //stream.WriteLine($"{account.Username,16}: {(account.Admin ? "Admin" : "Consultant"),12};\tPassword Hash: {account.Password,-60}");
-
-                }
-                else
-                {
-
-                }
-                //lines.Append($"{account.Username}: {(account.Admin ? "Admin" : "Consultant"),16}; Password Hash: {account.Password,-32}");
-            }
-        }
-        */
-        /*
-        List<Student> list = new List<Student>();
-        list.Add(new Student("bob"));
-        list.Add(new Student("joe"));
-        Student joe = list[1];
-         */
-        //this one is for writing out to Console
         public string[] DatabaseLines(bool clean = true)
         {
             ArrayList lines = new ArrayList();
@@ -231,7 +187,7 @@ namespace WritingCenterForms
 
             return (string[])lines.ToArray(typeof(string));
         }
-
+        //Copies responses.csv
         public string[] CSVLines()
         {
             ArrayList lines = new ArrayList();
@@ -241,7 +197,6 @@ namespace WritingCenterForms
             {
                 string majorString = account.Majors.Length <= 1 ? account.Majors[0] : '"'+string.Join(", ", account.Majors)+'"';
                 string minorString = account.Minors.Length <= 1 ? account.Minors[0] : '"' + string.Join(", ", account.Minors) + '"';
-                //TODO: string AvailabilityString = account.AvailableDayString();
                 lines.Add($"{num++},{account.Username},{account.Name.Split(' ')[0]},{account.Name.Split(' ')[1]},{account.Year},{account.Semesters},{majorString},{minorString},{account.RequestedHours},{account.FullAvailabilityString()}");
             }
             return (string[])lines.ToArray(typeof(string));
@@ -252,16 +207,14 @@ namespace WritingCenterForms
             ArrayList list = new ArrayList();
             foreach (Account account in accounts)
             {
-                list.Add($"{account.Name}: {account.Year}"); //{(account.Majors == null ? "" : string.Join(", ", account.Majors))}; {(account.Minors == null ? "" : string.Join(", ", account.Minors))}") ;
+                //Debug.WriteLine(account.Username+" | Majors Length: "+account.Majors.Length);
+                string majorString = account.Majors.Length <= 1 ? account.Majors[0] : string.Join(", ", account.Majors);
+                string minorString = account.Minors.Length <= 1 ? account.Minors[0] : string.Join(", ", account.Minors);
+                list.Add($"{account.Name}:\t{account.Year}\t{majorString}\t{minorString}"); //{(account.Majors == null ? "" : string.Join(", ", account.Majors))}; {(account.Minors == null ? "" : string.Join(", ", account.Minors))}") ;
             }
             return (string[])list.ToArray(typeof(string));
         }
-        /* Unnecessary with public GetAccount()
-        public bool IsAdmin(string username)
-        {
-            return GetAccount(username).Admin;
-        }
-        */
+        
         public void submitUpdateRequest(string username, string name, int year, string[] majors, string[] minors, int reqHours)
         {
             Account userAccount = GetAccount(username);

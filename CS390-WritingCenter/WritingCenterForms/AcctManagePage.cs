@@ -14,7 +14,6 @@ namespace WritingCenterForms
     public partial class AcctManagePage : UserControl
     {
         EditAcctInfoPage EditAcctInfoPage1 = new EditAcctInfoPage();
-        //public AccountDatabase Accounts { get; set; }
         public AcctManagePage()
         {
             InitializeComponent();
@@ -37,7 +36,6 @@ namespace WritingCenterForms
                 result = fileChooser.ShowDialog();
                 fileName = fileChooser.FileName;
             }
-            //MessageBox.Show("Here1");
             if (result == DialogResult.OK)
             {
                 if (string.IsNullOrEmpty(fileName))
@@ -46,19 +44,10 @@ namespace WritingCenterForms
                 }
                 else
                 {
-                    //MessageBox.Show("Here2");
                     try
                     {
-                        //NEED TO GET AcctManagePage TO UPDATE WCSchedulerForm.Account
                         WCSchedulerForm.Accounts.new_ImportFromCSV(fileName);
                         MessageBox.Show($"Successfully imported database from {fileName}","Success",MessageBoxButtons.OK,MessageBoxIcon.Information);
-                        //var output = new FileStream(fileName, FileMode.OpenOrCreate, FileAccess.Write);
-                        //StreamWriter fileWriter = new StreamWriter(output);
-                        //Accounts.PrintDatabase(fileWriter);
-                        //fileWriter.Close();
-                        //bool clean = fileName[fileName.IndexOf('.') + 1] != 'c';
-                        //await Task.Run(() => Accounts.ImportFromCSV(fileName));
-                        //MessageBox.Show("No Error","Success",MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (IOException)
                     {

@@ -96,20 +96,36 @@ namespace WritingCenterForms
         public string[] Majors
         {
             get 
-            { 
-                string[] maj = (from m in majorsMinors where Char.IsUpper(m[0]) select m).ToArray();
-                if (maj.Length == 0) { return new string[0]; }
-                return maj; 
+            {
+                //TODO: FIX if (majorsMinors == null) { return new string[1]; }
+                //if (maj.Length == 0) { return new string[0]; }
+                try
+                {
+                    string[] maj = (from m in majorsMinors where Char.IsUpper(m[0]) select m).ToArray();
+                    return maj;
+                }
+                catch
+                {
+                    return new string[0];
+                }
             }
         }
 
         public string[] Minors
         {
             get 
-            { 
-                string[] min = (from m in majorsMinors where Char.IsLower(m[0]) select m).ToArray();
-                if (min.Length == 0) { return new string[0]; }
-                return min;
+            {
+                //TODO: FIX if (majorsMinors == null) { return new string[1]; }
+                //if (min.Length == 0) { return new string[0]; }
+                try
+                {
+                    string[] min = (from m in majorsMinors where Char.IsLower(m[0]) select m).ToArray();
+                    return min;
+                } 
+                catch
+                {
+                    return new string[0];
+                }
             }
         }
 

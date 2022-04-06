@@ -110,6 +110,21 @@ namespace WritingCenterForms
                 }
             }
         }
+        public string MajorString
+        {
+            get
+            {
+                try
+                {
+                    string maj = string.Join(", ",(from m in majorsMinors where Char.IsLower(m[0]) select m).ToArray());
+                    return maj;
+                }
+                catch
+                {
+                    return "";
+                }
+            }
+        }
 
         public string[] Minors
         {
@@ -128,6 +143,24 @@ namespace WritingCenterForms
                 }
             }
         }
+        public string MinorString
+        {
+            get
+            {
+                //TODO: FIX if (majorsMinors == null) { return new string[1]; }
+                //if (min.Length == 0) { return new string[0]; }
+                try
+                {
+                    string min = string.Join(", ", (from m in majorsMinors where Char.IsLower(m[0]) select m).ToArray());
+                    return min;
+                }
+                catch
+                {
+                    return "";
+                }
+            }
+        }
+    
 
         public void SetMajorsMinors(string[] majors, string[] minors)
         {

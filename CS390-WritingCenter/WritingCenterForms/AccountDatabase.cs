@@ -195,6 +195,7 @@ namespace WritingCenterForms
             int num = 0;
             foreach(Account account in accounts)
             {
+                //TODO: FIX THIS FOR EXPORT
                 string majorString = account.Majors.Length <= 1 ? account.Majors[0] : '"'+string.Join(", ", account.Majors)+'"';
                 string minorString = account.Minors.Length <= 1 ? account.Minors[0] : '"' + string.Join(", ", account.Minors) + '"';
                 lines.Add($"{num++},{account.Username},{account.Name.Split(' ')[0]},{account.Name.Split(' ')[1]},{account.Year},{account.Semesters},{majorString},{minorString},{account.RequestedHours},{account.FullAvailabilityString()}");
@@ -208,9 +209,9 @@ namespace WritingCenterForms
             foreach (Account account in accounts)
             {
                 //Debug.WriteLine(account.Username+" | Majors Length: "+account.Majors.Length);
-                string majorString = account.Majors.Length <= 1 ? account.Majors[0] : string.Join(", ", account.Majors);
-                string minorString = account.Minors.Length <= 1 ? account.Minors[0] : string.Join(", ", account.Minors);
-                list.Add($"{account.Name}:\t{account.Year}\t{majorString}\t{minorString}"); //{(account.Majors == null ? "" : string.Join(", ", account.Majors))}; {(account.Minors == null ? "" : string.Join(", ", account.Minors))}") ;
+                //string majorString = account.Majors.Length <= 1 ? account.Majors[0] : string.Join(", ", account.Majors);
+                //string minorString = account.Minors.Length <= 1 ? account.Minors[0] : string.Join(", ", account.Minors);
+                list.Add($"{account.Name}:\t{account.Year}\t{account.MajorString}\t{account.MinorString}"); //{(account.Majors == null ? "" : string.Join(", ", account.Majors))}; {(account.Minors == null ? "" : string.Join(", ", account.Minors))}") ;
             }
             return (string[])list.ToArray(typeof(string));
         }

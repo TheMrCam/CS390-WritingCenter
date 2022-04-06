@@ -38,12 +38,12 @@ namespace WritingCenterForms
         {
             accounts = new ArrayList();
         }
-
-        public AccountDatabase(string csv = "dummy_accounts.csv")//testCSV)
+        
+        /*public AccountDatabase(string csv = "dummy_accounts.csv")//testCSV)
         {
             accounts = new ArrayList();
             ImportFromCSV(csv);
-        }
+        }*/
 
         public Account GetAccount(string user, bool name = false)
         {
@@ -63,9 +63,21 @@ namespace WritingCenterForms
             return null;
         }
 
+        public bool AccountExists(string search, bool name = false)
+        {
+            bool found = false;
+            foreach (Account current in accounts)
+            {
+                if (name) { found = current.Name == search; } //search by name
+                else { found = current.Username == search; } //search by username
+            }
+            return found;
+        }
+
         private void AddAccount(Account account)
         {
-            accounts.Add(account);
+            if (!AccountExists(account.Username)) { accounts.Add(account); }
+            else { throw new ArgumentException($"Username ({account.Username}) already exists in database"); }
         }
 
         public bool AuthenticateUser(string user, string pass)
@@ -76,7 +88,7 @@ namespace WritingCenterForms
             return false;
         }
 
-        public void TestCSV()
+        /*public void TestCSV()
         {
             string path = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName, @"Data\dummy_accounts.csv");//fileName);
             ImportFromCSV(path);
@@ -88,16 +100,16 @@ namespace WritingCenterForms
                 //username, password, Name, year, MAJOR-minor, reqHours, admin
                 AddAccount(new Account(values[0], values[1], values[2], Convert.ToInt32(values[3]), values[4].Split('-'), Convert.ToInt32(values[5]), Convert.ToBoolean(values[6])));
             }
-        }
+        }*/
 
         public void TestResponsesCSV()
         {
             string path = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName, @"Data\Responses.csv");
-            new_ImportFromCSV(path);
+            ImportFromCSV(path);
         }
 
 
-        public void ImportFromCSV(string path)//string pathToFile = testCSV)
+        /*public void ImportFromCSV(string path)//string pathToFile = testCSV)
         {
             //string path = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName, "Data", "dummy_accounts.csv");//fileName);
             var reader = new StreamReader(File.OpenRead(path));//OpenRead(@"Data\dummy_accounts.csv"));////OpenRead(pathToFile));
@@ -111,7 +123,7 @@ namespace WritingCenterForms
                 AddAccount(new Account(values[0], values[1], values[2], Convert.ToInt32(values[3]), values[4].Split('-'), Convert.ToInt32(values[5]), Convert.ToBoolean(values[6])));
             }
             return;
-        }
+        }*/
         private bool[] ParseAvailableDay(string fromCSV)
         {
             bool[] available = new bool[24];
@@ -120,7 +132,7 @@ namespace WritingCenterForms
                 string[] timeSlots = fromCSV.Replace("\"", "").Replace(" ", "").Split(',');
                 foreach (string time in timeSlots)
                 {
-                    Debug.WriteLine(time);
+                    //Debug.WriteLine(time);
                     int timeIndex = int.Parse(time.Split(':')[0]) % 12;
                     //Debug.WriteLine(timeIndex.ToString());
                     if (time.Split('-')[0].Contains('p')) { timeIndex += 12; }
@@ -131,10 +143,10 @@ namespace WritingCenterForms
         }
 
         //works according to Responses.csv
-        public void new_ImportFromCSV(string filePath)
+        public void ImportFromCSV(string filePath)
         {
             //accounts.Add(new Account("admin",ADMIN_PASSWORD, true));
-            accounts.Add(new Account("admin", ADMIN_PASSWORD, "Admin", CURRENT_YEAR, 8, null, 0, true));
+            accounts.Add(new Account("admin", ADMIN_PASSWORD, "Admin Account", CURRENT_YEAR, 8, null, 0, true));
             Regex regx = new Regex("," + "(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))"); //separates by , but leaves , that are inside ""
             var reader = new StreamReader(File.OpenRead(filePath));
             reader.ReadLine(); //take out header
@@ -196,8 +208,10 @@ namespace WritingCenterForms
             foreach(Account account in accounts)
             {
                 //TODO: FIX THIS FOR EXPORT
-                string majorString = account.Majors.Length <= 1 ? account.Majors[0] : '"'+string.Join(", ", account.Majors)+'"';
-                string minorString = account.Minors.Length <= 1 ? account.Minors[0] : '"' + string.Join(", ", account.Minors) + '"';
+                string majorString;  //account.Majors.Length <= 1 ? account.Majors[0] : '"'+string.Join(", ", account.Majors)+'"';
+                if (account.Majors.Length <= 1) { majorString = account.Majors[0]; } else { majorString = '"' + string.Join(", ", account.Majors) + '"'; }
+                string minorString;// = account.Minors.Length <= 1 ? account.Minors[0] : '"' + string.Join(", ", account.Minors) + '"';
+                if (account.Minors.Length <= 1) { minorString = account.Minors[0]; } else { minorString = '"' + string.Join(", ", account.Minors) + '"'; }
                 lines.Add($"{num++},{account.Username},{account.Name.Split(' ')[0]},{account.Name.Split(' ')[1]},{account.Year},{account.Semesters},{majorString},{minorString},{account.RequestedHours},{account.FullAvailabilityString()}");
             }
             return (string[])lines.ToArray(typeof(string));

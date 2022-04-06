@@ -106,8 +106,10 @@ namespace WritingCenterForms
                 }
                 catch
                 {
-                    return new string[0];
+                    string[] maj = { "" };
+                    return maj;
                 }
+                //return maj;
             }
         }
         public string MajorString
@@ -116,7 +118,7 @@ namespace WritingCenterForms
             {
                 try
                 {
-                    string maj = string.Join(", ",(from m in majorsMinors where Char.IsLower(m[0]) select m).ToArray());
+                    string maj = string.Join(", ",(from m in majorsMinors where Char.IsUpper(m[0]) select m).ToArray());
                     return maj;
                 }
                 catch
@@ -139,7 +141,8 @@ namespace WritingCenterForms
                 } 
                 catch
                 {
-                    return new string[0];
+                    string[] min = { "" };
+                    return min;
                 }
             }
         }
@@ -211,6 +214,7 @@ namespace WritingCenterForms
             StringBuilder sb = new StringBuilder();
             bool primeComma = false;
             bool needsQuotes = false;
+            if (day == null) { return ""; }
             for(int i = 0;i < 24;i++)
             {
                 if(day.GetHour(i).Availible)

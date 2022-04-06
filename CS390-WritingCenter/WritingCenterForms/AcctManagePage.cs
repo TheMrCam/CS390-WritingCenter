@@ -46,7 +46,7 @@ namespace WritingCenterForms
                 {
                     try
                     {
-                        WCSchedulerForm.Accounts.new_ImportFromCSV(fileName);
+                        WCSchedulerForm.Accounts.ImportFromCSV(fileName);
                         MessageBox.Show($"Successfully imported database from {fileName}","Success",MessageBoxButtons.OK,MessageBoxIcon.Information);
                     }
                     catch (IOException)

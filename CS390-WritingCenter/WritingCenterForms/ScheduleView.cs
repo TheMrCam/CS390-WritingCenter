@@ -272,21 +272,26 @@ namespace WritingCenterForms
             //prepareSchedule();
             try
             {
-                foreach (Control control in tableLayoutPanel.Controls)
-                {
-                    if (control.GetType() == typeof(Button))
-                    {
-                        Button button = (Button)control;
-                        int day = int.Parse(button.Name.Substring(4, 1));
-                        int time = int.Parse(button.Name.Substring(5));
-                        button.Text = "";
-                        displayWorkers(button, time, day);
-                    } 
-                }
+                updateSView();
             }
             catch (System.Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        public void updateSView()
+        {
+            foreach (Control control in tableLayoutPanel.Controls)
+            {
+                if (control.GetType() == typeof(Button))
+                {
+                    Button button = (Button)control;
+                    int day = int.Parse(button.Name.Substring(4, 1));
+                    int time = int.Parse(button.Name.Substring(5));
+                    button.Text = "";
+                    displayWorkers(button, time, day);
+                }
             }
         }
 

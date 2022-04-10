@@ -165,8 +165,7 @@ namespace WritingCenterForms
         {
             this.Days = days;
             //buildSchedule();
-            //sView.updateSView();
-            sView.loadSchedule();
+            sView.updateSView();
         }
 
         public void editDays(int day, int time, string[] workers)

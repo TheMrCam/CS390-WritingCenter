@@ -192,6 +192,7 @@ namespace WritingCenterForms
             string[] workers = schedule.getWorkers(time, day);
             if (workers != null)
             {
+                lbox.BackColor = Color.White;
                 foreach (string worker in workers)
                 {
                     //lbox.Items.Add(worker.Trim().Trim('\"'));

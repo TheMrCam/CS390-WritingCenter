@@ -86,11 +86,11 @@
       <DependentUpon>AdminPage.cs</DependentUpon>
     </Compile>
     <Compile Include="ConfigManager.cs" />
-    <Compile Include="Control.cs">
+    <Compile Include="shiftControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Control.Designer.cs">
-      <DependentUpon>Control.cs</DependentUpon>
+    <Compile Include="shiftControl.Designer.cs">
+      <DependentUpon>shiftControl.cs</DependentUpon>
     </Compile>
     <Compile Include="EditShift.cs">
       <SubType>Form</SubType>
@@ -137,8 +137,8 @@
     <EmbeddedResource Include="AdminPage.resx">
       <DependentUpon>AdminPage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Control.resx">
-      <DependentUpon>Control.cs</DependentUpon>
+    <EmbeddedResource Include="shiftControl.resx">
+      <DependentUpon>shiftControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EditAcctInfoPage.resx">
       <DependentUpon>EditAcctInfoPage.cs</DependentUpon>

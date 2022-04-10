@@ -270,7 +270,24 @@ namespace WritingCenterForms
             try { schedule.buildSchedule(N); }
             catch { MessageBox.Show("Issue generating new schedule", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
             //prepareSchedule();
-            loadSchedule();
+            try
+            {
+                foreach (Control control in tableLayoutPanel.Controls)
+                {
+                    if (control.GetType() == typeof(Button))
+                    {
+                        Button button = (Button)control;
+                        int day = int.Parse(button.Name.Substring(4, 1));
+                        int time = int.Parse(button.Name.Substring(5));
+                        button.Text = "";
+                        displayWorkers(button, time, day);
+                    } 
+                }
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         public void addObservable(Observable observable)

@@ -1,6 +1,6 @@
 ﻿namespace WritingCenterForms
 {
-    partial class Control
+    partial class shiftControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -32,13 +32,8 @@
             // 
             // Control
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoScroll = true;
-            this.AutoSize = true;
             this.Name = "Control";
-            this.Size = new System.Drawing.Size(1057, 948);
-            this.Load += new System.EventHandler(this.Control_Load);
+            this.Load += new System.EventHandler(this.Control_Load_1);
             this.ResumeLayout(false);
 
         }

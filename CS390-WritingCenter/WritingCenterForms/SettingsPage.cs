@@ -7,13 +7,13 @@ namespace WritingCenterForms
     {
         Day[] days = new Day[7];
         private scheduleView scheduleView;
-        private Control sundayControl = new Control();
-        private Control mondayControl = new Control();
-        private Control tuesdayControl = new Control();
-        private Control wednesdayControl = new Control();
-        private Control thursdayControl = new Control();
-        private Control fridayControl = new Control();
-        private Control saturdayControl = new Control();
+        private shiftControl sundayControl = new shiftControl();
+        private shiftControl mondayControl = new shiftControl();
+        private shiftControl tuesdayControl = new shiftControl();
+        private shiftControl wednesdayControl = new shiftControl();
+        private shiftControl thursdayControl = new shiftControl();
+        private shiftControl fridayControl = new shiftControl();
+        private shiftControl saturdayControl = new shiftControl();
 
 
         public SettingsPage(scheduleView scheduleView)

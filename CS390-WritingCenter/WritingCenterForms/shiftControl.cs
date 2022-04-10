@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace WritingCenterForms
 {
-    public partial class Control : UserControl
+    public partial class shiftControl : UserControl
     {
         private TableLayoutPanel tableLayoutPanel1;
         private CheckBox checkBox1;
@@ -27,15 +27,11 @@ namespace WritingCenterForms
         public int defaultMaxWorker = 4;
 
 
-        public Control()
+        public shiftControl()
         {
             InitializeComponent();
             this.Dock = DockStyle.Fill;
             this.Controls.Add(loadShiftControls());
-        }
-
-        private void Control_Load(object sender, EventArgs e)
-        {
             this.BackColor = Color.Wheat;
         }
 
@@ -188,6 +184,11 @@ namespace WritingCenterForms
         public Day getDay()
         {
             return new Day(openHours, minWorker, maxWorker, busyShifts);
+        }
+
+        private void Control_Load_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

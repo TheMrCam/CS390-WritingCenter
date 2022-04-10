@@ -48,8 +48,8 @@ namespace WritingCenterForms
             cellWidth = 105;
             panelHeight = 510;
             panelWidth = 800;
-            //sPanel.Size = new Size(panelWidth, panelHeight);
-            //sPanel.Anchor = AnchorStyles.Top | AnchorStyles.Left;
+            sPanel.Size = new Size(panelWidth, panelHeight);
+            sPanel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom;
             this.Anchor = AnchorStyles.Top | AnchorStyles.Left;
             this.Dock = DockStyle.Fill;
             //prepareSchedule();
@@ -75,6 +75,7 @@ namespace WritingCenterForms
             }
             //Adding scroll bar to the panel
             sPanel.AutoScroll = true;
+            this.Controls.Remove(tableLayoutPanel);
             this.Controls.Add(sPanel);
         }
 
@@ -90,14 +91,19 @@ namespace WritingCenterForms
             tableLayoutPanel.Location = new Point(0, 76);
             tableLayoutPanel.BackColor = SystemColors.ActiveCaption;
             
+            tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
             tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
             tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
             tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 26F));
             tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
             tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-            tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-            tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-            tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 21F));
+
+            for (int i = 0; i < 24; i++)
+            {
+                tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 120F));
+            }
 
             tableLayoutPanel.Controls.Add(createDayLabels("Sunday"), 1, 0);
             tableLayoutPanel.Controls.Add(createDayLabels("Monday"), 2, 0);
@@ -152,7 +158,6 @@ namespace WritingCenterForms
         private Button createButtons(int time, int day)
         {
             //making new buttons
-            //ListBox lbox = new ListBox();
             Button lbox = new Button();
             lbox.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             lbox.Height = cellHeight;
@@ -163,7 +168,6 @@ namespace WritingCenterForms
             lbox.FlatStyle = FlatStyle.Flat;
             lbox.Dock = DockStyle.Fill;
             //lbox.SelectionMode = SelectionMode.None;
-
             //adds every worker that is in that shift to the listbox
             displayWorkers(lbox, time, day);
             lbox.Click += new EventHandler(this.lbox_editShift);
@@ -195,6 +199,11 @@ namespace WritingCenterForms
                 }
             }
             else lbox.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            //if (lbox.Text.Length > 60)
+            //{
+            //    int row = int.Parse(lbox.Name.Substring(5));
+            //    tableLayoutPanel.RowStyles[row].Height = 200;
+            //}
         }
 
         private string convertTime(int i)
@@ -260,8 +269,8 @@ namespace WritingCenterForms
             int N = 4; // we need to get the setting out of the settings page somehow
             try { schedule.buildSchedule(N); }
             catch { MessageBox.Show("Issue generating new schedule", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
-            prepareSchedule();
-            //loadSchedule();
+            //prepareSchedule();
+            loadSchedule();
         }
 
         public void addObservable(Observable observable)

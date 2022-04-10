@@ -59,3 +59,11 @@ C:\Users\Alex\OneDrive\Desktop\Git\CS390-WritingCenter\CS390-WritingCenter\Writi
 C:\Users\Alex\OneDrive\Desktop\Git\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\obj\Debug\WritingCenterForms.AdminPage.resources
 C:\Users\Alex\OneDrive\Desktop\Git\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\obj\Debug\WritingCenterForms.csproj.CopyComplete
 C:\Users\shash\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\obj\Debug\WritingCenterForms.csproj.AssemblyReference.cache
+C:\Users\shash\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\bin\Debug\System.Configuration.ConfigurationManager.dll
+C:\Users\shash\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\bin\Debug\System.Security.AccessControl.dll
+C:\Users\shash\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\bin\Debug\System.Security.Permissions.dll
+C:\Users\shash\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\bin\Debug\System.Security.Principal.Windows.dll
+C:\Users\shash\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\bin\Debug\System.Configuration.ConfigurationManager.xml
+C:\Users\shash\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\bin\Debug\System.Security.AccessControl.xml
+C:\Users\shash\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\bin\Debug\System.Security.Permissions.xml
+C:\Users\shash\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\bin\Debug\System.Security.Principal.Windows.xml

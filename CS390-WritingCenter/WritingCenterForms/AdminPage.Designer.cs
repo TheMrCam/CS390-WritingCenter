@@ -66,7 +66,7 @@
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(317, 800);
+            this.panelMenu.Size = new System.Drawing.Size(317, 900);
             this.panelMenu.TabIndex = 0;
             // 
             // settings
@@ -240,7 +240,7 @@
             this.panelTitle.Location = new System.Drawing.Point(317, 0);
             this.panelTitle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelTitle.Name = "panelTitle";
-            this.panelTitle.Size = new System.Drawing.Size(1083, 82);
+            this.panelTitle.Size = new System.Drawing.Size(1183, 82);
             this.panelTitle.TabIndex = 1;
             this.panelTitle.Paint += new System.Windows.Forms.PaintEventHandler(this.panelTitle_Paint);
             // 
@@ -252,7 +252,7 @@
             this.logOutBtn.IconChar = FontAwesome.Sharp.IconChar.SignOutAlt;
             this.logOutBtn.IconColor = System.Drawing.Color.White;
             this.logOutBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.logOutBtn.Location = new System.Drawing.Point(988, 27);
+            this.logOutBtn.Location = new System.Drawing.Point(1088, 27);
             this.logOutBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.logOutBtn.Name = "logOutBtn";
             this.logOutBtn.Size = new System.Drawing.Size(91, 38);
@@ -294,7 +294,7 @@
             this.userControlPanel.Location = new System.Drawing.Point(317, 82);
             this.userControlPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.userControlPanel.Name = "userControlPanel";
-            this.userControlPanel.Size = new System.Drawing.Size(1083, 718);
+            this.userControlPanel.Size = new System.Drawing.Size(1183, 818);
             this.userControlPanel.TabIndex = 2;
             this.userControlPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.userControlPanel_Paint);
             // 
@@ -305,9 +305,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox2.Image = global::WritingCenterForms.Properties.Resources.CWC_logo_Black_Primary;
             this.pictureBox2.Location = new System.Drawing.Point(103, 128);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(924, 438);
+            this.pictureBox2.Size = new System.Drawing.Size(1024, 538);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
@@ -324,7 +324,7 @@
             this.Controls.Add(this.panelMenu);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "AdminPage";
-            this.Size = new System.Drawing.Size(1400, 800);
+            this.Size = new System.Drawing.Size(1500, 900);
             this.Load += new System.EventHandler(this.AdminPage_Load);
             this.panelMenu.ResumeLayout(false);
             this.panelLogo.ResumeLayout(false);

@@ -27,6 +27,7 @@ namespace WritingCenterForms
             ThursdayTab.Controls.Add(thursdayControl);
             FridayTab.Controls.Add(fridayControl);
             SaturdayTab.Controls.Add(saturdayControl);
+            Console.WriteLine("SETTINGS PAGE ADDED");
         }
 
         private void logOut_Click(object sender, EventArgs e)

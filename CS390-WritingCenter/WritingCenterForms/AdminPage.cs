@@ -130,7 +130,7 @@ namespace WritingCenterForms
         private void settings_Click(object sender, EventArgs e)
         {
             activateButton(sender, RGBColors.color5);
-            openChildUserControl(EditAcctInfoPage1);
+            openChildUserControl(settingPage);
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -149,7 +149,6 @@ namespace WritingCenterForms
                 currentChildUC.Hide();
             if(uc != null)
             {
-                Console.WriteLine("UC NOT NULL");
                 currentChildUC = uc;
                 currentChildUC.BorderStyle = BorderStyle.None;
                 currentChildUC.Dock = DockStyle.Fill;
@@ -159,7 +158,6 @@ namespace WritingCenterForms
                 currentChildUC.BringToFront();
                 currentChildUC.Show();
             }
-            else { Console.WriteLine("UC NULL");  }
             
         }
 

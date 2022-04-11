@@ -14,6 +14,8 @@ namespace WritingCenterForms
         private int year;
         private int semestersInWC;
         private string[] majorsMinors;
+        private string[] majors;
+        private string[] minors;
         private int requestedHours;
         public int currentWorkedHours { get; set; }
         private int possibleHours;
@@ -26,7 +28,7 @@ namespace WritingCenterForms
             password = SecurePasswordHasher.Hash(pass);
             admin = isAdmin;
         }
-        public Account(string user, string pass, string name, int y = 0, string[] mm = null, int reqHour = 1, bool isAdmin = false)
+        /*public Account(string user, string pass, string name, int y = 0, string[] mm = null, int reqHour = 1, bool isAdmin = false)
         {
             username = user;
             if (SecurePasswordHasher.IsHashSupported(pass))
@@ -39,7 +41,7 @@ namespace WritingCenterForms
             requestedHours = reqHour;
             admin = isAdmin;
             currentWorkedHours = 0;
-        }
+        }*/
         public Account(string user, string pass, string name, int y = 0, int sem = 0, string[] mm = null, int reqHour = 1, bool isAdmin = false)
         {
             username = user;
@@ -51,6 +53,24 @@ namespace WritingCenterForms
             year = y;
             semestersInWC = sem;
             majorsMinors = mm;
+            requestedHours = reqHour;
+            admin = isAdmin;
+            currentWorkedHours = 0;
+        }
+
+        public Account(string user, string pass, string name, int y = 0, int sem = 0, string[] M = null, string[] m = null, int reqHour = 1, bool isAdmin = false)
+        {
+            username = user;
+            if (SecurePasswordHasher.IsHashSupported(pass))
+                password = pass;
+            else
+                password = SecurePasswordHasher.Hash(pass);
+            Name = name;
+            year = y;
+            semestersInWC = sem;
+            //majorsMinors = mm;
+            majors = M;
+            minors = m;
             requestedHours = reqHour;
             admin = isAdmin;
             currentWorkedHours = 0;
@@ -97,7 +117,9 @@ namespace WritingCenterForms
         {
             get 
             {
-                //TODO: FIX if (majorsMinors == null) { return new string[1]; }
+                if (majors == null) { return new string[1]; }
+                return majors;
+                /*//TODO: FIX if (majorsMinors == null) { return new string[1]; }
                 //if (maj.Length == 0) { return new string[0]; }
                 try
                 {
@@ -110,6 +132,7 @@ namespace WritingCenterForms
                     return maj;
                 }
                 //return maj;
+                */
             }
         }
         public string MajorString
@@ -118,7 +141,10 @@ namespace WritingCenterForms
             {
                 try
                 {
-                    string maj = string.Join(", ",(from m in majorsMinors where Char.IsUpper(m[0]) select m).ToArray());
+                    //string maj = string.Join(", ",(from m in majorsMinors where Char.IsUpper(m[0]) select m).ToArray());
+                    if (majors == null) { return ""; }
+                    else if (majors.Length == 1) { return majors[0]; }
+                    string maj = string.Join(", ", majors);
                     return maj;
                 }
                 catch
@@ -132,7 +158,9 @@ namespace WritingCenterForms
         {
             get 
             {
-                //TODO: FIX if (majorsMinors == null) { return new string[1]; }
+                if (minors == null) { return new string [1]; }
+                return minors;
+                /*//TODO: FIX if (majorsMinors == null) { return new string[1]; }
                 //if (min.Length == 0) { return new string[0]; }
                 try
                 {
@@ -143,7 +171,7 @@ namespace WritingCenterForms
                 {
                     string[] min = { "" };
                     return min;
-                }
+                }*/
             }
         }
         public string MinorString
@@ -154,7 +182,10 @@ namespace WritingCenterForms
                 //if (min.Length == 0) { return new string[0]; }
                 try
                 {
-                    string min = string.Join(", ", (from m in majorsMinors where Char.IsLower(m[0]) select m).ToArray());
+                    //string min = string.Join(", ", (from m in majorsMinors where Char.IsLower(m[0]) select m).ToArray());
+                    if (minors == null) { return ""; }
+                    else if (minors.Length == 1) { return minors[0]; }
+                    string min = string.Join(", ", minors);
                     return min;
                 }
                 catch

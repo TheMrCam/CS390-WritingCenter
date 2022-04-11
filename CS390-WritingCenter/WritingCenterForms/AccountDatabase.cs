@@ -146,7 +146,7 @@ namespace WritingCenterForms
         public void ImportFromCSV(string filePath)
         {
             //accounts.Add(new Account("admin",ADMIN_PASSWORD, true));
-            accounts.Add(new Account("admin", ADMIN_PASSWORD, "Admin Account", CURRENT_YEAR, 8, null, 0, true));
+            accounts.Add(new Account("admin", ADMIN_PASSWORD, "Admin Account", CURRENT_YEAR, 8, null, null, 0, true));
             Regex regx = new Regex("," + "(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))"); //separates by , but leaves , that are inside ""
             var reader = new StreamReader(File.OpenRead(filePath));
             reader.ReadLine(); //take out header
@@ -164,12 +164,15 @@ namespace WritingCenterForms
                 if (int.TryParse(values[4], out year)) { }
                 else { year = DateTime.Now.Year + Years[values[4]]; }
                 int WCsemesters = Convert.ToInt32(values[5]);
-                string[] majorsMinors = values[6].Replace("\"", "").ToUpper().Split(',')
-                                        .Concat(values[7].Replace("\"", "").ToLower().Split(',')).ToArray();
+                //string[] majorsMinors = values[6].Replace("\"", "").ToUpper().Split(',')
+                //                       .Concat(values[7].Replace("\"", "").ToLower().Split(',')).ToArray();
+                string[] majors = values[6].Replace("\"", "").Split(',');
+                string[] minors = values[7].Replace("\"", "").Split(',');
                 int reqHours = Convert.ToInt32(values[8]);
                 bool admin = false;
-                AddAccount(new Account(username, DEFAULT_PASSWORD, name, year, WCsemesters, majorsMinors, reqHours, admin));
-                
+                //AddAccount(new Account(username, DEFAULT_PASSWORD, name, year, WCsemesters, majorsMinors, reqHours, admin));
+                AddAccount(new Account(username, DEFAULT_PASSWORD, name, year, WCsemesters, majors, minors, reqHours, admin));
+
                 bool[][] weeklyAvailability = new bool[7][];
                 for(int i = 9;i<16;i++)
                 {
@@ -212,7 +215,9 @@ namespace WritingCenterForms
                 if (account.Majors.Length <= 1) { majorString = account.Majors[0]; } else { majorString = '"' + string.Join(", ", account.Majors) + '"'; }
                 string minorString;// = account.Minors.Length <= 1 ? account.Minors[0] : '"' + string.Join(", ", account.Minors) + '"';
                 if (account.Minors.Length <= 1) { minorString = account.Minors[0]; } else { minorString = '"' + string.Join(", ", account.Minors) + '"'; }
+                //lines.Add($"{num++},{account.Username},{account.Name.Split(' ')[0]},{account.Name.Split(' ')[1]},{account.Year},{account.Semesters},{account.MajorString},{account.MinorString},{account.RequestedHours},{account.FullAvailabilityString()}");
                 lines.Add($"{num++},{account.Username},{account.Name.Split(' ')[0]},{account.Name.Split(' ')[1]},{account.Year},{account.Semesters},{majorString},{minorString},{account.RequestedHours},{account.FullAvailabilityString()}");
+
             }
             return (string[])lines.ToArray(typeof(string));
         }

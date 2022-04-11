@@ -4,6 +4,7 @@ using System.Text.RegularExpressions;
 using System.Collections.Generic;
 using System.Collections;
 using System.Linq;
+using System.Diagnostics;
 using System.Text;
 using System.Threading.Tasks;
 using WritingCenterForms;
@@ -185,5 +186,24 @@ namespace WritingCenterForms
             }
             
         }
+        /*
+        public void test_WriteScheduleToWCS()
+        {
+            string path = Directory.GetCurrentDirectory();
+            string filename = Path.Combine(path, "settings.wcs");
+            Debug.WriteLine(path+"\n"+filename);
+            BinaryFiles.WriteToBinaryFile<Schedule>(filename, this);
+             Debug.WriteLine("Successfully wrote to file!");
+        }
+
+        public void test_ReadScheduleFromWCS()
+        {
+            string path = Directory.GetCurrentDirectory();
+            string filename = Path.Combine(path, "settings.wcs");
+            Debug.WriteLine(path + "\n" + filename);
+            Schedule InputSchedule = BinaryFiles.ReadFromBinaryFile<Schedule>(filename);
+             Debug.WriteLine("Successfully read from file!");
+        }
+        */
     }
 }

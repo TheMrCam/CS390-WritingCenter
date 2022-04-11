@@ -29,11 +29,17 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.setMinWorkersButton = new System.Windows.Forms.Button();
+            this.setMaxWorkersButton = new System.Windows.Forms.Button();
+            this.univMaxWorker = new System.Windows.Forms.NumericUpDown();
+            this.univMinWorkers = new System.Windows.Forms.NumericUpDown();
+            this.univMinWorkers_Label = new System.Windows.Forms.Label();
+            this.univMaxWorkers_label = new System.Windows.Forms.Label();
             this.HighLowHrs_Label = new System.Windows.Forms.Label();
             this.highLowBox = new System.Windows.Forms.CheckedListBox();
             this.numShiftsAllowed = new System.Windows.Forms.NumericUpDown();
             this.ConsShift_Label = new System.Windows.Forms.Label();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.dayTabControl = new System.Windows.Forms.TabControl();
             this.SundayTab = new System.Windows.Forms.TabPage();
             this.MondayTab = new System.Windows.Forms.TabPage();
             this.TuedayTab = new System.Windows.Forms.TabPage();
@@ -47,17 +53,12 @@
             this.orderedBox = new System.Windows.Forms.ListBox();
             this.unorderedBox = new System.Windows.Forms.ListBox();
             this.submitButton = new System.Windows.Forms.Button();
-            this.univMaxWorkers_label = new System.Windows.Forms.Label();
-            this.univMinWorkers_Label = new System.Windows.Forms.Label();
-            this.univMinWorkers = new System.Windows.Forms.NumericUpDown();
-            this.univMaxWorker = new System.Windows.Forms.NumericUpDown();
-            this.setMaxWorkersButton = new System.Windows.Forms.Button();
-            this.setMinWorkersButton = new System.Windows.Forms.Button();
+            this.invertOpenButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numShiftsAllowed)).BeginInit();
-            this.tabControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.univMinWorkers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.univMaxWorker)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.univMinWorkers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numShiftsAllowed)).BeginInit();
+            this.dayTabControl.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -67,6 +68,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.AutoScroll = true;
             this.panel1.BackColor = System.Drawing.Color.OldLace;
+            this.panel1.Controls.Add(this.invertOpenButton);
             this.panel1.Controls.Add(this.setMinWorkersButton);
             this.panel1.Controls.Add(this.setMaxWorkersButton);
             this.panel1.Controls.Add(this.univMaxWorker);
@@ -77,7 +79,7 @@
             this.panel1.Controls.Add(this.highLowBox);
             this.panel1.Controls.Add(this.numShiftsAllowed);
             this.panel1.Controls.Add(this.ConsShift_Label);
-            this.panel1.Controls.Add(this.tabControl1);
+            this.panel1.Controls.Add(this.dayTabControl);
             this.panel1.Controls.Add(this.orderLabel);
             this.panel1.Controls.Add(this.shiftConLabel);
             this.panel1.Controls.Add(this.resetButton);
@@ -88,6 +90,62 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(801, 560);
             this.panel1.TabIndex = 1;
+            // 
+            // setMinWorkersButton
+            // 
+            this.setMinWorkersButton.Location = new System.Drawing.Point(731, 137);
+            this.setMinWorkersButton.Name = "setMinWorkersButton";
+            this.setMinWorkersButton.Size = new System.Drawing.Size(57, 23);
+            this.setMinWorkersButton.TabIndex = 27;
+            this.setMinWorkersButton.Text = "Set";
+            this.setMinWorkersButton.UseVisualStyleBackColor = true;
+            this.setMinWorkersButton.Click += new System.EventHandler(this.setMinWorkersButton_Click);
+            // 
+            // setMaxWorkersButton
+            // 
+            this.setMaxWorkersButton.Location = new System.Drawing.Point(492, 136);
+            this.setMaxWorkersButton.Name = "setMaxWorkersButton";
+            this.setMaxWorkersButton.Size = new System.Drawing.Size(57, 23);
+            this.setMaxWorkersButton.TabIndex = 26;
+            this.setMaxWorkersButton.Text = "Set";
+            this.setMaxWorkersButton.UseVisualStyleBackColor = true;
+            this.setMaxWorkersButton.Click += new System.EventHandler(this.setMaxWorkersButton_Click);
+            // 
+            // univMaxWorker
+            // 
+            this.univMaxWorker.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.univMaxWorker.Location = new System.Drawing.Point(351, 137);
+            this.univMaxWorker.Name = "univMaxWorker";
+            this.univMaxWorker.Size = new System.Drawing.Size(135, 22);
+            this.univMaxWorker.TabIndex = 25;
+            // 
+            // univMinWorkers
+            // 
+            this.univMinWorkers.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.univMinWorkers.Location = new System.Drawing.Point(594, 137);
+            this.univMinWorkers.Name = "univMinWorkers";
+            this.univMinWorkers.Size = new System.Drawing.Size(131, 22);
+            this.univMinWorkers.TabIndex = 24;
+            // 
+            // univMinWorkers_Label
+            // 
+            this.univMinWorkers_Label.AutoSize = true;
+            this.univMinWorkers_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.univMinWorkers_Label.Location = new System.Drawing.Point(591, 118);
+            this.univMinWorkers_Label.Name = "univMinWorkers_Label";
+            this.univMinWorkers_Label.Size = new System.Drawing.Size(134, 16);
+            this.univMinWorkers_Label.TabIndex = 23;
+            this.univMinWorkers_Label.Text = "Set All Minworkers";
+            // 
+            // univMaxWorkers_label
+            // 
+            this.univMaxWorkers_label.AutoSize = true;
+            this.univMaxWorkers_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.univMaxWorkers_label.Location = new System.Drawing.Point(348, 118);
+            this.univMaxWorkers_label.Name = "univMaxWorkers_label";
+            this.univMaxWorkers_label.Size = new System.Drawing.Size(138, 16);
+            this.univMaxWorkers_label.TabIndex = 22;
+            this.univMaxWorkers_label.Text = "Set All Maxworkers";
             // 
             // HighLowHrs_Label
             // 
@@ -130,25 +188,25 @@
             this.ConsShift_Label.TabIndex = 18;
             this.ConsShift_Label.Text = "Consecutive Shifts Allowed";
             // 
-            // tabControl1
+            // dayTabControl
             // 
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dayTabControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabControl1.Controls.Add(this.SundayTab);
-            this.tabControl1.Controls.Add(this.MondayTab);
-            this.tabControl1.Controls.Add(this.TuedayTab);
-            this.tabControl1.Controls.Add(this.WednesdayTab);
-            this.tabControl1.Controls.Add(this.ThursdayTab);
-            this.tabControl1.Controls.Add(this.FridayTab);
-            this.tabControl1.Controls.Add(this.SaturdayTab);
-            this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl1.Location = new System.Drawing.Point(1, 187);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(2);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(792, 373);
-            this.tabControl1.TabIndex = 17;
+            this.dayTabControl.Controls.Add(this.SundayTab);
+            this.dayTabControl.Controls.Add(this.MondayTab);
+            this.dayTabControl.Controls.Add(this.TuedayTab);
+            this.dayTabControl.Controls.Add(this.WednesdayTab);
+            this.dayTabControl.Controls.Add(this.ThursdayTab);
+            this.dayTabControl.Controls.Add(this.FridayTab);
+            this.dayTabControl.Controls.Add(this.SaturdayTab);
+            this.dayTabControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dayTabControl.Location = new System.Drawing.Point(1, 187);
+            this.dayTabControl.Margin = new System.Windows.Forms.Padding(2);
+            this.dayTabControl.Name = "dayTabControl";
+            this.dayTabControl.SelectedIndex = 0;
+            this.dayTabControl.Size = new System.Drawing.Size(792, 373);
+            this.dayTabControl.TabIndex = 17;
             // 
             // SundayTab
             // 
@@ -306,61 +364,15 @@
             this.submitButton.UseVisualStyleBackColor = true;
             this.submitButton.Click += new System.EventHandler(this.submitButton_Click);
             // 
-            // univMaxWorkers_label
+            // invertOpenButton
             // 
-            this.univMaxWorkers_label.AutoSize = true;
-            this.univMaxWorkers_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.univMaxWorkers_label.Location = new System.Drawing.Point(348, 118);
-            this.univMaxWorkers_label.Name = "univMaxWorkers_label";
-            this.univMaxWorkers_label.Size = new System.Drawing.Size(138, 16);
-            this.univMaxWorkers_label.TabIndex = 22;
-            this.univMaxWorkers_label.Text = "Set All Maxworkers";
-            // 
-            // univMinWorkers_Label
-            // 
-            this.univMinWorkers_Label.AutoSize = true;
-            this.univMinWorkers_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.univMinWorkers_Label.Location = new System.Drawing.Point(591, 118);
-            this.univMinWorkers_Label.Name = "univMinWorkers_Label";
-            this.univMinWorkers_Label.Size = new System.Drawing.Size(134, 16);
-            this.univMinWorkers_Label.TabIndex = 23;
-            this.univMinWorkers_Label.Text = "Set All Minworkers";
-            // 
-            // univMinWorkers
-            // 
-            this.univMinWorkers.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.univMinWorkers.Location = new System.Drawing.Point(594, 137);
-            this.univMinWorkers.Name = "univMinWorkers";
-            this.univMinWorkers.Size = new System.Drawing.Size(131, 22);
-            this.univMinWorkers.TabIndex = 24;
-            // 
-            // univMaxWorker
-            // 
-            this.univMaxWorker.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.univMaxWorker.Location = new System.Drawing.Point(351, 137);
-            this.univMaxWorker.Name = "univMaxWorker";
-            this.univMaxWorker.Size = new System.Drawing.Size(135, 22);
-            this.univMaxWorker.TabIndex = 25;
-            // 
-            // setMaxWorkersButton
-            // 
-            this.setMaxWorkersButton.Location = new System.Drawing.Point(492, 136);
-            this.setMaxWorkersButton.Name = "setMaxWorkersButton";
-            this.setMaxWorkersButton.Size = new System.Drawing.Size(57, 23);
-            this.setMaxWorkersButton.TabIndex = 26;
-            this.setMaxWorkersButton.Text = "Set";
-            this.setMaxWorkersButton.UseVisualStyleBackColor = true;
-            this.setMaxWorkersButton.Click += new System.EventHandler(this.setMaxWorkersButton_Click);
-            // 
-            // setMinWorkersButton
-            // 
-            this.setMinWorkersButton.Location = new System.Drawing.Point(731, 137);
-            this.setMinWorkersButton.Name = "setMinWorkersButton";
-            this.setMinWorkersButton.Size = new System.Drawing.Size(57, 23);
-            this.setMinWorkersButton.TabIndex = 27;
-            this.setMinWorkersButton.Text = "Set";
-            this.setMinWorkersButton.UseVisualStyleBackColor = true;
-            this.setMinWorkersButton.Click += new System.EventHandler(this.setMinWorkersButton_Click);
+            this.invertOpenButton.Location = new System.Drawing.Point(127, 166);
+            this.invertOpenButton.Name = "invertOpenButton";
+            this.invertOpenButton.Size = new System.Drawing.Size(120, 23);
+            this.invertOpenButton.TabIndex = 28;
+            this.invertOpenButton.Text = "Invert Open Selection";
+            this.invertOpenButton.UseVisualStyleBackColor = true;
+            this.invertOpenButton.Click += new System.EventHandler(this.invertOpenHrs_Click);
             // 
             // SettingsPage
             // 
@@ -375,10 +387,10 @@
             this.Size = new System.Drawing.Size(810, 650);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numShiftsAllowed)).EndInit();
-            this.tabControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.univMinWorkers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.univMaxWorker)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.univMinWorkers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numShiftsAllowed)).EndInit();
+            this.dayTabControl.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -390,7 +402,7 @@
         private System.Windows.Forms.Button resetButton;
         private System.Windows.Forms.Label shiftConLabel;
         private System.Windows.Forms.Label orderLabel;
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl dayTabControl;
         private System.Windows.Forms.TabPage SundayTab;
         private System.Windows.Forms.TabPage MondayTab;
         private System.Windows.Forms.TabPage ThursdayTab;
@@ -409,5 +421,6 @@
         private System.Windows.Forms.Label univMaxWorkers_label;
         private System.Windows.Forms.Button setMinWorkersButton;
         private System.Windows.Forms.Button setMaxWorkersButton;
+        private System.Windows.Forms.Button invertOpenButton;
     }
 }

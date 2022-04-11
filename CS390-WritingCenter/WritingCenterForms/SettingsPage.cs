@@ -116,12 +116,33 @@ namespace WritingCenterForms
             fridayControl.defaultMaxWorker = (int)univMaxWorker.Value;
             saturdayControl.defaultMaxWorker = (int)univMaxWorker.Value;
 
+            
             reloadAllConPanels();
         }
 
         private void reloadAllConPanels()
         {
             sundayControl.Controls.Add(sundayControl.loadShiftControls());
+            mondayControl.Controls.Add(mondayControl.loadShiftControls());
+            tuesdayControl.Controls.Add(tuesdayControl.loadShiftControls());
+            wednesdayControl.Controls.Add(wednesdayControl.loadShiftControls());
+            thursdayControl.Controls.Add(thursdayControl.loadShiftControls());
+            fridayControl.Controls.Add(fridayControl.loadShiftControls());
+            saturdayControl.Controls.Add(saturdayControl.loadShiftControls());
+        }
+
+        private void invertOpenHrs_Click(object sender, EventArgs e)
+        {
+            if(SundayTab.Focused) { sundayControl.invertOpenHours(); }
+            else if(MondayTab.Focused) { mondayControl.invertOpenHours(); }
+            else if(TuedayTab.Focused) { tuesdayControl.invertOpenHours(); }
+            else if(WednesdayTab.Focused) { wednesdayControl.invertOpenHours(); }
+            else if(ThursdayTab.Focused) { thursdayControl.invertOpenHours(); }
+            else if(FridayTab.Focused) { fridayControl.invertOpenHours(); }
+            else if(SaturdayTab.Focused) { saturdayControl.invertOpenHours(); }
+
+            reloadAllConPanels();
+            
         }
     }
 }

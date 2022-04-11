@@ -83,6 +83,7 @@ namespace WritingCenterForms
             checkBox1 = new CheckBox();
             this.checkBox1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             this.checkBox1.Name = "checkBox" + i;
+            if (openHours[i]) { checkBox1.CheckState = CheckState.Checked; }
             this.checkBox1.Size = new Size(718, 29);
             this.checkBox1.TabIndex = tabIndex;
             this.checkBox1.Text = convertTime(i);
@@ -152,6 +153,7 @@ namespace WritingCenterForms
             this.checkBox2.CheckAlign = ContentAlignment.MiddleRight;
             this.checkBox2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             this.checkBox2.Name = "busyCheckBox" + i;
+            if (busyShifts[i]) { checkBox2.CheckState = CheckState.Checked; }
             this.checkBox2.Size = new Size(50, 27);
             this.checkBox2.TabIndex = tabIndex;
             this.checkBox2.UseVisualStyleBackColor = true;
@@ -191,6 +193,14 @@ namespace WritingCenterForms
         private void Control_Load_1(object sender, EventArgs e)
         {
 
+        }
+
+        public void invertOpenHours()
+        {
+            for(int i = 0; i < 24; i++)
+            {
+                openHours[i] = !openHours[i];
+            }
         }
     }
 }

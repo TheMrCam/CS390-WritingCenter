@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Drawing;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace WritingCenterForms
 {
@@ -22,6 +23,14 @@ namespace WritingCenterForms
         private int panelWidth;
 
         public AccountDatabase GetAccountDatabase() { return Accounts; }
+
+        public List<string> getSettings()
+        { return schedule.settings; }
+
+        public void setSettings(List<string> settings)
+            { schedule.settings = settings; }
+
+
         public scheduleView(AccountDatabase Accounts) // version for the admin page
         {
             InitializeComponent();
@@ -267,8 +276,7 @@ namespace WritingCenterForms
 
         private void generateSchedule_Click(object sender, EventArgs e)
         {
-            int N = 4; // we need to get the setting out of the settings page somehow
-            try { schedule.buildSchedule(N); }
+            try { schedule.buildSchedule(schedule.maxShiftInRow); }
             catch { MessageBox.Show("Issue generating new schedule", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
             //prepareSchedule();
             try
@@ -311,5 +319,8 @@ namespace WritingCenterForms
         {
 
         }
+
+        public int getMaxHoursInRow() { return schedule.maxShiftInRow; }
+        public void setMaxMinutesInRow(int msir) { schedule.maxShiftInRow = msir; }
     }
 }

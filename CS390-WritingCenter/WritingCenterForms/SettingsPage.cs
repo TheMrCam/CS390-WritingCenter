@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace WritingCenterForms
@@ -78,6 +79,19 @@ namespace WritingCenterForms
             days[5] = fridayControl.getDay();
             days[6] = saturdayControl.getDay();
             scheduleView.setDays(days);
+
+            scheduleView.setMaxMinutesInRow((int)this.numShiftsAllowed.Value);
+
+            ListBox.ObjectCollection priority = orderedBox.Items;
+            List<string> settings = new List<string>();
+            
+            foreach(string i in priority)
+            {
+                settings.Add(i);
+            }
+
+            scheduleView.setSettings(settings);
+
             this.Hide();
             scheduleView.Show();
             scheduleView.BringToFront();

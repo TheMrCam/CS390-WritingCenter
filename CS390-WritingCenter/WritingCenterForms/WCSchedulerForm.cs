@@ -58,6 +58,7 @@ namespace WritingCenterForms
                 currentAccount = Accounts.GetAccount(username.Text);
                 if (currentAccount.Admin)
                 {
+                    Console.WriteLine("ADMIN");
                     this.Controls.Add(adminPage);
                     adminPage.Show();
                     adminPage.BringToFront();

@@ -147,14 +147,20 @@ namespace WritingCenterForms
         {
             if (currentChildUC != null) 
                 currentChildUC.Hide();
-            currentChildUC = uc;
-            currentChildUC.BorderStyle = BorderStyle.None;
-            currentChildUC.Dock = DockStyle.Fill;
-            userControlPanel.Controls.Add(currentChildUC);
-            userControlPanel.Tag = currentChildUC;
-            currentChildUC.AutoScroll = true;
-            currentChildUC.BringToFront();
-            currentChildUC.Show();
+            if(uc != null)
+            {
+                Console.WriteLine("UC NOT NULL");
+                currentChildUC = uc;
+                currentChildUC.BorderStyle = BorderStyle.None;
+                currentChildUC.Dock = DockStyle.Fill;
+                userControlPanel.Controls.Add(currentChildUC);
+                userControlPanel.Tag = currentChildUC;
+                currentChildUC.AutoScroll = true;
+                currentChildUC.BringToFront();
+                currentChildUC.Show();
+            }
+            else { Console.WriteLine("UC NULL");  }
+            
         }
 
         private void logOutBtn_Click(object sender, EventArgs e)

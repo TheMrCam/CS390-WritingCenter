@@ -36,14 +36,14 @@ namespace WritingCenterForms
 
         private void listBox1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            listBox2.Items.Add(listBox1.SelectedItem);
-            listBox1.Items.Remove(listBox1.SelectedItem);
+            orderedBox.Items.Add(unorderedBox.SelectedItem);
+            unorderedBox.Items.Remove(unorderedBox.SelectedItem);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            listBox1.Items.AddRange(listBox2.Items);
-            listBox2.Items.Clear();
+            unorderedBox.Items.AddRange(orderedBox.Items);
+            orderedBox.Items.Clear();
         }
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)

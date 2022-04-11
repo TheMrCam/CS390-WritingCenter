@@ -21,6 +21,7 @@ namespace WritingCenterForms
         private ScheduleBuilder builder;
         public List<string> settings = new List<string>();
         public int maxShiftInRow = 4;
+        public bool highReqHrs = true;
         private IDictionary workersWNoHours;
 
         public Schedule(AccountDatabase accounts, scheduleView scheduleView) // version for the admins

@@ -320,7 +320,8 @@ namespace WritingCenterForms
 
         }
 
-        public int getMaxHoursInRow() { return schedule.maxShiftInRow; }
-        public void setMaxMinutesInRow(int msir) { schedule.maxShiftInRow = msir; }
+        public int getMaxShiftsInRow() { return schedule.maxShiftInRow; }
+        public void setMaxShiftsInRow(int msir) { schedule.maxShiftInRow = msir; }
+        public void setHighReqHrs(bool high) { schedule.highReqHrs = high; }
     }
 }

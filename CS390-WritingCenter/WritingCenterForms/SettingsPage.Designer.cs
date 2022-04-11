@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.numShiftsAllowed = new System.Windows.Forms.NumericUpDown();
+            this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.SundayTab = new System.Windows.Forms.TabPage();
             this.MondayTab = new System.Windows.Forms.TabPage();
@@ -43,11 +45,11 @@
             this.orderedBox = new System.Windows.Forms.ListBox();
             this.unorderedBox = new System.Windows.Forms.ListBox();
             this.submitButton = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.numShiftsAllowed = new System.Windows.Forms.NumericUpDown();
+            this.highLowBox = new System.Windows.Forms.CheckedListBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            this.tabControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numShiftsAllowed)).BeginInit();
+            this.tabControl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -57,6 +59,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.AutoScroll = true;
             this.panel1.BackColor = System.Drawing.Color.OldLace;
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.highLowBox);
             this.panel1.Controls.Add(this.numShiftsAllowed);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.tabControl1);
@@ -70,7 +74,24 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(801, 560);
             this.panel1.TabIndex = 1;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // numShiftsAllowed
+            // 
+            this.numShiftsAllowed.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numShiftsAllowed.Location = new System.Drawing.Point(622, 24);
+            this.numShiftsAllowed.Name = "numShiftsAllowed";
+            this.numShiftsAllowed.Size = new System.Drawing.Size(120, 22);
+            this.numShiftsAllowed.TabIndex = 19;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(420, 26);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(193, 16);
+            this.label1.TabIndex = 18;
+            this.label1.Text = "Consecutive Shifts Allowed";
             // 
             // tabControl1
             // 
@@ -91,7 +112,6 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(792, 373);
             this.tabControl1.TabIndex = 17;
-            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // SundayTab
             // 
@@ -127,7 +147,6 @@
             this.TuedayTab.TabIndex = 2;
             this.TuedayTab.Text = "Tuesday";
             this.TuedayTab.UseVisualStyleBackColor = true;
-            this.TuedayTab.Click += new System.EventHandler(this.TuedayTab_Click);
             // 
             // WednesdayTab
             // 
@@ -175,7 +194,6 @@
             this.SaturdayTab.TabIndex = 6;
             this.SaturdayTab.Text = "Saturday";
             this.SaturdayTab.UseVisualStyleBackColor = true;
-            this.SaturdayTab.Click += new System.EventHandler(this.SaturdayTab_Click);
             // 
             // orderLabel
             // 
@@ -201,42 +219,41 @@
             // 
             // resetButton
             // 
-            this.resetButton.Location = new System.Drawing.Point(302, 58);
+            this.resetButton.Location = new System.Drawing.Point(210, 25);
             this.resetButton.Margin = new System.Windows.Forms.Padding(2);
             this.resetButton.Name = "resetButton";
             this.resetButton.Size = new System.Drawing.Size(66, 28);
             this.resetButton.TabIndex = 14;
             this.resetButton.Text = "Reset";
             this.resetButton.UseVisualStyleBackColor = true;
-            this.resetButton.Click += new System.EventHandler(this.button2_Click);
+            this.resetButton.Click += new System.EventHandler(this.resetButton_Click);
             // 
             // orderedBox
             // 
-            this.orderedBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.orderedBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.orderedBox.FormattingEnabled = true;
-            this.orderedBox.ItemHeight = 17;
+            this.orderedBox.ItemHeight = 18;
             this.orderedBox.Location = new System.Drawing.Point(170, 58);
             this.orderedBox.Margin = new System.Windows.Forms.Padding(2);
             this.orderedBox.Name = "orderedBox";
-            this.orderedBox.Size = new System.Drawing.Size(113, 72);
+            this.orderedBox.Size = new System.Drawing.Size(147, 76);
             this.orderedBox.TabIndex = 6;
             // 
             // unorderedBox
             // 
-            this.unorderedBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.unorderedBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.unorderedBox.FormattingEnabled = true;
-            this.unorderedBox.ItemHeight = 17;
+            this.unorderedBox.ItemHeight = 18;
             this.unorderedBox.Items.AddRange(new object[] {
-            "Availability",
-            "Experience",
-            "Major & Minors",
-            "Year"});
+            "Experience Mix",
+            "Major & Minors Mix",
+            "Class Year Mix"});
             this.unorderedBox.Location = new System.Drawing.Point(19, 58);
             this.unorderedBox.Margin = new System.Windows.Forms.Padding(2);
             this.unorderedBox.Name = "unorderedBox";
-            this.unorderedBox.Size = new System.Drawing.Size(113, 72);
+            this.unorderedBox.Size = new System.Drawing.Size(147, 76);
             this.unorderedBox.TabIndex = 5;
-            this.unorderedBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBox1_MouseDoubleClick);
+            this.unorderedBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.unorderedBox_Click);
             // 
             // submitButton
             // 
@@ -252,22 +269,28 @@
             this.submitButton.UseVisualStyleBackColor = true;
             this.submitButton.Click += new System.EventHandler(this.submitButton_Click);
             // 
-            // label1
+            // highLowBox
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(450, 70);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(193, 16);
-            this.label1.TabIndex = 18;
-            this.label1.Text = "Consecutive Shifts Allowed";
+            this.highLowBox.BackColor = System.Drawing.SystemColors.Window;
+            this.highLowBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.highLowBox.FormattingEnabled = true;
+            this.highLowBox.Items.AddRange(new object[] {
+            "high",
+            "low"});
+            this.highLowBox.Location = new System.Drawing.Point(622, 108);
+            this.highLowBox.Name = "highLowBox";
+            this.highLowBox.Size = new System.Drawing.Size(120, 38);
+            this.highLowBox.TabIndex = 20;
             // 
-            // numShiftsAllowed
+            // label2
             // 
-            this.numShiftsAllowed.Location = new System.Drawing.Point(649, 68);
-            this.numShiftsAllowed.Name = "numShiftsAllowed";
-            this.numShiftsAllowed.Size = new System.Drawing.Size(120, 20);
-            this.numShiftsAllowed.TabIndex = 19;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(420, 118);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(198, 16);
+            this.label2.TabIndex = 21;
+            this.label2.Text = "Prioritize High or Low Hours";
             // 
             // SettingsPage
             // 
@@ -282,8 +305,8 @@
             this.Size = new System.Drawing.Size(810, 650);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.tabControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.numShiftsAllowed)).EndInit();
+            this.tabControl1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -306,5 +329,7 @@
         private System.Windows.Forms.Button submitButton;
         private System.Windows.Forms.NumericUpDown numShiftsAllowed;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.CheckedListBox highLowBox;
     }
 }

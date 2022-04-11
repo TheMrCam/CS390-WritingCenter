@@ -16,7 +16,11 @@ namespace WritingCenterForms
         private shiftControl fridayControl = new shiftControl();
         private shiftControl saturdayControl = new shiftControl();
 
-
+        //
+        //**************************************************************************
+        // Creates new settings editor page
+        //**************************************************************************
+        //
         public SettingsPage(scheduleView scheduleView)
         {
             InitializeComponent();
@@ -27,50 +31,40 @@ namespace WritingCenterForms
             WednesdayTab.Controls.Add(wednesdayControl);
             ThursdayTab.Controls.Add(thursdayControl);
             FridayTab.Controls.Add(fridayControl);
-            SaturdayTab.Controls.Add(saturdayControl);
-            Console.WriteLine("SETTINGS PAGE ADDED");
+            SaturdayTab.Controls.Add(saturdayControl); 
         }
 
-        private void logOut_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-        }
+        //
+        //**************************************************************************
+        // User Actions 
+        //**************************************************************************
+        //
 
-        private void listBox1_MouseDoubleClick(object sender, MouseEventArgs e)
+        //
+        // Double clicking on items in the left box will move them into the right (ordered) box
+        //
+        private void unorderedBox_Click(object sender, MouseEventArgs e)
         {
             orderedBox.Items.Add(unorderedBox.SelectedItem);
             unorderedBox.Items.Remove(unorderedBox.SelectedItem);
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        //
+        // Resets ordering boxes
+        //
+        private void resetButton_Click(object sender, EventArgs e)
         {
             unorderedBox.Items.AddRange(orderedBox.Items);
             orderedBox.Items.Clear();
         }
 
-        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void TuedayTab_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void SaturdayTab_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+        //
+        // Clicking submit button will save all settings changed on the page
+        //
 
         private void submitButton_Click(object sender, EventArgs e)
         {
+                                                                                // Creating days from tabs on panel
             days[0] = sundayControl.getDay();
             days[1] = mondayControl.getDay();
             days[2] = tuesdayControl.getDay();
@@ -80,21 +74,24 @@ namespace WritingCenterForms
             days[6] = saturdayControl.getDay();
             scheduleView.setDays(days);
 
-            scheduleView.setMaxMinutesInRow((int)this.numShiftsAllowed.Value);
+            scheduleView.setMaxShiftsInRow((int)this.numShiftsAllowed.Value);  
 
-            ListBox.ObjectCollection priority = orderedBox.Items;
-            List<string> settings = new List<string>();
+            ListBox.ObjectCollection priority = orderedBox.Items;               // Retrieves items ordered in priority
+            List<string> settings = new List<string>();                         
             
-            foreach(string i in priority)
-            {
-                settings.Add(i);
-            }
+            foreach(string i in priority) {  settings.Add(i);  }                // Turns into list of strings
 
-            scheduleView.setSettings(settings);
+
+            scheduleView.setSettings(settings);                                 // Sets
+
+            bool highLow = false;
+            if (highLowBox.CheckedItems.Contains("high")){ highLow = true; }
+            scheduleView.setHighReqHrs(highLow);
 
             this.Hide();
             scheduleView.Show();
             scheduleView.BringToFront();
         }
+
     }
 }

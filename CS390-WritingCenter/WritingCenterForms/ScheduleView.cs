@@ -45,7 +45,6 @@ namespace WritingCenterForms
             sPanel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom;
             this.Anchor = AnchorStyles.Top |  AnchorStyles.Left;
             this.Dock = DockStyle.Fill;
-            //prepareSchedule();
             loadSchedule();
         }
 
@@ -61,31 +60,7 @@ namespace WritingCenterForms
             sPanel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom;
             this.Anchor = AnchorStyles.Top | AnchorStyles.Left;
             this.Dock = DockStyle.Fill;
-            //prepareSchedule();
             loadSchedule();
-        }
-
-        public void prepareSchedule()
-        {
-            if (sPanel.HasChildren) { sPanel.Controls.Clear(); } // if there is stuff in the current panel, removes everything
-            tableLayoutPanel.Controls.Clear();
-            //creating a panel to create all the labels in
-            sPanel.Location = new Point(10, 120);
-            sPanel.Size = new Size(panelWidth, panelHeight);
-            sPanel.BackColor = SystemColors.ActiveCaption;
-
-            for (int i = 0; i < 24; i++)
-            {
-                sPanel.Controls.Add(createTimeLabels(i));
-                for (int j = 0; j < 7; j++)
-                {
-                    sPanel.Controls.Add(createButtons(i, j));
-                }
-            }
-            //Adding scroll bar to the panel
-            sPanel.AutoScroll = true;
-            this.Controls.Remove(tableLayoutPanel);
-            this.Controls.Add(sPanel);
         }
 
         public void loadSchedule()
@@ -132,7 +107,6 @@ namespace WritingCenterForms
             }
             tableLayoutPanel.AutoScroll = true;
             tableLayoutPanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            //tableLayoutPanel.Dock = DockStyle.Fill;
             this.Controls.Add(tableLayoutPanel);
         }
 
@@ -278,7 +252,6 @@ namespace WritingCenterForms
         {
             try { schedule.buildSchedule(schedule.maxShiftInRow); }
             catch { MessageBox.Show("Issue generating new schedule", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
-            //prepareSchedule();
             try
             {
                 updateSView();

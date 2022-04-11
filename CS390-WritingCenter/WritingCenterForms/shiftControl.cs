@@ -35,8 +35,10 @@ namespace WritingCenterForms
             this.BackColor = Color.Wheat;
         }
 
-        private TableLayoutPanel loadShiftControls()
+        public TableLayoutPanel loadShiftControls()
         {
+            this.Controls.Clear();
+
             tableLayoutPanel1 = new TableLayoutPanel();
             this.tableLayoutPanel1.TabIndex = 0;
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";

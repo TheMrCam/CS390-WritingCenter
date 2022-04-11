@@ -99,42 +99,9 @@ namespace WritingCenterForms
 
         }
 
-        private async void button3_Click(object sender, EventArgs e)
+        private void exportCSVButton_Click(object sender, EventArgs e)
         {
-            DialogResult result;
-            string fileName;
-            using (var fileChooser = new OpenFileDialog())
-            {
-                fileChooser.Title = "Export database to CSV";
-                fileChooser.Filter = "CSV Database|*.csv";
-                fileChooser.CheckFileExists = false;
-                result = fileChooser.ShowDialog();
-                fileName = fileChooser.FileName;
-            }
-            if (result == DialogResult.OK)
-            {
-                if (string.IsNullOrEmpty(fileName))
-                {
-                    MessageBox.Show("Invalid File Name", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {
-                    try
-                    {
-                        //TODO: Make this not error
-                        await Task.Run(() => File.WriteAllLines(fileName, WCSchedulerForm.Accounts.CSVLines()));
-                        //File.WriteAllLines(fileName, WCSchedulerForm.Accounts.CSVLines());
-                    }
-                    catch (IOException)
-                    {
-                        MessageBox.Show("Error Opening File", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    catch
-                    {
-                        MessageBox.Show("Miscellaneous Error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-            }
+
         }
     }
 }

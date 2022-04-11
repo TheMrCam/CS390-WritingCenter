@@ -93,5 +93,35 @@ namespace WritingCenterForms
             scheduleView.BringToFront();
         }
 
+        private void setMinWorkersButton_Click(object sender, EventArgs e)
+        {
+            sundayControl.defaultMinWorker = (int)univMinWorkers.Value;
+            mondayControl.defaultMinWorker = (int)univMinWorkers.Value;
+            tuesdayControl.defaultMinWorker= (int)univMinWorkers.Value;
+            wednesdayControl.defaultMinWorker = (int)univMinWorkers.Value;
+            thursdayControl.defaultMinWorker = (int)univMinWorkers.Value;
+            fridayControl.defaultMinWorker = (int)univMinWorkers.Value;
+            saturdayControl.defaultMinWorker = (int)univMinWorkers.Value;
+
+            reloadAllConPanels();
+        }
+
+        private void setMaxWorkersButton_Click(object sender, EventArgs e)
+        {
+            sundayControl.defaultMaxWorker = (int)univMaxWorker.Value;
+            mondayControl.defaultMaxWorker = (int)univMaxWorker.Value;
+            tuesdayControl.defaultMaxWorker = (int)univMaxWorker.Value;
+            wednesdayControl.defaultMaxWorker = (int)univMaxWorker.Value;
+            thursdayControl.defaultMaxWorker = (int)univMaxWorker.Value;
+            fridayControl.defaultMaxWorker = (int)univMaxWorker.Value;
+            saturdayControl.defaultMaxWorker = (int)univMaxWorker.Value;
+
+            reloadAllConPanels();
+        }
+
+        private void reloadAllConPanels()
+        {
+            sundayControl.Controls.Add(sundayControl.loadShiftControls());
+        }
     }
 }

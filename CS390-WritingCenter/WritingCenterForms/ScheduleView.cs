@@ -170,7 +170,7 @@ namespace WritingCenterForms
             edit.loadWorkers(selectedButton.Text, day, time);
             edit.Show();
             edit.BringToFront();
-            displayWorkers(selectedButton, time ,day);
+            //displayWorkers(selectedButton, time ,day);
         }
         private void displayWorkers(Button lbox, int time, int day)
         {

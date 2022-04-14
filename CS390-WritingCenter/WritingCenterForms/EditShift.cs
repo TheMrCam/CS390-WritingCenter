@@ -35,6 +35,7 @@ namespace WritingCenterForms
 
         public void loadWorkers(string workers, int day, int time)
         {
+            listBox1.Items.Clear();
             workers = workers.TrimEnd('\n');
             workerNames = workers.Split('\n');
             this.day = day;

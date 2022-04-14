@@ -44,7 +44,7 @@
             // 
             this.logIn.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.logIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.logIn.Location = new System.Drawing.Point(693, 563);
+            this.logIn.Location = new System.Drawing.Point(718, 588);
             this.logIn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.logIn.Name = "logIn";
             this.logIn.Size = new System.Drawing.Size(109, 52);
@@ -57,7 +57,7 @@
             // 
             this.password.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.password.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.password.Location = new System.Drawing.Point(599, 507);
+            this.password.Location = new System.Drawing.Point(624, 532);
             this.password.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.password.Name = "password";
             this.password.Size = new System.Drawing.Size(303, 28);
@@ -72,7 +72,7 @@
             // 
             this.username.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.username.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.username.Location = new System.Drawing.Point(599, 467);
+            this.username.Location = new System.Drawing.Point(624, 492);
             this.username.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.username.Name = "username";
             this.username.Size = new System.Drawing.Size(303, 28);
@@ -97,7 +97,7 @@
             this.panel1.Location = new System.Drawing.Point(1, -2);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1500, 900);
+            this.panel1.Size = new System.Drawing.Size(1550, 950);
             this.panel1.TabIndex = 9;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             this.panel1.Leave += new System.EventHandler(this.resetLogin);
@@ -111,7 +111,7 @@
             this.pictureBox1.Location = new System.Drawing.Point(321, 49);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(864, 355);
+            this.pictureBox1.Size = new System.Drawing.Size(914, 355);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
@@ -133,7 +133,7 @@
             // 
             this.forgotPasswordButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.forgotPasswordButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.forgotPasswordButton.Location = new System.Drawing.Point(30, 765);
+            this.forgotPasswordButton.Location = new System.Drawing.Point(30, 815);
             this.forgotPasswordButton.Margin = new System.Windows.Forms.Padding(4);
             this.forgotPasswordButton.Name = "forgotPasswordButton";
             this.forgotPasswordButton.Size = new System.Drawing.Size(117, 57);
@@ -157,7 +157,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1482, 853);
+            this.ClientSize = new System.Drawing.Size(1532, 903);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.bootRight);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);

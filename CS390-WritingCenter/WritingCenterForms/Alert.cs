@@ -16,5 +16,15 @@ namespace WritingCenterForms
         {
             InitializeComponent();
         }
+
+        public void updateAlertBox(string[] workers)
+        {
+            listBox1.DataSource = workers;
+        }
+
+        private void refreshButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

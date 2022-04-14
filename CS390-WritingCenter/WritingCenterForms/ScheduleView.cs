@@ -21,6 +21,7 @@ namespace WritingCenterForms
         private int cellWidth;
         private int panelHeight;
         private int panelWidth;
+        private Alert alert;
 
         public AccountDatabase GetAccountDatabase() { return Accounts; }
 
@@ -169,17 +170,34 @@ namespace WritingCenterForms
             edit.loadWorkers(selectedButton.Text, day, time);
             edit.Show();
             edit.BringToFront();
+            displayWorkers(selectedButton, time ,day);
         }
         private void displayWorkers(Button lbox, int time, int day)
         {
             string[] workers = schedule.getWorkers(time, day);
             if (workers != null)
             {
+                workers = workers.Where(x => x != "\n").ToArray();
                 lbox.BackColor = Color.White;
                 foreach (string worker in workers)
                 {
                     //lbox.Items.Add(worker.Trim().Trim('\"'));
                     lbox.Text += worker.Trim().Trim('\"') + "\n";
+                }
+                if (workers.Length <= 2) 
+                {
+                    lbox.FlatAppearance.BorderColor = Color.IndianRed;
+                    lbox.FlatAppearance.BorderSize = 3;
+                }
+                else if (workers.Length <= 3)
+                {
+                    lbox.FlatAppearance.BorderColor = Color.SandyBrown;
+                    lbox.FlatAppearance.BorderSize = 3;
+                }
+                else
+                {
+                    lbox.FlatAppearance.BorderColor = Color.Black;
+                    lbox.FlatAppearance.BorderSize = 0;
                 }
             }
             else lbox.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -286,6 +304,12 @@ namespace WritingCenterForms
         {
             selectedButton.Text = "";
             displayWorkers(selectedButton, time, day);
+        }
+
+        public void createAlert(string[] workers)
+        {
+            alert = new Alert();
+            alert.updateAlertBox(workers);
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)

@@ -249,6 +249,7 @@
             this.logOutBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.logOutBtn.FlatAppearance.BorderSize = 0;
             this.logOutBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.logOutBtn.ForeColor = System.Drawing.SystemColors.ControlText;
             this.logOutBtn.IconChar = FontAwesome.Sharp.IconChar.SignOutAlt;
             this.logOutBtn.IconColor = System.Drawing.Color.White;
             this.logOutBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;

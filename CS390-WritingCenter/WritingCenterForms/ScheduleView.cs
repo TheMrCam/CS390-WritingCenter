@@ -188,11 +188,14 @@ namespace WritingCenterForms
                 {
                     lbox.FlatAppearance.BorderColor = Color.IndianRed;
                     lbox.FlatAppearance.BorderSize = 4;
+                    lbox.BackColor = Color.FromArgb(244, 204, 204);
+                    
                 }
                 else if (workers.Length <= 3)
                 {
                     lbox.FlatAppearance.BorderColor = Color.SandyBrown;
                     lbox.FlatAppearance.BorderSize = 3;
+                    lbox.BackColor = Color.FromArgb(252, 229, 205);
                 }
                 else
                 {

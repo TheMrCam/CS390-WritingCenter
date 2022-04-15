@@ -1,15 +1,14 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace WritingCenterForms
 {
     internal class ScheduleBuilder
     {
         private AccountDatabase accounts;
+        private int TOLERANCE = 4;
 
         public ScheduleBuilder(AccountDatabase accounts)
         {
@@ -22,6 +21,7 @@ namespace WritingCenterForms
             string[] workerList = accounts.AccountNamesList();
             List<string> settings = currentSched.settings;
             foreach(string i in settings) { Console.WriteLine(i); }
+            foreach(string s in workerList) { accounts.GetAccount(s, true).currentWorkedHours = 0; }
             
             for (int currentday = 0; currentday < currentSched.Days.Count() - 1; currentday++)
             {
@@ -39,7 +39,7 @@ namespace WritingCenterForms
                             if (!acctViewing.Admin && acctViewing.Availability(currentday).GetHour(currentHour).Availible) // if acct is not null and user is availible,
                             {
                                 availibleWorkers.Add(worker);
-                                if (previousShiftsWorked(acctViewing, newSched, currentday, currentHour) < N)
+                                if (previousShiftsWorked(acctViewing, newSched, currentday, currentHour) < N && acctViewing.currentWorkedHours-acctViewing.RequestedHours<TOLERANCE)
                                 {
                                     possibleWorkers.Add(acctViewing); 
                                 }
@@ -100,7 +100,44 @@ namespace WritingCenterForms
                 }
                 
             }
-            return newSched;
+            List<string> zeroHours = new List<string>();
+            List<string> underReqHours = new List<string>();
+            List<string> overReqHours = new List<string>();
+            foreach(String A in workerList)
+            {
+                Account temp = accounts.GetAccount(A, true);
+                if (temp != null && !temp.RequestedHours.Equals(temp.currentWorkedHours) && temp.RequestedHours > temp.currentWorkedHours)
+                {
+                    if (temp.currentWorkedHours == 0) { zeroHours.Add(A); }
+                    else { underReqHours.Add(A); }
+                }
+                else { overReqHours.Add(A); }
+            }
+
+            Console.WriteLine("\nOVER REQ HRS");
+            foreach(string A in overReqHours)
+            {
+                Console.WriteLine(A);
+            }
+            Console.WriteLine("\nUNDER REQ HRS");
+            foreach(String A in underReqHours)
+            {
+                Console.WriteLine(A);
+            }
+            Console.WriteLine("\nZERO HOURS");
+            foreach (String A in zeroHours)
+            { Console.WriteLine(A); }
+
+            newSched.settings = settings;
+            newSched.settings.Add("ZERO");
+            newSched.settings.AddRange(zeroHours);
+            newSched.settings.Add("UNDER");
+            newSched.settings.AddRange(underReqHours);
+            newSched.settings.Add("OVER");
+            newSched.settings.AddRange(overReqHours);
+
+            foreach(string s in newSched.settings) { Console.WriteLine(s); }
+            return (newSched);
         }
 
 
@@ -192,5 +229,19 @@ namespace WritingCenterForms
             return sortedAcctList;
         }
 
+        //
+        // Takes in unsorted list of accounts
+        // Returns list of accounts minus one account
+        // Follows ratio of 2 lesser experienced to one more experienced
+        // Removes highest duplicate unless would put out of ratio
+        //
+
+        private List<Account> removeAWorker_ExpMix(List<Account> oldList)
+        {
+            oldList.GroupBy(x => x.Semesters).ToList();
+            foreach( Account A in oldList)
+                { Console.WriteLine(A.Semesters); }
+            return oldList;
+        }
     }
 }

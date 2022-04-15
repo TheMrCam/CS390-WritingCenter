@@ -187,7 +187,7 @@ namespace WritingCenterForms
                 if (workers.Length <= 2) 
                 {
                     lbox.FlatAppearance.BorderColor = Color.IndianRed;
-                    lbox.FlatAppearance.BorderSize = 3;
+                    lbox.FlatAppearance.BorderSize = 4;
                 }
                 else if (workers.Length <= 3)
                 {
@@ -268,7 +268,29 @@ namespace WritingCenterForms
 
         private void generateSchedule_Click(object sender, EventArgs e)
         {
-            try { schedule.buildSchedule(schedule.maxShiftInRow); }
+            try { 
+                schedule.buildSchedule(schedule.maxShiftInRow);
+                //List<string> temp = schedule.settings;
+                //List<string> settingsNew = new List<string>();
+                //List<string> zeroHours = new List<string>();
+                //List<string> overHours = new List<string>();
+                //List<string> underHours = new List<string>();
+                //int ZeroStart = temp.IndexOf("ZERO");
+                //int UnderStart = temp.IndexOf("UNDER");
+                //int OverStart = temp.IndexOf("OVER");
+
+                //for(int i = 0; i <= temp.Count; i++)
+                //{ 
+                //    if (i <= ZeroStart) { settingsNew.Add(temp[i]); }
+                //    else if (i <= UnderStart) { zeroHours.Add(temp[i]); }
+                //    else if (i <= OverStart) { underHours.Add(temp[i]); }
+                //    else { overHours.Add(temp[i]); }
+                //}
+
+                //schedule.settings = settingsNew;
+
+
+            }
             catch { MessageBox.Show("Issue generating new schedule", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
             try
             {

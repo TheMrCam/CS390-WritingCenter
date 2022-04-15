@@ -19,8 +19,10 @@ namespace WritingCenterForms
             InitializeComponent();
 
             this.Controls.Add(EditAcctInfoPage1);
-            this.refreshAccounts();
-
+            //this.refreshAccounts();
+            AcctDisplayListBox.DrawMode = DrawMode.OwnerDrawFixed;
+            AcctDisplayListBox.DrawItem += AcctDisplayListBox_DrawItem;
+            refreshAccounts();
             EditAcctInfoPage1.Hide();
         }
 
@@ -66,10 +68,11 @@ namespace WritingCenterForms
         {
             AcctDisplayListBox.Items.Clear();
             string[] tempAcctList = WCSchedulerForm.Accounts.DisplayLines();
-            foreach (string line in tempAcctList)
+            /*foreach (string line in tempAcctList)
             {
                 AcctDisplayListBox.Items.Add(line);
-            }
+            }*/
+            AcctDisplayListBox.Items.AddRange(tempAcctList);
         }
 
 
@@ -87,6 +90,34 @@ namespace WritingCenterForms
         private void AcctDisplayListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void AcctDisplayListBox_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            bool isSelected = ((e.State & DrawItemState.Selected) == DrawItemState.Selected);
+
+            if (e.Index > -1)
+            {
+                /* If the item is selected set the background color to SystemColors.Highlight 
+                 or else set the color to either WhiteSmoke or White depending if the item index is even or odd */
+                Color color = isSelected ? SystemColors.Highlight :
+                    e.Index % 2 == 0 ? Color.WhiteSmoke : Color.White;
+
+                // Background item brush
+                SolidBrush backgroundBrush = new SolidBrush(color);
+                // Text color brush
+                SolidBrush textBrush = new SolidBrush(e.ForeColor);
+
+                // Draw the background
+                e.Graphics.FillRectangle(backgroundBrush, e.Bounds);
+                // Draw the text
+                e.Graphics.DrawString(AcctDisplayListBox.Items[e.Index].ToString(), e.Font, textBrush, e.Bounds, StringFormat.GenericDefault);
+
+                // Clean up
+                backgroundBrush.Dispose();
+                textBrush.Dispose();
+            }
+            e.DrawFocusRectangle();
         }
 
         private void clearDBClick(object sender, EventArgs e)

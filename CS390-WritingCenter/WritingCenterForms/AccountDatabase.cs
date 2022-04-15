@@ -225,12 +225,13 @@ namespace WritingCenterForms
         public string[] DisplayLines()
         {
             ArrayList list = new ArrayList();
+            list.Add($"{"Name".PadRight(28)}| {"Year".PadRight(8)}| {"Majors".PadRight(24)}| {"Minors".PadRight(24)}");
             foreach (Account account in accounts)
             {
                 //Debug.WriteLine(account.Username+" | Majors Length: "+account.Majors.Length);
                 //string majorString = account.Majors.Length <= 1 ? account.Majors[0] : string.Join(", ", account.Majors);
                 //string minorString = account.Minors.Length <= 1 ? account.Minors[0] : string.Join(", ", account.Minors);
-                list.Add($"{account.Name}:\t{account.Year}\t{account.MajorString}\t{account.MinorString}"); //{(account.Majors == null ? "" : string.Join(", ", account.Majors))}; {(account.Minors == null ? "" : string.Join(", ", account.Minors))}") ;
+                list.Add($"{account.Name.PadRight(28)}| {account.Year.ToString().PadRight(8)}| {account.MajorString.PadRight(24)}| {account.MinorString.PadRight(24)}"); //{(account.Majors == null ? "" : string.Join(", ", account.Majors))}; {(account.Minors == null ? "" : string.Join(", ", account.Minors))}") ;
             }
             return (string[])list.ToArray(typeof(string));
         }

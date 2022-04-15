@@ -33,6 +33,8 @@
             this.manualEntryButton = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.DeleteAccountButton = new System.Windows.Forms.Button();
+            this.AddAccountButton = new System.Windows.Forms.Button();
             this.DBExportButton = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -43,7 +45,7 @@
             // uploadCsvButton
             // 
             this.uploadCsvButton.Location = new System.Drawing.Point(452, 87);
-            this.uploadCsvButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.uploadCsvButton.Margin = new System.Windows.Forms.Padding(6);
             this.uploadCsvButton.Name = "uploadCsvButton";
             this.uploadCsvButton.Size = new System.Drawing.Size(166, 44);
             this.uploadCsvButton.TabIndex = 0;
@@ -55,7 +57,7 @@
             // 
             this.viewAcctsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.viewAcctsButton.Location = new System.Drawing.Point(28, 87);
-            this.viewAcctsButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.viewAcctsButton.Margin = new System.Windows.Forms.Padding(6);
             this.viewAcctsButton.Name = "viewAcctsButton";
             this.viewAcctsButton.Size = new System.Drawing.Size(166, 44);
             this.viewAcctsButton.TabIndex = 1;
@@ -66,8 +68,8 @@
             // manualEntryButton
             // 
             this.manualEntryButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.manualEntryButton.Location = new System.Drawing.Point(1214, 63);
-            this.manualEntryButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.manualEntryButton.Location = new System.Drawing.Point(842, 31);
+            this.manualEntryButton.Margin = new System.Windows.Forms.Padding(6);
             this.manualEntryButton.Name = "manualEntryButton";
             this.manualEntryButton.Size = new System.Drawing.Size(164, 44);
             this.manualEntryButton.TabIndex = 2;
@@ -81,6 +83,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.DeleteAccountButton);
+            this.panel1.Controls.Add(this.AddAccountButton);
             this.panel1.Controls.Add(this.DBExportButton);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.button1);
@@ -88,15 +92,35 @@
             this.panel1.Controls.Add(this.viewAcctsButton);
             this.panel1.Controls.Add(this.manualEntryButton);
             this.panel1.Location = new System.Drawing.Point(306, 73);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1404, 156);
             this.panel1.TabIndex = 4;
             // 
+            // DeleteAccountButton
+            // 
+            this.DeleteAccountButton.Location = new System.Drawing.Point(1200, 87);
+            this.DeleteAccountButton.Name = "DeleteAccountButton";
+            this.DeleteAccountButton.Size = new System.Drawing.Size(173, 43);
+            this.DeleteAccountButton.TabIndex = 7;
+            this.DeleteAccountButton.Text = "Delete Account\r\n";
+            this.DeleteAccountButton.UseVisualStyleBackColor = true;
+            this.DeleteAccountButton.Click += new System.EventHandler(this.DeleteAccountButton_Click);
+            // 
+            // AddAccountButton
+            // 
+            this.AddAccountButton.Location = new System.Drawing.Point(1200, 33);
+            this.AddAccountButton.Name = "AddAccountButton";
+            this.AddAccountButton.Size = new System.Drawing.Size(174, 44);
+            this.AddAccountButton.TabIndex = 6;
+            this.AddAccountButton.Text = "Add Account";
+            this.AddAccountButton.UseVisualStyleBackColor = true;
+            this.AddAccountButton.Click += new System.EventHandler(this.AddAccountButton_Click);
+            // 
             // DBExportButton
             // 
             this.DBExportButton.Location = new System.Drawing.Point(452, 33);
-            this.DBExportButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.DBExportButton.Margin = new System.Windows.Forms.Padding(4);
             this.DBExportButton.Name = "DBExportButton";
             this.DBExportButton.Size = new System.Drawing.Size(166, 44);
             this.DBExportButton.TabIndex = 5;
@@ -107,7 +131,7 @@
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(28, 33);
-            this.button2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.button2.Margin = new System.Windows.Forms.Padding(6);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(166, 44);
             this.button2.TabIndex = 4;
@@ -118,8 +142,8 @@
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(826, 63);
-            this.button1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.button1.Location = new System.Drawing.Point(842, 87);
+            this.button1.Margin = new System.Windows.Forms.Padding(6);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(166, 44);
             this.button1.TabIndex = 3;
@@ -132,9 +156,9 @@
             this.AcctDisplayListBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             this.AcctDisplayListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AcctDisplayListBox.FormattingEnabled = true;
-            this.AcctDisplayListBox.ItemHeight = 18;
+            this.AcctDisplayListBox.ItemHeight = 20;
             this.AcctDisplayListBox.Location = new System.Drawing.Point(306, 283);
-            this.AcctDisplayListBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.AcctDisplayListBox.Margin = new System.Windows.Forms.Padding(6);
             this.AcctDisplayListBox.Name = "AcctDisplayListBox";
             this.AcctDisplayListBox.Size = new System.Drawing.Size(1398, 823);
             this.AcctDisplayListBox.TabIndex = 5;
@@ -147,7 +171,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.AcctDisplayListBox);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "AcctManagePage";
             this.Size = new System.Drawing.Size(1760, 1231);
             this.Load += new System.EventHandler(this.refreshDatabase_click);
@@ -167,5 +191,7 @@
         private System.Windows.Forms.ListBox AcctDisplayListBox;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button DBExportButton;
+        private System.Windows.Forms.Button AddAccountButton;
+        private System.Windows.Forms.Button DeleteAccountButton;
     }
 }

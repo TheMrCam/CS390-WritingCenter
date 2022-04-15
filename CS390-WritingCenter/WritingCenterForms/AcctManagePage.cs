@@ -134,5 +134,16 @@ namespace WritingCenterForms
         {
 
         }
+
+
+        private void AddAccountButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DeleteAccountButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

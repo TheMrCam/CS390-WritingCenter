@@ -37,8 +37,8 @@ namespace WritingCenterForms
             InitializeComponent();
             cellHeight = 80;
             cellWidth = 105;
-            panelHeight = 510;
-            panelWidth = 800;
+            panelHeight = 660;
+            panelWidth = 1055;
             this.Accounts = Accounts;
             schedule = new Schedule(Accounts, this);
             sPanel.Size = new Size(panelWidth, panelHeight);
@@ -87,7 +87,7 @@ namespace WritingCenterForms
 
             for (int i = 0; i < 24; i++)
             {
-                tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 120F));
+                tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 110F));
             }
 
             tableLayoutPanel.Controls.Add(createDayLabels("Sunday"), 1, 0);
@@ -170,7 +170,6 @@ namespace WritingCenterForms
             edit.loadWorkers(selectedButton.Text, day, time);
             edit.Show();
             edit.BringToFront();
-            //displayWorkers(selectedButton, time ,day);
         }
         private void displayWorkers(Button lbox, int time, int day)
         {
@@ -184,7 +183,7 @@ namespace WritingCenterForms
                     //lbox.Items.Add(worker.Trim().Trim('\"'));
                     lbox.Text += worker.Trim().Trim('\"') + "\n";
                 }
-                if (workers.Length <= 2) 
+                if (workers.Length <= 1) 
                 {
                     lbox.FlatAppearance.BorderColor = Color.IndianRed;
                     lbox.FlatAppearance.BorderSize = 4;
@@ -220,8 +219,15 @@ namespace WritingCenterForms
 
         private void scheduleView_Load(object sender, EventArgs e)
         {
-            //prepareSchedule();
-            //loadSchedule();
+            ToolTip tp = new ToolTip();
+            tp.ToolTipTitle = "Legend";
+            tp.UseFading = false;
+            tp.UseAnimation = true;
+            tp.IsBalloon = false;
+            tp.ShowAlways = true;
+            //tp.AutoPopDelay = 1000;
+            //tp.ReshowDelay = 0;
+            tp.SetToolTip(legendButton, "Red: Needs Workers \n Orange: Understaffed");
         }
 
         private async void ExportSchedule_Click(object sender, EventArgs e)

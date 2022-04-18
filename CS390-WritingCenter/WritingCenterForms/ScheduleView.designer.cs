@@ -31,6 +31,8 @@
             this.ExportSchedule = new System.Windows.Forms.Button();
             this.newScheduleButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.legendButton = new FontAwesome.Sharp.IconButton();
+            this.alertButton = new FontAwesome.Sharp.IconButton();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -38,7 +40,7 @@
             // 
             this.ExportSchedule.AutoSize = true;
             this.ExportSchedule.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ExportSchedule.Location = new System.Drawing.Point(428, 32);
+            this.ExportSchedule.Location = new System.Drawing.Point(398, 32);
             this.ExportSchedule.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ExportSchedule.Name = "ExportSchedule";
             this.ExportSchedule.Size = new System.Drawing.Size(158, 52);
@@ -51,7 +53,7 @@
             // 
             this.newScheduleButton.AutoSize = true;
             this.newScheduleButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.newScheduleButton.Location = new System.Drawing.Point(616, 32);
+            this.newScheduleButton.Location = new System.Drawing.Point(580, 32);
             this.newScheduleButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.newScheduleButton.Name = "newScheduleButton";
             this.newScheduleButton.Size = new System.Drawing.Size(149, 52);
@@ -63,6 +65,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Controls.Add(this.legendButton);
+            this.panel1.Controls.Add(this.alertButton);
             this.panel1.Controls.Add(this.newScheduleButton);
             this.panel1.Controls.Add(this.ExportSchedule);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -71,6 +75,35 @@
             this.panel1.Size = new System.Drawing.Size(1074, 103);
             this.panel1.TabIndex = 21;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // legendButton
+            // 
+            this.legendButton.FlatAppearance.BorderSize = 0;
+            this.legendButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.legendButton.IconChar = FontAwesome.Sharp.IconChar.InfoCircle;
+            this.legendButton.IconColor = System.Drawing.Color.Black;
+            this.legendButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.legendButton.IconSize = 30;
+            this.legendButton.Location = new System.Drawing.Point(735, 47);
+            this.legendButton.Name = "legendButton";
+            this.legendButton.Size = new System.Drawing.Size(60, 37);
+            this.legendButton.TabIndex = 22;
+            this.legendButton.UseVisualStyleBackColor = true;
+            // 
+            // alertButton
+            // 
+            this.alertButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.alertButton.FlatAppearance.BorderSize = 0;
+            this.alertButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.alertButton.IconChar = FontAwesome.Sharp.IconChar.ExclamationTriangle;
+            this.alertButton.IconColor = System.Drawing.Color.IndianRed;
+            this.alertButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.alertButton.IconSize = 55;
+            this.alertButton.Location = new System.Drawing.Point(949, 32);
+            this.alertButton.Name = "alertButton";
+            this.alertButton.Size = new System.Drawing.Size(94, 52);
+            this.alertButton.TabIndex = 21;
+            this.alertButton.UseVisualStyleBackColor = true;
             // 
             // scheduleView
             // 
@@ -94,5 +127,7 @@
         private System.Windows.Forms.Button ExportSchedule;
         private System.Windows.Forms.Button newScheduleButton;
         private System.Windows.Forms.Panel panel1;
+        private FontAwesome.Sharp.IconButton alertButton;
+        private FontAwesome.Sharp.IconButton legendButton;
     }
 }

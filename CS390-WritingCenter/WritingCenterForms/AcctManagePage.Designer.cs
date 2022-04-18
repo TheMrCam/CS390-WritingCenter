@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.uploadCsvButton = new System.Windows.Forms.Button();
-            this.viewAcctsButton = new System.Windows.Forms.Button();
             this.manualEntryButton = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -44,7 +43,7 @@
             // 
             // uploadCsvButton
             // 
-            this.uploadCsvButton.Location = new System.Drawing.Point(452, 87);
+            this.uploadCsvButton.Location = new System.Drawing.Point(414, 86);
             this.uploadCsvButton.Margin = new System.Windows.Forms.Padding(6);
             this.uploadCsvButton.Name = "uploadCsvButton";
             this.uploadCsvButton.Size = new System.Drawing.Size(166, 44);
@@ -53,27 +52,15 @@
             this.uploadCsvButton.UseVisualStyleBackColor = true;
             this.uploadCsvButton.Click += new System.EventHandler(this.uploadCSV_Click);
             // 
-            // viewAcctsButton
-            // 
-            this.viewAcctsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.viewAcctsButton.Location = new System.Drawing.Point(28, 87);
-            this.viewAcctsButton.Margin = new System.Windows.Forms.Padding(6);
-            this.viewAcctsButton.Name = "viewAcctsButton";
-            this.viewAcctsButton.Size = new System.Drawing.Size(166, 44);
-            this.viewAcctsButton.TabIndex = 1;
-            this.viewAcctsButton.Text = "View Current";
-            this.viewAcctsButton.UseVisualStyleBackColor = true;
-            this.viewAcctsButton.Click += new System.EventHandler(this.viewAcctsButton_Click);
-            // 
             // manualEntryButton
             // 
             this.manualEntryButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.manualEntryButton.Location = new System.Drawing.Point(842, 31);
+            this.manualEntryButton.Location = new System.Drawing.Point(1123, 86);
             this.manualEntryButton.Margin = new System.Windows.Forms.Padding(6);
             this.manualEntryButton.Name = "manualEntryButton";
             this.manualEntryButton.Size = new System.Drawing.Size(164, 44);
             this.manualEntryButton.TabIndex = 2;
-            this.manualEntryButton.Text = "Manual Entry";
+            this.manualEntryButton.Text = "Select";
             this.manualEntryButton.UseVisualStyleBackColor = true;
             this.manualEntryButton.Click += new System.EventHandler(this.manualEntry_Click);
             // 
@@ -89,7 +76,6 @@
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.uploadCsvButton);
-            this.panel1.Controls.Add(this.viewAcctsButton);
             this.panel1.Controls.Add(this.manualEntryButton);
             this.panel1.Location = new System.Drawing.Point(306, 73);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
@@ -99,7 +85,7 @@
             // 
             // DeleteAccountButton
             // 
-            this.DeleteAccountButton.Location = new System.Drawing.Point(1200, 87);
+            this.DeleteAccountButton.Location = new System.Drawing.Point(765, 33);
             this.DeleteAccountButton.Name = "DeleteAccountButton";
             this.DeleteAccountButton.Size = new System.Drawing.Size(173, 43);
             this.DeleteAccountButton.TabIndex = 7;
@@ -109,7 +95,7 @@
             // 
             // AddAccountButton
             // 
-            this.AddAccountButton.Location = new System.Drawing.Point(1200, 33);
+            this.AddAccountButton.Location = new System.Drawing.Point(765, 86);
             this.AddAccountButton.Name = "AddAccountButton";
             this.AddAccountButton.Size = new System.Drawing.Size(174, 44);
             this.AddAccountButton.TabIndex = 6;
@@ -119,7 +105,7 @@
             // 
             // DBExportButton
             // 
-            this.DBExportButton.Location = new System.Drawing.Point(452, 33);
+            this.DBExportButton.Location = new System.Drawing.Point(414, 32);
             this.DBExportButton.Margin = new System.Windows.Forms.Padding(4);
             this.DBExportButton.Name = "DBExportButton";
             this.DBExportButton.Size = new System.Drawing.Size(166, 44);
@@ -130,31 +116,34 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(28, 33);
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(40)))), ((int)(((byte)(44)))));
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(72, 47);
             this.button2.Margin = new System.Windows.Forms.Padding(6);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(166, 44);
+            this.button2.Size = new System.Drawing.Size(166, 65);
             this.button2.TabIndex = 4;
-            this.button2.Text = "CLEAR DB";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Text = "CLEAR";
+            this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.clearDBClick);
             // 
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(842, 87);
+            this.button1.Location = new System.Drawing.Point(1121, 32);
             this.button1.Margin = new System.Windows.Forms.Padding(6);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(166, 44);
             this.button1.TabIndex = 3;
-            this.button1.Text = "Refresh Database";
+            this.button1.Text = "Refresh";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.refreshDatabase_click);
             // 
             // AcctDisplayListBox
             // 
             this.AcctDisplayListBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.AcctDisplayListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AcctDisplayListBox.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AcctDisplayListBox.FormattingEnabled = true;
             this.AcctDisplayListBox.ItemHeight = 20;
             this.AcctDisplayListBox.Location = new System.Drawing.Point(306, 283);
@@ -183,7 +172,6 @@
         #endregion
 
         private System.Windows.Forms.Button uploadCsvButton;
-        private System.Windows.Forms.Button viewAcctsButton;
         private System.Windows.Forms.Button manualEntryButton;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Panel panel1;

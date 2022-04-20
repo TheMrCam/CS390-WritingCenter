@@ -224,29 +224,21 @@ namespace WritingCenterForms
 
         public string[] DisplayLines()
         {
+            int padSize = 42;
             ArrayList list = new ArrayList();
-            list.Add($"{"Name".PadRight(20)}| {"Year".PadRight(5)}| {"Majors".PadRight(24)}| {"Minors".PadRight(24)}");
+            list.Add($"{"Name".PadRight(20)}| {"Year".PadRight(5)}| {"Majors".PadRight(padSize)}| {"Minors".PadRight(padSize)}");
             foreach (Account account in accounts)
             {
                 //Debug.WriteLine(account.Username+" | Majors Length: "+account.Majors.Length);
-                //string majorString = account.Majors.Length <= 1 ? account.Majors[0] : string.Join(", ", account.Majors);
-                //string minorString = account.Minors.Length <= 1 ? account.Minors[0] : string.Join(", ", account.Minors);
-                list.Add($"{account.Name.PadRight(20)}| {account.Year.ToString().PadRight(5)}| {account.MajorString.PadRight(24)}| {account.MinorString.PadRight(24)}"); //{(account.Majors == null ? "" : string.Join(", ", account.Majors))}; {(account.Minors == null ? "" : string.Join(", ", account.Minors))}") ;
+                string majorString = account.MajorString.Length >= padSize ? account.MajorString.Substring(0, padSize-3) + "..." : account.MajorString;
+                string minorString = account.MinorString.Length >= padSize ? account.MinorString.Substring(0, padSize-3) + "..." : account.MinorString;
+                list.Add($"{account.Name.PadRight(20)}| {account.Year.ToString().PadRight(5)}| {majorString.PadRight(padSize)}| {minorString.PadRight(padSize)}");
             }
             return (string[])list.ToArray(typeof(string));
         }
         
-        public void submitUpdateRequest(string username, string name, int year, string[] majors, string[] minors, int reqHours)
-        {
-            Account userAccount = GetAccount(username);
-            if (userAccount != null)
-            {
-                userAccount.Name = name;
-                userAccount.Year = year;
-                userAccount.RequestedHours = reqHours;
-                userAccount.SetMajorsMinors(majors, minors);
-            }
-        }
+
+        //public void new_submitUpdateRequest(string username, string name, string[] majors, string minors, string password, int reqHours, )
 
         public void UpdateAvailability(string user, bool[][] newAvailability, bool nameIndex = true)
         {

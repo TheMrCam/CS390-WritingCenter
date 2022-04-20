@@ -119,20 +119,6 @@ namespace WritingCenterForms
             {
                 if (majors == null) { return new string[1]; }
                 return majors;
-                /*//TODO: FIX if (majorsMinors == null) { return new string[1]; }
-                //if (maj.Length == 0) { return new string[0]; }
-                try
-                {
-                    string[] maj = (from m in majorsMinors where Char.IsUpper(m[0]) select m).ToArray();
-                    return maj;
-                }
-                catch
-                {
-                    string[] maj = { "" };
-                    return maj;
-                }
-                //return maj;
-                */
             }
         }
         public string MajorString
@@ -141,7 +127,6 @@ namespace WritingCenterForms
             {
                 try
                 {
-                    //string maj = string.Join(", ",(from m in majorsMinors where Char.IsUpper(m[0]) select m).ToArray());
                     if (majors == null) { return ""; }
                     else if (majors.Length == 1) { return majors[0]; }
                     string maj = string.Join(", ", majors);
@@ -153,6 +138,14 @@ namespace WritingCenterForms
                 }
             }
         }
+        /*public string CleanMajorString
+        {
+            get 
+            {
+                string clean = this.MajorString;
+                if (clean.Length >= 24) { return clean.Substring(0, 21) + "..."; } else { return clean; }
+            }
+        }*/
 
         public string[] Minors
         {
@@ -160,26 +153,12 @@ namespace WritingCenterForms
             {
                 if (minors == null) { return new string [1]; }
                 return minors;
-                /*//TODO: FIX if (majorsMinors == null) { return new string[1]; }
-                //if (min.Length == 0) { return new string[0]; }
-                try
-                {
-                    string[] min = (from m in majorsMinors where Char.IsLower(m[0]) select m).ToArray();
-                    return min;
-                } 
-                catch
-                {
-                    string[] min = { "" };
-                    return min;
-                }*/
             }
         }
         public string MinorString
         {
             get
             {
-                //TODO: FIX if (majorsMinors == null) { return new string[1]; }
-                //if (min.Length == 0) { return new string[0]; }
                 try
                 {
                     //string min = string.Join(", ", (from m in majorsMinors where Char.IsLower(m[0]) select m).ToArray());

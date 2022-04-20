@@ -92,6 +92,12 @@
       <DependentUpon>Alert.cs</DependentUpon>
     </Compile>
     <Compile Include="ConfigManager.cs" />
+    <Compile Include="FirstSetup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FirstSetup.Designer.cs">
+      <DependentUpon>FirstSetup.cs</DependentUpon>
+    </Compile>
     <Compile Include="shiftControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -145,6 +151,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Alert.resx">
       <DependentUpon>Alert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FirstSetup.resx">
+      <DependentUpon>FirstSetup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="shiftControl.resx">
       <DependentUpon>shiftControl.cs</DependentUpon>

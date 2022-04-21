@@ -75,7 +75,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(806, 84);
             this.panel1.TabIndex = 21;
-            this.panel1.VisibleChanged += new System.EventHandler(this.ExportSchedule_Click);
             // 
             // legendButton
             // 

@@ -83,6 +83,26 @@ namespace WritingCenterForms.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap blueBkg {
+            get {
+                object obj = ResourceManager.GetObject("blueBkg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bluebkgtext {
+            get {
+                object obj = ResourceManager.GetObject("bluebkgtext", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Coe_College {
             get {
                 object obj = ResourceManager.GetObject("Coe_College", resourceCulture);
@@ -161,6 +181,16 @@ namespace WritingCenterForms.Properties {
         internal static string schedule_draft {
             get {
                 return ResourceManager.GetString("schedule_draft", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Screenshot__6_ {
+            get {
+                object obj = ResourceManager.GetObject("Screenshot (6)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }

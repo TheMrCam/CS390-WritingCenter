@@ -127,6 +127,9 @@
   <data name="Background Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Background Image.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="coeLogoGold" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\coelogogold.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="dummy_accounts" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Data\dummy_accounts.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
@@ -136,13 +139,19 @@
   <data name="schedule_draft" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Data\schedule_draft.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="CWC logo_Black_Secondary" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CWC logo_Black_Secondary.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="bluebkgtext" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bluebkgtext.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="blueBkg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\blueBkg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="bgImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bgImage.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="coeLogoGold" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Data\coeLogoGold.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="CWC logo_Black_Secondary" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CWC logo_Black_Secondary.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Screenshot (6)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Screenshot (6).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

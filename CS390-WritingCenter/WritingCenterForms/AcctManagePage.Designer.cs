@@ -43,10 +43,9 @@
             // 
             // uploadCsvButton
             // 
-            this.uploadCsvButton.Location = new System.Drawing.Point(414, 86);
-            this.uploadCsvButton.Margin = new System.Windows.Forms.Padding(6);
+            this.uploadCsvButton.Location = new System.Drawing.Point(207, 45);
             this.uploadCsvButton.Name = "uploadCsvButton";
-            this.uploadCsvButton.Size = new System.Drawing.Size(166, 44);
+            this.uploadCsvButton.Size = new System.Drawing.Size(83, 23);
             this.uploadCsvButton.TabIndex = 0;
             this.uploadCsvButton.Text = "Upload CSV";
             this.uploadCsvButton.UseVisualStyleBackColor = true;
@@ -55,10 +54,9 @@
             // manualEntryButton
             // 
             this.manualEntryButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.manualEntryButton.Location = new System.Drawing.Point(1123, 86);
-            this.manualEntryButton.Margin = new System.Windows.Forms.Padding(6);
+            this.manualEntryButton.Location = new System.Drawing.Point(562, 45);
             this.manualEntryButton.Name = "manualEntryButton";
-            this.manualEntryButton.Size = new System.Drawing.Size(164, 44);
+            this.manualEntryButton.Size = new System.Drawing.Size(82, 23);
             this.manualEntryButton.TabIndex = 2;
             this.manualEntryButton.Text = "Select";
             this.manualEntryButton.UseVisualStyleBackColor = true;
@@ -77,17 +75,18 @@
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.uploadCsvButton);
             this.panel1.Controls.Add(this.manualEntryButton);
-            this.panel1.Location = new System.Drawing.Point(306, 73);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
+            this.panel1.Location = new System.Drawing.Point(153, 38);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1404, 156);
+            this.panel1.Size = new System.Drawing.Size(702, 81);
             this.panel1.TabIndex = 4;
             // 
             // DeleteAccountButton
             // 
-            this.DeleteAccountButton.Location = new System.Drawing.Point(765, 33);
+            this.DeleteAccountButton.Location = new System.Drawing.Point(382, 17);
+            this.DeleteAccountButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.DeleteAccountButton.Name = "DeleteAccountButton";
-            this.DeleteAccountButton.Size = new System.Drawing.Size(173, 43);
+            this.DeleteAccountButton.Size = new System.Drawing.Size(86, 22);
             this.DeleteAccountButton.TabIndex = 7;
             this.DeleteAccountButton.Text = "Delete Account\r\n";
             this.DeleteAccountButton.UseVisualStyleBackColor = true;
@@ -95,9 +94,10 @@
             // 
             // AddAccountButton
             // 
-            this.AddAccountButton.Location = new System.Drawing.Point(765, 86);
+            this.AddAccountButton.Location = new System.Drawing.Point(382, 45);
+            this.AddAccountButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.AddAccountButton.Name = "AddAccountButton";
-            this.AddAccountButton.Size = new System.Drawing.Size(174, 44);
+            this.AddAccountButton.Size = new System.Drawing.Size(87, 23);
             this.AddAccountButton.TabIndex = 6;
             this.AddAccountButton.Text = "Add Account";
             this.AddAccountButton.UseVisualStyleBackColor = true;
@@ -105,10 +105,10 @@
             // 
             // DBExportButton
             // 
-            this.DBExportButton.Location = new System.Drawing.Point(414, 32);
-            this.DBExportButton.Margin = new System.Windows.Forms.Padding(4);
+            this.DBExportButton.Location = new System.Drawing.Point(207, 17);
+            this.DBExportButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.DBExportButton.Name = "DBExportButton";
-            this.DBExportButton.Size = new System.Drawing.Size(166, 44);
+            this.DBExportButton.Size = new System.Drawing.Size(83, 23);
             this.DBExportButton.TabIndex = 5;
             this.DBExportButton.Text = "Export to CSV";
             this.DBExportButton.UseVisualStyleBackColor = true;
@@ -119,10 +119,9 @@
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(40)))), ((int)(((byte)(44)))));
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(72, 47);
-            this.button2.Margin = new System.Windows.Forms.Padding(6);
+            this.button2.Location = new System.Drawing.Point(36, 24);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(166, 65);
+            this.button2.Size = new System.Drawing.Size(83, 34);
             this.button2.TabIndex = 4;
             this.button2.Text = "CLEAR";
             this.button2.UseVisualStyleBackColor = false;
@@ -131,10 +130,9 @@
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(1121, 32);
-            this.button1.Margin = new System.Windows.Forms.Padding(6);
+            this.button1.Location = new System.Drawing.Point(560, 17);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(166, 44);
+            this.button1.Size = new System.Drawing.Size(83, 23);
             this.button1.TabIndex = 3;
             this.button1.Text = "Refresh";
             this.button1.UseVisualStyleBackColor = true;
@@ -145,24 +143,23 @@
             this.AcctDisplayListBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             this.AcctDisplayListBox.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AcctDisplayListBox.FormattingEnabled = true;
+            this.AcctDisplayListBox.HorizontalScrollbar = true;
             this.AcctDisplayListBox.ItemHeight = 20;
-            this.AcctDisplayListBox.Location = new System.Drawing.Point(306, 283);
-            this.AcctDisplayListBox.Margin = new System.Windows.Forms.Padding(6);
+            this.AcctDisplayListBox.Location = new System.Drawing.Point(153, 147);
             this.AcctDisplayListBox.Name = "AcctDisplayListBox";
-            this.AcctDisplayListBox.Size = new System.Drawing.Size(1398, 823);
+            this.AcctDisplayListBox.Size = new System.Drawing.Size(701, 430);
             this.AcctDisplayListBox.TabIndex = 5;
             this.AcctDisplayListBox.SelectedIndexChanged += new System.EventHandler(this.AcctDisplayListBox_SelectedIndexChanged);
             this.AcctDisplayListBox.Enter += new System.EventHandler(this.refreshDatabase_click);
             // 
             // AcctManagePage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.AcctDisplayListBox);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "AcctManagePage";
-            this.Size = new System.Drawing.Size(1760, 1231);
+            this.Size = new System.Drawing.Size(880, 640);
             this.Load += new System.EventHandler(this.refreshDatabase_click);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);

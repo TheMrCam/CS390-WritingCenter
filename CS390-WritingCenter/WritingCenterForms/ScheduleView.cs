@@ -42,7 +42,7 @@ namespace WritingCenterForms
             this.Accounts = Accounts;
             schedule = new Schedule(Accounts, this);
             sPanel.Size = new Size(panelWidth, panelHeight);
-            sPanel.AutoSizeMode = AutoSizeMode.GrowOnly;
+            sPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             sPanel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom;
             this.Anchor = AnchorStyles.Top |  AnchorStyles.Left;
             this.Dock = DockStyle.Fill;
@@ -73,6 +73,7 @@ namespace WritingCenterForms
             this.tableLayoutPanel.RowCount = 25;
             this.tableLayoutPanel.AutoScroll = true;
             this.tableLayoutPanel.ColumnCount = 8;
+            this.tableLayoutPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             tableLayoutPanel.Location = new Point(0, 76);
             tableLayoutPanel.BackColor = SystemColors.ActiveCaption;
             
@@ -341,11 +342,6 @@ namespace WritingCenterForms
         {
             alert = new Alert();
             alert.updateAlertBox(workers);
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         public int getMaxShiftsInRow() { return schedule.maxShiftInRow; }

@@ -38,8 +38,9 @@ namespace WritingCenterForms
             panelMenu.Controls.Add(leftBorderBtn);
             this.sView = sView;
             this.Controls.Add(sView);
+            this.sView.BringToFront();
+            this.sView.Show();
             collapseMenu();
-            sView.Hide();
             this.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
         }
 
@@ -66,7 +67,8 @@ namespace WritingCenterForms
 
         private void AdminPage_Load(object sender, EventArgs e)
         {
-
+            this.sView.Show();
+            this.sView.BringToFront();
         }
 
         private void activateButton(object senderBtn, Color color)
@@ -125,12 +127,6 @@ namespace WritingCenterForms
         private void editRequests_Click(object sender, EventArgs e)
         {
             activateButton(sender, RGBColors.color4);
-        }
-
-        private void settings_Click(object sender, EventArgs e)
-        {
-            activateButton(sender, RGBColors.color5);
-            openChildUserControl(settingPage);
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

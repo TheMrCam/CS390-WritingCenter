@@ -219,6 +219,8 @@
     <None Include="Resources\bgImage.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Data\coeLogoGold.png" />
+    <Content Include="Resources\coeLogoGold.png" />
     <Content Include="Resources\CWC logo_Red_Logomark.png" />
     <None Include="Resources\CWC logo_Red_Logomark1.png" />
   </ItemGroup>

@@ -17,6 +17,7 @@ namespace WritingCenterForms
         private string[] majors;
         private string[] minors;
         private int requestedHours;
+        public bool hasAvail = false;
         public int currentWorkedHours { get; set; }
         private int possibleHours;
         private bool admin;
@@ -208,6 +209,7 @@ namespace WritingCenterForms
         public void SetAvailability(int day, bool[] availableTimes)
         {
             availability[day] = new Day(availableTimes);
+            hasAvail = true;
         }
 
         public int PossibleHours()
@@ -250,5 +252,6 @@ namespace WritingCenterForms
             }
             return string.Join(",", dayStrings);
         }
+
     }
 }

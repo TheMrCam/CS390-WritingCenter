@@ -15,6 +15,13 @@ namespace WritingCenterForms
             this.accounts = accounts;
         }
 
+        // ********************************************************************************************************************************************************************************
+        // MAIN FUNCTION
+        //    Takes in an already initialized schedule and number of consecutive hours allowed
+        //    Returns a schedule which attempts to meet settings of the input schedule
+        // ********************************************************************************************************************************************************************************
+
+
         public Schedule buildSchedule(Schedule currentSched, int N)
         {
             Schedule newSched = new Schedule(accounts, currentSched.sView);
@@ -36,13 +43,11 @@ namespace WritingCenterForms
                         {
                             Account acctViewing = accounts.GetAccount(worker, true);
 
-                            if (!acctViewing.Admin && acctViewing.Availability(currentday).GetHour(currentHour).Availible) // if acct is not null and user is availible,
+                            if (acctViewing.hasAvail && acctViewing.Availability(currentday).GetHour(currentHour).Availible) // if acct availibility is not null and user is availible,
                             {
                                 availibleWorkers.Add(worker);
                                 if (previousShiftsWorked(acctViewing, newSched, currentday, currentHour) < N && acctViewing.currentWorkedHours-acctViewing.RequestedHours<TOLERANCE)
-                                {
-                                    possibleWorkers.Add(acctViewing); 
-                                }
+                                { possibleWorkers.Add(acctViewing); }
                                 
                             }                                                          // add into possible workers for the shift
                         }
@@ -52,10 +57,7 @@ namespace WritingCenterForms
 
                         foreach(Account account in possibleWorkers)
                         {
-                            if (account.currentWorkedHours == 0)
-                            {
-                                zeroHoursWorked.Add(account);
-                            }
+                            if (account.currentWorkedHours == 0) { zeroHoursWorked.Add(account); }
                             else { nonZeroHoursWorked.Add(account);}
                         }
 
@@ -64,13 +66,11 @@ namespace WritingCenterForms
                         while (zeroHoursWorked.Count + nonZeroHoursWorked.Count > currentSched.Days[currentday].Hours[currentHour].maxWorkers && currentSched.Days[currentday].Hours[currentHour].maxWorkers > 0)
                         {
                             if (nonZeroHoursWorked.Count < 1 && zeroHoursWorked.Count > 0)
-                            {
-                                zeroHoursWorked.RemoveAt(zeroHoursWorked.Count - 1);
-                            }
+                            { zeroHoursWorked.RemoveAt(zeroHoursWorked.Count - 1); }
 
                             else if (nonZeroHoursWorked.Count != 0)
-                            {
-                                nonZeroHoursWorked = removeAWorker_WorkedLastShift(nonZeroHoursWorked,currentday,currentHour,currentSched);
+                            { 
+                                nonZeroHoursWorked = removeAWorker_WorkedLastShift(nonZeroHoursWorked,currentday,currentHour,currentSched); 
                             }
 
                             else { break; }
@@ -94,12 +94,10 @@ namespace WritingCenterForms
                         }
 
                         newSched.editDays(currentday, currentHour, namesToAdd); // set names of workers to the availible workers we found
-
                     }
-
                 }
-                
             }
+
             List<string> zeroHours = new List<string>();
             List<string> underReqHours = new List<string>();
             List<string> overReqHours = new List<string>();
@@ -114,20 +112,6 @@ namespace WritingCenterForms
                 else { overReqHours.Add(A); }
             }
 
-            Console.WriteLine("\nOVER REQ HRS");
-            foreach(string A in overReqHours)
-            {
-                Console.WriteLine(A);
-            }
-            Console.WriteLine("\nUNDER REQ HRS");
-            foreach(String A in underReqHours)
-            {
-                Console.WriteLine(A);
-            }
-            Console.WriteLine("\nZERO HOURS");
-            foreach (String A in zeroHours)
-            { Console.WriteLine(A); }
-
             newSched.settings = settings;
             newSched.settings.Add("ZERO");
             newSched.settings.AddRange(zeroHours);
@@ -136,7 +120,6 @@ namespace WritingCenterForms
             newSched.settings.Add("OVER");
             newSched.settings.AddRange(overReqHours);
 
-            foreach(string s in newSched.settings) { Console.WriteLine(s); }
             return (newSched);
         }
 
@@ -145,8 +128,9 @@ namespace WritingCenterForms
         // END OF MAIN FUNCTION
         //********************************************************************************************************************************************************************************
 
-
+        //------------------------
         // HELPER FUNCTIONS 
+        //------------------------
 
 
         //
@@ -232,15 +216,20 @@ namespace WritingCenterForms
         //
         // Takes in unsorted list of accounts
         // Returns list of accounts minus one account
-        // Follows ratio of 2 lesser experienced to one more experienced
+        // removes highest non-duplicate account
         // Removes highest duplicate unless would put out of ratio
         //
 
         private List<Account> removeAWorker_ExpMix(List<Account> oldList)
         {
-            oldList.GroupBy(x => x.Semesters).ToList();
-            foreach( Account A in oldList)
-                { Console.WriteLine(A.Semesters); }
+            List<IGrouping<int, Account>> dictExp = oldList.GroupBy(x => x.Semesters).ToList();
+            foreach(IGrouping<int, Account> group in dictExp)
+            {
+                foreach(Account a in group)
+                {
+                    Console.WriteLine(a.Name, a.Semesters);
+                }
+            }
             return oldList;
         }
     }

@@ -280,24 +280,35 @@ namespace WritingCenterForms
         {
             try { 
                 schedule.buildSchedule(schedule.maxShiftInRow);
-                //List<string> temp = schedule.settings;
-                //List<string> settingsNew = new List<string>();
-                //List<string> zeroHours = new List<string>();
-                //List<string> overHours = new List<string>();
-                //List<string> underHours = new List<string>();
-                //int ZeroStart = temp.IndexOf("ZERO");
-                //int UnderStart = temp.IndexOf("UNDER");
-                //int OverStart = temp.IndexOf("OVER");
+                List<string> temp = schedule.settings;
+                List<string> settingsNew = new List<string>();
+                List<string> zeroHours = new List<string>();
+                List<string> overHours = new List<string>();
+                List<string> underHours = new List<string>();
+                int ZeroStart = temp.IndexOf("ZERO");
+                int UnderStart = temp.IndexOf("UNDER");
+                int OverStart = temp.IndexOf("OVER");
 
-                //for(int i = 0; i <= temp.Count; i++)
-                //{ 
-                //    if (i <= ZeroStart) { settingsNew.Add(temp[i]); }
-                //    else if (i <= UnderStart) { zeroHours.Add(temp[i]); }
-                //    else if (i <= OverStart) { underHours.Add(temp[i]); }
-                //    else { overHours.Add(temp[i]); }
-                //}
+                for (int i = 0; i <= temp.Count-1; i++)
+                {
+                    if (!i.Equals(ZeroStart) && !i.Equals(OverStart) && !i.Equals(UnderStart))
+                    {
+                        if (i < ZeroStart) { settingsNew.Add(temp[i]); }
+                        else if (i < UnderStart) { zeroHours.Add(temp[i]); }
+                        else if (i < OverStart) { underHours.Add(temp[i]); }
+                        else { overHours.Add(temp[i]); }
+                    }
+                }
 
-                //schedule.settings = settingsNew;
+                schedule.settings = settingsNew;
+
+                if (underHours.Count > 0 | overHours.Count > 0 | zeroHours.Count > 0)
+                {
+                    string[] underWorkers = listToString(underHours);
+                    string[] overWorkers = listToString(overHours);
+                    string[] notWorkers = listToString(zeroHours);
+                    createAlert(underWorkers, overWorkers, notWorkers);
+                }
 
 
             }
@@ -338,14 +349,28 @@ namespace WritingCenterForms
             displayWorkers(selectedButton, time, day);
         }
 
-        public void createAlert(string[] workers)
+        public void createAlert(string[] underWorkers, string[] overWorkers, string[] notWorkers)
         {
             alert = new Alert();
-            alert.updateAlertBox(workers);
+            alert.updateAlertBox(underWorkers, overWorkers, notWorkers);
+            alert.Show();
+            alert.BringToFront();
         }
 
         public int getMaxShiftsInRow() { return schedule.maxShiftInRow; }
         public void setMaxShiftsInRow(int msir) { schedule.maxShiftInRow = msir; }
         public void setHighReqHrs(bool high) { schedule.highReqHrs = high; }
+
+        private string[] listToString(List<string> list)
+        {
+            string[] newArray = new string[list.Count];
+            for (int i = 0; i < list.Count; i++)
+            {
+                newArray[i] = list[i];
+            }
+            return newArray;
+        }
+
+        
     }
 }

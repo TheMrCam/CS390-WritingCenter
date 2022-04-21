@@ -17,9 +17,11 @@ namespace WritingCenterForms
             InitializeComponent();
         }
 
-        public void updateAlertBox(string[] workers)
+        public void updateAlertBox(string[] underWorkers, string[] overWorkers, string[] notWorkers)
         {
-            listBox1.DataSource = workers;
+            UnderHoursBox.DataSource = underWorkers;
+            OverHoursBox.DataSource = overWorkers;
+            NoHoursBox.DataSource = notWorkers;
         }
 
         private void refreshButton_Click(object sender, EventArgs e)

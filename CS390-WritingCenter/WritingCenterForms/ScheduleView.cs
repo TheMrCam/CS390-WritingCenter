@@ -23,10 +23,6 @@ namespace WritingCenterForms
         private int panelWidth;
         private Alert alert;
 
-        public AccountDatabase GetAccountDatabase() { return Accounts; }
-
-        public List<string> getSettings()
-        { return schedule.settings; }
 
         public void setSettings(List<string> settings)
             { schedule.settings = settings; }
@@ -45,21 +41,6 @@ namespace WritingCenterForms
             sPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             sPanel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom;
             this.Anchor = AnchorStyles.Top |  AnchorStyles.Left;
-            this.Dock = DockStyle.Fill;
-            loadSchedule();
-        }
-
-        public scheduleView() // version for consultant page
-        {
-            InitializeComponent();
-            schedule = new Schedule(this);
-            cellHeight = 80;
-            cellWidth = 105;
-            panelHeight = 510;
-            panelWidth = 800;
-            sPanel.Size = new Size(panelWidth, panelHeight);
-            sPanel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom;
-            this.Anchor = AnchorStyles.Top | AnchorStyles.Left;
             this.Dock = DockStyle.Fill;
             loadSchedule();
         }
@@ -357,7 +338,6 @@ namespace WritingCenterForms
             alert.BringToFront();
         }
 
-        public int getMaxShiftsInRow() { return schedule.maxShiftInRow; }
         public void setMaxShiftsInRow(int msir) { schedule.maxShiftInRow = msir; }
         public void setHighReqHrs(bool high) { schedule.highReqHrs = high; }
 

@@ -8,7 +8,7 @@ namespace WritingCenterForms
     internal class ScheduleBuilder
     {
         private AccountDatabase accounts;
-        private int TOLERANCE = 4;
+        private int TOLERANCE = 4;      // number of shifts consultants will be scheduled for outside of their requested hours
 
         public ScheduleBuilder(AccountDatabase accounts)
         {
@@ -20,8 +20,6 @@ namespace WritingCenterForms
         //    Takes in an already initialized schedule and number of consecutive hours allowed
         //    Returns a schedule which attempts to meet settings of the input schedule
         // ********************************************************************************************************************************************************************************
-
-
         public Schedule buildSchedule(Schedule currentSched, int N)
         {
             Schedule newSched = new Schedule(accounts, currentSched.sView);
@@ -43,7 +41,7 @@ namespace WritingCenterForms
                         {
                             Account acctViewing = accounts.GetAccount(worker, true);
 
-                            if (acctViewing.hasAvail && acctViewing.Availability(currentday).GetHour(currentHour).Availible) // if acct availibility is not null and user is availible,
+                            if (acctViewing.hasAvail && acctViewing.Availability(currentday).GetHour(currentHour).Availible) // if acct availibility is not null and user is availible
                             {
                                 availibleWorkers.Add(worker);
                                 if (previousShiftsWorked(acctViewing, newSched, currentday, currentHour) < N && acctViewing.currentWorkedHours-acctViewing.RequestedHours<TOLERANCE)
@@ -70,7 +68,7 @@ namespace WritingCenterForms
 
                             else if (nonZeroHoursWorked.Count != 0)
                             { 
-                                nonZeroHoursWorked = removeAWorker_WorkedLastShift(nonZeroHoursWorked,currentday,currentHour,currentSched); 
+                                nonZeroHoursWorked = removeAWorker_WorkedLastShift(nonZeroHoursWorked,currentday,currentHour,currentSched);
                             }
 
                             else { break; }
@@ -101,7 +99,7 @@ namespace WritingCenterForms
             List<string> zeroHours = new List<string>();
             List<string> underReqHours = new List<string>();
             List<string> overReqHours = new List<string>();
-            foreach(String A in workerList)
+            foreach(string A in workerList)
             {
                 Account temp = accounts.GetAccount(A, true);
                 if (temp != null && !temp.RequestedHours.Equals(temp.currentWorkedHours) && temp.RequestedHours > temp.currentWorkedHours)
@@ -232,5 +230,6 @@ namespace WritingCenterForms
             }
             return oldList;
         }
+
     }
 }

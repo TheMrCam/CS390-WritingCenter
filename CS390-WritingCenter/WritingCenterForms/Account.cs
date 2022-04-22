@@ -206,6 +206,10 @@ namespace WritingCenterForms
         {
             return availability[day];
         }
+        public bool IsAvailable(int day, int hour)
+        {
+            return availability[day].GetHour(hour).Availible;
+        }
         public void SetAvailability(int day, bool[] availableTimes)
         {
             availability[day] = new Day(availableTimes);

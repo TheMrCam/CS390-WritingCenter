@@ -296,6 +296,21 @@ namespace WritingCenterForms
             }
             return (string[])names.ToArray(typeof(string));
         }
+        public Account[] AvailableWorkersPerDayHour(int day, int hour)
+        {
+            if(day > 6 || day < 0 || hour > 23 || hour < 0)
+            {
+                throw new ArgumentException("Invalid index");
+            } else
+            {
+                ArrayList workers = new ArrayList();
+                foreach(Account account in accounts)
+                {
+                    if (account.IsAvailable(day, hour)) { workers.Add(account); }
+                }
+                return (Account[])workers.ToArray(typeof(Account));
+            }
+        }
 
         public int getCurrentWorkedHours(string worker)
         {

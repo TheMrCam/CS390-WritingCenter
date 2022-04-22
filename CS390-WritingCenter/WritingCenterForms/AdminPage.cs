@@ -70,9 +70,6 @@ namespace WritingCenterForms
         {
             //this.sView.Show();
             //this.sView.BringToFront();
-            Debug.WriteLine(SecurePasswordHasher.Hash("password"));
-            Debug.WriteLine("Username:"+ConfigManager.MasterUsername);
-            Debug.WriteLine("Password:"+ConfigManager.MasterPassword);
         }
 
         private void activateButton(object senderBtn, Color color)
@@ -136,11 +133,11 @@ namespace WritingCenterForms
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             disableButton();
-            leftBorderBtn.Visible = false;
-            labelTitle.Text = "Home";
-            iconLogo.IconChar = IconChar.Home;
-            if (currentChildUC != null)
-                currentChildUC.Hide();
+            //leftBorderBtn.Visible = false;
+            //labelTitle.Text = "Home";
+            //iconLogo.IconChar = IconChar.Home;
+            //if (currentChildUC != null)
+            //    currentChildUC.Hide();
         }
 
         private void openChildUserControl(UserControl uc)
@@ -195,7 +192,7 @@ namespace WritingCenterForms
             }
             else
             { //Expand menu
-                panelMenu.Width = 250;
+                panelMenu.Width = 310;
                 pictureBox1.Visible = true;
                 menuButton.Dock = DockStyle.None;
                 foreach (Button btn in panelMenu.Controls.OfType<Button>())

@@ -43,6 +43,7 @@ namespace WritingCenterForms
             this.Anchor = AnchorStyles.Top |  AnchorStyles.Left;
             this.Dock = DockStyle.Fill;
             loadSchedule();
+            loadLegend();
         }
 
         public void loadSchedule()
@@ -201,15 +202,15 @@ namespace WritingCenterForms
 
         private void scheduleView_Load(object sender, EventArgs e)
         {
-            ToolTip tp = new ToolTip();
-            tp.ToolTipTitle = "Legend";
-            tp.UseFading = false;
-            tp.UseAnimation = true;
-            tp.IsBalloon = false;
-            tp.ShowAlways = true;
-            //tp.AutoPopDelay = 1000;
-            //tp.ReshowDelay = 0;
-            tp.SetToolTip(legendButton, "Red: Needs Workers \n Orange: Understaffed");
+            //ToolTip tp = new ToolTip();
+            //tp.ToolTipTitle = "Legend";
+            //tp.UseFading = false;
+            //tp.UseAnimation = true;
+            //tp.IsBalloon = false;
+            //tp.ShowAlways = true;
+            ////tp.AutoPopDelay = 1000;
+            ////tp.ReshowDelay = 0;
+            //tp.SetToolTip(legendButton, "Red: Needs Workers \n Orange: Understaffed");
         }
 
         private async void ExportSchedule_Click(object sender, EventArgs e)
@@ -351,6 +352,29 @@ namespace WritingCenterForms
             return newArray;
         }
 
-        
+        private void loadLegend()
+        {
+            legendPanel.Size = new Size(300, 80);
+            Button red = new Button();
+            red.FlatAppearance.BorderColor = Color.IndianRed;
+            red.FlatAppearance.BorderSize = 2;
+            red.BackColor = Color.FromArgb(244, 204, 204);
+            red.Text = "No Workers";
+            red.Size = new Size(100, 50);
+            red.Left = 130;
+            red.Enabled = false;
+            legendPanel.Controls.Add(red);
+
+            Button orange = new Button();
+            orange.FlatAppearance.BorderColor = Color.SandyBrown;
+            orange.FlatAppearance.BorderSize = 2;
+            orange.BackColor = Color.FromArgb(252, 229, 205);
+            orange.Text = "Underscheduled";
+            orange.Size = new Size(140, 50);
+            orange.Enabled = false;
+            legendPanel.Controls.Add(orange);
+        }
+
+
     }
 }

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using FontAwesome.Sharp;
+using System.Diagnostics;
 
 namespace WritingCenterForms
 {
@@ -67,8 +68,11 @@ namespace WritingCenterForms
 
         private void AdminPage_Load(object sender, EventArgs e)
         {
-            this.sView.Show();
-            this.sView.BringToFront();
+            //this.sView.Show();
+            //this.sView.BringToFront();
+            Debug.WriteLine(SecurePasswordHasher.Hash("password"));
+            Debug.WriteLine("Username:"+ConfigManager.MasterUsername);
+            Debug.WriteLine("Password:"+ConfigManager.MasterPassword);
         }
 
         private void activateButton(object senderBtn, Color color)

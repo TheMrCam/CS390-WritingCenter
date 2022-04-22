@@ -8,13 +8,23 @@ using System.Threading.Tasks;
 
 namespace WritingCenterForms
 {
-    internal class ConfigManager
+    internal static class ConfigManager
     {
-        public string DatabasePath { get { return ConfigurationManager.ConnectionStrings["DatabaseCSV"].ConnectionString; } }
-        public string SchedulePath { get { return ConfigurationManager.ConnectionStrings["ScheduleCSV"].ConnectionString; } }
+        public static string DatabasePath { get { return ConfigurationManager.ConnectionStrings["DatabaseCSV"].ConnectionString; } }
+        public static string SchedulePath { get { return ConfigurationManager.ConnectionStrings["ScheduleCSV"].ConnectionString; } }
+        public static string MasterUsername 
+        { 
+            get { return ConfigurationManager.AppSettings["MasterUsername"]; }
+            set { UpdateConfig("MasterUsername", value); }
+        }
+        public static string MasterPassword 
+        { 
+            get { return ConfigurationManager.AppSettings["MasterPassword"]; }
+            set { UpdateConfig("MasterPassword", value); }
+        }
 
 
-        private void UpdateConfig(string key, string value)//, string fileName)
+        private static void UpdateConfig(string key, string value)//, string fileName)
         //fileName = System.Reflection.Assembly.GetEntryAssembly().Location; //full path + application name
         {
             string fileName = System.Reflection.Assembly.GetEntryAssembly().Location; //full path + application name

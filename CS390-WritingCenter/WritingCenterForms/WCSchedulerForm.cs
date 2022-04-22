@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace WritingCenterForms
 {
@@ -18,17 +19,20 @@ namespace WritingCenterForms
         AdminPage adminPage = new AdminPage(scheduleView1);
         AcctManagePage acctManagePage1 = new AcctManagePage();
         public static Account currentAccount = null;
-        readonly String defaultPass = "coe"; // change based on user somehow, not sure how to do that - AT
+        //readonly String defaultPass = "coe"; // change based on user somehow, not sure how to do that - AT
         ErrorProvider errorProvider = new ErrorProvider();
 
         public WCSchedulerForm()
         {
             InitializeComponent();
             //Accounts.TestCSV(); //for testing
-            Accounts.TestResponsesCSV();
+            //Accounts.TestResponsesCSV(); //for testing
+            Accounts.ImportFromCSV(ConfigManager.DatabasePath); //official?
             this.StartPosition = FormStartPosition.CenterScreen;
             this.MaximumSize = Screen.PrimaryScreen.WorkingArea.Size;
-
+            //Debug.WriteLine(ConfigManager.MasterUsername);
+            //ConfigManager.MasterUsername = "Cameron";
+            //Debug.WriteLine(ConfigManager.MasterPassword);
         }
 
         private void logIn_Click(object sender, EventArgs e)
@@ -69,11 +73,18 @@ namespace WritingCenterForms
                     adminPage.Show();
                     adminPage.BringToFront();
                 }
-                else if (Accounts.GetAccount(username.Text).Equals(defaultPass))
+                else if (Accounts.GetAccount(username.Text).Equals(Accounts.Default_Password))
                 {
                     this.Controls.Add(acctManagePage1);
                 }
 
+            }
+            else if (username.Text == ConfigManager.MasterUsername && SecurePasswordHasher.Verify(password.Text, ConfigManager.MasterPassword))
+            {
+                this.Controls.Add(adminPage);
+                adminPage.Show();
+                adminPage.BringToFront();
+                //MessageBox.Show("ConfigManager success!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {

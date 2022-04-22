@@ -16,6 +16,7 @@ namespace WritingCenterForms
         //private const string testCSV = @"C:\Users\cmwoodbury19\source\repos\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\dummy_accounts.csv";
         private ArrayList accounts;
         private const string DEFAULT_PASSWORD = "coe";
+        public string Default_Password { get { return DEFAULT_PASSWORD; } }
         private const string ADMIN_PASSWORD = "password";
         private const int CURRENT_YEAR = 2022;
         /*private enum Years
@@ -32,7 +33,7 @@ namespace WritingCenterForms
                 { "Freshman", 3},
                 { "Graduate", 0},
                 { "Faculty",0},
-            };
+        };
 
         public AccountDatabase()
         {
@@ -146,7 +147,7 @@ namespace WritingCenterForms
         public void ImportFromCSV(string filePath)
         {
             //accounts.Add(new Account("admin",ADMIN_PASSWORD, true));
-            accounts.Add(new Account("admin", ADMIN_PASSWORD, "Admin Account", CURRENT_YEAR, 8, null, null, 0, true));
+            //accounts.Add(new Account("admin", ADMIN_PASSWORD, "Admin Account", CURRENT_YEAR, 8, null, null, 0, true));
             Regex regx = new Regex("," + "(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))"); //separates by , but leaves , that are inside ""
             var reader = new StreamReader(File.OpenRead(filePath));
             reader.ReadLine(); //take out header

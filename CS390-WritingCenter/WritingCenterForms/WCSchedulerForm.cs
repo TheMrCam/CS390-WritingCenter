@@ -27,7 +27,7 @@ namespace WritingCenterForms
             InitializeComponent();
             //Accounts.TestCSV(); //for testing
             //Accounts.TestResponsesCSV(); //for testing
-            Accounts.ImportFromCSV(ConfigManager.DatabasePath); //official?
+            //Accounts.ImportFromCSV(ConfigManager.DatabasePath); //official?
             this.StartPosition = FormStartPosition.CenterScreen;
             this.MaximumSize = Screen.PrimaryScreen.WorkingArea.Size;
             //Debug.WriteLine(ConfigManager.MasterUsername);

@@ -68,8 +68,21 @@ namespace WritingCenterForms
 
         private void AdminPage_Load(object sender, EventArgs e)
         {
-            //this.sView.Show();
-            //this.sView.BringToFront();
+            System.Timers.Timer timer = new System.Timers.Timer();
+            timer.Interval = 1000;//1s
+            timer.Elapsed += Timer_Elapsed;
+            timer.Start();
+        }
+
+        private void Timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
+        {
+            //Invoke an anonymous method on the thread of the form.
+            circularProgressBar1.Invoke((MethodInvoker)delegate
+            {
+                //Set time to circular progressbar
+                circularProgressBar1.Text = DateTime.Now.ToString("hh:mm:ss");
+                circularProgressBar1.SubscriptText = DateTime.Now.ToString("tt");//AM or PM
+            });
         }
 
         private void activateButton(object senderBtn, Color color)

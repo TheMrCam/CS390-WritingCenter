@@ -86,3 +86,4 @@ C:\Users\shash\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\obj\De
 C:\Users\cmwoodbury19\source\repos\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\obj\Debug\WritingCenterForms.Alert.resources
 C:\Users\cmwoodbury19\source\repos\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\obj\Debug\WritingCenterForms.FirstSetup.resources
 C:\Users\shash\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\obj\Debug\WritingCenterForms.FirstSetup.resources
+C:\Users\shash\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\bin\Debug\CircularProgressBar.xml

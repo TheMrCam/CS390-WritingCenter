@@ -22,13 +22,7 @@ namespace WritingCenterForms
         private int possibleHours;
         private bool admin;
         private Day[] availability = new Day[7];
-
-        public Account(string user, string pass, bool isAdmin)
-        {
-            username = user;
-            password = SecurePasswordHasher.Hash(pass);
-            admin = isAdmin;
-        }
+        
         /*public Account(string user, string pass, string name, int y = 0, string[] mm = null, int reqHour = 1, bool isAdmin = false)
         {
             username = user;
@@ -43,21 +37,7 @@ namespace WritingCenterForms
             admin = isAdmin;
             currentWorkedHours = 0;
         }*/
-        public Account(string user, string pass, string name, int y = 0, int sem = 0, string[] mm = null, int reqHour = 1, bool isAdmin = false)
-        {
-            username = user;
-            if (SecurePasswordHasher.IsHashSupported(pass))
-                password = pass;
-            else
-                password = SecurePasswordHasher.Hash(pass);
-            Name = name;
-            year = y;
-            semestersInWC = sem;
-            majorsMinors = mm;
-            requestedHours = reqHour;
-            admin = isAdmin;
-            currentWorkedHours = 0;
-        }
+        
 
         public Account(string user, string pass, string name, int y = 0, int sem = 0, string[] M = null, string[] m = null, int reqHour = 1, bool isAdmin = false)
         {
@@ -176,20 +156,6 @@ namespace WritingCenterForms
         }
     
 
-        public void SetMajorsMinors(string[] majors, string[] minors)
-        {
-            List<string> mm = new List<string>();
-            foreach(string m in majors)
-            {
-                mm.Add(m.ToUpper());
-            }
-            foreach (string m in minors)
-            {
-                mm.Add(m.ToLower());
-            }
-            majorsMinors = (string[])mm.ToArray();
-        }
-
         public int RequestedHours
         {
             get { return requestedHours; }
@@ -214,11 +180,6 @@ namespace WritingCenterForms
         {
             availability[day] = new Day(availableTimes);
             hasAvail = true;
-        }
-
-        public int PossibleHours()
-        {
-            return possibleHours;
         }
 
         public void setPossibleHours(int newHours)

@@ -1,28 +1,24 @@
 ﻿using System;
 using System.IO;
-using System.Text.RegularExpressions;
 using System.Collections.Generic;
-using System.Collections;
 using System.Linq;
-using System.Diagnostics;
-using System.Text;
-using System.Threading.Tasks;
-using WritingCenterForms;
 
 namespace WritingCenterForms
 {
     public class Schedule
     {
-        public bool scheduleFilled;
-        public bool MixYears { get; set; }
-        public bool MixMajors { get; set; }
         public Dictionary<string, int> days;
         public Day[] Days = new Day[7];
         public scheduleView sView;
         private ScheduleBuilder builder;
         public List<string> settings = new List<string>();
+
         public int maxShiftInRow = 4;
         public bool highReqHrs = true;
+        public bool scheduleFilled;
+
+        public bool MixYears { get; set; }
+        public bool MixMajors { get; set; }
 
         public Schedule(AccountDatabase accounts, scheduleView scheduleView) // version for the admins
         {    
@@ -150,6 +146,8 @@ namespace WritingCenterForms
             }
             
         }
+
+
         /*
         public void test_WriteScheduleToWCS()
         {

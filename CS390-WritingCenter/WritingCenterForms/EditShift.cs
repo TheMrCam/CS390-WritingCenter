@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WritingCenterForms
@@ -13,16 +10,15 @@ namespace WritingCenterForms
     public partial class EditShift : Form, Observable
     {
         private Schedule schedule;
-        private AccountDatabase accountDb;
         private List<Observer> sViews;
         private string[] workerNames;
         private int day;
         private int time;
+
         public EditShift(Schedule schedule, AccountDatabase accountDb)
         {
             InitializeComponent();
             this.schedule = schedule;
-            this.accountDb = accountDb;
             sViews = new List<Observer>();
             this.Location = new Point(500, 500);
             this.StartPosition = FormStartPosition.CenterScreen;

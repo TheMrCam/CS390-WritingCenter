@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
@@ -11,22 +10,20 @@ namespace WritingCenterForms
 {
     public partial class scheduleView : UserControl, Observer
     {
+
         private Schedule schedule;
         private FlowLayoutPanel sPanel = new FlowLayoutPanel();
         private TableLayoutPanel tableLayoutPanel = new TableLayoutPanel();
         private AccountDatabase Accounts;
-        private Observable obsv;
         private Button selectedButton;
+        private Alert alert;
+
         private int cellHeight;
         private int cellWidth;
         private int panelHeight;
         private int panelWidth;
-        private Alert alert;
-
-
-        public void setSettings(List<string> settings)
-            { schedule.settings = settings; }
-
+        
+        private Observable obsv;
 
         public scheduleView(AccountDatabase Accounts) // version for the admin page
         {
@@ -45,6 +42,9 @@ namespace WritingCenterForms
             loadSchedule();
             loadLegend();
         }
+
+        public void setSettings(List<string> settings)
+            { schedule.settings = settings; }
 
         public void loadSchedule()
         {
@@ -320,10 +320,7 @@ namespace WritingCenterForms
             }
         }
 
-        public void addObservable(Observable observable)
-        {
-            obsv = observable;
-        }
+        public void addObservable(Observable observable) { obsv = observable; }
 
         public void update(int time, int day)
         {

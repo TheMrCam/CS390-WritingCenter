@@ -149,7 +149,6 @@
             this.AcctDisplayListBox.Name = "AcctDisplayListBox";
             this.AcctDisplayListBox.Size = new System.Drawing.Size(701, 430);
             this.AcctDisplayListBox.TabIndex = 5;
-            this.AcctDisplayListBox.SelectedIndexChanged += new System.EventHandler(this.AcctDisplayListBox_SelectedIndexChanged);
             this.AcctDisplayListBox.Enter += new System.EventHandler(this.refreshDatabase_click);
             // 
             // AcctManagePage

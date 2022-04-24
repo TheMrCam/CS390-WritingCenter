@@ -1,14 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using FontAwesome.Sharp;
-using System.Diagnostics;
 
 namespace WritingCenterForms
 {
@@ -18,44 +12,10 @@ namespace WritingCenterForms
         private IconButton currentBtn;
         private Panel leftBorderBtn;
         private UserControl currentChildUC;
-        public bool isAdmin { get; set; }
-
         scheduleView sView;
         AcctManagePage AcctManagePage1;
         SettingsPage settingPage;
         EditAcctInfoPage EditAcctInfoPage1;
-
-        public AdminPage(scheduleView sView)
-        {
-            InitializeComponent();
-            AcctManagePage1 = new AcctManagePage();
-            this.settingPage = new SettingsPage(sView);
-            this.Controls.Add(AcctManagePage1);
-            this.Controls.Add(settingPage);
-            AcctManagePage1.Hide();
-            settingPage.Hide();
-            leftBorderBtn = new Panel();
-            leftBorderBtn.Size = new Size(5, viewSchedule.Size.Height);
-            panelMenu.Controls.Add(leftBorderBtn);
-            this.sView = sView;
-            this.Controls.Add(sView);
-            this.sView.BringToFront();
-            this.sView.Show();
-            collapseMenu();
-            this.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-        }
-
-        public void isNotAdmin()
-        {
-            manageAccounts.Hide();
-            editSchedule.Hide();
-            editRequests.Hide();
-            EditAcctInfoPage1 = new EditAcctInfoPage();
-            this.Controls.Add(EditAcctInfoPage1);
-            EditAcctInfoPage1.Hide();
-            this.Controls.Remove(AcctManagePage1);
-            this.Controls.Remove(settingPage);
-        }
 
         private struct RGBColors
         {
@@ -66,26 +26,46 @@ namespace WritingCenterForms
             public static Color color5 = Color.FromArgb(204, 204, 0);
         }
 
-        private void AdminPage_Load(object sender, EventArgs e)
+        //
+        //*********************************************************************************************************
+        // Main Constructor
+        //*********************************************************************************************************
+        //
+
+        public AdminPage(scheduleView sView)
         {
-            System.Timers.Timer timer = new System.Timers.Timer();
-            timer.Interval = 1000;//1s
-            timer.Elapsed += Timer_Elapsed;
-            timer.Start();
+            InitializeComponent();
+            AcctManagePage1 = new AcctManagePage();
+            this.settingPage = new SettingsPage(sView);
+
+            this.Controls.Add(AcctManagePage1);
+            this.Controls.Add(settingPage);
+
+            AcctManagePage1.Hide();
+            settingPage.Hide();
+
+            leftBorderBtn = new Panel();
+            leftBorderBtn.Size = new Size(5, viewSchedule.Size.Height);
+            panelMenu.Controls.Add(leftBorderBtn);
+
+            this.sView = sView;
+            this.Controls.Add(sView);
+            this.sView.BringToFront();
+            this.sView.Show();
+
+            collapseMenu();
+            this.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
         }
 
-        private void Timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
-        {
+        //
+        //*********************************************************************************************************
+        // User Controls
+        //*********************************************************************************************************
+        //
 
-            //Invoke an anonymous method on the thread of the form.
-            circularProgressBar1.Invoke((MethodInvoker)delegate
-            {
-                //Set time to circular progressbar
-                circularProgressBar1.Text = DateTime.Now.ToString("hh:mm:ss");
-                circularProgressBar1.SubscriptText = DateTime.Now.ToString("tt");//AM or PM
-            });
-        }
-
+        //
+        // When a button is clicked, changes visual appearance
+        //
         private void activateButton(object senderBtn, Color color)
         {
             if (senderBtn != null)
@@ -108,6 +88,9 @@ namespace WritingCenterForms
             }
         }
 
+        // 
+        // When a button is clicked if activated, revert it to normal appearance
+        //
         private void disableButton()
         {
             if (currentBtn != null)
@@ -121,44 +104,36 @@ namespace WritingCenterForms
             }
         }
 
+        //
+        // opens pages associated with buttons and activates button
+        //
         private void viewSchedule_Click(object sender, EventArgs e)
         {
             activateButton(sender, RGBColors.color1);
             openChildUserControl(sView);
         }
-
         private void editSchedule_Click(object sender, EventArgs e)
         {
             activateButton(sender, RGBColors.color2);
             openChildUserControl(settingPage);
         }
-
         private void manageAccounts_Click(object sender, EventArgs e)
         {
             activateButton(sender, RGBColors.color3);
             openChildUserControl(AcctManagePage1);
         }
+        private void editRequests_Click(object sender, EventArgs e) { activateButton(sender, RGBColors.color4); }
+        private void pictureBox1_Click(object sender, EventArgs e) { disableButton(); }
 
-        private void editRequests_Click(object sender, EventArgs e)
-        {
-            activateButton(sender, RGBColors.color4);
-        }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            disableButton();
-            //leftBorderBtn.Visible = false;
-            //labelTitle.Text = "Home";
-            //iconLogo.IconChar = IconChar.Home;
-            //if (currentChildUC != null)
-            //    currentChildUC.Hide();
-        }
-
+        //
+        // Used to open a user control panel
+        //
         private void openChildUserControl(UserControl uc)
         {
-            if (currentChildUC != null) 
+            if (currentChildUC != null)
                 currentChildUC.Hide();
-            if(uc != null)
+            if (uc != null)
             {
                 currentChildUC = uc;
                 currentChildUC.BorderStyle = BorderStyle.None;
@@ -169,25 +144,26 @@ namespace WritingCenterForms
                 currentChildUC.BringToFront();
                 currentChildUC.Show();
             }
-            
+
         }
 
+        //
+        // When log out button is clicked, logs user out
+        //
         private void logOutBtn_Click(object sender, EventArgs e)
         {
             WCSchedulerForm.currentAccount = null;
             this.Hide();
         }
 
-        private void panelTitle_Paint(object sender, PaintEventArgs e)
-        {
+        //
+        // returns user to main menu screen
+        //
+        private void menuButton_Click(object sender, EventArgs e) { collapseMenu(); }
 
-        }
-
-        private void menuButton_Click(object sender, EventArgs e)
-        {
-            collapseMenu();
-        }
-
+        //
+        // collapses menu on left of app
+        //
         private void collapseMenu()
         {
             if (this.panelMenu.Width > 200) //Collapse menu
@@ -218,9 +194,54 @@ namespace WritingCenterForms
             }
         }
 
-        private void userControlPanel_Paint(object sender, PaintEventArgs e)
+        //
+        //*********************************************************************************************************
+        // Other
+        //*********************************************************************************************************
+        //
+
+        //
+        // When admin page loads, initalizes clock
+        //
+        private void AdminPage_Load(object sender, EventArgs e)
+        {
+            System.Timers.Timer timer = new System.Timers.Timer();
+            timer.Interval = 1000;//1s
+            timer.Elapsed += Timer_Elapsed;
+            timer.Start();
+        }
+
+        //
+        // hides componenets if user is not admin
+        //
+        public void isNotAdmin()
+        {
+            manageAccounts.Hide();
+            editSchedule.Hide();
+            editRequests.Hide();
+
+            EditAcctInfoPage1 = new EditAcctInfoPage();
+            this.Controls.Add(EditAcctInfoPage1);
+            EditAcctInfoPage1.Hide();
+
+            this.Controls.Remove(AcctManagePage1);
+            this.Controls.Remove(settingPage);
+        }
+
+        //
+        // Updates clock on main page
+        //
+        private void Timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
 
+            //Invoke an anonymous method on the thread of the form.
+            circularProgressBar1.Invoke((MethodInvoker)delegate
+            {
+                //Set time to circular progressbar
+                circularProgressBar1.Text = DateTime.Now.ToString("hh:mm:ss");
+                circularProgressBar1.SubscriptText = DateTime.Now.ToString("tt");//AM or PM
+            });
         }
+
     }
 }

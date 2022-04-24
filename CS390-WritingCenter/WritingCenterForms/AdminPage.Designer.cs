@@ -218,7 +218,6 @@
             this.panelTitle.Name = "panelTitle";
             this.panelTitle.Size = new System.Drawing.Size(1232, 82);
             this.panelTitle.TabIndex = 1;
-            this.panelTitle.Paint += new System.Windows.Forms.PaintEventHandler(this.panelTitle_Paint);
             // 
             // logOutBtn
             // 
@@ -273,7 +272,6 @@
             this.userControlPanel.Name = "userControlPanel";
             this.userControlPanel.Size = new System.Drawing.Size(1232, 868);
             this.userControlPanel.TabIndex = 2;
-            this.userControlPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.userControlPanel_Paint);
             this.userControlPanel.Enter += new System.EventHandler(this.AdminPage_Load);
             // 
             // circularProgressBar1

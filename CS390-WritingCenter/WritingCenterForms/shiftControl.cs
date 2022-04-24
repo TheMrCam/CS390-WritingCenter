@@ -25,7 +25,7 @@ namespace WritingCenterForms
 
         public int defaultMinWorker = 1;
         public int defaultMaxWorker = 4;
-
+        private CheckBox checkBox3;
 
         public shiftControl()
         {
@@ -83,7 +83,7 @@ namespace WritingCenterForms
             checkBox1 = new CheckBox();
             this.checkBox1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             this.checkBox1.Name = "checkBox" + i;
-            if (openHours[i]) { checkBox1.CheckState = CheckState.Checked; }
+            if (openHours[i]) { this.checkBox1.CheckState = CheckState.Checked; this.checkBox1.Checked = true;  }
             this.checkBox1.Size = new Size(718, 29);
             this.checkBox1.TabIndex = tabIndex;
             this.checkBox1.Text = convertTime(i);

@@ -76,6 +76,7 @@ namespace WritingCenterForms
 
         private void Timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
+
             //Invoke an anonymous method on the thread of the form.
             circularProgressBar1.Invoke((MethodInvoker)delegate
             {

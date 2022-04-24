@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.invertOpenButton = new System.Windows.Forms.Button();
             this.setMinWorkersButton = new System.Windows.Forms.Button();
             this.setMaxWorkersButton = new System.Windows.Forms.Button();
             this.univMaxWorker = new System.Windows.Forms.NumericUpDown();
@@ -53,7 +54,7 @@
             this.orderedBox = new System.Windows.Forms.ListBox();
             this.unorderedBox = new System.Windows.Forms.ListBox();
             this.submitButton = new System.Windows.Forms.Button();
-            this.invertOpenButton = new System.Windows.Forms.Button();
+            this.tabComboBox = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.univMaxWorker)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.univMinWorkers)).BeginInit();
@@ -68,6 +69,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.AutoScroll = true;
             this.panel1.BackColor = System.Drawing.Color.OldLace;
+            this.panel1.Controls.Add(this.tabComboBox);
             this.panel1.Controls.Add(this.invertOpenButton);
             this.panel1.Controls.Add(this.setMinWorkersButton);
             this.panel1.Controls.Add(this.setMaxWorkersButton);
@@ -90,6 +92,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(801, 560);
             this.panel1.TabIndex = 1;
+            // 
+            // invertOpenButton
+            // 
+            this.invertOpenButton.Location = new System.Drawing.Point(127, 166);
+            this.invertOpenButton.Name = "invertOpenButton";
+            this.invertOpenButton.Size = new System.Drawing.Size(120, 23);
+            this.invertOpenButton.TabIndex = 28;
+            this.invertOpenButton.Text = "Invert Open Selection";
+            this.invertOpenButton.UseVisualStyleBackColor = true;
+            this.invertOpenButton.Click += new System.EventHandler(this.invertOpenHrs_Click);
             // 
             // setMinWorkersButton
             // 
@@ -364,15 +376,22 @@
             this.submitButton.UseVisualStyleBackColor = true;
             this.submitButton.Click += new System.EventHandler(this.submitButton_Click);
             // 
-            // invertOpenButton
+            // tabComboBox
             // 
-            this.invertOpenButton.Location = new System.Drawing.Point(127, 166);
-            this.invertOpenButton.Name = "invertOpenButton";
-            this.invertOpenButton.Size = new System.Drawing.Size(120, 23);
-            this.invertOpenButton.TabIndex = 28;
-            this.invertOpenButton.Text = "Invert Open Selection";
-            this.invertOpenButton.UseVisualStyleBackColor = true;
-            this.invertOpenButton.Click += new System.EventHandler(this.invertOpenHrs_Click);
+            this.tabComboBox.AllowDrop = true;
+            this.tabComboBox.FormattingEnabled = true;
+            this.tabComboBox.Items.AddRange(new object[] {
+            "Sunday",
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"});
+            this.tabComboBox.Location = new System.Drawing.Point(253, 166);
+            this.tabComboBox.Name = "tabComboBox";
+            this.tabComboBox.Size = new System.Drawing.Size(97, 21);
+            this.tabComboBox.TabIndex = 30;
             // 
             // SettingsPage
             // 
@@ -422,5 +441,6 @@
         private System.Windows.Forms.Button setMinWorkersButton;
         private System.Windows.Forms.Button setMaxWorkersButton;
         private System.Windows.Forms.Button invertOpenButton;
+        private System.Windows.Forms.ComboBox tabComboBox;
     }
 }

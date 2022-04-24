@@ -7,7 +7,9 @@ namespace WritingCenterForms
     public partial class SettingsPage : UserControl
     {
         Day[] days = new Day[7];
+        
         private scheduleView scheduleView;
+        
         private shiftControl sundayControl = new shiftControl();
         private shiftControl mondayControl = new shiftControl();
         private shiftControl tuesdayControl = new shiftControl();
@@ -16,12 +18,22 @@ namespace WritingCenterForms
         private shiftControl fridayControl = new shiftControl();
         private shiftControl saturdayControl = new shiftControl();
 
-        //
-        //**************************************************************************
-        // Creates new settings editor page
-        //**************************************************************************
-        //
-        public SettingsPage(scheduleView scheduleView)
+        Dictionary<string,int> daysEnum = new Dictionary<string, int>(){
+                { "sunday", 0},
+                { "monday", 1},
+                { "tuesday", 2},
+                { "wednesday", 3},
+                { "thursday", 4},
+                { "friday", 5},
+                { "saturday", 6}
+            };
+
+    //
+    //**************************************************************************
+    // Creates new settings editor page
+    //**************************************************************************
+    //
+    public SettingsPage(scheduleView scheduleView)
         {
             InitializeComponent();
             this.scheduleView = scheduleView;
@@ -93,6 +105,10 @@ namespace WritingCenterForms
             scheduleView.BringToFront();
         }
 
+        //
+        // Sets all min workers on the schedule
+        //
+
         private void setMinWorkersButton_Click(object sender, EventArgs e)
         {
             sundayControl.defaultMinWorker = (int)univMinWorkers.Value;
@@ -105,6 +121,10 @@ namespace WritingCenterForms
 
             reloadAllConPanels();
         }
+
+        //
+        // Sets all max workers on the schedule
+        //
 
         private void setMaxWorkersButton_Click(object sender, EventArgs e)
         {
@@ -120,6 +140,10 @@ namespace WritingCenterForms
             reloadAllConPanels();
         }
 
+        //
+        // Reloads all shift control panels to reflect updates from buttons
+        //
+
         private void reloadAllConPanels()
         {
             sundayControl.Controls.Add(sundayControl.loadShiftControls());
@@ -131,18 +155,21 @@ namespace WritingCenterForms
             saturdayControl.Controls.Add(saturdayControl.loadShiftControls());
         }
 
+        //
+        // Inverts current selection for open hours based on idex chosen in the combo box
+        //
+
         private void invertOpenHrs_Click(object sender, EventArgs e)
         {
-            if(SundayTab.Focused) { sundayControl.invertOpenHours(); }
-            else if(MondayTab.Focused) { mondayControl.invertOpenHours(); }
-            else if(TuedayTab.Focused) { tuesdayControl.invertOpenHours(); }
-            else if(WednesdayTab.Focused) { wednesdayControl.invertOpenHours(); }
-            else if(ThursdayTab.Focused) { thursdayControl.invertOpenHours(); }
-            else if(FridayTab.Focused) { fridayControl.invertOpenHours(); }
-            else if(SaturdayTab.Focused) { saturdayControl.invertOpenHours(); }
-
-            reloadAllConPanels();
+            if(tabComboBox.SelectedIndex.Equals(daysEnum["sunday"])) { sundayControl.invertOpenHours(); }
+            else if(tabComboBox.SelectedIndex.Equals(daysEnum["monday"])) { mondayControl.invertOpenHours(); }
+            else if(tabComboBox.SelectedIndex.Equals(daysEnum["tuesday"])) { tuesdayControl.invertOpenHours(); }
+            else if(tabComboBox.SelectedIndex.Equals(daysEnum["wednesday"])) { wednesdayControl.invertOpenHours(); }
+            else if(tabComboBox.SelectedIndex.Equals(daysEnum["thursday"])) { thursdayControl.invertOpenHours(); }
+            else if(tabComboBox.SelectedIndex.Equals(daysEnum["friday"])) { fridayControl.invertOpenHours(); }
+            else if(tabComboBox.SelectedIndex.Equals(daysEnum["saturday"])) { saturdayControl.invertOpenHours(); }
             
+            reloadAllConPanels();
         }
     }
 }

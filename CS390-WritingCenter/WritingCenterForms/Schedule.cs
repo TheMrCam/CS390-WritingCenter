@@ -23,7 +23,6 @@ namespace WritingCenterForms
         public List<string> settings = new List<string>();
         public int maxShiftInRow = 4;
         public bool highReqHrs = true;
-        private IDictionary workersWNoHours;
 
         public Schedule(AccountDatabase accounts, scheduleView scheduleView) // version for the admins
         {    
@@ -45,23 +44,6 @@ namespace WritingCenterForms
 
         }
 
-        public Schedule(scheduleView scheduleView) // version for the users
-        {
-            scheduleFilled = false;
-            days = new Dictionary<string, int>(){
-                { "sunday", 0},
-                { "monday", 1},
-                { "tuesday", 2},
-                { "wednesday", 3},
-                { "thursday", 4},
-                { "friday", 5},
-                { "saturday", 6}
-            };
-            OCBasicSchedule(new int[] { 11, 8, 8, 8, 8, 8, 23 }, new int[] { 23, 23, 23, 23, 23, 23, 23 }); // default open hours?
-            sView = scheduleView;
-            importCSVFile();
-            scheduleFilled = true;
-        }
 
         public void importCSVFile(string fileName = @"schedule.csv")
         {

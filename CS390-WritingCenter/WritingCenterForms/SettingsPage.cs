@@ -141,21 +141,6 @@ namespace WritingCenterForms
         }
 
         //
-        // Reloads all shift control panels to reflect updates from buttons
-        //
-
-        private void reloadAllConPanels()
-        {
-            sundayControl.Controls.Add(sundayControl.loadShiftControls());
-            mondayControl.Controls.Add(mondayControl.loadShiftControls());
-            tuesdayControl.Controls.Add(tuesdayControl.loadShiftControls());
-            wednesdayControl.Controls.Add(wednesdayControl.loadShiftControls());
-            thursdayControl.Controls.Add(thursdayControl.loadShiftControls());
-            fridayControl.Controls.Add(fridayControl.loadShiftControls());
-            saturdayControl.Controls.Add(saturdayControl.loadShiftControls());
-        }
-
-        //
         // Inverts current selection for open hours based on idex chosen in the combo box
         //
 
@@ -171,5 +156,21 @@ namespace WritingCenterForms
             
             reloadAllConPanels();
         }
+
+        //
+        // Reloads all shift control panels to reflect updates from buttons
+        //
+
+        private void reloadAllConPanels()
+        {
+            sundayControl.Controls.Add(sundayControl.loadShiftControls());
+            mondayControl.Controls.Add(mondayControl.loadShiftControls());
+            tuesdayControl.Controls.Add(tuesdayControl.loadShiftControls());
+            wednesdayControl.Controls.Add(wednesdayControl.loadShiftControls());
+            thursdayControl.Controls.Add(thursdayControl.loadShiftControls());
+            fridayControl.Controls.Add(fridayControl.loadShiftControls());
+            saturdayControl.Controls.Add(saturdayControl.loadShiftControls());
+        }
+
     }
 }

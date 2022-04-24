@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WritingCenterForms
@@ -18,6 +12,7 @@ namespace WritingCenterForms
         private NumericUpDown maxNumericUpDown;
         private CheckBox checkBox2;
         private Label labels;
+
         public int[] minWorker = new int[24];
         public int[] maxWorker = new int[24];
         public bool[] openHours = new bool[24] {false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false};
@@ -25,8 +20,10 @@ namespace WritingCenterForms
 
         public int defaultMinWorker = 1;
         public int defaultMaxWorker = 4;
-        private CheckBox checkBox3;
 
+        //
+        //
+        //
         public shiftControl()
         {
             InitializeComponent();
@@ -184,15 +181,9 @@ namespace WritingCenterForms
             else return i + ":00pm";
         }
 
-
         public Day getDay()
         {
             return new Day(openHours, minWorker, maxWorker, busyShifts);
-        }
-
-        private void Control_Load_1(object sender, EventArgs e)
-        {
-
         }
 
         public void invertOpenHours()

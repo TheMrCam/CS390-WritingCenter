@@ -33,7 +33,6 @@
             // Control
             // 
             this.Name = "Control";
-            this.Load += new System.EventHandler(this.Control_Load_1);
             this.ResumeLayout(false);
 
         }

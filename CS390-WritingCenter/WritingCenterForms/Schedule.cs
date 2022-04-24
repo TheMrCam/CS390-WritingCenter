@@ -129,24 +129,6 @@ namespace WritingCenterForms
             }
         }
 
-        public string ScheduleLines()
-        {
-            string lines = "";
-            foreach(Day day in Days)
-            {
-                lines += day.PrintableDay();
-            }
-            return lines;
-        }
-
-        public Schedule buildNewSchedule(int[] opens, int[] closes)
-        {
-            //Schedule newSched = new Schedule();
-            this.OCBasicSchedule(opens, closes);
-            builder.buildSchedule(this, 4);
-            return this;
-        }
-
         public void setDays(Day[] days)
         {
             this.Days = days;

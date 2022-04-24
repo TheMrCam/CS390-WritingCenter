@@ -21,9 +21,9 @@ namespace WritingCenterForms
         public int defaultMinWorker = 1;
         public int defaultMaxWorker = 4;
 
-        //
-        //
-        //
+        //*********************************************************************************************************
+        // Main
+        //*********************************************************************************************************
         public shiftControl()
         {
             InitializeComponent();
@@ -31,6 +31,14 @@ namespace WritingCenterForms
             this.Controls.Add(loadShiftControls());
             this.BackColor = Color.Wheat;
         }
+
+        //*********************************************************************************************************
+        // Generating GUI
+        //*********************************************************************************************************
+
+        //
+        // Loads All Shift Controls
+        //
 
         public TableLayoutPanel loadShiftControls()
         {
@@ -64,6 +72,10 @@ namespace WritingCenterForms
             return tableLayoutPanel1;
         }
 
+        //
+        // Creates labels for the columns in shift control
+        //
+
         private Label createLabel(int i, string name)
         {
             this.labels = new Label();
@@ -75,29 +87,32 @@ namespace WritingCenterForms
             return labels;
         }
 
+        //
+        // Creates a checkbox for that row (hour) to indicate if it is open
+        //
+
         private CheckBox createOpenHourCheckboxes(int i, int tabIndex)
         {
             checkBox1 = new CheckBox();
+
+            if (openHours[i]) { this.checkBox1.CheckState = CheckState.Checked; this.checkBox1.Checked = true;  }
+
             this.checkBox1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             this.checkBox1.Name = "checkBox" + i;
-            if (openHours[i]) { this.checkBox1.CheckState = CheckState.Checked; this.checkBox1.Checked = true;  }
             this.checkBox1.Size = new Size(718, 29);
             this.checkBox1.TabIndex = tabIndex;
             this.checkBox1.Text = convertTime(i);
             this.checkBox1.TextAlign = ContentAlignment.MiddleCenter;
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.Dock = DockStyle.Fill;
-            this.checkBox1.CheckedChanged += new EventHandler(checkBox_valueChanged);
+            this.checkBox1.CheckedChanged += new EventHandler(openHoursCheckBox_valueChanged);
+
             return checkBox1;
         }
 
-        private void checkBox_valueChanged(object sender, EventArgs e)
-        {
-            CheckBox checkBox = (CheckBox)sender;
-            int i = int.Parse(checkBox.Name.Substring(8));
-            if (checkBox.Checked) openHours[i] = true;
-            else openHours[i] = false;
-        }
+        //
+        // Creates min worker numeric counters
+        //
 
         private NumericUpDown createMinNumericUpDown(int i, int tabIndex)
         {
@@ -114,12 +129,9 @@ namespace WritingCenterForms
             return minNumericUpDown;
         }
 
-        private void minNumericUpDown_valueChanged(object sender, EventArgs e)
-        {
-            NumericUpDown numericUpDown = (NumericUpDown)sender;
-            int i = int.Parse(numericUpDown.Name.Substring(3));
-            minWorker[i] = Convert.ToInt32(numericUpDown.Value);
-        }
+        //
+        // Creates max worker numeric counters
+        //
 
         private NumericUpDown createMaxNumericUpDown(int i, int tabIndex)
         {
@@ -136,13 +148,9 @@ namespace WritingCenterForms
             return maxNumericUpDown;
         }
 
-        private void maxNumericUpDown_valueChanged(object sender, EventArgs e)
-        {
-            NumericUpDown numeric = (NumericUpDown)sender;
-            int i = int.Parse(numeric.Name.Substring(3));
-            maxWorker[i] = Convert.ToInt32(numeric.Value);
-
-        }
+        //
+        // Creates busy checkbox indicators
+        //
 
         private CheckBox createBusyCheckbox(int i, int tabIndex)
         {
@@ -155,17 +163,71 @@ namespace WritingCenterForms
             this.checkBox2.TabIndex = tabIndex;
             this.checkBox2.UseVisualStyleBackColor = true;
             this.checkBox2.Dock = DockStyle.Fill;
-            this.checkBox2.CheckedChanged += new EventHandler(checkBox2_valueChanged);
+            this.checkBox2.CheckedChanged += new EventHandler(busyShift_valueChanged);
             return checkBox2;
         }
 
-        private void checkBox2_valueChanged(object sender, EventArgs e)
+        //*********************************************************************************************************
+        // User generated Events
+        //*********************************************************************************************************
+
+        //
+        // Occurs when open hours checkbox is changed: updates open hours
+        //
+
+        private void openHoursCheckBox_valueChanged(object sender, EventArgs e)
+        {
+            CheckBox checkBox = (CheckBox)sender;
+            int i = int.Parse(checkBox.Name.Substring(8));
+            if (checkBox.Checked) openHours[i] = true;
+            else openHours[i] = false;
+        }
+
+        //
+        // Happens when the min worker up/down value is changed: changes min workers for the shift
+        //
+
+        private void minNumericUpDown_valueChanged(object sender, EventArgs e)
+        {
+            NumericUpDown numericUpDown = (NumericUpDown)sender;
+            int i = int.Parse(numericUpDown.Name.Substring(3));
+            minWorker[i] = Convert.ToInt32(numericUpDown.Value);
+        }
+
+        
+
+        //
+        // Happens when the max worker up/down value is changed: changes max workers for the shift
+        // 
+
+        private void maxNumericUpDown_valueChanged(object sender, EventArgs e)
+        {
+            NumericUpDown numeric = (NumericUpDown)sender;
+            int i = int.Parse(numeric.Name.Substring(3));
+            maxWorker[i] = Convert.ToInt32(numeric.Value);
+
+        }
+
+
+        //
+        // Occurs when a busy checkbox is changed: updates the shift's "busy" value
+        //
+
+        private void busyShift_valueChanged(object sender, EventArgs e)
         {
             CheckBox checkBox = (CheckBox)sender;
             int i = int.Parse(checkBox.Name.Substring(12));
             if (checkBox.Checked) busyShifts[i] = true;
             else busyShifts[i] = false; 
         }
+
+        //*********************************************************************************************************
+        // Other
+        //*********************************************************************************************************
+
+        //
+        // Converts time from 24-hour clock to 12, for first part of shift 
+        //
 
         private string convertTime(int i)
         {
@@ -174,6 +236,10 @@ namespace WritingCenterForms
             else return i + ":00pm - " + convertTimeS(i+1);
         }
 
+        //
+        // Converts time from 24 hour clock to 12, for second part of shift
+        //
+
         private string convertTimeS(int i)
         {
             if (i > 12) return i - 12 + ":00pm";
@@ -181,17 +247,20 @@ namespace WritingCenterForms
             else return i + ":00pm";
         }
 
+        //
+        // returns a Day object built with the settings from this page
+        //
+
         public Day getDay()
         {
             return new Day(openHours, minWorker, maxWorker, busyShifts);
         }
 
+        //
+        // inverts all open hours for the shift
+        //
+
         public void invertOpenHours()
-        {
-            for(int i = 0; i < 24; i++)
-            {
-                openHours[i] = !openHours[i];
-            }
-        }
+        { for(int i = 0; i < 24; i++) { openHours[i] = !openHours[i]; } }
     }
 }

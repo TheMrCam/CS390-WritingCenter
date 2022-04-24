@@ -10,16 +10,14 @@ namespace WritingCenterForms
     public class Day
     {
         private const int Slots = 24;
-        public enum daynames
-        {
-            sunday,
-            monday,
-            tuesday,
-            wednesday,
-            thursday,
-            friday,
-            saturday
-        };
+        private Hour[] hours;
+        public Hour[] Hours { get { return hours; } set { hours = value;} }
+        
+        //
+        //*********************************************************************************************************
+        // HOUR STRUCT
+        //*********************************************************************************************************
+        //
         public struct Hour
         //Keeps the open bool and parameter string[] linked together in array of Hours[]
         {
@@ -27,8 +25,13 @@ namespace WritingCenterForms
             private string[] names;
             public int minWorkers, maxWorkers;
             public bool Busy;
+
             public bool Availible { get { return availible; } set { availible = value; } }
             public string[] Names { get { return names; } set { names = value; } }
+
+            //
+            // Constructs an hour based on if it is open (availible) and a string of workers
+            //
             public Hour(bool available, string[] workers = null)
             {
                 this.availible = available;
@@ -41,6 +44,10 @@ namespace WritingCenterForms
                 this.names = workers;
                 this.Busy = false;
             }
+
+            //
+            // Constructs hour based on if it is open(availible), minimum and maxmimum workers, busy indicator, and initializes blank names.
+            //
             public Hour(bool open, int min, int max, bool busy)
             {
                 this.availible=open;
@@ -50,6 +57,9 @@ namespace WritingCenterForms
                 this.names = null;
             }
 
+            //
+            // Overwrites hour settings based on input without overwriting names
+            //
             public void overwriteSettings(bool open,int min,int max,bool busy)
             {
                 this.availible = open;
@@ -57,79 +67,35 @@ namespace WritingCenterForms
                 this.maxWorkers = max;
                 this.Busy = busy;
             }
-            public string[] getNames()
-            {
-                return names;
-            }
-            public void setNames(string[] newNames)
-            {
-                this.names = newNames;
-            }
+        
+        }
 
-            public void setNames(List<string> newNames)
-            {
-                string[] addedNames = new string[newNames.Count];
-                for (int i = 0; i < newNames.Count; i++)
-                {
-                    addedNames[i] = newNames[i];
-                }
-                this.names = addedNames;
-            }
-        }
-        //public static int SlotSize { get { return SlotSize; } set { if (value == 15 || value == 20 || value == 30 || value == 60) { SlotSize = value; } else { SlotSize = 60; } } } //15, 20, 30, or 60 minute slots; default: 60
-        private Hour[] hours;
-        public Hour[] Hours { get { return hours; } set { hours = value;} }
-        public Day()
-        {
-            Hours = new Hour[Slots];
-        }
+
+        //
+        //*********************************************************************************************************
+        // Day Main Constructor
+        //*********************************************************************************************************
+        //
+
+        //
+        // Constructs day based on opening to closing hours (24 hour time, midnight = 0)
+        //
         public Day(int open, int close)
-        //Constructs day based on opening to closing hours (24 hour time, midnight = 0)
         {
             Hours = new Hour[Slots];
             for(int i = 0;i<Hours.Length;i++)
             {
-                if(i >= open && i < close)
-                {
-                    Hours[i] = new Hour(true); //open hours
-                } 
+                if (i >= open && i < close)
+                { Hours[i] = new Hour(true); } //open hours
+
                 else
-                {
-                    Hours[i] = new Hour(false); //closed hours
-                }
+                { Hours[i] = new Hour(false); } //closed hours 
             }
         }
-        public Day(bool[] openHours, int[] minWorkers, int[] maxWorkers, bool[] busyHours)
-        //new Day, empty names
-        {
-            if (openHours.Length != Slots) //For now, hardcoded 1 hour time slots
-            {
-                throw new ArgumentException();
-            }
-            else
-            {
-                Hours = new Hour[Slots];
-                for (int i = 0; i < Hours.Length; i++)
-                {
-                    Hours[i] = new Hour(openHours[i],minWorkers[i],maxWorkers[i],busyHours[i]);
-                }
-            }
-        }
-        public void overwriteDaySettings(bool[] openHours, int[] minWorkers, int[] maxWorkers, bool[] busyHours)
-        //changes the settings without overwriting the names
-        {
-            if (openHours.Length != Slots) //For now, hardcoded 1 hour time slots
-            {
-                throw new ArgumentException();
-            }
-            else
-            {
-                for (int i = 0; i < Hours.Length; i++)
-                {
-                    Hours[i].overwriteSettings(openHours[i], minWorkers[i], maxWorkers[i], busyHours[i]);
-                }
-            }
-        }
+
+        //
+        // Constructs a day based on when it is open (Availible)
+        //
         public Day(bool[] available)
         {
             if (available.Length != Slots) //For now, hardcoded 1 hour time slots
@@ -146,50 +112,58 @@ namespace WritingCenterForms
             }
         }
 
-        public Day(bool[] available, string[][] names)
+        //
+        // Constructs a new Day, with empty names
+        //
+        public Day(bool[] openHours, int[] minWorkers, int[] maxWorkers, bool[] busyHours)
+        
         {
-            if(available.Length != Slots || names.Length != Slots) //For now, hardcoded 1 hour time slots
+            if (openHours.Length != Slots) //For now, hardcoded 1 hour time slots
             {
                 throw new ArgumentException();
             }
             else
             {
                 Hours = new Hour[Slots];
-                for(int i = 0;i<Hours.Length;i++)
+                for (int i = 0; i < Hours.Length; i++)
                 {
-                    Hours[i] = new Hour(available[i],names[i]);
+                    Hours[i] = new Hour(openHours[i],minWorkers[i],maxWorkers[i],busyHours[i]);
                 }
             }
         }
-        
 
+        //
+        // Overwrites settings without clearing names
+        //
+        public void overwriteDaySettings(bool[] openHours, int[] minWorkers, int[] maxWorkers, bool[] busyHours)
+        {
+            if (openHours.Length != Slots) //For now, hardcoded 1 hour time slots
+            {
+                throw new ArgumentException();
+            }
+            else
+            {
+                for (int i = 0; i < Hours.Length; i++)
+                {
+                    Hours[i].overwriteSettings(openHours[i], minWorkers[i], maxWorkers[i], busyHours[i]);
+                }
+            }
+        }
+
+        //
+        // Returns an hour based on an index
+        //
         public Hour GetHour(int whichOne) { return hours[whichOne]; }
 
+        //
+        // Changes an hour based on index, overwrites availibility and names for that shift
+        //
         public void EditHour(int hour, bool available, string[] names)
         {
             Hours[hour].Availible = available;
             Hours[hour].Names = names;
         }
 
-        public string PrintableDay()
-        {
-            string daystring = "[ ";
-            for (int i = 0; i < Slots; i++)
-            {
-                daystring += Hours[i].Availible ? "1" : "0";
-                daystring += ": ";
-                if (Hours[i].Names != null)
-                {
-                    foreach (string name in Hours[i].Names)
-                    {
-                        daystring += name + " ";
-                    }
-                    daystring += " | ";
-                }
-            }
-            daystring += "]";
-            return daystring;
-        }
 
     }
 }

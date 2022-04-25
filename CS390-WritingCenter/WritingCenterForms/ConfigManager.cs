@@ -23,6 +23,11 @@ namespace WritingCenterForms
             get { return ReadSetting("MasterPassword"); }
             set { AddUpdateAppSettings("MasterPassword", value); }
         }
+        public static string DefaultUserPassword
+        {
+            get { return ReadSetting("DefaultUserPassword"); }
+            set { AddUpdateAppSettings("DefaultUserPassword", value); }
+        }
         public static string DatabasePath
         {
             get { return ReadSetting("DatabasePath"); }
@@ -32,6 +37,11 @@ namespace WritingCenterForms
         {
             get { return ReadSetting("SettingsPath"); }
             set { AddUpdateAppSettings("SettingsPath", value); }
+        }
+
+        public static bool IsSetup
+        {
+            get { return (ReadSetting("MasterPassword") == "") && (ReadSetting("MasterUsername") == ""); }
         }
 
 

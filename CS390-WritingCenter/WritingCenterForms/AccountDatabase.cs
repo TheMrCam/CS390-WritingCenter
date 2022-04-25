@@ -15,7 +15,7 @@ namespace WritingCenterForms
     {
         //private const string testCSV = @"C:\Users\cmwoodbury19\source\repos\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\dummy_accounts.csv";
         private ArrayList accounts;
-        private const string DEFAULT_PASSWORD = "coe";
+        private const string DEFAULT_PASSWORD = "password";
         public string Default_Password { get { return DEFAULT_PASSWORD; } }
         private const string ADMIN_PASSWORD = "password";
         private const int CURRENT_YEAR = 2022;
@@ -150,6 +150,7 @@ namespace WritingCenterForms
             //accounts.Add(new Account("admin", ADMIN_PASSWORD, "Admin Account", CURRENT_YEAR, 8, null, null, 0, true));
             Regex regx = new Regex("," + "(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))"); //separates by , but leaves , that are inside ""
             var reader = new StreamReader(File.OpenRead(filePath));
+            string DefaultPassword = ConfigManager.DefaultUserPassword ?? DEFAULT_PASSWORD;
             reader.ReadLine(); //take out header
             while(!reader.EndOfStream)
             {
@@ -172,7 +173,7 @@ namespace WritingCenterForms
                 int reqHours = Convert.ToInt32(values[8]);
                 bool admin = false;
                 //AddAccount(new Account(username, DEFAULT_PASSWORD, name, year, WCsemesters, majorsMinors, reqHours, admin));
-                AddAccount(new Account(username, DEFAULT_PASSWORD, name, year, WCsemesters, majors, minors, reqHours, admin));
+                AddAccount(new Account(username, DefaultPassword, name, year, WCsemesters, majors, minors, reqHours, admin));
 
                 bool[][] weeklyAvailability = new bool[7][];
                 for(int i = 9;i<16;i++)

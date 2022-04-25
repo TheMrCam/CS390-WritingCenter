@@ -13,10 +13,11 @@ namespace WritingCenterForms
 {
     public partial class FirstSetup : Form
     {
-        private string databaseFilePath;
+        private string databaseFilePath = ConfigManager.DatabasePath;
         public FirstSetup()
         {
             InitializeComponent();
+            if (databaseFilePath != "") { FileName_label.Text = databaseFilePath; }
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -38,8 +39,8 @@ namespace WritingCenterForms
             }
             if (result == DialogResult.OK)
             {
-                FileName_label.Text = fileName;
                 databaseFilePath = fileName;
+                FileName_label.Text = databaseFilePath;
                 /*if (string.IsNullOrEmpty(fileName))
                 {
                     MessageBox.Show("Invalid File Name", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -67,20 +68,23 @@ namespace WritingCenterForms
 
         private void OK_button_Click(object sender, EventArgs e)
         {
-            if (MasterUser_TextBox.Text == "" || MasterPassword_TextBox.Text == "" || DefaultPass_TextBox.Text == "")
+            if (MasterUser_TextBox.Text == "" || MasterPassword_TextBox.Text == "" || DefaultPass_TextBox.Text == "" || databaseFilePath == "")
             {
-                return;
+                MessageBox.Show("Not all fields completed","Try Again",MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
                 ConfigManager.MasterUsername = MasterUser_TextBox.Text;
                 ConfigManager.MasterPassword = MasterPassword_TextBox.Text;
                 ConfigManager.DefaultUserPassword = DefaultPass_TextBox.Text;
-                try
+                ConfigManager.DatabasePath = databaseFilePath;
+                this.Close();
+                /*try
                 {
                     WCSchedulerForm.Accounts.ImportFromCSV(databaseFilePath);
-                    MessageBox.Show($"Successfully imported database from {databaseFilePath}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    FileName_label.Text = databaseFilePath;
+                    //MessageBox.Show($"Successfully imported database from {databaseFilePath}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //FileName_label.Text = databaseFilePath;
+                    
                 }
                 catch (IOException)
                 {
@@ -90,7 +94,7 @@ namespace WritingCenterForms
                 {
                     MessageBox.Show("Miscellaneous Error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                finally { this.Close(); }
+                finally { this.Close(); } */
             }
         }
     }

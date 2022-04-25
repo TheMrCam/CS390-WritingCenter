@@ -21,7 +21,7 @@ namespace WritingCenterForms
         public static string MasterPassword 
         { 
             get { return ReadSetting("MasterPassword"); }
-            set { AddUpdateAppSettings("MasterPassword", value); }
+            set { AddUpdateAppSettings("MasterPassword", SecurePasswordHasher.Hash(value)); }
         }
         public static string DefaultUserPassword
         {
@@ -41,7 +41,7 @@ namespace WritingCenterForms
 
         public static bool IsSetup
         {
-            get { return (ReadSetting("MasterPassword") == "") && (ReadSetting("MasterUsername") == ""); }
+            get { return (MasterPassword != "") && (MasterUsername != "") && (DatabasePath != ""); }
         }
 
 

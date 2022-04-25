@@ -16,7 +16,7 @@ namespace WritingCenterForms
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            if (ConfigManager.IsSetup) { Application.Run(new FirstSetup()); }
+            if (!ConfigManager.IsSetup) { Application.Run(new FirstSetup()); }
             Application.Run(new WCSchedulerForm());
         }
     }

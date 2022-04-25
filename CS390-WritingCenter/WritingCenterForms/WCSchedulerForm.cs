@@ -28,6 +28,8 @@ namespace WritingCenterForms
             //Accounts.TestCSV(); //for testing
             //Accounts.TestResponsesCSV(); //for testing
             //Accounts.ImportFromCSV(ConfigManager.DatabasePath); //official?
+            if (File.Exists(ConfigManager.DatabasePath)) { Accounts.ImportFromCSV(ConfigManager.DatabasePath); }
+            else { MessageBox.Show("Database File not found!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
             this.StartPosition = FormStartPosition.CenterScreen;
             this.MaximumSize = Screen.PrimaryScreen.WorkingArea.Size;
             //Debug.WriteLine(ConfigManager.MasterUsername);

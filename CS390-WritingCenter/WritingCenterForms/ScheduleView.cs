@@ -202,15 +202,6 @@ namespace WritingCenterForms
 
         private void scheduleView_Load(object sender, EventArgs e)
         {
-            //ToolTip tp = new ToolTip();
-            //tp.ToolTipTitle = "Legend";
-            //tp.UseFading = false;
-            //tp.UseAnimation = true;
-            //tp.IsBalloon = false;
-            //tp.ShowAlways = true;
-            ////tp.AutoPopDelay = 1000;
-            ////tp.ReshowDelay = 0;
-            //tp.SetToolTip(legendButton, "Red: Needs Workers \n Orange: Understaffed");
         }
 
         private async void ExportSchedule_Click(object sender, EventArgs e)

@@ -230,5 +230,10 @@ namespace WritingCenterForms
         {
             //scheduleView1.sizeChanged(this.WindowState);
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

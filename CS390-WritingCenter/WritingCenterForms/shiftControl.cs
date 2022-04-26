@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace WritingCenterForms
 {
@@ -13,13 +14,14 @@ namespace WritingCenterForms
         private CheckBox checkBox2;
         private Label labels;
 
-        public int[] minWorker = new int[24];
-        public int[] maxWorker = new int[24];
-        public bool[] openHours = new bool[24] {false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false};
-        public bool[] busyShifts = new bool[24] {false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false };
-
         public int defaultMinWorker = 1;
         public int defaultMaxWorker = 4;
+
+        public int[] minWorker = new int[24];
+        public int[] maxWorker = new int[24];
+        public bool[] openHours = new bool[24] { false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false };
+        public bool[] busyShifts = new bool[24] {false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false };
+
 
         //
         //*********************************************************************************************************
@@ -32,6 +34,11 @@ namespace WritingCenterForms
             this.Dock = DockStyle.Fill;
             this.Controls.Add(loadShiftControls());
             this.BackColor = Color.Wheat;
+            for (int i = 0; i < 24; i++)
+            {
+                minWorker[i] = defaultMinWorker;
+                maxWorker[i] = defaultMaxWorker;
+            }
         }
 
         //
@@ -270,5 +277,33 @@ namespace WritingCenterForms
 
         public void invertOpenHours()
         { for(int i = 0; i < 24; i++) { openHours[i] = !openHours[i]; } }
+
+        private void shiftControl_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        public void setMinWorkerValues(int value)
+        {
+            defaultMinWorker = value;
+            for (int i = 0; i < 24; i++) { minWorker[i] = value; }
+        }
+
+        public void setMaxWorkerValues(int value)
+        {
+            defaultMaxWorker = value;
+            for (int i = 0;i < 24;i++) { maxWorker[i] = value; }
+        }
+
+        public string getValues()
+        {
+            string delimiter = ",";
+            string s = "";
+            for(int i = 0; i < 24; i++)
+            {
+                s += openHours[i] + delimiter + minWorker[i] + delimiter + maxWorker[i] + delimiter + busyShifts[i] + "\n";
+            }
+            return s;
+        }
     }
 }

@@ -45,7 +45,6 @@ C:\Users\shash\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\bin\De
 C:\Users\shash\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\bin\Debug\System.Security.AccessControl.xml
 C:\Users\shash\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\bin\Debug\System.Security.Permissions.xml
 C:\Users\shash\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\bin\Debug\System.Security.Principal.Windows.xml
-C:\Users\shash\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\obj\Debug\WritingCenterForms.csproj.AssemblyReference.cache
 C:\Users\shash\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\obj\Debug\WritingCenterForms.csproj.SuggestedBindingRedirects.cache
 C:\Users\shash\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\obj\Debug\WritingCenterForms.AcctManagePage.resources
 C:\Users\shash\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\obj\Debug\WritingCenterForms.AdminPage.resources
@@ -87,3 +86,6 @@ C:\Users\cmwoodbury19\source\repos\CS390-WritingCenter\CS390-WritingCenter\Writi
 C:\Users\cmwoodbury19\source\repos\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\obj\Debug\WritingCenterForms.FirstSetup.resources
 C:\Users\shash\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\obj\Debug\WritingCenterForms.FirstSetup.resources
 C:\Users\shash\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\bin\Debug\CircularProgressBar.xml
+C:\Users\shash\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\bin\Debug\CircularProgressBar.dll
+C:\Users\shash\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\bin\Debug\WinFormAnimation.dll
+C:\Users\shash\CS390-WritingCenter\CS390-WritingCenter\WritingCenterForms\obj\Debug\WritingCenterForms.csproj.AssemblyReference.cache

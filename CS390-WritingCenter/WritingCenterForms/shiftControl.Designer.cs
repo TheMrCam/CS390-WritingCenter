@@ -30,9 +30,10 @@
         {
             this.SuspendLayout();
             // 
-            // Control
+            // shiftControl
             // 
-            this.Name = "Control";
+            this.Name = "shiftControl";
+            this.Load += new System.EventHandler(this.shiftControl_Load);
             this.ResumeLayout(false);
 
         }

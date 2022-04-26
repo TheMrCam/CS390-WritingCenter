@@ -45,7 +45,8 @@ namespace WritingCenterForms
             WednesdayTab.Controls.Add(wednesdayControl);
             ThursdayTab.Controls.Add(thursdayControl);
             FridayTab.Controls.Add(fridayControl);
-            SaturdayTab.Controls.Add(saturdayControl); 
+            SaturdayTab.Controls.Add(saturdayControl);
+            importCSV();
         }
 
         //
@@ -212,20 +213,19 @@ namespace WritingCenterForms
         public string exportCSV()
         {
             string delimiter = ",";
-            string file = "OrderBox" + delimiter + "[";
+            string file = "OrderBox" + delimiter;
             foreach (string s in orderedBox.Items)
             {
-                file += s + '|';
+                file += s + delimiter;
             }
-            file = file.Substring(file.Length-1);
-            file += "]" + "\n";
+            file = file.Substring(0, file.Length - 1) + "\n";
             file += "Consecutive Shifts" + delimiter + numShiftsAllowed.Value + "\n";
             file += "High or Low" + delimiter;
             for (int i = 0; i <= (highLowBox.Items.Count - 1); i++)
             {
                 if (highLowBox.GetItemChecked(i))
                 {
-                    file += "Item " + (i + 1).ToString() + " = " + highLowBox.Items[i].ToString() + "\n";
+                    file += highLowBox.Items[i].ToString() + "\n";
                 }
             }
             file += "Max Workers" + delimiter + univMaxWorker.Value + "\n";
@@ -239,6 +239,49 @@ namespace WritingCenterForms
             file += saturdayControl.getValues();
 
             return file;
+        }
+
+        public void importCSV(string fileName = @"settings.csv")
+        {
+            string path = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName, @"Data\", fileName);
+            var reader = new StreamReader(File.OpenRead(path));
+
+            //Read for orderedBox
+            var line = reader.ReadLine();
+            string[] values = line.Split(',');
+            for (int i =1; i<values.Length; i++)
+            {
+                orderedBox.Items.Add(values[i]);
+            }
+
+            //Read for consecutiveShifts
+            line = reader.ReadLine();
+            values = line.Split(',');
+            numShiftsAllowed.Value = int.Parse(values[1]);
+
+            //Read for highLow
+            line = reader.ReadLine();
+
+            //Read for maxWorker
+            line = reader.ReadLine();
+            values = line.Split(',');
+            univMaxWorker.Value = int.Parse(values[1]);
+
+            //Read for minWorker
+            line = reader.ReadLine();
+            values = line.Split(',');
+            univMinWorkers.Value = int.Parse(values[1]);
+
+
+            //while (!reader.EndOfStream)
+            //{
+            //    var line2 = reader.ReadLine();
+            //    if (line != null)
+            //    {
+            //        string[] values = line.Split(',');
+
+            //    }
+            //}
         }
 
     }

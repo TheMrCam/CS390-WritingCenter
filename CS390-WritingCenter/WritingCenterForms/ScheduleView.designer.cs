@@ -31,8 +31,8 @@
             this.ExportSchedule = new System.Windows.Forms.Button();
             this.newScheduleButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.alertButton = new FontAwesome.Sharp.IconButton();
             this.legendPanel = new System.Windows.Forms.Panel();
+            this.alertButton = new FontAwesome.Sharp.IconButton();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -76,6 +76,13 @@
             this.panel1.Size = new System.Drawing.Size(1075, 103);
             this.panel1.TabIndex = 21;
             // 
+            // legendPanel
+            // 
+            this.legendPanel.Location = new System.Drawing.Point(826, 29);
+            this.legendPanel.Name = "legendPanel";
+            this.legendPanel.Size = new System.Drawing.Size(200, 71);
+            this.legendPanel.TabIndex = 22;
+            // 
             // alertButton
             // 
             this.alertButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -91,13 +98,7 @@
             this.alertButton.Size = new System.Drawing.Size(93, 52);
             this.alertButton.TabIndex = 21;
             this.alertButton.UseVisualStyleBackColor = true;
-            // 
-            // legendPanel
-            // 
-            this.legendPanel.Location = new System.Drawing.Point(824, 32);
-            this.legendPanel.Name = "legendPanel";
-            this.legendPanel.Size = new System.Drawing.Size(200, 71);
-            this.legendPanel.TabIndex = 22;
+            this.alertButton.Click += new System.EventHandler(this.alertButton_Click);
             // 
             // scheduleView
             // 

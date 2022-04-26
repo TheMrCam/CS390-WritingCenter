@@ -22,7 +22,11 @@ namespace WritingCenterForms
         private int cellWidth;
         private int panelHeight;
         private int panelWidth;
-        
+
+        private string[] underWorkers;
+        private string[] overWorkers;
+        private string[] notWorkers;
+
         private Observable obsv;
 
         public scheduleView(AccountDatabase Accounts) // version for the admin page
@@ -39,6 +43,7 @@ namespace WritingCenterForms
             sPanel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom;
             this.Anchor = AnchorStyles.Top |  AnchorStyles.Left;
             this.Dock = DockStyle.Fill;
+            alertButton.Hide();
             loadSchedule();
             loadLegend();
         }
@@ -277,9 +282,10 @@ namespace WritingCenterForms
 
                 if (underHours.Count > 0 | overHours.Count > 0 | zeroHours.Count > 0)
                 {
-                    string[] underWorkers = listToString(underHours);
-                    string[] overWorkers = listToString(overHours);
-                    string[] notWorkers = listToString(zeroHours);
+                    underWorkers = listToString(underHours);
+                    overWorkers = listToString(overHours);
+                    notWorkers = listToString(zeroHours);
+                    alertButton.Show();
                     createAlert(underWorkers, overWorkers, notWorkers);
                 }
 
@@ -363,6 +369,9 @@ namespace WritingCenterForms
             legendPanel.Controls.Add(orange);
         }
 
-
+        private void alertButton_Click(object sender, EventArgs e)
+        {
+            createAlert(underWorkers, overWorkers, notWorkers);
+        }
     }
 }

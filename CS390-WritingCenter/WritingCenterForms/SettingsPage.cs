@@ -140,9 +140,9 @@ namespace WritingCenterForms
                 }
             }
 
-            //this.Hide();
-            //scheduleView.Show();
-            //scheduleView.BringToFront();
+            this.Hide();
+            scheduleView.Show();
+            scheduleView.BringToFront();
         }
 
         //
@@ -245,7 +245,6 @@ namespace WritingCenterForms
         {
             string path = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName, @"Data\", fileName);
             var reader = new StreamReader(File.OpenRead(path));
-
             //Read for orderedBox
             var line = reader.ReadLine();
             string[] values = line.Split(',');
@@ -253,35 +252,27 @@ namespace WritingCenterForms
             {
                 orderedBox.Items.Add(values[i]);
             }
-
             //Read for consecutiveShifts
             line = reader.ReadLine();
             values = line.Split(',');
             numShiftsAllowed.Value = int.Parse(values[1]);
-
             //Read for highLow
             line = reader.ReadLine();
-
+            values = line.Split(',');
+            if (values[1] == "high") {
+                highLowBox.SetItemChecked(0, true);
+            } else if (values[1] == "low")
+            {
+                highLowBox.SetItemChecked(1, true);
+            }
             //Read for maxWorker
             line = reader.ReadLine();
             values = line.Split(',');
             univMaxWorker.Value = int.Parse(values[1]);
-
             //Read for minWorker
             line = reader.ReadLine();
             values = line.Split(',');
             univMinWorkers.Value = int.Parse(values[1]);
-
-
-            //while (!reader.EndOfStream)
-            //{
-            //    var line2 = reader.ReadLine();
-            //    if (line != null)
-            //    {
-            //        string[] values = line.Split(',');
-
-            //    }
-            //}
         }
 
     }
